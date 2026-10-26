@@ -1,0 +1,24 @@
+{
+  "overall_loso": {
+    "MAE": 113529.35,
+    "RMSE": 178274.61,
+    "MAPE": 96.51,
+    "sMAPE": 55.52,
+    "MdAPE": 77.53,
+    "R2": 0.0978,
+    "Log_RMSE": 0.7358,
+    "Log_MAE": 0.5959,
+    "Coverage": 0.948
+  },
+  "overall_fc": {
+    "MAE": 68438.35,
+    "RMSE": 116766.75,
+    "MAPE": 25.14,
+    "sMAPE": 31.93,
+    "MdAPE": 17.63,
+    "R2": 0.7634,
+    "Log_RMSE": 0.4718,
+    "Log_MAE": 0.3334,
+    "Coverage": 1.0
+  }
+}

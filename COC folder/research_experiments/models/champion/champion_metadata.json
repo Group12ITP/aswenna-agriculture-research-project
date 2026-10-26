@@ -1,0 +1,17 @@
+{
+  "champion_name": "extratrees",
+  "family": "Shallow_ML",
+  "LOSO_MAE": 22822.02,
+  "LOSO_R2": 0.9329,
+  "unit": "LKR/acre",
+  "features": [
+    "District",
+    "Crop",
+    "Season",
+    "Irrigation_Type",
+    "Year_Start",
+    "USD_LKR_Rate",
+    "Prev_Season_Total_Cost_Incl_Imputed"
+  ],
+  "training_date": "2026-10-08"
+}

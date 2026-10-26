@@ -1,0 +1,52 @@
+# Dataset Configuration for IT4010 COC Research Suite
+paths:
+  raw_master: "../../data/processed/coc_master_v2.csv"
+  dedup_data: "../../data/processed/coc_features_dedup.csv"
+  model_ready_data: "../../data/processed/coc_model_ready.csv"
+  existing_champion: "../../models/best_model_pipeline.pkl"
+
+target:
+  name: "Total_Cost_Incl_Imputed"
+  transform: "log1p"
+  inverse_transform: "expm1"
+  unit: "LKR/acre"
+
+features:
+  categorical:
+    - "District"
+    - "Crop"
+    - "Season"
+    - "Irrigation_Type"
+  continuous:
+    - "Year_Start"
+    - "USD_LKR_Rate"
+    - "Prev_Season_Total_Cost_Incl_Imputed"
+  leak_free_total: 7
+
+time_series:
+  group_cols:
+    - "Crop"
+    - "District"
+    - "Irrigation_Type"
+  min_observations_eligible: 8
+  date_mapping:
+    Yala: "-05-01"
+    Maha: "-10-01"
+
+economic_regimes:
+  stable:
+    start_year: 2014
+    end_year: 2020
+  crisis:
+    start_year: 2021
+    end_year: 2023
+  post_crisis:
+    start_year: 2024
+    end_year: 2025
+
+top_crops:
+  - "Paddy"
+  - "Big Onion"
+  - "Potato"
+  - "Chilli"
+  - "Maize"

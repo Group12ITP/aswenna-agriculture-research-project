@@ -1,0 +1,15 @@
+{
+  "metrics": {
+    "MAE": 107006.67,
+    "RMSE": 176303.3,
+    "MAPE": 34.1,
+    "sMAPE": 33.86,
+    "MdAPE": 26.91,
+    "R2": 0.4956,
+    "Log_RMSE": 0.4543,
+    "Log_MAE": 0.3507,
+    "Coverage": 1.0
+  },
+  "parse_success_rate": 0.9791666666666666,
+  "samples": 48
+}

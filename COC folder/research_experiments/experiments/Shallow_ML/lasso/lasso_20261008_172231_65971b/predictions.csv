@@ -1,0 +1,642 @@
+row_id,Crop,District,Season,Irrigation_Type,Year_Start,economic_regime,Total_Cost_Incl_Imputed,predicted
+0,Big Onion,Matale,Maha,Irrigated,2015,Stable,210626.0,212779.20433555706
+1,Big Onion,Matale,Yala,Irrigated,2018,Stable,228641.0,246149.73347091392
+2,Big Onion,Matale,Yala,Irrigated,2019,Stable,233367.0,286097.1109174488
+3,Big Onion,Matale,Yala,Irrigated,2022,Crisis,603011.69,508199.258493249
+4,Big Onion,Matale,Yala,Irrigated,2023,Crisis,504377.0,713132.812757738
+5,Big Onion,Matale,Yala,Irrigated,2024,Post-Crisis,562756.0,618624.9649156915
+6,Big Onion,Matale,Yala,Irrigated,2025,Post-Crisis,584744.0,606472.6849602454
+7,Big Onion,Matale,Yala,Unspecified,2016,Stable,249689.0,213803.93090987473
+8,Big Onion,Matale,Yala,Unspecified,2017,Stable,250171.0,218064.00589430064
+9,Bitter Gourd,Hambantota,Maha,Irrigated,2015,Stable,233099.0,148103.38125117822
+10,Bitter Gourd,Hambantota,Yala,Irrigated,2016,Stable,228010.0,139960.16642488228
+11,Bitter Gourd,Hambantota,Yala,Irrigated,2017,Stable,250802.0,151668.73822218567
+12,Bitter Gourd,Hambantota,Yala,Irrigated,2018,Stable,239331.0,175443.31113863672
+13,Bitter Gourd,Hambantota,Yala,Irrigated,2019,Stable,259731.0,197647.09585133035
+14,Bitter Gourd,Hambantota,Yala,Irrigated,2022,Crisis,315465.6,380190.0286219013
+15,Black Gram,Anuradhapura,Maha,Irrigated,2015,Stable,28906.0,34762.183118763016
+16,Black Gram,Anuradhapura,Maha,Rainfed,2014,Stable,30233.0,28269.04977571449
+17,Black Gram,Anuradhapura,Maha,Rainfed,2016,Stable,27954.0,33234.2660681913
+18,Black Gram,Anuradhapura,Maha,Rainfed,2017,Stable,28150.0,35724.260766946005
+19,Black Gram,Anuradhapura,Maha,Rainfed,2018,Stable,35533.0,39487.969587326515
+20,Black Gram,Anuradhapura,Maha,Rainfed,2021,Crisis,47351.0,50095.288670534894
+21,Black Gram,Anuradhapura,Maha,Rainfed,2023,Crisis,79271.0,89408.0065496465
+22,Black Gram,Anuradhapura,Maha,Rainfed,2024,Post-Crisis,57439.0,85311.70832339849
+23,Black Gram,Mahaweli System H,Yala,Irrigated,2015,Stable,38291.0,33338.63261388003
+24,Black Gram,Mahaweli System H,Yala,Irrigated,2016,Stable,46759.0,35124.795953622735
+25,Black Gram,Mahaweli System H,Yala,Irrigated,2017,Stable,55337.0,37674.866851359504
+26,Black Gram,Mahaweli System H,Yala,Irrigated,2022,Crisis,65966.0,91907.0049487442
+27,Black Gram,Mahaweli System H,Yala,Irrigated,2023,Crisis,154544.0,92834.12701473641
+28,Black Gram,Mahaweli System H,Yala,Irrigated,2024,Post-Crisis,167186.0,91891.82268317128
+29,Black Gram,Mahaweli System H,Yala,Irrigated,2025,Post-Crisis,164266.0,92154.63229155877
+30,Black Gram,Mahaweli System H,Maha,Rainfed,2016,Stable,25593.0,35637.35747804442
+31,Black Gram,Mahaweli System H,Maha,Rainfed,2017,Stable,31459.0,35678.04303834345
+32,Black Gram,Vavuniya,Maha,Rainfed,2014,Stable,32269.004,27234.85405625827
+33,Black Gram,Vavuniya,Maha,Rainfed,2015,Stable,29032.0,29361.429196186084
+34,Black Gram,Vavuniya,Maha,Rainfed,2023,Crisis,91259.0,82488.67432778772
+35,Black Gram,Vavuniya,Maha,Unspecified,2018,Stable,38198.0,41638.33281491169
+36,Black Gram,Vavuniya,Maha,Unspecified,2024,Post-Crisis,80378.0,85124.77935365302
+37,Brinjal,Anuradhapura,Maha,Irrigated,2014,Stable,184341.0,141649.06453164597
+38,Brinjal,Anuradhapura,Maha,Irrigated,2016,Stable,180231.0,156693.66604001587
+39,Brinjal,Anuradhapura,Maha,Irrigated,2017,Stable,227468.0,171934.6792592447
+40,Brinjal,Anuradhapura,Maha,Irrigated,2018,Stable,220779.0,198867.31921350653
+41,Brinjal,Anuradhapura,Maha,Irrigated,2021,Crisis,314953.0,250565.80957562602
+42,Brinjal,Anuradhapura,Maha,Irrigated,2023,Crisis,390619.0,485350.709336857
+43,Brinjal,Anuradhapura,Maha,Irrigated,2024,Post-Crisis,500267.0,459444.64263172884
+44,Brinjal,Hambantota,Maha,Irrigated,2015,Stable,171143.0,161688.04359796675
+45,Brinjal,Hambantota,Yala,Irrigated,2016,Stable,167616.0,154012.80168748336
+46,Brinjal,Hambantota,Yala,Irrigated,2017,Stable,176693.0,166590.98053448377
+47,Brinjal,Hambantota,Yala,Irrigated,2018,Stable,181182.0,189721.6765351011
+48,Brinjal,Hambantota,Yala,Irrigated,2019,Stable,182753.0,216865.66722140487
+49,Brinjal,Hambantota,Yala,Irrigated,2022,Crisis,609018.76,396144.0239166281
+50,Brinjal,Hambantota,Yala,Irrigated,2023,Crisis,585275.0,550271.7978077409
+51,Brinjal,Hambantota,Yala,Irrigated,2024,Post-Crisis,533386.0,499346.1697219064
+52,Brinjal,Hambantota,Yala,Irrigated,2025,Post-Crisis,530108.0,480776.6264831253
+53,Cabbage,Nuwara Eliya,Maha,Irrigated,2015,Stable,152068.0,174503.81522653854
+54,Cabbage,Nuwara Eliya,Yala,Irrigated,2016,Stable,140073.0,178135.87458578133
+55,Cabbage,Nuwara Eliya,Maha,Irrigated,2016,Stable,172035.0,184649.8919679965
+56,Cabbage,Nuwara Eliya,Yala,Irrigated,2017,Stable,182772.0,186528.22016962303
+57,Cabbage,Nuwara Eliya,Maha,Irrigated,2017,Stable,206438.0,196825.6912938297
+58,Cabbage,Nuwara Eliya,Yala,Irrigated,2018,Stable,197131.0,214708.11524102243
+59,Cabbage,Nuwara Eliya,Maha,Irrigated,2018,Stable,198797.0,224276.99986129554
+60,Cabbage,Nuwara Eliya,Yala,Irrigated,2019,Stable,195541.0,239814.41763469935
+61,Cabbage,Nuwara Eliya,Yala,Irrigated,2023,Crisis,512028.0,483676.4664824657
+62,Cabbage,Nuwara Eliya,Maha,Irrigated,2023,Crisis,485240.0,601928.6834740222
+63,Cabbage,Nuwara Eliya,Yala,Irrigated,2024,Post-Crisis,551898.0,509509.8939516944
+64,Cabbage,Nuwara Eliya,Maha,Irrigated,2024,Post-Crisis,590911.0,550786.6033745623
+65,Cabbage,Nuwara Eliya,Yala,Irrigated,2025,Post-Crisis,594143.0,533668.4226292818
+66,Cabbage,Nuwara Eliya,Maha,Unspecified,2014,Stable,181273.0,153354.8693902583
+67,Cabbage,Nuwara Eliya,Maha,Unspecified,2021,Crisis,382416.0,270335.7557329325
+68,Capsicum,Badulla,Maha,Irrigated,2016,Stable,248897.0,218032.95039042894
+69,Capsicum,Badulla,Maha,Irrigated,2017,Stable,230542.0,221292.80388331786
+70,Capsicum,Badulla,Maha,Irrigated,2021,Crisis,330535.0,308865.0444965709
+71,Capsicum,Badulla,Maha,Irrigated,2023,Crisis,513603.0,606751.2475281105
+72,Capsicum,Badulla,Maha,Irrigated,2024,Post-Crisis,869640.0,579386.2873659787
+73,Capsicum,Badulla,Maha,Rainfed,2018,Stable,237960.0,233756.1976355141
+74,Capsicum,Badulla,Maha,Unspecified,2014,Stable,176717.0,185686.0490363836
+75,Carrot,Nuwara Eliya,Maha,Irrigated,2015,Stable,171062.0,201143.59805878473
+76,Carrot,Nuwara Eliya,Maha,Irrigated,2016,Stable,211547.0,202405.7436393454
+77,Carrot,Nuwara Eliya,Yala,Irrigated,2017,Stable,210012.0,217915.43225254974
+78,Carrot,Nuwara Eliya,Maha,Irrigated,2017,Stable,200194.0,228704.64343949273
+79,Carrot,Nuwara Eliya,Yala,Irrigated,2018,Stable,210812.0,246801.11841327694
+80,Carrot,Nuwara Eliya,Maha,Irrigated,2018,Stable,194513.0,260208.20810413978
+81,Carrot,Nuwara Eliya,Yala,Irrigated,2019,Stable,212388.0,274230.6401096947
+82,Carrot,Nuwara Eliya,Yala,Irrigated,2020,Stable,197485.0,297901.43267714605
+83,Carrot,Nuwara Eliya,Maha,Irrigated,2021,Crisis,866613.8530646382,303766.4159853901
+84,Carrot,Nuwara Eliya,Yala,Irrigated,2022,Crisis,527737.6530930749,695770.486306803
+85,Carrot,Nuwara Eliya,Yala,Irrigated,2023,Crisis,584548.0,664060.3421120915
+86,Carrot,Nuwara Eliya,Maha,Irrigated,2023,Crisis,493020.0,721847.4084442229
+87,Carrot,Nuwara Eliya,Yala,Irrigated,2024,Post-Crisis,705534.0,591331.4787314017
+88,Carrot,Nuwara Eliya,Maha,Irrigated,2024,Post-Crisis,536935.0,689558.2471960845
+89,Carrot,Nuwara Eliya,Yala,Irrigated,2025,Post-Crisis,645631.0,604918.7872318338
+90,Carrot,Nuwara Eliya,Maha,Unspecified,2014,Stable,150450.0,179710.55418615905
+91,Cowpea,Ampara,Maha,Rainfed,2014,Stable,36475.0,25537.73393946687
+92,Cowpea,Ampara,Yala,Rainfed,2016,Stable,33218.0,28232.34590999624
+93,Cowpea,Ampara,Maha,Rainfed,2016,Stable,34255.0,29368.612701386686
+94,Cowpea,Ampara,Yala,Rainfed,2017,Stable,35145.0,30812.749197019988
+95,Cowpea,Ampara,Maha,Rainfed,2017,Stable,35679.0,32372.962358659915
+96,Cowpea,Ampara,Yala,Rainfed,2018,Stable,37158.0,34142.42622578963
+97,Cowpea,Ampara,Maha,Rainfed,2018,Stable,44164.0,35844.03080031026
+98,Cowpea,Ampara,Yala,Rainfed,2019,Stable,38058.0,38831.68671629007
+99,Cowpea,Ampara,Maha,Rainfed,2021,Crisis,42492.0,46200.981406942476
+100,Cowpea,Ampara,Yala,Rainfed,2022,Crisis,59292.0,76546.22965310933
+101,Cowpea,Ampara,Yala,Rainfed,2023,Crisis,96928.0,80030.74562718753
+102,Cowpea,Ampara,Maha,Rainfed,2023,Crisis,76678.0,86130.47391173965
+103,Cowpea,Ampara,Yala,Rainfed,2024,Post-Crisis,69428.0,76267.12368029862
+104,Cowpea,Ampara,Yala,Rainfed,2025,Post-Crisis,95066.0,76358.64556867394
+105,Cowpea,Ampara,Yala,Unspecified,2015,Stable,36962.0,28286.352535083974
+106,Cowpea,Ampara,Maha,Unspecified,2015,Stable,36995.0,28107.76925436016
+107,Cowpea,Monaragala,Maha,Rainfed,2024,Post-Crisis,100482.0,80504.44890742397
+108,Gingelly,Anuradhapura,Yala,Rainfed,2016,Stable,18306.0,23961.379741509296
+109,Gingelly,Anuradhapura,Yala,Rainfed,2017,Stable,15212.0,24157.84071601948
+110,Gingelly,Anuradhapura,Yala,Rainfed,2018,Stable,19493.0,26943.34845776444
+111,Gingelly,Anuradhapura,Yala,Rainfed,2019,Stable,20904.0,30283.216587882293
+112,Gingelly,Anuradhapura,Yala,Rainfed,2023,Crisis,41248.0,63071.188041376845
+113,Gingelly,Anuradhapura,Yala,Rainfed,2024,Post-Crisis,43028.0,58950.01885406269
+114,Gingelly,Anuradhapura,Yala,Rainfed,2025,Post-Crisis,44346.0,60033.179752202785
+115,Gingelly,Anuradhapura,Yala,Unspecified,2015,Stable,17531.0,20938.169846094555
+116,Gingelly,Anuradhapura,Maha,Unspecified,2015,Stable,63062.0,20663.469248238314
+117,Gingelly,Anuradhapura,Yala,Unspecified,2022,Crisis,30108.952,67990.11226215637
+118,Gingelly,Hambantota,Maha,Rainfed,2014,Stable,29661.0,19729.07505023543
+119,Gingelly,Hambantota,Maha,Rainfed,2016,Stable,35100.0,24048.334587895653
+120,Gingelly,Hambantota,Maha,Rainfed,2017,Stable,39394.0,26154.199873693025
+121,Gingelly,Hambantota,Maha,Rainfed,2018,Stable,36292.0,29298.139244813938
+122,Gingelly,Hambantota,Maha,Rainfed,2021,Crisis,57984.0,35507.12844236404
+123,Gingelly,Hambantota,Maha,Rainfed,2024,Post-Crisis,68574.0,63692.87002524531
+124,Gingelly,Hambantota,Maha,Unspecified,2023,Crisis,62362.0,77105.12292549088
+125,Green Chilli,Anuradhapura,Maha,Irrigated,2015,Stable,217487.0,152126.19066514118
+126,Green Chilli,Anuradhapura,Yala,Irrigated,2016,Stable,240432.0,143462.4295946859
+127,Green Chilli,Anuradhapura,Yala,Irrigated,2018,Stable,257275.0,183151.5810013338
+128,Green Chilli,Anuradhapura,Yala,Irrigated,2019,Stable,260709.0,203884.69845601643
+129,Green Chilli,Anuradhapura,Yala,Irrigated,2022,Crisis,683607.8799999999,383110.70250511094
+130,Green Chilli,Anuradhapura,Yala,Irrigated,2023,Crisis,556794.0,534601.0406895393
+131,Green Chilli,Anuradhapura,Yala,Irrigated,2024,Post-Crisis,624895.0,456285.6706186964
+132,Green Chilli,Anuradhapura,Yala,Irrigated,2025,Post-Crisis,527018.0,460831.3774560869
+133,Green Chilli,Anuradhapura,Maha,Rainfed,2014,Stable,127427.0,125902.21125811519
+134,Green Chilli,Anuradhapura,Maha,Rainfed,2016,Stable,141852.0,131469.70755433958
+135,Green Chilli,Anuradhapura,Yala,Rainfed,2017,Stable,259430.0,140859.97201626835
+136,Green Chilli,Anuradhapura,Maha,Rainfed,2017,Stable,123626.0,155806.71756512197
+137,Green Chilli,Anuradhapura,Maha,Rainfed,2018,Stable,126343.0,165078.85472843755
+138,Green Chilli,Anuradhapura,Maha,Rainfed,2021,Crisis,180368.0,215965.31353353406
+139,Green Chilli,Anuradhapura,Maha,Rainfed,2023,Crisis,325920.0,398276.53427809436
+140,Green Chilli,Anuradhapura,Maha,Rainfed,2024,Post-Crisis,396976.0,389620.61543546675
+141,Green Gram,Hambantota,Maha,Rainfed,2014,Stable,35681.2,32055.268937840938
+142,Green Gram,Hambantota,Maha,Rainfed,2016,Stable,40547.0,36692.6045228999
+143,Green Gram,Hambantota,Maha,Rainfed,2017,Stable,39899.0,40071.452790792544
+144,Green Gram,Hambantota,Maha,Rainfed,2018,Stable,40095.0,45078.22507269942
+145,Green Gram,Hambantota,Maha,Rainfed,2021,Crisis,61750.0,55340.08852838916
+146,Green Gram,Hambantota,Maha,Rainfed,2023,Crisis,97955.0,102050.28048175244
+147,Green Gram,Hambantota,Maha,Unspecified,2024,Post-Crisis,113389.0,99118.61458804041
+148,Groundnut,Monaragala,Maha,Rainfed,2014,Stable,53653.0,38907.9512727284
+149,Groundnut,Monaragala,Maha,Rainfed,2016,Stable,57513.0,43165.18465313265
+150,Groundnut,Monaragala,Maha,Rainfed,2017,Stable,57105.0,47793.62581950594
+151,Groundnut,Monaragala,Maha,Rainfed,2018,Stable,61341.0,53206.99722022511
+152,Groundnut,Monaragala,Maha,Rainfed,2021,Crisis,76568.0,67868.12214565957
+153,Groundnut,Monaragala,Maha,Rainfed,2024,Post-Crisis,139406.0,112054.45237726058
+154,Groundnut,Monaragala,Maha,Unspecified,2023,Crisis,105681.0,141192.7962168059
+155,Kurakkan,Anuradhapura,Maha,Irrigated,2023,Crisis,78246.0,99693.639765376
+156,Kurakkan,Anuradhapura,Maha,Rainfed,2014,Stable,37230.0,27418.295167799974
+157,Kurakkan,Anuradhapura,Maha,Rainfed,2015,Stable,30733.0,29709.63415825183
+158,Kurakkan,Anuradhapura,Maha,Rainfed,2016,Stable,42859.0,31095.121252162615
+159,Kurakkan,Anuradhapura,Maha,Rainfed,2017,Stable,42182.0,34217.63414992188
+160,Kurakkan,Anuradhapura,Maha,Rainfed,2018,Stable,45690.0,38061.4889091259
+161,Kurakkan,Anuradhapura,Maha,Rainfed,2024,Post-Crisis,87682.0,80730.3274186468
+162,Maize,Ampara (West),Maha,Rainfed,2017,Stable,46782.0,52911.52865173398
+163,Maize,Ampara (West),Maha,Rainfed,2021,Crisis,68905.0,72143.81196054838
+164,Maize,Ampara,Maha,Rainfed,2014,Stable,41108.0,39943.369575602235
+165,Maize,Ampara,Maha,Rainfed,2015,Stable,42361.0,42299.571287627805
+166,Maize,Ampara,Maha,Rainfed,2016,Stable,52419.0,43691.043399078095
+167,Maize,Ampara,Maha,Rainfed,2018,Stable,54043.0,54148.8611230819
+168,Maize,Ampara,Maha,Rainfed,2023,Crisis,131878.0,125281.36561196801
+169,Maize,Ampara,Maha,Rainfed,2024,Post-Crisis,120094.0,120937.99833451539
+170,Maize,Anuradhapura,Maha,Irrigated,2015,Stable,63062.0,50880.856654891155
+171,Maize,Anuradhapura,Maha,Rainfed,2016,Stable,47682.0,50818.592664466894
+172,Maize,Anuradhapura,Maha,Rainfed,2017,Stable,61017.0,51511.663396331
+173,Maize,Anuradhapura,Maha,Rainfed,2018,Stable,59156.0,57983.391528901324
+174,Maize,Anuradhapura,Maha,Rainfed,2021,Crisis,78106.0,74405.20624488188
+175,Maize,Anuradhapura,Maha,Rainfed,2023,Crisis,137832.0,135119.67705865976
+176,Maize,Anuradhapura,Maha,Rainfed,2024,Post-Crisis,133334.0,128072.00014542349
+177,Maize,Anuradhapura,Maha,Unspecified,2014,Stable,50392.0,46209.65264607732
+178,Maize,Badulla,Yala,Irrigated,2015,Stable,65767.31,54209.763811949946
+179,Maize,Badulla,Yala,Irrigated,2016,Stable,64131.0,59583.561879281384
+180,Maize,Badulla,Yala,Irrigated,2017,Stable,70802.0,62603.191954398375
+181,Maize,Badulla,Yala,Irrigated,2018,Stable,73678.0,70759.08639947124
+182,Maize,Badulla,Yala,Irrigated,2019,Stable,74694.0,77473.28543735441
+183,Maize,Badulla,Yala,Irrigated,2022,Crisis,127363.48511871,153666.21393594152
+184,Maize,Badulla,Yala,Irrigated,2023,Crisis,154032.0,164846.57121456554
+185,Maize,Badulla,Yala,Irrigated,2024,Post-Crisis,202515.0,153128.56649739697
+186,Maize,Badulla,Yala,Irrigated,2025,Post-Crisis,198806.0,159029.9452453867
+187,Maize,Mahaweli System H,Yala,Irrigated,2015,Stable,61554.0,48797.24732363405
+188,Maize,Mahaweli System H,Yala,Irrigated,2016,Stable,71759.0,50029.08467882443
+189,Maize,Mahaweli System H,Yala,Irrigated,2017,Stable,75168.0,54450.70638888176
+190,Maize,Mahaweli System H,Yala,Irrigated,2018,Stable,76414.0,61070.629683236766
+191,Maize,Mahaweli System H,Yala,Irrigated,2023,Crisis,193805.0,138821.03305388507
+192,Maize,Mahaweli System H,Yala,Irrigated,2024,Post-Crisis,181016.0,136573.8804494567
+193,Maize,Mahaweli System H,Yala,Irrigated,2025,Post-Crisis,220251.0,137149.34691609247
+194,Maize,Monaragala,Maha,Irrigated,2015,Stable,46980.0,49711.6680781625
+195,Maize,Monaragala,Maha,Rainfed,2016,Stable,49017.0,49138.48707898529
+196,Maize,Monaragala,Maha,Rainfed,2017,Stable,49258.0,50148.06146677994
+197,Maize,Monaragala,Maha,Rainfed,2018,Stable,51237.0,56074.02391962244
+198,Maize,Monaragala,Maha,Rainfed,2021,Crisis,56146.0,72492.83354384005
+199,Maize,Monaragala,Maha,Rainfed,2023,Crisis,110980.0,130314.71713708894
+200,Maize,Monaragala,Maha,Rainfed,2024,Post-Crisis,122042.0,122610.06287805969
+201,Maize,Monaragala,Maha,Unspecified,2014,Stable,46243.0,45435.14210942133
+202,Manioc,Gampaha,Maha,Rainfed,2015,Stable,45188.0,46459.73174977899
+203,Manioc,Gampaha,Yala,Rainfed,2016,Stable,61864.0,43398.3889133381
+204,Manioc,Gampaha,Yala,Rainfed,2017,Stable,53995.0,48398.082896922824
+205,Manioc,Gampaha,Yala,Rainfed,2018,Stable,60307.0,53811.69567540064
+206,Manioc,Gampaha,Yala,Rainfed,2019,Stable,51920.0,62857.45947253802
+207,Manioc,Gampaha,Yala,Rainfed,2020,Stable,57528.0,68568.9111609434
+208,Manioc,Gampaha,Yala,Rainfed,2022,Crisis,127826.02,114583.8530645491
+209,Manioc,Gampaha,Yala,Rainfed,2023,Crisis,143727.0,130732.08062288816
+210,Manioc,Gampaha,Yala,Rainfed,2024,Post-Crisis,149416.0,122709.98550767591
+211,Manioc,Gampaha,Yala,Rainfed,2025,Post-Crisis,127017.0,122574.43486195055
+212,Paddy,Ampara (East),Yala,Irrigated,2015,Stable,39535.0,45693.204994070846
+213,Paddy,Ampara (East),Maha,Irrigated,2015,Stable,40568.0,45077.13313446247
+214,Paddy,Ampara (East),Yala,Irrigated,2016,Stable,43089.0,45967.739565034615
+215,Paddy,Ampara (East),Maha,Irrigated,2016,Stable,45337.0,47929.90833355387
+216,Paddy,Ampara (East),Yala,Irrigated,2017,Stable,47311.0,50264.386359527685
+217,Paddy,Ampara (East),Maha,Irrigated,2017,Stable,47063.0,52834.75727995228
+218,Paddy,Ampara (East),Yala,Irrigated,2018,Stable,43770.0,57411.00340183548
+219,Paddy,Ampara (East),Maha,Irrigated,2018,Stable,47250.0,60138.18884116436
+220,Paddy,Ampara (East),Yala,Irrigated,2019,Stable,43811.0,63761.39357337763
+221,Paddy,Ampara (East),Maha,Irrigated,2021,Crisis,70606.0,74455.63240659288
+222,Paddy,Ampara (East),Yala,Irrigated,2022,Crisis,144671.0,119390.21859141288
+223,Paddy,Ampara (East),Maha,Irrigated,2022,Crisis,125868.67895718462,127940.29540994648
+224,Paddy,Ampara (East),Yala,Irrigated,2023,Crisis,120636.0,134551.73041892448
+225,Paddy,Ampara (East),Maha,Irrigated,2023,Crisis,106713.0,141608.70669044508
+226,Paddy,Ampara (East),Yala,Irrigated,2024,Post-Crisis,121283.0,123032.71892030028
+227,Paddy,Ampara (East),Maha,Irrigated,2024,Post-Crisis,122264.0,129449.08281842638
+228,Paddy,Ampara (East),Yala,Irrigated,2025,Post-Crisis,152810.0,127168.86675032417
+229,Paddy,Ampara (West),Yala,Irrigated,2015,Stable,39946.0,45483.33944441049
+230,Paddy,Ampara (West),Maha,Irrigated,2015,Stable,39797.0,44877.52313749581
+231,Paddy,Ampara (West),Maha,Irrigated,2016,Stable,53002.0,47421.02081222806
+232,Paddy,Ampara (West),Yala,Irrigated,2017,Stable,47863.0,50255.23850788153
+233,Paddy,Ampara (West),Maha,Irrigated,2017,Stable,49907.0,52659.70606225473
+234,Paddy,Ampara (West),Yala,Irrigated,2018,Stable,45163.0,57110.62672214664
+235,Paddy,Ampara (West),Maha,Irrigated,2018,Stable,48463.0,59783.05449082445
+236,Paddy,Ampara (West),Yala,Irrigated,2020,Stable,96317.0,69015.57970129763
+237,Paddy,Ampara (West),Maha,Irrigated,2021,Crisis,69448.0,75772.87894315628
+238,Paddy,Ampara (West),Yala,Irrigated,2022,Crisis,120009.0,119146.25412585813
+239,Paddy,Ampara (West),Maha,Irrigated,2022,Crisis,105275.18733680068,126292.87966530303
+240,Paddy,Ampara (West),Yala,Irrigated,2023,Crisis,124804.0,132378.4231102494
+241,Paddy,Ampara (West),Maha,Irrigated,2023,Crisis,121814.0,141130.28779443752
+242,Paddy,Ampara (West),Yala,Irrigated,2024,Post-Crisis,112469.0,123536.58548314744
+243,Paddy,Ampara (West),Maha,Irrigated,2024,Post-Crisis,125518.0,128374.27907001211
+244,Paddy,Ampara (West),Yala,Unspecified,2016,Stable,46556.0,48898.46264887984
+245,Paddy,Ampara (West),Yala,Unspecified,2019,Stable,47355.0,62935.47037600881
+246,Paddy,Ampara,Yala,Irrigated,2020,Stable,40482.0,69752.25138279749
+247,Paddy,Anuradhapura,Yala,Irrigated,2015,Stable,41846.0,46481.82616032987
+248,Paddy,Anuradhapura,Maha,Irrigated,2015,Stable,46464.1462,45897.81035551854
+249,Paddy,Anuradhapura,Yala,Irrigated,2016,Stable,50533.0,47336.72290155647
+250,Paddy,Anuradhapura,Maha,Irrigated,2016,Stable,51626.0,49388.30557422497
+251,Paddy,Anuradhapura,Yala,Irrigated,2017,Stable,53710.0,51571.93215117796
+252,Paddy,Anuradhapura,Maha,Irrigated,2017,Stable,53043.0,54211.79535102969
+253,Paddy,Anuradhapura,Yala,Irrigated,2018,Stable,54787.0,58850.72198331569
+254,Paddy,Anuradhapura,Maha,Irrigated,2018,Stable,48617.0,61791.35290225705
+255,Paddy,Anuradhapura,Yala,Irrigated,2019,Stable,53915.0,65087.71586116863
+256,Paddy,Anuradhapura,Yala,Irrigated,2020,Stable,62961.0,70786.18709397297
+257,Paddy,Anuradhapura,Maha,Irrigated,2021,Crisis,60655.0,76656.09907853403
+258,Paddy,Anuradhapura,Yala,Irrigated,2022,Crisis,125504.381087,122363.98364742174
+259,Paddy,Anuradhapura,Maha,Irrigated,2022,Crisis,132028.0,130567.0702739775
+260,Paddy,Anuradhapura,Yala,Irrigated,2023,Crisis,134247.0,137983.77306053537
+261,Paddy,Anuradhapura,Maha,Irrigated,2023,Crisis,138658.0,145785.60469067172
+262,Paddy,Anuradhapura,Yala,Irrigated,2024,Post-Crisis,128965.0,127758.98496464633
+263,Paddy,Anuradhapura,Maha,Irrigated,2024,Post-Crisis,132270.0,132738.02562175062
+264,Paddy,Anuradhapura,Yala,Irrigated,2025,Post-Crisis,140232.0,130895.4779566898
+265,Paddy,Batticaloa,Yala,Irrigated,2023,Crisis,118976.0,133426.5767865211
+266,Paddy,Batticaloa,Yala,Irrigated,2024,Post-Crisis,128773.0,124047.26882118799
+267,Paddy,Batticaloa,Yala,Irrigated,2025,Post-Crisis,135820.0,127772.13143919404
+268,Paddy,Batticaloa,Maha,Rainfed,2016,Stable,33108.0,47352.19493467779
+269,Paddy,Batticaloa,Maha,Rainfed,2017,Stable,39582.0,48104.135829285566
+270,Paddy,Batticaloa,Maha,Rainfed,2018,Stable,33995.0,54885.36352575242
+271,Paddy,Batticaloa,Maha,Rainfed,2021,Crisis,54779.0,68377.51089590795
+272,Paddy,Batticaloa,Maha,Rainfed,2022,Crisis,91041.0,112756.34470891849
+273,Paddy,Batticaloa,Maha,Rainfed,2023,Crisis,94271.0,128220.34007995205
+274,Paddy,Batticaloa,Maha,Rainfed,2024,Post-Crisis,95201.0,117898.89813984907
+275,Paddy,Gampaha,Maha,Irrigated,2016,Stable,45815.0,51437.90383051258
+276,Paddy,Gampaha,Maha,Irrigated,2018,Stable,43063.0,60269.21098465855
+277,Paddy,Gampaha,Yala,Rainfed,2015,Stable,39305.0,42239.75677022832
+278,Paddy,Gampaha,Maha,Rainfed,2015,Stable,38821.0,41666.38716337155
+279,Paddy,Gampaha,Yala,Rainfed,2017,Stable,46615.0,45679.05435339102
+280,Paddy,Gampaha,Maha,Rainfed,2017,Stable,52182.0,48138.338051444654
+281,Paddy,Gampaha,Yala,Rainfed,2018,Stable,46152.0,52274.6105303489
+282,Paddy,Gampaha,Yala,Rainfed,2019,Stable,47323.0,58150.20513265629
+283,Paddy,Gampaha,Maha,Rainfed,2021,Crisis,69906.0,68381.7398017551
+284,Paddy,Gampaha,Yala,Rainfed,2022,Crisis,96782.0,109068.89854325105
+285,Paddy,Gampaha,Maha,Rainfed,2022,Crisis,116254.62,114346.47557152902
+286,Paddy,Gampaha,Yala,Rainfed,2023,Crisis,130027.0,123029.41658481343
+287,Paddy,Gampaha,Maha,Rainfed,2023,Crisis,123104.0,130770.44305014536
+288,Paddy,Gampaha,Yala,Rainfed,2024,Post-Crisis,115025.0,114709.98043999754
+289,Paddy,Gampaha,Maha,Rainfed,2024,Post-Crisis,127556.0,119280.45508946072
+290,Paddy,Gampaha,Yala,Rainfed,2025,Post-Crisis,149695.0,116785.5095374492
+291,Paddy,Gampaha,Yala,Unspecified,2016,Stable,45851.0,49382.56668741113
+292,Paddy,Gampaha,Yala,Unspecified,2020,Stable,53815.99905948743,69272.21006446698
+293,Paddy,Hambantota,Yala,Irrigated,2015,Stable,42924.0,47043.042196915645
+294,Paddy,Hambantota,Maha,Irrigated,2015,Stable,49291.0,46472.14212222286
+295,Paddy,Hambantota,Yala,Irrigated,2016,Stable,53574.0,48779.15236088413
+296,Paddy,Hambantota,Maha,Irrigated,2016,Stable,58471.0,50897.667023157956
+297,Paddy,Hambantota,Yala,Irrigated,2017,Stable,59121.0,52930.91047411132
+298,Paddy,Hambantota,Maha,Irrigated,2017,Stable,60524.0,55605.16202623139
+299,Paddy,Hambantota,Yala,Irrigated,2018,Stable,54463.0,60524.71353175239
+300,Paddy,Hambantota,Maha,Irrigated,2018,Stable,58793.0,63317.97513079907
+301,Paddy,Hambantota,Yala,Irrigated,2019,Stable,61208.0,66493.93995888764
+302,Paddy,Hambantota,Yala,Irrigated,2020,Stable,62523.0,72219.62636760877
+303,Paddy,Hambantota,Maha,Irrigated,2021,Crisis,92182.0,78614.0696468909
+304,Paddy,Hambantota,Yala,Irrigated,2022,Crisis,154043.0,125975.06482743139
+305,Paddy,Hambantota,Maha,Irrigated,2022,Crisis,173501.0,134233.82317340877
+306,Paddy,Hambantota,Yala,Irrigated,2023,Crisis,152947.0,144738.70669970254
+307,Paddy,Hambantota,Maha,Irrigated,2023,Crisis,155197.0,151118.9259910683
+308,Paddy,Hambantota,Yala,Irrigated,2024,Post-Crisis,152494.0,132179.05902298936
+309,Paddy,Hambantota,Maha,Irrigated,2024,Post-Crisis,153924.0,137829.98291136397
+310,Paddy,Hambantota,Yala,Irrigated,2025,Post-Crisis,150000.0,134301.31029609052
+311,Paddy,Kalutara,Yala,Rainfed,2015,Stable,43372.0,42172.576716952506
+312,Paddy,Kalutara,Maha,Rainfed,2015,Stable,43157.0,41668.29755034044
+313,Paddy,Kalutara,Yala,Rainfed,2016,Stable,52655.0,41951.30206520012
+314,Paddy,Kalutara,Maha,Rainfed,2016,Stable,46420.0,43865.918990960585
+315,Paddy,Kalutara,Yala,Rainfed,2017,Stable,54164.0,45726.32287082566
+316,Paddy,Kalutara,Maha,Rainfed,2017,Stable,53495.0,48187.08888628971
+317,Paddy,Kalutara,Yala,Rainfed,2018,Stable,49881.0,52251.51113104063
+318,Paddy,Kalutara,Maha,Rainfed,2018,Stable,45618.0,54725.412974138926
+319,Paddy,Kalutara,Yala,Rainfed,2019,Stable,51132.0,58000.35014835074
+320,Paddy,Kalutara,Yala,Rainfed,2020,Stable,53516.0,63933.63238955376
+321,Paddy,Kalutara,Maha,Rainfed,2021,Crisis,70173.0,68463.35505461622
+322,Paddy,Kalutara,Yala,Rainfed,2022,Crisis,103233.8,108890.93999843941
+323,Paddy,Kalutara,Maha,Rainfed,2022,Crisis,121857.59,114488.24896794051
+324,Paddy,Kalutara,Yala,Rainfed,2023,Crisis,109508.0,123300.030770738
+325,Paddy,Kalutara,Maha,Rainfed,2023,Crisis,132094.0,129286.63975089585
+326,Paddy,Kalutara,Yala,Rainfed,2024,Post-Crisis,118661.0,115111.60397674571
+327,Paddy,Kalutara,Maha,Rainfed,2024,Post-Crisis,126954.0,119365.59445330982
+328,Paddy,Kalutara,Yala,Rainfed,2025,Post-Crisis,132385.0,116762.24361598391
+329,Paddy,Kandy,Maha,Irrigated,2021,Crisis,101029.4861,80756.01823388017
+330,Paddy,Kandy,Maha,Irrigated,2022,Crisis,113324.69000000002,134825.08258162413
+331,Paddy,Kandy,Yala,Rainfed,2015,Stable,46359.0,44494.687117246496
+332,Paddy,Kandy,Maha,Rainfed,2015,Stable,49613.0559,44015.54770737348
+333,Paddy,Kandy,Yala,Rainfed,2016,Stable,52408.0,45991.7987667447
+334,Paddy,Kandy,Maha,Rainfed,2016,Stable,56712.0,47960.320122903686
+335,Paddy,Kandy,Yala,Rainfed,2017,Stable,58759.0,49424.901433053084
+336,Paddy,Kandy,Maha,Rainfed,2017,Stable,61379.0,51954.016893931264
+337,Paddy,Kandy,Yala,Rainfed,2018,Stable,64465.0,56389.21315471778
+338,Paddy,Kandy,Maha,Rainfed,2018,Stable,54506.0,59243.93614611471
+339,Paddy,Kandy,Yala,Rainfed,2019,Stable,63185.0,62066.91721992404
+340,Paddy,Kandy,Yala,Rainfed,2020,Stable,60310.0,67670.90390865155
+341,Paddy,Kandy,Yala,Rainfed,2022,Crisis,111394.88,116067.66958086721
+342,Paddy,Kandy,Yala,Rainfed,2023,Crisis,127774.0,131679.49739738528
+343,Paddy,Kandy,Maha,Rainfed,2023,Crisis,151453.0,140154.98808234333
+344,Paddy,Kandy,Yala,Rainfed,2024,Post-Crisis,170031.0,124395.57355843305
+345,Paddy,Kandy,Maha,Rainfed,2024,Post-Crisis,153165.0,131155.83121550278
+346,Paddy,Kandy,Yala,Rainfed,2025,Post-Crisis,188459.0,125504.81826304592
+347,Paddy,Kurunegala,Yala,Irrigated,2015,Stable,43188.0,45684.95732199755
+348,Paddy,Kurunegala,Maha,Irrigated,2015,Stable,46041.0,45135.335758885056
+349,Paddy,Kurunegala,Yala,Irrigated,2016,Stable,50928.0,46017.29388978586
+350,Paddy,Kurunegala,Maha,Irrigated,2016,Stable,53264.0,48027.619237712875
+351,Paddy,Kurunegala,Yala,Irrigated,2017,Stable,54171.0,50357.059306692725
+352,Paddy,Kurunegala,Yala,Irrigated,2018,Stable,52410.0,57559.31967080509
+353,Paddy,Kurunegala,Maha,Irrigated,2018,Stable,50615.0,60336.66570837023
+354,Paddy,Kurunegala,Yala,Irrigated,2019,Stable,57296.0,63805.22612921044
+355,Paddy,Kurunegala,Yala,Irrigated,2020,Stable,58885.0,69723.07789276185
+356,Paddy,Kurunegala,Maha,Irrigated,2021,Crisis,59343.0,75078.96894603636
+357,Paddy,Kurunegala,Yala,Irrigated,2022,Crisis,145815.64999999997,119102.89407591757
+358,Paddy,Kurunegala,Maha,Irrigated,2022,Crisis,127011.42622344744,128369.90166923993
+359,Paddy,Kurunegala,Yala,Irrigated,2023,Crisis,126522.0,134663.68425298418
+360,Paddy,Kurunegala,Maha,Irrigated,2023,Crisis,141567.0,142077.18186003057
+361,Paddy,Kurunegala,Yala,Irrigated,2024,Post-Crisis,118678.0,125412.42294723453
+362,Paddy,Kurunegala,Maha,Irrigated,2024,Post-Crisis,131756.0,129409.76663689406
+363,Paddy,Kurunegala,Yala,Irrigated,2025,Post-Crisis,139147.0,127786.93379129391
+364,Paddy,Kurunegala,Yala,Rainfed,2015,Stable,39331.0,42175.83437573303
+365,Paddy,Kurunegala,Maha,Rainfed,2015,Stable,40963.0,41603.76798079874
+366,Paddy,Kurunegala,Yala,Rainfed,2016,Stable,46525.0,41904.38006362716
+367,Paddy,Kurunegala,Maha,Rainfed,2016,Stable,45814.0,43746.99994598722
+368,Paddy,Kurunegala,Yala,Rainfed,2017,Stable,45454.0,45683.07296831406
+369,Paddy,Kurunegala,Maha,Rainfed,2017,Stable,50057.0,47969.775848278616
+370,Paddy,Kurunegala,Yala,Rainfed,2018,Stable,46452.0,52120.618449901245
+371,Paddy,Kurunegala,Maha,Rainfed,2018,Stable,49670.0,54588.55240214517
+372,Paddy,Kurunegala,Yala,Rainfed,2019,Stable,48877.0,58055.53310294411
+373,Paddy,Kurunegala,Yala,Rainfed,2020,Stable,50891.0,63855.8692728887
+374,Paddy,Kurunegala,Maha,Rainfed,2021,Crisis,55733.47826086957,68446.05917313577
+375,Paddy,Kurunegala,Yala,Rainfed,2022,Crisis,104332.52427195008,108006.17933795901
+376,Paddy,Kurunegala,Maha,Rainfed,2022,Crisis,103384.18981781376,114380.35063043627
+377,Paddy,Kurunegala,Yala,Rainfed,2023,Crisis,105151.0,122048.87686055862
+378,Paddy,Kurunegala,Maha,Rainfed,2023,Crisis,108398.0,128919.35569760887
+379,Paddy,Kurunegala,Yala,Rainfed,2024,Post-Crisis,117472.0,113648.16411164799
+380,Paddy,Kurunegala,Maha,Rainfed,2024,Post-Crisis,118210.0,119234.170325694
+381,Paddy,Kurunegala,Yala,Rainfed,2025,Post-Crisis,126321.0,116378.52436344142
+382,Paddy,Mahaweli System B,Yala,Irrigated,2015,Stable,44732.0,45851.96480737154
+383,Paddy,Mahaweli System B,Maha,Irrigated,2015,Stable,44695.0,45328.505329725514
+384,Paddy,Mahaweli System B,Yala,Irrigated,2016,Stable,48667.130000000005,46309.42784773053
+385,Paddy,Mahaweli System B,Maha,Irrigated,2016,Stable,50686.0,48314.593899904685
+386,Paddy,Mahaweli System B,Yala,Irrigated,2017,Stable,55042.0,50621.786052511015
+387,Paddy,Mahaweli System B,Maha,Irrigated,2017,Stable,51417.0,53266.355000090574
+388,Paddy,Mahaweli System B,Yala,Irrigated,2018,Stable,51763.0,57809.66878216358
+389,Paddy,Mahaweli System B,Maha,Irrigated,2018,Stable,49869.0,60658.70049463766
+390,Paddy,Mahaweli System B,Yala,Irrigated,2019,Stable,53563.0,64108.16910214123
+391,Paddy,Mahaweli System B,Yala,Irrigated,2020,Stable,52028.0,69934.32379041727
+392,Paddy,Mahaweli System B,Maha,Irrigated,2021,Crisis,82707.81999999999,75082.02303992752
+393,Paddy,Mahaweli System B,Yala,Irrigated,2022,Crisis,110341.48,121234.75432155955
+394,Paddy,Mahaweli System B,Maha,Irrigated,2022,Crisis,109304.0,127145.72832390315
+395,Paddy,Mahaweli System B,Yala,Irrigated,2023,Crisis,114319.0,134262.686256514
+396,Paddy,Mahaweli System B,Maha,Irrigated,2023,Crisis,122744.0,142060.90116857408
+397,Paddy,Mahaweli System B,Yala,Irrigated,2024,Post-Crisis,159624.0,124637.94066962738
+398,Paddy,Mahaweli System B,Maha,Irrigated,2024,Post-Crisis,127244.0,132666.84871471766
+399,Paddy,Mahaweli System B,Yala,Irrigated,2025,Post-Crisis,157868.0,128148.0740306095
+400,Paddy,Mahaweli System C,Yala,Irrigated,2015,Stable,42579.0,45813.31998609157
+401,Paddy,Mahaweli System C,Maha,Irrigated,2015,Stable,44020.0,45251.05675114609
+402,Paddy,Mahaweli System C,Yala,Irrigated,2016,Stable,47162.0,46187.013515467675
+403,Paddy,Mahaweli System C,Maha,Irrigated,2016,Stable,55077.0,48170.666636337875
+404,Paddy,Mahaweli System C,Yala,Irrigated,2017,Stable,53461.0,50650.747020175986
+405,Paddy,Mahaweli System C,Maha,Irrigated,2017,Stable,51228.0,53156.65546458034
+406,Paddy,Mahaweli System C,Yala,Irrigated,2019,Stable,52531.0,64060.82407624375
+407,Paddy,Mahaweli System C,Yala,Irrigated,2020,Stable,50132.0,69843.83943241068
+408,Paddy,Mahaweli System C,Maha,Irrigated,2021,Crisis,90559.0,74875.6925876172
+409,Paddy,Mahaweli System C,Yala,Irrigated,2022,Crisis,110014.03,121310.59237530452
+410,Paddy,Mahaweli System C,Maha,Irrigated,2022,Crisis,137095.0,126742.99023679907
+411,Paddy,Mahaweli System C,Yala,Irrigated,2023,Crisis,115956.0,135989.33085446752
+412,Paddy,Mahaweli System C,Maha,Irrigated,2023,Crisis,123287.0,141940.60691185354
+413,Paddy,Mahaweli System C,Yala,Irrigated,2024,Post-Crisis,126227.0,124693.51173233458
+414,Paddy,Mahaweli System C,Maha,Irrigated,2024,Post-Crisis,126947.0,130406.16947885271
+415,Paddy,Mahaweli System C,Yala,Irrigated,2025,Post-Crisis,128235.0,128131.06509291871
+416,Paddy,Mahaweli System C,Yala,Unspecified,2018,Stable,50080.0,58561.61428680404
+417,Paddy,Mahaweli System C,Maha,Unspecified,2018,Stable,51453.0,60514.10000371244
+418,Paddy,Mahaweli System H,Yala,Irrigated,2015,Stable,45178.0,46375.33890353944
+419,Paddy,Mahaweli System H,Maha,Irrigated,2015,Stable,44877.0,45854.13829752435
+420,Paddy,Mahaweli System H,Yala,Irrigated,2016,Stable,53478.0,47366.32644304876
+421,Paddy,Mahaweli System H,Maha,Irrigated,2017,Stable,56291.0,54192.51457363902
+422,Paddy,Mahaweli System H,Yala,Irrigated,2018,Stable,54202.0,58697.731047491696
+423,Paddy,Mahaweli System H,Yala,Irrigated,2019,Stable,52649.0,65041.57435757621
+424,Paddy,Mahaweli System H,Yala,Irrigated,2020,Stable,56114.0,70591.72111577612
+425,Paddy,Mahaweli System H,Maha,Irrigated,2021,Crisis,89460.0,76258.27957554562
+426,Paddy,Mahaweli System H,Yala,Irrigated,2022,Crisis,148859.84000000003,123399.89951487008
+427,Paddy,Mahaweli System H,Maha,Irrigated,2022,Crisis,149016.0,131339.6424064898
+428,Paddy,Mahaweli System H,Yala,Irrigated,2023,Crisis,134008.0,138613.2377244209
+429,Paddy,Mahaweli System H,Maha,Irrigated,2023,Crisis,146164.0,145142.19304480008
+430,Paddy,Mahaweli System H,Yala,Irrigated,2024,Post-Crisis,142988.0,127898.67822192491
+431,Paddy,Mahaweli System H,Maha,Irrigated,2024,Post-Crisis,142438.0,133333.8392526702
+432,Paddy,Mahaweli System H,Yala,Irrigated,2025,Post-Crisis,158288.0,130033.98787326968
+433,Paddy,Mahaweli System H,Maha,Unspecified,2016,Stable,56229.0,52883.34053558887
+434,Paddy,Mahaweli System H,Yala,Unspecified,2017,Stable,57066.0,51663.6262999757
+435,Paddy,Mahaweli System H,Maha,Unspecified,2018,Stable,52073.0,61602.85827916183
+436,Paddy,Mannar,Maha,Irrigated,2016,Stable,48690.0,52363.13408609663
+437,Paddy,Mannar,Maha,Irrigated,2017,Stable,51647.0,53645.08079921242
+438,Paddy,Mannar,Maha,Irrigated,2018,Stable,45578.0,61411.72775904606
+439,Paddy,Mannar,Maha,Irrigated,2023,Crisis,144878.0,135944.4090675901
+440,Paddy,Mannar,Maha,Irrigated,2024,Post-Crisis,139997.0,131110.22654444628
+441,Paddy,Polonnaruwa,Yala,Irrigated,2015,Stable,42958.0,45944.00273032992
+442,Paddy,Polonnaruwa,Maha,Irrigated,2015,Stable,48965.0,45387.06132306241
+443,Paddy,Polonnaruwa,Maha,Irrigated,2016,Stable,51952.0,48463.228357094245
+444,Paddy,Polonnaruwa,Yala,Irrigated,2017,Stable,55268.0,50795.97162608579
+445,Paddy,Polonnaruwa,Maha,Irrigated,2017,Stable,52777.0,53425.13288364385
+446,Paddy,Polonnaruwa,Yala,Irrigated,2018,Stable,46768.0,58072.56557381742
+447,Paddy,Polonnaruwa,Maha,Irrigated,2018,Stable,49420.0,60754.13462494042
+448,Paddy,Polonnaruwa,Yala,Irrigated,2019,Stable,51842.0,64279.44155355651
+449,Paddy,Polonnaruwa,Yala,Irrigated,2020,Stable,52979.0,70034.28591372308
+450,Paddy,Polonnaruwa,Yala,Irrigated,2022,Crisis,128724.68,119679.01893166247
+451,Paddy,Polonnaruwa,Maha,Irrigated,2022,Crisis,125205.48,128349.91041788607
+452,Paddy,Polonnaruwa,Yala,Irrigated,2023,Crisis,118260.0,135586.3447752813
+453,Paddy,Polonnaruwa,Maha,Irrigated,2023,Crisis,146032.0,142570.31034867815
+454,Paddy,Polonnaruwa,Yala,Irrigated,2024,Post-Crisis,122005.0,126587.1691483129
+455,Paddy,Polonnaruwa,Maha,Irrigated,2024,Post-Crisis,154421.0,130544.75157214887
+456,Paddy,Polonnaruwa,Yala,Irrigated,2025,Post-Crisis,137431.0,129725.85428664772
+457,Paddy,Polonnaruwa,Yala,Unspecified,2016,Stable,52182.0,49787.76383441864
+458,Paddy,Polonnaruwa,Maha,Unspecified,2021,Crisis,90694.0,74571.99734798861
+459,Paddy,Trincomalee,Yala,Irrigated,2015,Stable,42782.0,46659.08736093951
+460,Paddy,Trincomalee,Maha,Irrigated,2015,Stable,40683.0,46090.21143584988
+461,Paddy,Trincomalee,Yala,Irrigated,2016,Stable,49157.0,47295.371676043454
+462,Paddy,Trincomalee,Maha,Irrigated,2017,Stable,53005.0,54421.111958888796
+463,Paddy,Trincomalee,Yala,Irrigated,2018,Stable,45597.0,59601.185308445354
+464,Paddy,Trincomalee,Maha,Irrigated,2018,Stable,44894.0,62312.649512337906
+465,Paddy,Trincomalee,Yala,Irrigated,2019,Stable,50238.0,65117.252325689944
+466,Paddy,Trincomalee,Yala,Irrigated,2020,Stable,44398.0,71276.59080583593
+467,Paddy,Trincomalee,Yala,Irrigated,2022,Crisis,118544.5,122272.75493080719
+468,Paddy,Trincomalee,Maha,Irrigated,2022,Crisis,103138.0,131034.22060987311
+469,Paddy,Trincomalee,Yala,Irrigated,2023,Crisis,132341.0,137461.51461410595
+470,Paddy,Trincomalee,Maha,Irrigated,2023,Crisis,127179.0,147289.8942705488
+471,Paddy,Trincomalee,Yala,Irrigated,2024,Post-Crisis,127426.0,128560.76644316412
+472,Paddy,Trincomalee,Maha,Irrigated,2024,Post-Crisis,118668.0,134262.61766652207
+473,Paddy,Trincomalee,Yala,Irrigated,2025,Post-Crisis,130043.0,131214.062790518
+474,Paddy,Udawalawa,Maha,Irrigated,2023,Crisis,147844.0,154542.15214521333
+475,Paddy,Udawalawa,Yala,Irrigated,2024,Post-Crisis,148283.0,137736.65578016956
+476,Paddy,Udawalawa,Maha,Irrigated,2024,Post-Crisis,153597.0,143859.81675560176
+477,Paddy,Udawalawa,Yala,Irrigated,2025,Post-Crisis,159546.0,140061.65601729916
+478,Paddy,Whole Island,Yala,Irrigated,2016,Stable,45390.0,50011.93911599938
+479,Paddy,Whole Island,Yala,Irrigated,2017,Stable,53468.0,51079.631228475766
+480,Paddy,Whole Island,Maha,Irrigated,2017,Stable,55722.0,53836.40848309197
+481,Paddy,Whole Island,Yala,Irrigated,2018,Stable,51711.0,58648.66516532436
+482,Paddy,Whole Island,Maha,Irrigated,2018,Stable,50425.0,61414.06364129286
+483,Paddy,Whole Island,Yala,Irrigated,2019,Stable,53089.0,64637.31221050932
+484,Paddy,Whole Island,Yala,Irrigated,2022,Crisis,124821.99,120187.3543269954
+485,Paddy,Whole Island,Maha,Irrigated,2022,Crisis,137705.90000000002,128655.1191304734
+486,Paddy,Whole Island,Yala,Irrigated,2023,Crisis,124661.0,137025.31453691394
+487,Paddy,Whole Island,Maha,Irrigated,2023,Crisis,137917.0,143626.28876311018
+488,Paddy,Whole Island,Yala,Irrigated,2024,Post-Crisis,126821.0,126540.64850535915
+489,Paddy,Whole Island,Maha,Irrigated,2024,Post-Crisis,134890.0,131376.41288387656
+490,Paddy,Whole Island,Yala,Irrigated,2025,Post-Crisis,140085.0,129352.07410292445
+491,Paddy,Whole Island,Yala,Rainfed,2016,Stable,50282.0,45635.84460328047
+492,Paddy,Whole Island,Yala,Rainfed,2017,Stable,52170.0,46591.46727799562
+493,Paddy,Whole Island,Maha,Rainfed,2017,Stable,42979.0,48972.16253803314
+494,Paddy,Whole Island,Yala,Rainfed,2018,Stable,47232.0,52893.639184568354
+495,Paddy,Whole Island,Maha,Rainfed,2018,Stable,39572.0,55601.668954838016
+496,Paddy,Whole Island,Yala,Rainfed,2019,Stable,52494.0,58596.07284676108
+497,Paddy,Whole Island,Yala,Rainfed,2020,Stable,53594.0,64532.3716214146
+498,Paddy,Whole Island,Yala,Rainfed,2022,Crisis,88086.12,109198.04363922222
+499,Paddy,Whole Island,Maha,Rainfed,2022,Crisis,114474.39,114887.47450780828
+500,Paddy,Whole Island,Yala,Rainfed,2023,Crisis,110386.0,124214.8853144339
+501,Paddy,Whole Island,Maha,Rainfed,2024,Post-Crisis,121090.0,120092.24662190641
+502,Paddy,Whole Island,Yala,Rainfed,2025,Post-Crisis,133779.0,117794.46445009855
+503,Paddy,Whole Island,Maha,Unspecified,2023,Crisis,109751.0,142208.7628990556
+504,Paddy,Whole Island,Yala,Unspecified,2024,Post-Crisis,114258.0,124700.2678336804
+505,Pole Bean,Badulla,Maha,Irrigated,2014,Stable,150617.0,156439.3216273827
+506,Pole Bean,Badulla,Maha,Irrigated,2015,Stable,160082.0,158889.90392686662
+507,Pole Bean,Badulla,Yala,Irrigated,2016,Stable,179537.0,169255.42271933088
+508,Pole Bean,Badulla,Maha,Irrigated,2016,Stable,202489.0,177695.70798869562
+509,Pole Bean,Badulla,Yala,Irrigated,2017,Stable,225090.0,181835.35001573464
+510,Pole Bean,Badulla,Maha,Irrigated,2017,Stable,220095.0,192880.20142820114
+511,Pole Bean,Badulla,Yala,Irrigated,2018,Stable,212632.0,209053.7189455397
+512,Pole Bean,Badulla,Maha,Irrigated,2018,Stable,227595.0,218558.573202302
+513,Pole Bean,Badulla,Yala,Irrigated,2019,Stable,215140.0,235567.50783395555
+514,Pole Bean,Badulla,Yala,Irrigated,2022,Crisis,494174.19,446871.75405175716
+515,Pole Bean,Badulla,Yala,Irrigated,2023,Crisis,425242.0,572367.9610262853
+516,Pole Bean,Badulla,Maha,Irrigated,2023,Crisis,473683.0,582725.1461567873
+517,Pole Bean,Badulla,Yala,Irrigated,2024,Post-Crisis,494484.0,513509.3049224188
+518,Pole Bean,Badulla,Maha,Irrigated,2024,Post-Crisis,491150.0,542041.364714266
+519,Pole Bean,Badulla,Yala,Irrigated,2025,Post-Crisis,637465.0,515108.3390845807
+520,Pole Bean,Badulla,Maha,Rainfed,2021,Crisis,366266.0,253391.63268084053
+521,Pole Bean,Matale,Maha,Rainfed,2014,Stable,141881.0,137861.99928663924
+522,Pole Bean,Matale,Maha,Rainfed,2016,Stable,195041.0,153222.48301405495
+523,Pole Bean,Matale,Maha,Rainfed,2017,Stable,219268.0,167435.8257164462
+524,Pole Bean,Matale,Maha,Rainfed,2021,Crisis,268473.0,244059.60356861821
+525,Pole Bean,Matale,Maha,Rainfed,2023,Crisis,292505.0,477934.1135279486
+526,Pole Bean,Matale,Maha,Rainfed,2024,Post-Crisis,345127.0,437628.6550475249
+527,Pole Bean,Matale,Maha,Unspecified,2018,Stable,204839.0,214723.67671540004
+528,Potato,Badulla,Maha,Irrigated,2014,Stable,293273.0,273350.91251641203
+529,Potato,Badulla,Maha,Irrigated,2015,Stable,282881.0,287832.453036578
+530,Potato,Badulla,Yala,Irrigated,2016,Stable,327362.0,291044.28257894906
+531,Potato,Badulla,Maha,Irrigated,2016,Stable,363998.0,308673.3291790856
+532,Potato,Badulla,Yala,Irrigated,2017,Stable,347588.0,324924.68325736583
+533,Potato,Badulla,Maha,Irrigated,2017,Stable,379567.0,338782.47954506404
+534,Potato,Badulla,Yala,Irrigated,2019,Stable,343454.0,423687.77710211475
+535,Potato,Badulla,Yala,Irrigated,2020,Stable,344074.0,450836.9870758994
+536,Potato,Badulla,Maha,Irrigated,2021,Crisis,472664.0,491690.7015900044
+537,Potato,Badulla,Yala,Irrigated,2022,Crisis,790529.52,834366.8250161299
+538,Potato,Badulla,Yala,Irrigated,2023,Crisis,752354.0,1107501.5295479384
+539,Potato,Badulla,Maha,Irrigated,2023,Crisis,707792.0,1145754.325102405
+540,Potato,Badulla,Yala,Irrigated,2024,Post-Crisis,803007.0,966239.1746439288
+541,Potato,Badulla,Maha,Irrigated,2024,Post-Crisis,885161.0,1060128.7623021451
+542,Potato,Badulla,Yala,Irrigated,2025,Post-Crisis,824569.0,999547.5934033385
+543,Potato,Badulla,Maha,Rainfed,2018,Stable,371066.0,362163.8230521727
+544,Potato,Badulla,Yala,Unspecified,2018,Stable,340801.0,380499.9601874769
+545,Potato,Nuwara Eliya,Maha,Irrigated,2014,Stable,343343.0,277735.7271930047
+546,Potato,Nuwara Eliya,Maha,Irrigated,2015,Stable,378590.0,298237.5668525551
+547,Potato,Nuwara Eliya,Yala,Irrigated,2016,Stable,350163.0,310686.6160213987
+548,Potato,Nuwara Eliya,Maha,Irrigated,2016,Stable,425307.0,319909.6795318285
+549,Potato,Nuwara Eliya,Yala,Irrigated,2017,Stable,372938.0,341677.40655522177
+550,Potato,Nuwara Eliya,Maha,Irrigated,2017,Stable,455865.0,350645.2449146491
+551,Potato,Nuwara Eliya,Yala,Irrigated,2018,Stable,363071.0,397740.70487725723
+552,Potato,Nuwara Eliya,Yala,Irrigated,2019,Stable,370866.0,429354.97045190743
+553,Potato,Nuwara Eliya,Yala,Irrigated,2020,Stable,400341.0,463176.54813407
+554,Potato,Nuwara Eliya,Maha,Irrigated,2021,Crisis,565508.0,513156.7308401566
+555,Potato,Nuwara Eliya,Yala,Irrigated,2022,Crisis,752040.2045999999,887473.4578300577
+556,Potato,Nuwara Eliya,Yala,Irrigated,2023,Crisis,901076.0,1107468.2531655468
+557,Potato,Nuwara Eliya,Maha,Irrigated,2023,Crisis,860616.0,1263092.7367310906
+558,Potato,Nuwara Eliya,Yala,Irrigated,2024,Post-Crisis,831837.0,1067507.3309853259
+559,Potato,Nuwara Eliya,Maha,Irrigated,2024,Post-Crisis,1003949.0,1098166.8213737768
+560,Potato,Nuwara Eliya,Yala,Irrigated,2025,Post-Crisis,865823.0,1058522.3553905452
+561,Potato,Nuwara Eliya,Maha,Rainfed,2018,Stable,420238.0,370877.3083635019
+562,Pumpkin,Anuradhapura,Maha,Irrigated,2023,Crisis,147177.0,159066.73088884001
+563,Pumpkin,Anuradhapura,Maha,Rainfed,2014,Stable,57812.0,45210.46748817038
+564,Pumpkin,Anuradhapura,Maha,Rainfed,2016,Stable,67753.0,50211.32576468007
+565,Pumpkin,Anuradhapura,Maha,Rainfed,2017,Stable,58184.0,56509.90955728644
+566,Pumpkin,Anuradhapura,Maha,Rainfed,2018,Stable,56683.0,63490.56183130741
+567,Pumpkin,Anuradhapura,Maha,Rainfed,2021,Crisis,87381.0,78444.80876018107
+568,Pumpkin,Anuradhapura,Maha,Unspecified,2024,Post-Crisis,195404.0,137087.5006012969
+569,Red Onion,Jaffna,Maha,Irrigated,2016,Stable,301069.0,296173.6666804873
+570,Red Onion,Jaffna,Maha,Irrigated,2017,Stable,349282.0,277602.16022510245
+571,Red Onion,Jaffna,Maha,Irrigated,2018,Stable,330444.0,328404.95819927205
+572,Red Onion,Jaffna,Yala,Irrigated,2023,Crisis,707574.0,700074.3382589511
+573,Red Onion,Jaffna,Maha,Irrigated,2023,Crisis,809519.0,899196.775010555
+574,Red Onion,Jaffna,Yala,Irrigated,2024,Post-Crisis,1011074.0,828451.3212499125
+575,Red Onion,Jaffna,Maha,Irrigated,2024,Post-Crisis,728544.0,960581.6045584045
+576,Red Onion,Jaffna,Yala,Irrigated,2025,Post-Crisis,852331.0,773033.1725638296
+577,Red Onion,Jaffna,Maha,Rainfed,2014,Stable,201696.0,206703.77280752445
+578,Red Onion,Puttalam,Maha,Irrigated,2014,Stable,206785.0,221980.4267953092
+579,Red Onion,Puttalam,Maha,Irrigated,2015,Stable,205147.2393,226361.8102587601
+580,Red Onion,Puttalam,Yala,Irrigated,2016,Stable,197363.0,242110.49182119357
+581,Red Onion,Puttalam,Maha,Irrigated,2016,Stable,194925.0,251392.63191695476
+582,Red Onion,Puttalam,Yala,Irrigated,2017,Stable,282679.0,243138.99998601945
+583,Red Onion,Puttalam,Maha,Irrigated,2017,Stable,311231.0,265424.77221900295
+584,Red Onion,Puttalam,Yala,Irrigated,2018,Stable,266121.0,297056.02101086715
+585,Red Onion,Puttalam,Maha,Irrigated,2018,Stable,221012.0,305154.3037328801
+586,Red Onion,Puttalam,Yala,Irrigated,2019,Stable,267886.0,322502.4408917967
+587,Red Onion,Puttalam,Maha,Irrigated,2021,Crisis,475326.0,383630.82926102885
+588,Red Onion,Puttalam,Yala,Irrigated,2022,Crisis,648656.23,683074.9320156652
+589,Red Onion,Puttalam,Yala,Irrigated,2023,Crisis,760659.0,801287.2296156301
+590,Red Onion,Puttalam,Maha,Irrigated,2023,Crisis,746518.0,896423.8937216189
+591,Red Onion,Puttalam,Yala,Irrigated,2024,Post-Crisis,603113.0,782712.2178776843
+592,Red Onion,Puttalam,Maha,Irrigated,2024,Post-Crisis,623178.0,758641.719819704
+593,Red Onion,Puttalam,Yala,Irrigated,2025,Post-Crisis,738677.0,725489.8324969771
+594,Red Onion,Trincomalee,Maha,Irrigated,2015,Stable,202824.0,222073.95689373725
+595,Red Onion,Trincomalee,Yala,Irrigated,2016,Stable,198864.0,197178.49970978452
+596,Red Onion,Trincomalee,Yala,Irrigated,2019,Stable,299340.0,275799.7950995726
+597,Red Onion,Trincomalee,Maha,Unspecified,2014,Stable,208531.0,197683.1068194176
+598,Soybean,Mahaweli System H,Maha,Irrigated,2015,Stable,58101.0,60563.17032451441
+599,Soybean,Mahaweli System H,Yala,Irrigated,2016,Stable,58477.0,59102.07041710583
+600,Soybean,Mahaweli System H,Yala,Irrigated,2017,Stable,59848.0,64430.3669362669
+601,Soybean,Mahaweli System H,Yala,Irrigated,2018,Stable,64926.0,71948.50727467317
+602,Soybean,Mahaweli System H,Yala,Irrigated,2019,Stable,69225.0,82304.71408415603
+603,Soybean,Mahaweli System H,Yala,Irrigated,2022,Crisis,147498.44296317094,151416.5394171662
+604,Soybean,Mahaweli System H,Yala,Irrigated,2023,Crisis,178932.0,170276.45585331845
+605,Soybean,Mahaweli System H,Yala,Irrigated,2024,Post-Crisis,146558.0,164280.20630048058
+606,Soybean,Mahaweli System H,Yala,Irrigated,2025,Post-Crisis,193579.0,155620.90906812486
+607,Sweet Potato,Matale,Maha,Irrigated,2015,Stable,88877.7171,97287.05657468287
+608,Sweet Potato,Matale,Yala,Irrigated,2016,Stable,100938.0,95629.13914639523
+609,Sweet Potato,Matale,Yala,Irrigated,2017,Stable,114102.0,101834.6468054926
+610,Sweet Potato,Matale,Yala,Irrigated,2018,Stable,114318.0,116132.42362216592
+611,Sweet Potato,Matale,Yala,Irrigated,2019,Stable,116549.0,132459.76643638668
+612,Sweet Potato,Matale,Yala,Irrigated,2020,Stable,127586.0,141395.18337015048
+613,Sweet Potato,Matale,Yala,Irrigated,2023,Crisis,240313.0,274037.69492639706
+614,Sweet Potato,Matale,Yala,Irrigated,2024,Post-Crisis,249863.0,267013.8525686777
+615,Sweet Potato,Matale,Yala,Irrigated,2025,Post-Crisis,325590.0,257984.53430887667
+616,Tomato,Badulla,Maha,Irrigated,2014,Stable,203962.0,184575.06308728052
+617,Tomato,Badulla,Maha,Irrigated,2015,Stable,215072.0,199074.58293370722
+618,Tomato,Badulla,Yala,Irrigated,2016,Stable,233885.0,206166.1293750956
+619,Tomato,Badulla,Maha,Irrigated,2016,Stable,261087.0,216390.71401722997
+620,Tomato,Badulla,Yala,Irrigated,2017,Stable,270789.0,223939.0042424001
+621,Tomato,Badulla,Maha,Irrigated,2017,Stable,269174.0,236193.9381920991
+622,Tomato,Badulla,Yala,Irrigated,2018,Stable,267319.0,255698.14472584703
+623,Tomato,Badulla,Maha,Irrigated,2018,Stable,267289.0,268024.1419248464
+624,Tomato,Badulla,Yala,Irrigated,2019,Stable,273149.0,290051.3140280206
+625,Tomato,Badulla,Yala,Irrigated,2023,Crisis,547660.0,603468.8414109268
+626,Tomato,Badulla,Maha,Irrigated,2023,Crisis,543841.0,734763.8375551037
+627,Tomato,Badulla,Yala,Irrigated,2024,Post-Crisis,613482.0,638780.0113560064
+628,Tomato,Badulla,Maha,Irrigated,2024,Post-Crisis,589888.0,691600.1842375047
+629,Tomato,Badulla,Yala,Irrigated,2025,Post-Crisis,756849.0,628180.1817057619
+630,Tomato,Badulla,Maha,Unspecified,2021,Crisis,476550.0,335321.0480001513
+631,Tomato,Kandy,Maha,Irrigated,2015,Stable,187770.0,199924.02658570913
+632,Tomato,Kandy,Yala,Irrigated,2016,Stable,195557.0,182135.17585677686
+633,Tomato,Kandy,Yala,Irrigated,2017,Stable,226207.0,198186.13666701803
+634,Tomato,Kandy,Yala,Irrigated,2018,Stable,230364.0,228035.59701767418
+635,Tomato,Kandy,Yala,Irrigated,2019,Stable,231788.0,262169.2207800872
+636,Tomato,Kandy,Yala,Irrigated,2020,Stable,237656.0,285667.6932694178
+637,Tomato,Kandy,Yala,Irrigated,2022,Crisis,533855.5669,495234.11951967614
+638,Tomato,Kandy,Yala,Irrigated,2023,Crisis,555103.0,631159.8165422404
+639,Tomato,Kandy,Yala,Irrigated,2024,Post-Crisis,462738.0,590567.7276562554
+640,Tomato,Kandy,Yala,Irrigated,2025,Post-Crisis,590348.0,551006.5290271996

@@ -1,0 +1,94 @@
+# Hyperparameter Search Spaces & Architecture Defaults
+
+optuna:
+  n_trials: 35
+  timeout_seconds: 300
+  sampler: "TPESampler"
+
+family_a_statistical:
+  arima:
+    p_range: [0, 1, 2]
+    d_range: [0, 1]
+    q_range: [0, 1, 2]
+  sarima:
+    p_range: [0, 1, 2]
+    d_range: [0, 1]
+    q_range: [0, 1]
+    P_range: [0, 1]
+    D_range: [0, 1]
+    Q_range: [0, 1]
+    seasonal_period: 2
+  prophet:
+    changepoint_prior_scale: [0.001, 0.01, 0.05]
+    seasonality_prior_scale: [0.01, 0.1, 1.0]
+    seasonality_mode: ["additive", "multiplicative"]
+    n_changepoints: 3
+
+family_b_shallow_ml:
+  ridge:
+    alpha: [0.01, 0.1, 1.0, 10.0, 100.0]
+  lasso:
+    alpha: [0.0001, 0.001, 0.01, 0.1, 1.0]
+  elastic_net:
+    alpha: [0.001, 0.01, 0.1, 1.0]
+    l1_ratio: [0.2, 0.5, 0.8]
+  random_forest:
+    n_estimators: [50, 100, 200]
+    max_depth: [4, 6, 8, 12, null]
+    min_samples_split: [2, 5, 10]
+  gradient_boosting:
+    n_estimators: [50, 100, 150]
+    learning_rate: [0.03, 0.05, 0.1]
+    max_depth: [3, 4, 5]
+    subsample: [0.7, 0.8, 1.0]
+  xgboost:
+    n_estimators: [100, 200]
+    learning_rate: [0.03, 0.05, 0.1]
+    max_depth: [3, 4, 5]
+    subsample: [0.8, 1.0]
+  lightgbm:
+    n_estimators: [100, 200]
+    learning_rate: [0.03, 0.05, 0.1]
+    num_leaves: [15, 31, 63]
+  catboost:
+    iterations: [150, 300]
+    learning_rate: [0.03, 0.05, 0.1]
+    depth: [4, 5, 6]
+
+family_c_deep_learning:
+  mlp:
+    hidden_dims: [128, 64, 32]
+    embedding_dim: 12
+    dropout: 0.2
+    learning_rate: 0.001
+    epochs: 100
+    patience: 15
+  tabnet:
+    n_d: 8
+    n_a: 8
+    n_steps: 3
+    epochs: 150
+    patience: 15
+  ft_transformer:
+    d_token: 32
+    n_blocks: 2
+    n_heads: 4
+    epochs: 100
+    patience: 15
+  sequence_models:
+    window_length: 3
+    hidden_dim: 32
+    epochs: 80
+    patience: 12
+
+family_d_foundation:
+  chronos_bolt:
+    model_id: "amazon/chronos-bolt-tiny"
+    prediction_length: 2
+  tabpfn:
+    model_version: "tabpfn-v1"
+  ollama:
+    model: "llama3.1:8b"
+    temperature: 0.0
+    k_shot: 3
+    max_tokens: 20
