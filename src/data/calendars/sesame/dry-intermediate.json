@@ -1,0 +1,623 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Sesame",
+  "app_crop": "Gingelly",
+  "zones": [
+    "dry",
+    "intermediate"
+  ],
+  "regions": [
+    "Puttalam DL-1, DL-3",
+    "Kilinochchi DL-4",
+    "Badulla District",
+    "Mannar DL-1, DL-3",
+    "Polonnaruwa DL-1",
+    "Ratnapura IL-1, DL-1",
+    "Vavuniya DL-1, DL-1a",
+    "Kurunegala DL-1",
+    "Ampara DL-2b",
+    "Matale DL-1, IL-1",
+    "Monaragala IM-2, IL-2, DL-1",
+    "Hambantota DL-5, IL-1",
+    "Mullaittivu DL-1, DL-4",
+    "Batticaloa DL-2a",
+    "Jaffna DL-3, DL-4",
+    "Anuradhapura District",
+    "Mahaweli System C, H & Uda Walawe Project"
+  ],
+  "irrigation": [
+    "rainfed",
+    "irrigated"
+  ],
+  "source_file": "data-source/rgb/Sesame/thala-Dry-Inter.png",
+  "source_year": 2013,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Main Seasons Sesame Cultivation (Maha & Yala)",
+      "cultivation_system": "upland",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 3,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 3,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 10,
+            "week": 2
+          },
+          "plant_to": {
+            "month": 10,
+            "week": 4
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "uma",
+          "name": "Uma",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Standard national variety. Average printed yield: 400 kg/ac."
+        },
+        {
+          "id": "mali",
+          "name": "Mali",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Standard national variety. Average printed yield: 400 kg/ac."
+        },
+        {
+          "id": "mi_1",
+          "name": "MI 1",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Department recommended selection. Average printed yield: 400 kg/ac."
+        },
+        {
+          "id": "mi_3",
+          "name": "MI 3",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Department recommended selection. Average printed yield: 400 kg/ac."
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Tractor land preparation: Yala Mar W1-W3; Maha Oct W2-W4"
+        },
+        {
+          "key": "basal_dressing",
+          "label": "Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Basal fertilizer application: Urea 20 kg/ac, TSP 48 kg/ac, MOP 24 kg/ac: Yala Mar W1-W3; Maha Oct W2-W4"
+        },
+        {
+          "key": "seeding",
+          "label": "Seeding",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Seeding (Broadcasting 3 kg/ac or Row planting 2 kg/ac at 30cm x 15cm): Yala Mar W1-W3; Maha Oct W2-W4"
+        },
+        {
+          "key": "weed_control_1",
+          "label": "Weed Control (1st Weeding)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First manual hand weeding with hoe: Yala Apr W1-W2; Maha Nov W1-W3"
+        },
+        {
+          "key": "top_dressing",
+          "label": "Top Dressing (4 WAP)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Top dressing applied 4 weeks after planting: Urea 24 kg/ac: Yala Apr W1-W2; Maha Nov W1-W3"
+        },
+        {
+          "key": "weed_control_2",
+          "label": "Weed Control (2nd Weeding)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second manual hand weeding: Yala May W1-W2; Maha Dec W1-W2"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": 1,
+            "yala_month": 6,
+            "month": 6,
+            "weeks": [3, 4],
+            "yala_weeks": [3, 4]
+          },
+          "confidence": "high",
+          "details": "Harvesting mature sesame plants into bundles/sheaves when lower capsules turn yellow: Yala Jun W3-Jul W2; Maha Jan W3-Feb W2"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 20.0,
+          "tsp_kg_ac": 48.0,
+          "mop_kg_ac": 24.0,
+          "confidence": "high",
+          "notes": "Printed on poster under Basal Dressing (kg/ae): Urea 20, TSP 48, MOP 24 kg/ac."
+        },
+        {
+          "timing_label": "Top Dressing - 4 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 4
+          },
+          "urea_kg_ac": 24.0,
+          "tsp_kg_ac": 0.0,
+          "mop_kg_ac": 0.0,
+          "confidence": "high",
+          "notes": "Printed on poster under Top Dressing 4 weeks after planting: Urea 24 kg/ac."
+        }
+      ],
+      "derived": {
+        "description": "Computed sums and derived specifications",
+        "total_varieties_count": 4,
+        "fertilizer_recommendation_printed_unit": "kg/ac (printed verbatim as kg/ae)",
+        "printed_fertilizer_values_kg_ac": {
+          "basal": {
+            "urea": 20,
+            "tsp": 48,
+            "mop": 24
+          },
+          "top_dressing_4wap": {
+            "urea": 24
+          }
+        },
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 44,
+          "tsp": 48,
+          "mop": 24
+        },
+        "seed_rates": {
+          "broadcasting": "3 kg/ac",
+          "row_planting": "2 kg/ac"
+        },
+        "spacing": "30 cm x 15 cm",
+        "cost_of_cultivation_acre_rs": {
+          "seeds": 900.0,
+          "other_inputs_fertilizer": 250.0,
+          "machinery": 500.0,
+          "labour_without_family_30days_at_800": 24000.0,
+          "labour_with_family_8days_at_800": 6400.0,
+          "expenditures_without_family_labour": 32400.0,
+          "expenditures_with_family_labour": 14800.0,
+          "yield_kg": 400.0,
+          "selling_price_rs_per_kg": 175.0,
+          "net_income": 70000.0,
+          "gross_profit_without_family_labour_printed": 7600.0,
+          "gross_profit_without_family_labour_computed": 37600.0,
+          "gross_profit_with_family_labour": 55200.0,
+          "audit_note": "Printed gross profit without family labour is 7600.00; arithmetic calculation (70000 - 32400) gives 37600.00, indicating an omitted leading digit '3' on the poster. Gross profit with family labour (70000 - 14800 = 55200.00) matches arithmetic calculation exactly."
+        }
+      }
+    },
+    {
+      "scenario": "alternative",
+      "label": "Alternative Cropping Time Table (Inter cropping with Maize for Northern Province)",
+      "cultivation_system": "upland",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Northern Province Intercrop",
+          "plant_from": {
+            "month": 1,
+            "week": 2
+          },
+          "plant_to": {
+            "month": 1,
+            "week": 4
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "uma",
+          "name": "Uma",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Intercropped with maize in Northern Province"
+        },
+        {
+          "id": "mali",
+          "name": "Mali",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Intercropped with maize in Northern Province"
+        },
+        {
+          "id": "mi_1",
+          "name": "MI 1",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Intercropped with maize in Northern Province"
+        },
+        {
+          "id": "mi_3",
+          "name": "MI 3",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            400.0,
+            400.0
+          ],
+          "confidence": "high",
+          "notes": "Intercropped with maize in Northern Province"
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Land preparation for maize-sesame intercropping: Jan W2-W4"
+        },
+        {
+          "key": "basal_dressing",
+          "label": "Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Basal fertilizer application: Jan W2-W4"
+        },
+        {
+          "key": "seeding",
+          "label": "Seeding",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Intercrop seeding: Jan W2-W4"
+        },
+        {
+          "key": "weed_control_1",
+          "label": "Weed Control (1st Weeding)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Manual hand weeding: Feb W1-W3"
+        },
+        {
+          "key": "top_dressing",
+          "label": "Top Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Top dressing applied to intercropped rows: Feb W1-W3"
+        },
+        {
+          "key": "weed_control_2",
+          "label": "Weed Control (2nd Weeding)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second weeding during intercrop canopy growth: Mar W1-W3"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": 4,
+            "yala_month": null,
+            "month": 4,
+            "weeks": [1, 2, 3, 4],
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting mature sesame plants in intercrop system: Apr W1-W4"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 20.0,
+          "tsp_kg_ac": 48.0,
+          "mop_kg_ac": 24.0,
+          "confidence": "high",
+          "notes": "Basal fertilizer for sesame in intercrop system."
+        },
+        {
+          "timing_label": "Top Dressing - 4 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 4
+          },
+          "urea_kg_ac": 24.0,
+          "tsp_kg_ac": 0.0,
+          "mop_kg_ac": 0.0,
+          "confidence": "high",
+          "notes": "Top dressing for sesame in intercrop system."
+        }
+      ],
+      "derived": {
+        "description": "Agronomic specifications for Northern Province maize-sesame intercropping",
+        "total_varieties_count": 4,
+        "intercrop_companion": "Maize",
+        "target_region": "Northern Province"
+      }
+    }
+  ],
+  "weather_by_month": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "rain-thunder",
+      "h2": "rain-thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "rain",
+      "h2": "sun"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun",
+      "h2": "rain-thunder"
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "rain",
+      "h2": "rain"
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "Seeding (Broadcasting)",
+      "type": "grain",
+      "kg_ac": 3.0,
+      "notes": "Seeding 3kg/ac printed on poster for broadcast cultivation."
+    },
+    {
+      "method": "Cultivate on rows",
+      "type": "grain",
+      "kg_ac": 2.0,
+      "notes": "Cultivate on rows 2kg/ac printed on poster with 30 cm x 15 cm spacing."
+    }
+  ],
+  "pests_diseases": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": []
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": []
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "items": []
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": []
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": []
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": []
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": []
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": []
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": []
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": []
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": []
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": []
+    }
+  ],
+  "risk_advice": {
+    "drought": [
+      "Excess irrigation"
+    ],
+    "flood": [
+      "Make drains to improve draining ridges to avoid flowing of outside water",
+      "Improve soil fertilizing : Avoid Soil erosion Plant Gliriuidia on ridges, lopped and add to soil"
+    ],
+    "salinity": []
+  },
+  "tile_sources": {
+    "header_districts": "data-source/tiles/sesame/01_header_districts.png",
+    "legend_operations": "data-source/tiles/sesame/02_legend_operations.png",
+    "timeline_grid": "data-source/tiles/sesame/03_timeline_grid.png",
+    "weather": "data-source/tiles/sesame/03_weather.png",
+    "alternative_cropping": "data-source/tiles/sesame/probe_alternative_cropping.png",
+    "pests_row": "data-source/tiles/sesame/04_pests_row.png",
+    "pest_control_measures": "data-source/tiles/sesame/05_pest_control_all.png",
+    "middle_tables": "data-source/tiles/sesame/probe_middle_tables.png",
+    "risk_advice": "data-source/tiles/sesame/08_risk_advice.png",
+    "districts_detail": "data-source/tiles/sesame/probe_districts_detail.png",
+    "credits": "data-source/tiles/sesame/10_credits.png"
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/sesame/ tiles.",
+    "Calendar timeline begins in March and runs through February.",
+    "Two parallel cropping streams: Agricultural Activities (Main Maha & Yala) and Alternative Cropping Time Table (Inter cropping with Maize for Northern Province).",
+    "Pest row note: 'Insect pest attacts are low in sesame cultivation' spans the timeline; specific pests with control measures detailed in Tile 05 (Leaf webber, Mites, Tomato bug, Phyllody, Stem and foot rot).",
+    "Fertilizer recommendations printed in kg/ac (with heading typo 'Fertilizer - kg/ae'): Basal (Urea 20, TSP 48, MOP 24), Top (4 WAP Urea 24). Total computed sums: Urea 44, TSP 48, MOP 24 kg/ac.",
+    "Gross profit without family labour printed as 7600.00; arithmetic calculation (70000 - 32400) is 37600.00 (missing leading digit '3' on poster). Gross profit with family labour (70000 - 14800 = 55200.00) matches arithmetic calculation exactly.",
+    "Soil amendment recommendation: 'Use Gliricidia loppings to improve soil fertilitiy' (printed verbatim with double 'i')."
+  ]
+}

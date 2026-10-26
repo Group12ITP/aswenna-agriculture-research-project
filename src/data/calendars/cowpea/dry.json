@@ -1,0 +1,696 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Cowpea",
+  "app_crop": "Cowpea",
+  "zones": [
+    "dry"
+  ],
+  "regions": [
+    "Kurunegala DL-1",
+    "Polonnaruwa District",
+    "Hambantota District",
+    "Kilinochchi District (Except Akkarayankulam)",
+    "Monaragala DL-1",
+    "Puttalam DL-1, DL-3",
+    "Ampara DL-2a, DL-2b",
+    "Mannar DL-1, DL-3",
+    "Vavuniya DL-1, DL-1d",
+    "Mahaweli System 'B, H and G'",
+    "Anuradhapura District",
+    "Trincomalee DL-2, DL-1c",
+    "Batticaloa DL-2a",
+    "Mullaitivu District"
+  ],
+  "irrigation": [
+    "rainfed",
+    "irrigated"
+  ],
+  "source_file": "data-source/rgb/Cowpea/Cowpea_DRY.png",
+  "source_year": 2013,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Main Seasons Cultivation (Maha & Yala)",
+      "cultivation_system": "upland",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 11,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 11,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "mi_35",
+          "name": "MI -35",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 65-80 days. Seed rate 14-16 kg/ac, spacing 30 x 15 cm."
+        },
+        {
+          "id": "dhawala",
+          "name": "Dhawala",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-70 days. Seed rate 14-16 kg/ac, spacing 30 x 15 cm."
+        },
+        {
+          "id": "waruni",
+          "name": "Waruni",
+          "age_group": null,
+          "duration_days": 55,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55 days. Seed rate 14-16 kg/ac, spacing 30 x 15 cm."
+        },
+        {
+          "id": "bombe",
+          "name": "Bombe",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 75-90 days. Seed rate 14-16 kg/ac, spacing 30 x 15 cm."
+        },
+        {
+          "id": "micp",
+          "name": "MICP",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-70 days. Seed rate 14-16 kg/ac, spacing 30 x 15 cm."
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Field preparation: Maha Nov W1-W2; Yala Apr W1-W2"
+        },
+        {
+          "key": "seeding_and_basal",
+          "label": "Seeding & Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Direct seeding and basal chemical dressing: Maha Nov W1-W2; Yala Apr W1-W2"
+        },
+        {
+          "key": "weed_control",
+          "label": "Weed Control (First Weeding)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First weed control: Maha Nov W3; Yala Apr W3"
+        },
+        {
+          "key": "weed_control_and_top_dressing",
+          "label": "Weed Control & Top Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second weed control and top dressing (during Nitrogen deficiency): Maha Nov W4; Yala Apr W4"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": 12,
+            "yala_month": 5,
+            "month": 12,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting mature pods: Maha Dec W3-W4; Yala May W3-W4"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing - at planting",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": 0,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 14,
+          "tsp_kg_ac": 40,
+          "mop_kg_ac": 30,
+          "confidence": "high",
+          "notes": "Applied at planting"
+        },
+        {
+          "timing_label": "Top Dressing - with second weed control",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 3
+          },
+          "urea_kg_ac": 12,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "Applied during Nitrogen deficiency with second weed control"
+        }
+      ],
+      "derived": {
+        "description": "Computed sums and derived specifications",
+        "total_varieties_count": 5,
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 26,
+          "tsp": 40,
+          "mop": 30
+        },
+        "seed_rate": "14-16 kg/ac (35-40 kg/ha)",
+        "spacings": [
+          "30 x 15 cm"
+        ],
+        "yield_kg_ac": 400,
+        "selling_price_rs_per_kg": 135
+      }
+    },
+    {
+      "scenario": "third_season",
+      "label": "Third Season / Paddy Field Stubble Cultivation",
+      "cultivation_system": "stubble_field",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Yala_early",
+          "plant_from": {
+            "month": 3,
+            "week": 3
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 1
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "mi_35",
+          "name": "MI -35",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 65-80 days. Direct seeded into paddy stubble."
+        },
+        {
+          "id": "dhawala",
+          "name": "Dhawala",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-70 days. Direct seeded into paddy stubble."
+        },
+        {
+          "id": "waruni",
+          "name": "Waruni",
+          "age_group": null,
+          "duration_days": 55,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55 days. Direct seeded into paddy stubble."
+        },
+        {
+          "id": "bombe",
+          "name": "Bombe",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 75-90 days. Direct seeded into paddy stubble."
+        },
+        {
+          "id": "micp",
+          "name": "MICP",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            380,
+            400
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-70 days. Direct seeded into paddy stubble."
+        }
+      ],
+      "operations": [
+        {
+          "key": "stubble_seeding",
+          "label": "Direct Seeding into Paddy Stubble",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Direct seeding / broadcasting into paddy stubble: Mar W3-Apr W1 (where paddy fields are not cultivated in Yala)"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting Stubble Crop",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": null,
+            "yala_month": 5,
+            "month": 5,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting stubble crop: May W2-W3"
+        }
+      ],
+      "fertilizer_schedule": [],
+      "derived": {
+        "description": "Cultivated in paddy fields not cultivated during regular Yala season, or early cultivation in paddy fields during Yala."
+      }
+    }
+  ],
+  "weather_by_month": [
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun-cloud",
+      "h2": "rain"
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "rain",
+      "h2": "sun"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "thunder"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "thunder",
+      "h2": "rain"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "rain",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "sun-cloud",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun-cloud",
+      "h2": "sun-cloud"
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "direct_seeding",
+      "type": "grain",
+      "kg_ac": 15,
+      "notes": "Printed seed rate: 14-16 kg/ac (35-40 kg/ha)"
+    }
+  ],
+  "pests_diseases": [
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": []
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": []
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": [
+        {
+          "canonical_name": "cercospora_leaf_spot",
+          "verbatim_text": "Cercospora leaf spot"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "powdery_mildew",
+          "verbatim_text": "Powdery mildew"
+        },
+        {
+          "canonical_name": "ascochyta_blight",
+          "verbatim_text": "Ascochyta blight"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "pod_borer",
+          "verbatim_text": "Pod borer"
+        },
+        {
+          "canonical_name": "wilt",
+          "verbatim_text": "Wilt"
+        }
+      ]
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": [
+        {
+          "canonical_name": "cercospora_leaf_spot",
+          "verbatim_text": "Cercospora leaf spot"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "powdery_mildew",
+          "verbatim_text": "Powdery mildew"
+        },
+        {
+          "canonical_name": "ascochyta_blight",
+          "verbatim_text": "Ascochyta blight"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "pod_borer",
+          "verbatim_text": "Pod borer"
+        },
+        {
+          "canonical_name": "wilt",
+          "verbatim_text": "Wilt"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": [
+        {
+          "canonical_name": "aphids",
+          "verbatim_text": "Aphids"
+        },
+        {
+          "canonical_name": "whitefly",
+          "verbatim_text": "White fly"
+        },
+        {
+          "canonical_name": "planthopper",
+          "verbatim_text": "Plant hopper"
+        },
+        {
+          "canonical_name": "mites",
+          "verbatim_text": "Mites"
+        },
+        {
+          "canonical_name": "leafhopper",
+          "verbatim_text": "Leaf hopper"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "items": []
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "mosaic_virus",
+          "verbatim_text": "Mosaic virus"
+        },
+        {
+          "canonical_name": "ascochyta_blight",
+          "verbatim_text": "Ascochyta blight"
+        },
+        {
+          "canonical_name": "bean_fly",
+          "verbatim_text": "Bean fly"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": [
+        {
+          "canonical_name": "mosaic_virus",
+          "verbatim_text": "Mosaic virus"
+        },
+        {
+          "canonical_name": "ascochyta_blight",
+          "verbatim_text": "Ascochyta blight"
+        },
+        {
+          "canonical_name": "bean_fly",
+          "verbatim_text": "Bean fly"
+        },
+        {
+          "canonical_name": "pod_borer",
+          "verbatim_text": "Pod borer"
+        },
+        {
+          "canonical_name": "pod_sucking_bug",
+          "verbatim_text": "Pod sucking bug"
+        },
+        {
+          "canonical_name": "blister_beetle",
+          "verbatim_text": "Blister beetle"
+        },
+        {
+          "canonical_name": "aphids",
+          "verbatim_text": "Aphids"
+        },
+        {
+          "canonical_name": "mites",
+          "verbatim_text": "Mites"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": [
+        {
+          "canonical_name": "mosaic_virus",
+          "verbatim_text": "Mosaic virus"
+        },
+        {
+          "canonical_name": "ascochyta_blight",
+          "verbatim_text": "Ascochyta blight"
+        },
+        {
+          "canonical_name": "bean_fly",
+          "verbatim_text": "Bean fly"
+        },
+        {
+          "canonical_name": "pod_borer",
+          "verbatim_text": "Pod borer"
+        },
+        {
+          "canonical_name": "pod_sucking_bug",
+          "verbatim_text": "Pod sucking bug"
+        },
+        {
+          "canonical_name": "blister_beetle",
+          "verbatim_text": "Blister beetle"
+        },
+        {
+          "canonical_name": "aphids",
+          "verbatim_text": "Aphids"
+        },
+        {
+          "canonical_name": "mites",
+          "verbatim_text": "Mites"
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": []
+    }
+  ],
+  "risk_advice": {
+    "drought": [
+      "Use drought resistant varieties",
+      "Use short duration varieties",
+      "Mulching"
+    ],
+    "flood": [
+      "Improve drainage system",
+      "Cultivate on ridges",
+      "Use long duration varieties for Maha season",
+      "Use short duration varieties to cultivate after rainy period"
+    ],
+    "salinity": []
+  },
+  "tile_sources": {
+    "header_districts": "data-source/tiles/cowpea_dry/01_header_districts.png",
+    "legend_operations": "data-source/tiles/cowpea_dry/02_legend_operations.png",
+    "timeline_grid": "data-source/tiles/cowpea_dry/03_timeline_grid.png",
+    "weather": "data-source/tiles/cowpea_dry/03_weather.png",
+    "pests_row": "data-source/tiles/cowpea_dry/04_pests_row.png",
+    "pest_control_measures": "data-source/tiles/cowpea_dry/05_pest_control_measures.png",
+    "varieties_fertilizer": "data-source/tiles/cowpea_dry/06_varieties_fertilizer.png",
+    "cost_production": "data-source/tiles/cowpea_dry/07_cost_production.png",
+    "risk_advice": "data-source/tiles/cowpea_dry/08_risk_advice.png",
+    "districts_detail": "data-source/tiles/cowpea_dry/09_districts_detail.png",
+    "credits": "data-source/tiles/cowpea_dry/10_credits.png"
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/cowpea_dry/ tiles.",
+    "Varieties (5 total): MI -35, Dhawala, Waruni, Bombe, MICP.",
+    "Fertilizer application rows: Basal (14 Urea, 40 TSP, 30 MOP) and Top Dressing (12 Urea during Nitrogen deficiency).",
+    "Weather transcribed with 2 icons per month (h1, h2).",
+    "Pests bounded strictly by Month column grid lines."
+  ]
+}

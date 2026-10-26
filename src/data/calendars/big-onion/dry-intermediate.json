@@ -1,0 +1,1171 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Big Onion",
+  "app_crop": "Big Onion",
+  "zones": [
+    "dry",
+    "intermediate"
+  ],
+  "regions": [
+    "Kandy IM-1, IM-2",
+    "Hambantota DL-1, DL-5",
+    "Kilinochchi DL-3, DL-4",
+    "Kurunegala IL-3, DL-1",
+    "Puttalam DL-1, DL-3",
+    "Batticaloa DL-2, DL-2a",
+    "Monaragala IM-1, ML-2, IL-1, IL-2, DL-1",
+    "Rathnapura DL-1",
+    "Anuradhapura District",
+    "Matale DL-1, IM-3",
+    "Trincomalee DL-1c, DL-2",
+    "Vavuniya DL-1, DL-1d",
+    "Mannar DL-1, DL-3",
+    "Jaffna DL-3, DL-4",
+    "Mullaitivu DL-1, DL-4",
+    "Badulla DL-1, IL-2, IM-1, IM-2",
+    "Polonnaruwa DL-1",
+    "Mahaweli System B, C & Uda Walawe Project"
+  ],
+  "irrigation": [
+    "irrigated"
+  ],
+  "source_file": "data-source/rgb/Big Onion/BIg-onion-Dry-Inter-E.png",
+  "source_year": 2013,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Main Season Bulb Cultivation (Yala)",
+      "cultivation_system": "upland",
+      "harvest_type": null,
+      "season_windows": [
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 4
+          },
+          "plant_to": {
+            "month": 5,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "kalpitiya_selection",
+          "name": "Kalpitiya Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "pusa_red",
+          "name": "Pusa Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "rampur",
+          "name": "Rampur",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "nasic_red",
+          "name": "Nasic Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "n_53",
+          "name": "N 53",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "asrifound_light_red",
+          "name": "Asrifound Light Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "dambulla_selection",
+          "name": "Dambulla Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "galewela_selection",
+          "name": "Galewela Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        }
+      ],
+      "operations": [
+        {
+          "key": "nurseries",
+          "label": "Nurseries",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery establishment starting mid-March (15th March printed)"
+        },
+        {
+          "key": "pre_emergent_weedicide",
+          "label": "Application of Pre-Emergent Weedicide",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Weedicide applied during nursery stage"
+        },
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Field preparation in April"
+        },
+        {
+          "key": "organic_fertilizer",
+          "label": "Organic Fertilizer",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Application of organic manure prior to basal dressing"
+        },
+        {
+          "key": "basal_dressing",
+          "label": "Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Basal fertilizer application before planting"
+        },
+        {
+          "key": "planting",
+          "label": "Planting / Direct Seeding",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Transplanting seedlings to field late April to early May"
+        },
+        {
+          "key": "top_dressing_1",
+          "label": "Top Dressing (2 WAP)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First top dressing applied 2 weeks after planting"
+        },
+        {
+          "key": "weed_control",
+          "label": "Weed Control",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Weeding in May"
+        },
+        {
+          "key": "top_dressing_2",
+          "label": "Top Dressing (5-6 WAP)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second top dressing applied 5-6 weeks after planting"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": "Yala",
+            "yala_month": 8,
+            "maha_month": null,
+            "month": 8,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting spans July to October; printed instruction: 'Harvesting should be carried out on 20th October'"
+        },
+        {
+          "key": "storing",
+          "label": "Storing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Onion curing and storage in thatched sheds from August through December"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": 40,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": "Basal application for cultivation kg/acre"
+        },
+        {
+          "timing_label": "2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "First top dressing"
+        },
+        {
+          "timing_label": "5-6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": "Second top dressing. Kalpitiya: Apply 150 kg of Ammonium Sulphate insted of Urea"
+        }
+      ],
+      "derived": {
+        "description": "Derived specifications from poster text",
+        "total_varieties_count": 8,
+        "average_yield_kg_ac": 8800,
+        "nursery_fertilizer_per_bed_g": {
+          "bed_size": "300 cm x 75 cm x 15 cm",
+          "basal": {
+            "urea": 15,
+            "tsp": 30,
+            "mop": 15
+          },
+          "top_dressing_2wap": {
+            "urea": 15
+          }
+        },
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 78,
+          "tsp": 40,
+          "mop": 30
+        }
+      }
+    },
+    {
+      "scenario": "off_season",
+      "label": "Off-Season Bulb Cultivation (Maha)",
+      "cultivation_system": "upland",
+      "harvest_type": null,
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 1,
+            "week": 4
+          },
+          "plant_to": {
+            "month": 2,
+            "week": 1
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "kalpitiya_selection",
+          "name": "Kalpitiya Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "pusa_red",
+          "name": "Pusa Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "rampur",
+          "name": "Rampur",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "nasic_red",
+          "name": "Nasic Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "n_53",
+          "name": "N 53",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "asrifound_light_red",
+          "name": "Asrifound Light Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "dambulla_selection",
+          "name": "Dambulla Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        },
+        {
+          "id": "galewela_selection",
+          "name": "Galewela Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            8800,
+            8800
+          ],
+          "confidence": "high",
+          "notes": "Average yield 8800 kg/ac printed on poster"
+        }
+      ],
+      "operations": [
+        {
+          "key": "nurseries",
+          "label": "Nurseries",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery establishment in December-January"
+        },
+        {
+          "key": "pre_emergent_weedicide",
+          "label": "Application of Pre-Emergent Weedicide",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Weedicide applied during nursery stage"
+        },
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Field preparation in January"
+        },
+        {
+          "key": "organic_fertilizer",
+          "label": "Organic Fertilizer",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Application of organic manure prior to basal dressing"
+        },
+        {
+          "key": "basal_dressing",
+          "label": "Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Basal fertilizer application before planting"
+        },
+        {
+          "key": "planting",
+          "label": "Direct Seeding / Planting Sets",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Planting sets/seedlings late January to early February"
+        },
+        {
+          "key": "top_dressing_1",
+          "label": "Top Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Top dressing applied 2 weeks after planting"
+        },
+        {
+          "key": "irrigation",
+          "label": "Irrigation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Irrigation during vegetative stage. Note: 'Stop Irrigation 2 weeks before harvesting'"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": "Maha",
+            "yala_month": null,
+            "maha_month": 5,
+            "month": 5,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting spans April to June"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": 40,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": "Basal application for cultivation kg/acre"
+        },
+        {
+          "timing_label": "2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "First top dressing"
+        },
+        {
+          "timing_label": "5-6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": "Second top dressing. Kalpitiya: Apply 150 kg of Ammonium Sulphate insted of Urea"
+        }
+      ],
+      "derived": {
+        "description": "Derived specifications from poster text",
+        "total_varieties_count": 8,
+        "average_yield_kg_ac": 8800,
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 78,
+          "tsp": 40,
+          "mop": 30
+        }
+      }
+    },
+    {
+      "scenario": "true_seed",
+      "label": "True Seed Production",
+      "cultivation_system": "upland",
+      "harvest_type": null,
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 1,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 1,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 4
+          },
+          "plant_to": {
+            "month": 5,
+            "week": 1
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "kalpitiya_selection",
+          "name": "Kalpitiya Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "pusa_red",
+          "name": "Pusa Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "rampur",
+          "name": "Rampur",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "nasic_red",
+          "name": "Nasic Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "n_53",
+          "name": "N 53",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "asrifound_light_red",
+          "name": "Asrifound Light Red",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "dambulla_selection",
+          "name": "Dambulla Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        },
+        {
+          "id": "galewela_selection",
+          "name": "Galewela Selection",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": null,
+          "confidence": "high",
+          "notes": "True seed mother bulb selection"
+        }
+      ],
+      "operations": [
+        {
+          "key": "selecting_of_bulbs",
+          "label": "Selecting of Bulbs",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Selection of medium, well-matured mother bulbs with sealed neck. 500 bulbs required per acre."
+        },
+        {
+          "key": "vernalisation",
+          "label": "Vernalisation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Store under 10 \u00b0C - 15 \u00b0C for two weeks (Riverston, Sita-Eliya, Rahangala)"
+        },
+        {
+          "key": "bulb_treatment",
+          "label": "Bulb Treatment",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Thiophanate-methyl 70% WP, Thiran 80% WP, or Thaiophanate-methyl 50% + Thiram 30% WP"
+        },
+        {
+          "key": "planting_mother_bulbs",
+          "label": "Planting Mother Bulbs",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spacing: 22.5 cm x 22.5 cm or 22.5 cm x 15 cm"
+        },
+        {
+          "key": "polythene_cover",
+          "label": "Polythene Cover Protection",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Polythene cover used to protect from direct sun light; height 3 ft"
+        },
+        {
+          "key": "pollination",
+          "label": "Pollination",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Best time to Pollinate - From 10.00am to 2.00 pm"
+        },
+        {
+          "key": "harvesting_for_seeds",
+          "label": "Harvesting for Seeds",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": "Maha",
+            "yala_month": 7,
+            "maha_month": 3,
+            "month": 3,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting mature seed heads (March for Maha cycle, July for Yala cycle)"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": 40,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": "Basal application for mother bulb planting"
+        },
+        {
+          "timing_label": "2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "First top dressing"
+        },
+        {
+          "timing_label": "5-6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 26,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": "Second top dressing"
+        }
+      ],
+      "derived": {
+        "description": "True seed production agronomic specifications",
+        "total_varieties_count": 8,
+        "mother_bulbs_per_acre": 500,
+        "plant_spacing": [
+          "22.5 cm x 22.5 cm",
+          "22.5 cm x 15 cm"
+        ],
+        "vernalisation": {
+          "temperature": "10 \u00b0C - 15 \u00b0C",
+          "duration": "two weeks",
+          "suitable_areas": [
+            "Riverston",
+            "Sita-Eliya",
+            "Rahangala"
+          ]
+        },
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 78,
+          "tsp": 40,
+          "mop": 30
+        }
+      }
+    }
+  ],
+  "weather_by_month": [
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "rain",
+      "h2": "sun-rain"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "thunder"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "rain",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun-cloud",
+      "h2": "sun"
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "rain",
+      "h2": "rain"
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "nursery_transplanting",
+      "type": "true_seed",
+      "kg_ac": 2.75,
+      "notes": "Printed range: 2 1/2 - 3 kg /ac. Nursery beds: 60-70 beds/acre of 3 m x 75 cm x 15 cm."
+    },
+    {
+      "method": "mother_bulb_planting",
+      "type": "bulbs",
+      "kg_ac": null,
+      "notes": "500 bulbs are required to produce seeds for an acre (True Seed Production)"
+    }
+  ],
+  "pests_diseases": [
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": []
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": [
+        {
+          "canonical_name": "purple_blotch",
+          "verbatim_text": "Purple blotch"
+        },
+        {
+          "canonical_name": "anthracnose",
+          "verbatim_text": "Anthracnose"
+        },
+        {
+          "canonical_name": "fungal_bulb_rot",
+          "verbatim_text": "Fungal bulb rot"
+        },
+        {
+          "canonical_name": "bacterial_bulb_rot",
+          "verbatim_text": "Bacteria bulb rot"
+        },
+        {
+          "canonical_name": "big_onion_caterpillar",
+          "verbatim_text": "Big onion caterpillar"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": []
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": []
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": []
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": []
+    }
+  ],
+  "risk_advice": {
+    "drought": [
+      "Cultivate on sunk beds",
+      "Replanting",
+      "Maintain nursery under rain covers",
+      "Pest - Thrips / Onion Caterpillar"
+    ],
+    "flood": [
+      "Attention on the following",
+      "Purple blotch",
+      "Cultivate on ridges during Maha season",
+      "Control irrigation",
+      "Improve irrigation system",
+      "Bulb rot, Anthracnose"
+    ],
+    "salinity": []
+  },
+  "tile_sources": {
+    "header_districts": "data-source/tiles/big_onion/01_header_districts.png",
+    "legend_operations": "data-source/tiles/big_onion/02_legend_operations.png",
+    "timeline_grid": "data-source/tiles/big_onion/03_timeline_grid.png",
+    "weather": "data-source/tiles/big_onion/03_weather.png",
+    "pests_row": "data-source/tiles/big_onion/04_pests_row.png",
+    "pest_control_measures": "data-source/tiles/big_onion/05_pest_control_measures.png",
+    "varieties": "data-source/tiles/big_onion/06_varieties_bulbs_vernalisation.png",
+    "fertilizer": "data-source/tiles/big_onion/07_fertilizer_nursery_and_field.png",
+    "nursery_spacing": "data-source/tiles/big_onion/08_nursery_spacing_bulb_treatment.png",
+    "cost_production": "data-source/tiles/big_onion/09_cost_production_yield.png",
+    "risk_advice": "data-source/tiles/big_onion/10_risk_advice.png",
+    "districts_detail": "data-source/tiles/big_onion/11_districts_detail.png",
+    "credits": "data-source/tiles/big_onion/12_credits.png"
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/big_onion/ tiles.",
+    "Exactly 8 varieties listed in Tile 06.",
+    "Fertilizer application rows: 26 Basal Urea, 40 TSP, 20 MOP; 26 Urea at 2 WAP; 26 Urea and 10 MOP at 5-6 WAP.",
+    "Kalpitiya specific note: Apply 150 kg of Ammonium Sulphate instead of Urea.",
+    "Nursery fertilizer: 15 Urea, 30 TSP, 15 MOP basal; 15 Urea at 2 WAP per 300 cm x 75 cm x 15 cm bed.",
+    "Weather icons transcribed per month (h1, h2).",
+    "Pests strictly bounded to December through June columns. Zero text leakage into neighbouring columns."
+  ]
+}

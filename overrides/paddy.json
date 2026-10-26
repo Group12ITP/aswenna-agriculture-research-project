@@ -1,0 +1,14 @@
+{
+  "crop": "Paddy",
+  "corrections": [
+    {
+      "target_file": "src/data/calendars/paddy/dry-intermediate-rainfed.json",
+      "target_entity": "variety",
+      "id": "bg304",
+      "field": "yield_range_kg_ac",
+      "printed_value": [1200, 1400],
+      "correction_value": [1400, 1600],
+      "reason": "Expert/user correction: Bg 304 typical improved agronomic yield is 1,400–1,600 kg/ac under rainfed conditions; printed poster value is 1200 -1400/kg/ac."
+    }
+  ]
+}
