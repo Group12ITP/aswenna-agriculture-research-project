@@ -1,0 +1,5 @@
+{
+  "model": "svr",
+  "horizon": 8,
+  "is_smoke": false
+}

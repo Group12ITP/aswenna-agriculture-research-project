@@ -1,0 +1,5 @@
+{
+  "model": "naive",
+  "horizon": 1,
+  "is_smoke": true
+}

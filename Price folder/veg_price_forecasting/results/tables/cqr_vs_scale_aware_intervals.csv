@@ -1,0 +1,9 @@
+horizon,method,coverage_80,width_80_lkr,width_80_pct,calibration_status
+1,Conformalized Quantile Reg (CQR),86.35,117.51,23.87,Calibrated
+1,Scale-Aware Conformal (LightGBM),83.2,117.16,55.49,Calibrated
+4,Conformalized Quantile Reg (CQR),85.0,220.11,50.8,Calibrated
+4,Scale-Aware Conformal (LightGBM),80.86,231.05,54.9,Calibrated
+8,Conformalized Quantile Reg (CQR),88.14,275.96,70.88,Over-wide
+8,Scale-Aware Conformal (LightGBM),85.62,316.36,73.88,Calibrated
+12,Conformalized Quantile Reg (CQR),90.22,286.26,71.48,Over-wide
+12,Scale-Aware Conformal (LightGBM),86.81,353.04,81.09,Calibrated

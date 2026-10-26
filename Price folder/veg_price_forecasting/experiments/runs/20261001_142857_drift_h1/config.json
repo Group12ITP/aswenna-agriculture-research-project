@@ -1,0 +1,5 @@
+{
+  "model": "drift",
+  "horizon": 1,
+  "is_smoke": false
+}

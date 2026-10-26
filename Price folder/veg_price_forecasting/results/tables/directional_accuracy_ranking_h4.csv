@@ -1,0 +1,32 @@
+rank,model,directional_accuracy_pct,status
+-,Chance Level (50.0% Random Coin-Toss),50.0,Theoretical Benchmark
+-,Empirical Upward Drift Base Rate (50.7%),50.68,Empirical Zero-Intelligence Base Rate
+1,prophet,71.43,Forecast Model
+2,tcn_1d,70.29,Forecast Model
+3,random_forest,68.79,Forecast Model
+4,simple_average_top3,68.79,Forecast Model
+5,best_per_category,68.43,Forecast Model
+6,extra_trees,68.36,Forecast Model
+7,catboost,67.29,Forecast Model
+8,seasonal_naive_48,67.14,Forecast Model
+9,lstm,66.14,Forecast Model
+10,gradient_boosting,66.07,Forecast Model
+11,lasso,66.0,Forecast Model
+12,ridge,65.64,Forecast Model
+13,svr,65.64,Forecast Model
+14,elastic_net,65.57,Forecast Model
+15,stacking_meta_learner,65.57,Forecast Model
+16,gru,65.5,Forecast Model
+17,linear_regression,65.36,Forecast Model
+18,xgboost,65.07,Forecast Model
+19,mlp,64.86,Forecast Model
+20,tft_lite,64.07,Forecast Model
+21,nbeats,64.07,Forecast Model
+22,nhits,64.07,Forecast Model
+23,lightgbm,63.0,Forecast Model
+24,transformer,61.86,Forecast Model
+25,holt_winters_ets,59.14,Forecast Model
+26,auto_arima,56.79,Forecast Model
+27,moving_average_12,55.71,Forecast Model
+28,sarimax,54.71,Forecast Model
+29,moving_average_4,47.36,Forecast Model

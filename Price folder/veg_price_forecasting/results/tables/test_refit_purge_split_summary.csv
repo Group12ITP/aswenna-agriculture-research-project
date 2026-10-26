@@ -1,0 +1,5 @@
+horizon,train_n,val_n,refit_n,purged_n,last_refit_target_week,required_max_target_week,first_test_target_week,purge_gap_to_test
+1,11744,1536,13280,0,416,416,417,1 wks (>= 1)
+4,11552,1536,12992,96,413,413,417,4 wks (>= 4)
+8,11296,1536,12608,224,409,409,417,8 wks (>= 8)
+12,11040,1536,12224,352,405,405,417,12 wks (>= 12)

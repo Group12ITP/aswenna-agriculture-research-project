@@ -1,0 +1,5 @@
+{
+  "model": "xgboost",
+  "horizon": 1,
+  "is_smoke": true
+}

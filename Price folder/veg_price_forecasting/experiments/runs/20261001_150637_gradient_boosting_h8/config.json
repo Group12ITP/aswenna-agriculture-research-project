@@ -1,0 +1,5 @@
+{
+  "model": "gradient_boosting",
+  "horizon": 8,
+  "is_smoke": false
+}

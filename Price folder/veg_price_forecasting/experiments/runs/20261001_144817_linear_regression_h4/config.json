@@ -1,0 +1,5 @@
+{
+  "model": "linear_regression",
+  "horizon": 4,
+  "is_smoke": false
+}

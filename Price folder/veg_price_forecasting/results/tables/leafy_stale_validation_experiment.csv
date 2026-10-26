@@ -1,0 +1,10 @@
+status,split,model,target_mode,training_regime,train_n,eval_n,val_MAE,val_sMAPE,val_MASE,val_R2,skill_vs_naive_pct
+EXPLORATORY,validation,Naive Persistence,raw_level,Benchmark (No Training),0,384,5.3,5.4,0.3441,0.9094,0.0
+EXPLORATORY,validation,Lasso (raw_level),raw_level,With Stale Period (Full History),2568,384,6.0,6.17,0.3892,0.8818,-13.11
+EXPLORATORY,validation,Lasso (raw_level),raw_level,Without Stale Period (Filtered 2020-2023),1448,384,6.4,6.62,0.2569,0.8715,25.34
+EXPLORATORY,validation,Lasso (log_ratio),log_ratio,With Stale Period (Full History),2472,384,5.48,5.57,0.3555,0.9055,-3.31
+EXPLORATORY,validation,Lasso (log_ratio),log_ratio,Without Stale Period (Filtered 2020-2023),1376,384,5.41,5.51,0.2173,0.9079,36.85
+EXPLORATORY,validation,LightGBM (raw_level),raw_level,With Stale Period (Full History),2568,384,5.16,5.34,0.3345,0.9226,2.79
+EXPLORATORY,validation,LightGBM (raw_level),raw_level,Without Stale Period (Filtered 2020-2023),1448,384,4.98,5.17,0.2,0.9215,41.88
+EXPLORATORY,validation,LightGBM (log_ratio),log_ratio,With Stale Period (Full History),2472,384,5.4,5.57,0.3502,0.9096,-1.77
+EXPLORATORY,validation,LightGBM (log_ratio),log_ratio,Without Stale Period (Filtered 2020-2023),1376,384,5.55,5.64,0.2227,0.9011,35.28

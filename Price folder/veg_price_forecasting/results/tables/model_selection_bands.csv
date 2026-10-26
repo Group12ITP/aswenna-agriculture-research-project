@@ -1,0 +1,5 @@
+horizon,best_model,best_target_mode,best_val_mase,best_mase_ci,se_val,band_lower,band_upper,n_in_band,selected_model,selected_target_mode,selected_tier,selected_val_mase,selected_test_mase,selected_test_skill,selected_test_holm_p
+1,best_per_category,raw_level,0.3223,"[0.2769, 0.3780]",0.0258,0.3223,0.3481,12,lasso,raw_level,Linear/Statistical,0.3256,0.2967,2.24,1.0
+4,simple_average_top3,raw_level,0.6724,"[0.5746, 0.8022]",0.0581,0.6724,0.7305,9,auto_arima,raw_level,Linear/Statistical,0.7247,0.8517,-0.72,1.0
+8,best_per_category,raw_level,0.911,"[0.7490, 0.9747]",0.0576,0.911,0.9686,9,catboost,log_ratio,Tree/Ensemble ML,0.931,0.926,29.13,0.1161
+12,best_per_category,raw_level,0.9167,"[0.8186, 1.0873]",0.0685,0.9167,0.9852,4,transformer,raw_level,Deep Learning,0.9805,1.1003,21.59,0.7864

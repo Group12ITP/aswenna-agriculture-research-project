@@ -1,0 +1,5 @@
+{
+  "model": "catboost",
+  "horizon": 12,
+  "is_smoke": false
+}

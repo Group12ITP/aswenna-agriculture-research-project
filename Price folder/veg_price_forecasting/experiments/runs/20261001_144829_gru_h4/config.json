@@ -1,0 +1,5 @@
+{
+  "model": "gru",
+  "horizon": 4,
+  "is_smoke": false
+}

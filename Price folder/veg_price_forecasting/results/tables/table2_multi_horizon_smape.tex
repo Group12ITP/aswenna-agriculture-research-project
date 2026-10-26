@@ -1,0 +1,41 @@
+\begin{table}
+\caption{Multi-Horizon Forecast Accuracy Across Horizons (1, 4, 8, 12)}
+\begin{tabular}{lrrrr}
+\toprule
+ & h=1 (sMAPE %) & h=4 (sMAPE %) & h=8 (sMAPE %) & h=12 (sMAPE %) \\
+model &  &  &  &  \\
+\midrule
+auto_arima & 5.78 & 15.31 & 24.32 & 28.19 \\
+best_per_category & 6.35 & 14.55 & 20.69 & 17.65 \\
+catboost & 7.91 & 15.88 & 18.45 & 16.67 \\
+drift & 5.89 & 15.85 & 24.72 & 27.88 \\
+elastic_net & 6.79 & 18.17 & 23.41 & 21.84 \\
+extra_trees & 6.20 & 14.31 & 16.79 & 15.44 \\
+gradient_boosting & 6.81 & 15.46 & 17.67 & 18.02 \\
+gru & 6.88 & 14.98 & 20.29 & 19.03 \\
+holt_winters_ets & 7.95 & 18.75 & 26.27 & 29.60 \\
+lasso & 6.07 & 16.14 & 21.46 & 21.44 \\
+lightgbm & 6.95 & 16.22 & 17.69 & 18.87 \\
+linear_regression & 6.81 & 18.15 & 23.50 & 23.70 \\
+lstm & 6.83 & 15.20 & 19.73 & 19.73 \\
+mlp & 6.99 & 15.13 & 18.96 & 18.25 \\
+moving_average_12 & 17.12 & 21.33 & 23.50 & 22.33 \\
+moving_average_4 & 10.05 & 18.50 & 25.42 & 27.03 \\
+naive & 5.88 & 15.83 & 24.67 & 27.99 \\
+nbeats & 8.20 & 16.72 & 21.35 & 20.88 \\
+nhits & 7.18 & 16.38 & 20.44 & 19.91 \\
+prophet & 5.87 & 12.37 & 14.53 & 13.82 \\
+random_forest & 6.12 & 14.44 & 17.23 & 16.45 \\
+ridge & 6.79 & 18.15 & 23.41 & 23.41 \\
+sarimax & 5.77 & 15.54 & 24.68 & 28.62 \\
+seasonal_naive_48 & 19.38 & 19.63 & 19.96 & 20.56 \\
+simple_average_top3 & 6.09 & 13.98 & 19.81 & 18.29 \\
+stacking_meta_learner & 5.99 & 15.01 & 22.63 & 18.89 \\
+svr & 8.09 & 14.76 & 18.38 & 16.89 \\
+tcn_1d & 7.75 & 13.96 & 18.07 & 15.71 \\
+tft_lite & 7.85 & 16.35 & 21.23 & 19.68 \\
+transformer & 6.78 & 15.97 & 21.22 & 21.72 \\
+xgboost & 6.82 & 15.06 & 17.56 & 17.07 \\
+\bottomrule
+\end{tabular}
+\end{table}

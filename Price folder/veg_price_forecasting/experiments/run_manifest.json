@@ -1,0 +1,157 @@
+{
+  "run_mode": "full",
+  "target_vegetables_count": 32,
+  "vegetables": [
+    "Ash Plantain",
+    "Ash Pumpkin",
+    "Bandakka",
+    "Beans Butter",
+    "Beans Green",
+    "Beet Root",
+    "Bitter Gourd",
+    "Brinjal",
+    "Cabbage Seed",
+    "Cap Chillies",
+    "Carrot",
+    "Cucumber",
+    "Drumstick",
+    "Gotukola",
+    "Green Chillies",
+    "Kankun",
+    "Kathurumurunga",
+    "KnolKhol",
+    "Kohila Leaves",
+    "Kohila Yams",
+    "Leeks",
+    "Limes",
+    "Long Beans",
+    "Mukunuwenna",
+    "Nivithi",
+    "Raddish",
+    "Red Pumpkin",
+    "Sarana",
+    "Snake Gourd",
+    "Thampala",
+    "Tomato No1.",
+    "Vetakolu"
+  ],
+  "horizons": [
+    1,
+    4,
+    8,
+    12
+  ],
+  "split_dates": {
+    "train": [
+      "2017-01-04",
+      "2024-08-25"
+    ],
+    "validation": [
+      "2024-09-04",
+      "2025-08-25"
+    ],
+    "test": [
+      "2025-09-04",
+      "2026-08-25"
+    ]
+  },
+  "n_obs": {
+    "train": 11776,
+    "val_tune": 768,
+    "val_cal": 768,
+    "test": 1536
+  },
+  "models_evaluated": [
+    "naive",
+    "seasonal_naive_48",
+    "moving_average_4",
+    "moving_average_12",
+    "drift",
+    "holt_winters_ets",
+    "auto_arima",
+    "sarimax",
+    "prophet",
+    "linear_regression",
+    "ridge",
+    "lasso",
+    "elastic_net",
+    "random_forest",
+    "extra_trees",
+    "gradient_boosting",
+    "xgboost",
+    "lightgbm",
+    "catboost",
+    "svr",
+    "mlp",
+    "lstm",
+    "gru",
+    "tcn_1d",
+    "nbeats",
+    "transformer",
+    "nhits",
+    "tft_lite",
+    "simple_average_top3",
+    "stacking_meta_learner",
+    "best_per_category"
+  ],
+  "selected_model": "lasso",
+  "selected_models_by_horizon": {
+    "h1": {
+      "model": "lasso",
+      "target_mode": "raw_level",
+      "tier": "Linear/Statistical",
+      "val_mase": 0.3256,
+      "band": [
+        0.3223,
+        0.3481
+      ],
+      "test_mase": 0.2967,
+      "test_skill": 2.24,
+      "holm_p": 1.0
+    },
+    "h4": {
+      "model": "auto_arima",
+      "target_mode": "raw_level",
+      "tier": "Linear/Statistical",
+      "val_mase": 0.7247,
+      "band": [
+        0.6724,
+        0.7305
+      ],
+      "test_mase": 0.8517,
+      "test_skill": -0.72,
+      "holm_p": 1.0
+    },
+    "h8": {
+      "model": "catboost",
+      "target_mode": "log_ratio",
+      "tier": "Tree/Ensemble ML",
+      "val_mase": 0.931,
+      "band": [
+        0.911,
+        0.9686
+      ],
+      "test_mase": 0.926,
+      "test_skill": 29.13,
+      "holm_p": 0.1161
+    },
+    "h12": {
+      "model": "transformer",
+      "target_mode": "raw_level",
+      "tier": "Deep Learning",
+      "val_mase": 0.9805,
+      "band": [
+        0.9167,
+        0.9852
+      ],
+      "test_mase": 1.1003,
+      "test_skill": 21.59,
+      "holm_p": 0.7864
+    }
+  },
+  "selection_rule": "At each horizon: lowest validation MASE candidate excluding baselines, 1-SE band [best, best+1SE] from bootstrap CIs, simplest model by tier (Linear/Statistical < Tree < Deep < Ensemble), tie-broken by lowest validation MASE.",
+  "primary_horizon": 4,
+  "seed": 42,
+  "primary_selected_model": "auto_arima",
+  "primary_selected_target_mode": "raw_level"
+}

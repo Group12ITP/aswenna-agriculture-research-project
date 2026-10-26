@@ -1,0 +1,5 @@
+{
+  "model": "simple_average_top3",
+  "horizon": 12,
+  "is_smoke": false
+}

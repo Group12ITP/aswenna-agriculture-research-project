@@ -1,0 +1,5 @@
+{
+  "model": "mlp",
+  "horizon": 1,
+  "is_smoke": true
+}

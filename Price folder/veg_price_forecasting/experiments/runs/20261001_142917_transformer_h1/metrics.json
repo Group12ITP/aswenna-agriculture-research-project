@@ -1,0 +1,44 @@
+{
+  "val": {
+    "MAE": 34.77,
+    "RMSE": 76.08,
+    "MAPE": 7.13,
+    "sMAPE": 6.98,
+    "MASE": 0.3338,
+    "R2": 0.9346,
+    "Bias": 1.08,
+    "Directional_Accuracy": 60.1,
+    "n_obs": 1529
+  },
+  "test": {
+    "MAE": 35.53,
+    "RMSE": 80.82,
+    "MAPE": 6.79,
+    "sMAPE": 6.78,
+    "MASE": 0.3384,
+    "R2": 0.9335,
+    "Bias": -3.86,
+    "Directional_Accuracy": 57.16,
+    "n_obs": 1494
+  },
+  "uncertainty": {
+    "coverage_pct": 83.07,
+    "mean_width_lkr": 83.74,
+    "mean_width_pct": 21.65,
+    "n_eval": 1494,
+    "by_category": {
+      "leafy vegetables": {
+        "coverage_pct": 96.81,
+        "width_pct": 21.75
+      },
+      "lowland vegetables": {
+        "coverage_pct": 79.0,
+        "width_pct": 21.57
+      },
+      "upcountry vegetables": {
+        "coverage_pct": 77.51,
+        "width_pct": 21.76
+      }
+    }
+  }
+}

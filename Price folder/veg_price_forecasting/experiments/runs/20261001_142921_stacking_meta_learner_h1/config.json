@@ -1,0 +1,5 @@
+{
+  "model": "stacking_meta_learner",
+  "horizon": 1,
+  "is_smoke": false
+}

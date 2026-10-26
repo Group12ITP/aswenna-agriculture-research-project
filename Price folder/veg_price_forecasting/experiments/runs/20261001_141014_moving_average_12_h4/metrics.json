@@ -1,0 +1,40 @@
+{
+  "val": {
+    "MAE": 358.45,
+    "RMSE": 497.62,
+    "MAPE": 47.9,
+    "sMAPE": 41.95,
+    "MASE": 1.8842,
+    "R2": -0.0388,
+    "Bias": 2.02,
+    "Directional_Accuracy": 48.23,
+    "n_obs": 141
+  },
+  "test": {
+    "MAE": 278.45,
+    "RMSE": 390.28,
+    "MAPE": 36.2,
+    "sMAPE": 35.5,
+    "MASE": 1.2698,
+    "R2": -0.0213,
+    "Bias": -58.8,
+    "Directional_Accuracy": 49.61,
+    "n_obs": 127
+  },
+  "uncertainty": {
+    "coverage_pct": 79.53,
+    "mean_width_lkr": 980.27,
+    "mean_width_pct": 146.12,
+    "n_eval": 127,
+    "by_category": {
+      "lowland vegetables": {
+        "coverage_pct": 68.67,
+        "width_pct": 157.34
+      },
+      "upcountry vegetables": {
+        "coverage_pct": 100.0,
+        "width_pct": 151.42
+      }
+    }
+  }
+}

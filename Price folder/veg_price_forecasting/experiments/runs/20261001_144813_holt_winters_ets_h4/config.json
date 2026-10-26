@@ -1,0 +1,5 @@
+{
+  "model": "holt_winters_ets",
+  "horizon": 4,
+  "is_smoke": false
+}

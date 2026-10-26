@@ -1,0 +1,5 @@
+{
+  "model": "random_forest",
+  "horizon": 1,
+  "is_smoke": false
+}

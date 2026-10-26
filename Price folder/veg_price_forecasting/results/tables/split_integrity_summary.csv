@@ -1,0 +1,13 @@
+horizon,split,n_obs,min_origin_week,max_origin_week,min_target_week,max_target_week,purge_gap_to_next
+1,Train,11194,1,367,2,368,1 wks (>= h=1)
+1,Validation,1528,368,415,369,416,1 wk (target disjoint)
+1,Test,1526,416,463,417,464,N/A (terminal split)
+4,Train,11004,1,361,5,365,4 wks (>= h=4)
+4,Validation,1528,365,412,369,416,1 wk (target disjoint)
+4,Test,1526,413,460,417,464,N/A (terminal split)
+8,Train,10748,1,353,9,361,8 wks (>= h=8)
+8,Validation,1528,361,408,369,416,1 wk (target disjoint)
+8,Test,1526,409,456,417,464,N/A (terminal split)
+12,Train,10492,1,345,13,357,12 wks (>= h=12)
+12,Validation,1528,357,404,369,416,1 wk (target disjoint)
+12,Test,1526,405,452,417,464,N/A (terminal split)

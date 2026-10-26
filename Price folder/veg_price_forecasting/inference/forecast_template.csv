@@ -1,0 +1,7 @@
+vegetable,unit,forecast_week,horizon,predicted_price_lkr,lower_80,upper_80,lower_95,upper_95,model_name
+Carrot,1kg,2026-09-04,4,485.50,412.68,558.32,364.12,606.88,LightGBM_Optuna
+Green Chillies,1kg,2026-09-04,4,820.00,680.60,959.40,598.60,1041.40,LightGBM_Optuna
+Drumstick,1kg,2026-09-04,4,1250.00,987.50,1512.50,812.50,1687.50,LightGBM_Optuna
+Leeks,1kg,2026-09-04,4,360.25,306.21,414.29,270.19,450.31,LightGBM_Optuna
+Brinjal,1kg,2026-09-04,4,295.00,250.75,339.25,221.25,368.75,LightGBM_Optuna
+Gotukola,Bunch,2026-09-04,4,45.00,38.25,51.75,33.75,56.25,LightGBM_Optuna

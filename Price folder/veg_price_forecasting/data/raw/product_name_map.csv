@@ -1,0 +1,123 @@
+product_name_raw,product_name_clean,unit,category,is_vegetable,is_veg_adjacent,suggested_merge_target,normalization_status,notes
+Anamalu 1Kg,Anamalu,1kg,fruits,False,False,Anamalu,clean_exact,Canonical name consistent across all reports
+Anchor 400g,Anchor,400g,milk powder,False,False,Anchor,clean_exact,Canonical name consistent across all reports
+Arecanuts - Average 100 Nuts,Arecanuts - Average,100 nuts,arecanuts,False,False,Arecanuts - Average,clean_exact,Canonical name consistent across all reports
+Arecanuts - Medium 100 Nuts,Arecanuts - Medium,100 nuts,arecanuts,False,False,Arecanuts - Medium,clean_exact,Canonical name consistent across all reports
+Arecanuts - Small 100Nuts,Arecanuts - Small,100 nuts,arecanuts,False,False,Arecanuts - Small,clean_exact,Canonical name consistent across all reports
+Ash Plantain 1kg,Ash Plantain,1kg,lowland vegetables,True,False,Ash Plantain,clean_exact,Canonical name consistent across all reports
+Ash Pumpkin 1kg,Ash Pumpkin,1kg,lowland vegetables,True,False,Ash Pumpkin,clean_exact,Canonical name consistent across all reports
+Average Coconuts Each,Average Coconuts,Each,coconuts,False,False,Average Coconuts,clean_exact,Canonical name consistent across all reports
+B.Onions Imported 1kg,B.Onions Imported,1kg,onions,False,True,B.Onions Imported,clean_exact,Canonical name consistent across all reports
+B.Onions Local 1kg,B.Onions Local,1kg,onions,False,True,B.Onions Local,clean_exact,Canonical name consistent across all reports
+Balaya 1Kg,Balaya,1kg,fresh fish,False,False,Balaya,clean_exact,Canonical name consistent across all reports
+Bandakka 1kg,Bandakka,1kg,lowland vegetables,True,False,Bandakka,clean_exact,Canonical name consistent across all reports
+Beans Butter 1kg,Beans Butter,1kg,upcountry vegetables,True,False,Beans Butter,clean_exact,Canonical name consistent across all reports
+Beans Green 1kg,Beans Green,1kg,upcountry vegetables,True,False,Beans Green,clean_exact,Canonical name consistent across all reports
+Beef 1Kg,Beef,1kg,meat,False,False,Beef,clean_exact,Canonical name consistent across all reports
+Beet Root 1kg,Beet Root,1kg,upcountry vegetables,True,False,Beet Root,clean_exact,Canonical name consistent across all reports
+Betel Leaves - Average 100 leaves,Betel Leaves - Average,100 leaves,betel leaves,False,False,Betel Leaves - Average,clean_exact,Canonical name consistent across all reports
+Betel Leaves - Medium 100 leaves,Betel Leaves - Medium,100 leaves,betel leaves,False,False,Betel Leaves - Medium,clean_exact,Canonical name consistent across all reports
+Betel Leaves - Small 100 leaves,Betel Leaves - Small,100 leaves,betel leaves,False,False,Betel Leaves - Small,clean_exact,Canonical name consistent across all reports
+Bitter Guard 1kg,Bitter Guard,1kg,lowland vegetables,True,False,Bitter Gourd,fuzzy_review_needed,Spelling normalization suggested: 'Bitter Guard' -> 'Bitter Gourd'
+Bread 450g,Bread,450g,bread,False,False,Bread,clean_exact,Canonical name consistent across all reports
+Brinjal 1kg,Brinjal,1kg,lowland vegetables,True,False,Brinjal,clean_exact,Canonical name consistent across all reports
+Cabbagge Seed 1kg,Cabbagge Seed,1kg,upcountry vegetables,True,False,Cabbage Seed,fuzzy_review_needed,Spelling normalization suggested: 'Cabbagge Seed' -> 'Cabbage Seed'
+Cap Chillies 1kg,Cap Chillies,1kg,lowland vegetables,True,False,Cap Chillies,clean_exact,Canonical name consistent across all reports
+Carrot 1kg,Carrot,1kg,upcountry vegetables,True,False,Carrot,clean_exact,Canonical name consistent across all reports
+Chicken Broiler 1Kg,Chicken Broiler,1kg,meat,False,False,Chicken Broiler,clean_exact,Canonical name consistent across all reports
+Chicken Fresh 1Kg,Chicken Fresh,1kg,meat,False,False,Chicken Fresh,clean_exact,Canonical name consistent across all reports
+Cinnamon 1Kg,Cinnamon,1kg,spices/condiments,False,False,Cinnamon,clean_exact,Canonical name consistent across all reports
+Coconut Oil 750ml,Coconut Oil,750ml,coconut oil,False,False,Coconut Oil,clean_exact,Canonical name consistent across all reports
+Corriander 1Kg,Corriander,1kg,spices/condiments,False,False,Coriander,fuzzy_review_needed,Spelling normalization suggested: 'Corriander' -> 'Coriander'
+Cowpea Whole Average 1Kg,Cowpea Whole Average,1kg,flour & pulses,False,False,Cowpea Whole Average,clean_exact,Canonical name consistent across all reports
+Cucumber 1kg,Cucumber,1kg,lowland vegetables,True,False,Cucumber,clean_exact,Canonical name consistent across all reports
+CumminSeed 1Kg,CumminSeed,1kg,spices/condiments,False,False,Cummin Seed,fuzzy_review_needed,Spelling normalization suggested: 'CumminSeed' -> 'Cummin Seed'
+Dried Chillies No1. 1Kg,Dried Chillies No1.,1kg,spices/condiments,False,False,Dried Chillies No1.,clean_exact,Canonical name consistent across all reports
+Drumstick 1kg,Drumstick,1kg,lowland vegetables,True,False,Drumstick,clean_exact,Canonical name consistent across all reports
+Egg - Average Each,Egg - Average,Each,eggs,False,False,Egg - Average,clean_exact,Canonical name consistent across all reports
+Egg - Red Each,Egg - Red,Each,eggs,False,False,Egg - Red,clean_exact,Canonical name consistent across all reports
+Egg - White Each,Egg - White,Each,eggs,False,False,Egg - White,clean_exact,Canonical name consistent across all reports
+Fennel Seed 1Kg,Fennel Seed,1kg,spices/condiments,False,False,Fennel Seed,clean_exact,Canonical name consistent across all reports
+Garlic 1Kg,Garlic,1kg,spices/condiments,False,False,Garlic,clean_exact,Canonical name consistent across all reports
+Gorakka 1Kg,Gorakka,1kg,spices/condiments,False,False,Gorakka,clean_exact,Canonical name consistent across all reports
+Gotukola Bunch,Gotukola,Bunch,leafy vegetables,True,False,Gotukola,clean_exact,Canonical name consistent across all reports
+Green Chillies 1kg,Green Chillies,1kg,lowland vegetables,True,False,Green Chillies,clean_exact,Canonical name consistent across all reports
+Green Gram Average 1Kg,Green Gram Average,1kg,flour & pulses,False,False,Green Gram Average,clean_exact,Canonical name consistent across all reports
+Highland 400g,Highland,400g,milk powder,False,False,Highland,clean_exact,Canonical name consistent across all reports
+Hurulla 1Kg,Hurulla,1kg,fresh fish,False,False,Hurulla,clean_exact,Canonical name consistent across all reports
+Imported Potatoes 1Kg,Imported Potatoes,1kg,potatoes,False,True,Imported Potatoes,clean_exact,Canonical name consistent across all reports
+Kadalai Average 1Kg,Kadalai Average,1kg,flour & pulses,False,False,Kadalai Average,clean_exact,Canonical name consistent across all reports
+Kankun Bunch,Kankun,Bunch,leafy vegetables,True,False,Kankun,clean_exact,Canonical name consistent across all reports
+Kathurumurunga Bunch,Kathurumurunga,Bunch,leafy vegetables,True,False,Kathurumurunga,clean_exact,Canonical name consistent across all reports
+Katta 1Kg,Katta,1kg,dried fish,False,False,Katta,clean_exact,Canonical name consistent across all reports
+Kelewella 1Kg,Kelewella,1kg,fresh fish,False,False,Kelewella,clean_exact,Canonical name consistent across all reports
+KnolKhol 1kg,KnolKhol,1kg,upcountry vegetables,True,False,KnolKhol,clean_exact,Canonical name consistent across all reports
+Kohila Leaves Bunch,Kohila Leaves,Bunch,leafy vegetables,True,False,Kohila Leaves,clean_exact,Canonical name consistent across all reports
+Kohila Yams 1kg,Kohila Yams,1kg,lowland vegetables,True,False,Kohila Yams,clean_exact,Canonical name consistent across all reports
+Kolikuttu 1Kg,Kolikuttu,1kg,fruits,False,False,Kolikuttu,clean_exact,Canonical name consistent across all reports
+Lactogen I 400g,Lactogen I,400g,milk powder,False,False,Lactogen I,clean_exact,Canonical name consistent across all reports
+Lactogen II 400g,Lactogen II,400g,milk powder,False,False,Lactogen II,clean_exact,Canonical name consistent across all reports
+Lakspray 400g,Lakspray,400g,milk powder,False,False,Lakspray,clean_exact,Canonical name consistent across all reports
+Large Coconuts Each,Large Coconuts,Each,coconuts,False,False,Large Coconuts,clean_exact,Canonical name consistent across all reports
+Leeks 1kg,Leeks,1kg,upcountry vegetables,True,False,Leeks,clean_exact,Canonical name consistent across all reports
+Limes 1kg,Limes,1kg,lowland vegetables,True,False,Limes,clean_exact,Canonical name consistent across all reports
+Linna 1Kg,Linna,1kg,fresh fish,False,False,Linna,clean_exact,Canonical name consistent across all reports
+Local Potatoes 1Kg,Local Potatoes,1kg,potatoes,False,True,Local Potatoes,clean_exact,Canonical name consistent across all reports
+Long Beans 1kg,Long Beans,1kg,lowland vegetables,True,False,Long Beans,clean_exact,Canonical name consistent across all reports
+MaldiveFish U 1Kg,MaldiveFish U,1kg,spices/condiments,False,False,Maldive Fish U,fuzzy_review_needed,Spelling normalization suggested: 'MaldiveFish U' -> 'Maldive Fish U'
+Maliban 400g,Maliban,400g,milk powder,False,False,Maliban,clean_exact,Canonical name consistent across all reports
+Mathe Seed 1Kg,Mathe Seed,1kg,spices/condiments,False,False,Mathe Seed,clean_exact,Canonical name consistent across all reports
+Medium Coconuts Each,Medium Coconuts,Each,coconuts,False,False,Medium Coconuts,clean_exact,Canonical name consistent across all reports
+Mora 1Kg,Mora,1kg,fresh fish,False,False,Mora,clean_exact,Canonical name consistent across all reports
+Mukunuwenna Bunch,Mukunuwenna,Bunch,leafy vegetables,True,False,Mukunuwenna,clean_exact,Canonical name consistent across all reports
+Mullet 1Kg,Mullet,1kg,fresh fish,False,False,Mullet,clean_exact,Canonical name consistent across all reports
+Mustard 1Kg,Mustard,1kg,spices/condiments,False,False,Mustard,clean_exact,Canonical name consistent across all reports
+Mutton 1Kg,Mutton,1kg,meat,False,False,Mutton,clean_exact,Canonical name consistent across all reports
+Mysore Dhall - Average 1Kg,Mysore Dhall - Average,1kg,flour & pulses,False,False,Mysore Dhall - Average,clean_exact,Canonical name consistent across all reports
+Mysore Dhall - No1. Large 1Kg,Mysore Dhall - No1. Large,1kg,flour & pulses,False,False,Mysore Dhall - No1. Large,clean_exact,Canonical name consistent across all reports
+Mysore Dhall - No2.Medium 1Kg,Mysore Dhall - No2.Medium,1kg,flour & pulses,False,False,Mysore Dhall - No2.Medium,clean_exact,Canonical name consistent across all reports
+Mysore Dhall - No3.Small 1Kg,Mysore Dhall - No3.Small,1kg,flour & pulses,False,False,Mysore Dhall - No3.Small,clean_exact,Canonical name consistent across all reports
+Nadu Red 1Kg,Nadu Red,1kg,rice,False,False,Nadu Red,clean_exact,Canonical name consistent across all reports
+Nadu White 1Kg,Nadu White,1kg,rice,False,False,Nadu White,clean_exact,Canonical name consistent across all reports
+Nadu White Imported 1Kg,Nadu White Imported,1kg,rice,False,False,Nadu White Imported,clean_exact,Canonical name consistent across all reports
+Nivithi 500g,Nivithi,500g,leafy vegetables,True,False,Nivithi,clean_exact,Canonical name consistent across all reports
+Papaw 1Kg,Papaw,1kg,fruits,False,False,Papaw,clean_exact,Canonical name consistent across all reports
+Parati 1Kg,Parati,1kg,fresh fish,False,False,Parati,clean_exact,Canonical name consistent across all reports
+Paraw 1Kg,Paraw,1kg,fresh fish,False,False,Paraw,clean_exact,Canonical name consistent across all reports
+Pelwatta 400g,Pelwatta,400g,milk powder,False,False,Pelwatta,clean_exact,Canonical name consistent across all reports
+Pepper Powder 1Kg,Pepper Powder,1kg,spices/condiments,False,False,Pepper Powder,clean_exact,Canonical name consistent across all reports
+Pineapple 1Kg,Pineapple,1kg,fruits,False,False,Pineapple,clean_exact,Canonical name consistent across all reports
+Ponni Samba Imported 1Kg,Ponni Samba Imported,1kg,rice,False,False,Ponni Samba Imported,clean_exact,Canonical name consistent across all reports
+Pork 1Kg,Pork,1kg,meat,False,False,Pork,clean_exact,Canonical name consistent across all reports
+Prawns 1Kg,Prawns,1kg,fresh fish,False,False,Prawns,clean_exact,Canonical name consistent across all reports
+Raddish 1kg,Raddish,1kg,upcountry vegetables,True,False,Raddish,clean_exact,Canonical name consistent across all reports
+Raw Red Average 1Kg,Raw Red Average,1kg,rice,False,False,Raw Red Average,clean_exact,Canonical name consistent across all reports
+Raw Red Imported 1Kg,Raw Red Imported,1kg,rice,False,False,Raw Red Imported,clean_exact,Canonical name consistent across all reports
+Raw Red No1. 1Kg,Raw Red No1.,1kg,rice,False,False,Raw Red No1.,clean_exact,Canonical name consistent across all reports
+Raw Red No2. 1Kg,Raw Red No2.,1kg,rice,False,False,Raw Red No2.,clean_exact,Canonical name consistent across all reports
+Raw White Average 1Kg,Raw White Average,1kg,rice,False,False,Raw White Average,clean_exact,Canonical name consistent across all reports
+Raw White Imported 1Kg,Raw White Imported,1kg,rice,False,False,Raw White Imported,clean_exact,Canonical name consistent across all reports
+Raw White Local 1Kg,Raw White Local,1kg,rice,False,False,Raw White Local,clean_exact,Canonical name consistent across all reports
+Red Onions Average 1Kg,Red Onions Average,1kg,onions,False,True,Red Onions Average,clean_exact,Canonical name consistent across all reports
+Red Pumpkin 1kg,Red Pumpkin,1kg,lowland vegetables,True,False,Red Pumpkin,clean_exact,Canonical name consistent across all reports
+Salaya 1Kg,Salaya,1kg,fresh fish,False,False,Salaya,clean_exact,Canonical name consistent across all reports
+Salaya Average 1Kg,Salaya Average,1kg,dried fish,False,False,Salaya Average,clean_exact,Canonical name consistent across all reports
+Salt 1KgPkt,Salt,1kg pkt,spices/condiments,False,False,Salt,clean_exact,Canonical name consistent across all reports
+Samba Average 1Kg,Samba Average,1kg,rice,False,False,Samba Average,clean_exact,Canonical name consistent across all reports
+Samba No1. 1Kg,Samba No1.,1kg,rice,False,False,Samba No1.,clean_exact,Canonical name consistent across all reports
+Samba No2. 1Kg,Samba No2.,1kg,rice,False,False,Samba No2.,clean_exact,Canonical name consistent across all reports
+Sarana Bunch,Sarana,Bunch,leafy vegetables,True,False,Sarana,clean_exact,Canonical name consistent across all reports
+Small Coconuts Each,Small Coconuts,Each,coconuts,False,False,Small Coconuts,clean_exact,Canonical name consistent across all reports
+Small Mullet 1Kg,Small Mullet,1kg,fresh fish,False,False,Small Mullet,clean_exact,Canonical name consistent across all reports
+Snake Gourd 1kg,Snake Gourd,1kg,lowland vegetables,True,False,Snake Gourd,clean_exact,Canonical name consistent across all reports
+Sour Plantain 1Kg,Sour Plantain,1kg,fruits,False,False,Sour Plantain,clean_exact,Canonical name consistent across all reports
+Spratts 1Kg,Spratts,1kg,dried fish,False,False,Spratts,clean_exact,Canonical name consistent across all reports
+Sugar 1Kg,Sugar,1kg,sugar,False,False,Sugar,clean_exact,Canonical name consistent across all reports
+Tamarind 1Kg,Tamarind,1kg,spices/condiments,False,False,Tamarind,clean_exact,Canonical name consistent across all reports
+Thalapath 1Kg,Thalapath,1kg,fresh fish,False,False,Thalapath,clean_exact,Canonical name consistent across all reports
+Thampala Bunch,Thampala,Bunch,leafy vegetables,True,False,Thampala,clean_exact,Canonical name consistent across all reports
+Tinned Fish 425g,Tinned Fish,425g,tinned fish,False,False,Tinned Fish,clean_exact,Canonical name consistent across all reports
+Tomatoe No1. 1kg,Tomatoe No1.,1kg,upcountry vegetables,True,False,Tomato No1.,fuzzy_review_needed,Spelling normalization suggested: 'Tomatoe No1.' -> 'Tomato No1.'
+Turmeric Powder 1Kg,Turmeric Powder,1kg,spices/condiments,False,False,Turmeric Powder,clean_exact,Canonical name consistent across all reports
+Vetakolu 1kg,Vetakolu,1kg,lowland vegetables,True,False,Vetakolu,clean_exact,Canonical name consistent across all reports
+WheatFlour1Kg,WheatFlour,1kg,flour & pulses,False,False,Wheat Flour,fuzzy_review_needed,Spelling normalization suggested: 'WheatFlour' -> 'Wheat Flour'

@@ -1,0 +1,4 @@
+horizon,model,target_mode,n_obs,MAE,sMAPE,MASE,SM4Yr_MASE,Skill_vs_SM4Yr_pct,DM_stat_vs_SM4Yr,DM_pval_vs_SM4Yr,is_selected,DM_pval_Holm_vs_SM4Yr,Better_Than_SM4Yr
+4,auto_arima,raw_level,1400,89.92,15.31,0.8517,0.6958,-22.41,1.461,0.144,True,1.0,No Significant Diff
+8,catboost,log_ratio,1526,94.32,17.25,0.926,0.7212,-28.4,2.2148,0.0268,True,0.1155,No Significant Diff
+12,transformer,raw_level,1526,112.64,21.85,1.0386,0.6774,-53.32,5.5832,0.0,True,0.0,Significantly Worse
