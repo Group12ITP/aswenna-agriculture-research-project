@@ -1,0 +1,8 @@
+file_path,folder_year,folder_month,folder_week,header_text,header_year,header_month,header_week,resolved_year,resolved_month,resolved_week,resolution_reason
+2020/Jan/Week 3/file(1).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file(2).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file(3).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file(4).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file(5).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file(6).xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
+2020/Jan/Week 3/file.xlsx,2020,1,3,W2.Jan.2020,2020,1,2,2020,1,2,Header trusted over folder path per extraction rule
