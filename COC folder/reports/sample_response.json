@@ -1,0 +1,67 @@
+{
+    "request_id": "8cf66204-4f1a-4a29-93c3-3bca424705b4",
+    "timestamp": "2026-10-08T13:17:28.769845+00:00",
+    "predicted_cost": 866962.2,
+    "interval_low": 718041.9,
+    "interval_high": 1046768.2,
+    "low_confidence": false,
+    "low_confidence_reason": null,
+    "reference_note": "Model reference year is 2025 (latest available data). Predictions will refresh when 2026 data is ingested.",
+    "top_drivers": [
+        {
+            "feature": "Crop",
+            "contribution_pct": 39.4,
+            "direction": "+"
+        },
+        {
+            "feature": "Prev_Season_Total_Cost_Incl_Imputed",
+            "contribution_pct": 27.0,
+            "direction": "+"
+        },
+        {
+            "feature": "USD_LKR_Rate",
+            "contribution_pct": 15.8,
+            "direction": "+"
+        }
+    ],
+    "model_version": "extratrees_champion_v2",
+    "reference_year": 2025,
+    "prediction_target": "next_available_season",
+    "warning": null,
+    "cost_breakdown": {
+        "Cultivation Labour": {
+            "percent": 34.1,
+            "estimated_cost": 295634
+        },
+        "Fertilizer": {
+            "percent": 43.5,
+            "estimated_cost": 377129
+        },
+        "Land Preparation": {
+            "percent": 1.7,
+            "estimated_cost": 14738
+        },
+        "Fuel & Machinery": {
+            "percent": 1.3,
+            "estimated_cost": 11271
+        },
+        "Seeds": {
+            "percent": 12.4,
+            "estimated_cost": 107503
+        },
+        "Mechanized Irrigation": {
+            "percent": 0.8,
+            "estimated_cost": 6936
+        },
+        "Agrochemicals & Other": {
+            "percent": 6.2,
+            "estimated_cost": 53752
+        }
+    },
+    "breakdown_source": "historical_district_crop_ratio",
+    "breakdown_note": "Component breakdown estimated from historical district-crop ratios. The total is the model's prediction; the split is illustrative.",
+    "breakdown_alias_note": null,
+    "lag_saturation_detected": true,
+    "lag_saturation_threshold": 846226.49,
+    "lag_saturation_note": "The provided prior season cost (Rs 865,823) exceeds the maximum value the model has seen for Potato in Nuwara Eliya (Rs 846,226). The model's prediction is capped at the top of its training range for this feature. To capture higher costs, the model requires retraining on newer data."
+}

@@ -1,0 +1,31 @@
+# Cross-Validation Configuration for IT4010 COC Research Suite
+primary_cv:
+  name: "Leave-One-Season-Year-Out (LOSO)"
+  group_column: "Year_Start"
+  years: [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+  total_folds: 12
+
+secondary_cv:
+  name: "Forward-Chaining Rolling-Origin"
+  horizons:
+    - name: "FC_2022"
+      train_before_year: 2022
+      test_year: 2022
+    - name: "FC_2023"
+      train_before_year: 2023
+      test_year: 2023
+    - name: "FC_2024"
+      train_before_year: 2024
+      test_year: 2024
+    - name: "FC_2025"
+      train_before_year: 2025
+      test_year: 2025
+
+inner_tuning_cv:
+  strategy: "Temporal_Split"
+  test_size: 0.15
+  random_state: 42
+
+random_seeds:
+  deep_learning: [42, 123, 456, 789, 2026]
+  global_seed: 42

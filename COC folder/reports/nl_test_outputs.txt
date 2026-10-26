@@ -1,0 +1,126 @@
+================================================================================
+SO1 NATURAL LANGUAGE QUERY BENCHMARK OUTPUTS
+Model: Ollama llama3.1:8b | Predictive Model: GradientBoostingRegressor (calibrated)
+Timestamp: 2026-09-25 22:40:32
+================================================================================
+
+TEST QUERY 1:
+Query: "What will it cost to grow tomato in Hambantota this Yala on 1.5 acres?"
+Response Time: 91.33 seconds
+
+PARSED INPUT (JSON):
+{
+  "district": "Hambantota",
+  "crop": "Tomato",
+  "season": "Yala",
+  "irrigation_type": "Unspecified",
+  "field_size_acres": 1.5,
+  "prev_season_cost": null,
+  "season_inferred": false
+}
+
+PREDICTION METRICS:
+  - Predicted Cost : Rs 449,919.1 per acre
+  - 80% Range      : Rs 361,468.4 to Rs 560,013.6 per acre
+  - Low Confidence : True
+  - Warning        : No historical data for Tomato in Hambantota. Prediction will use national Tomato averages and may be less accurate.
+  - Field Size     : 1.5 acres (Total: Rs 674,878.6)
+
+GENERATED NARRATIVE:
+Here's the explanation:
+
+**Predicted Cost per Acre:** The predicted cost to grow tomato in Hambantota this Yala season is Rs 449,919 LKR per acre.
+
+**Expected Range:** We are 80% confident that the actual cost will be between Rs 361,468 to Rs 560,014 LKR per acre.
+
+**Top Drivers:**
+
+* **Prev_Season_Total_Cost_Incl_Imputed:** The most recent cost of growing tomato in the same district is above the training average, contributing 50.6% to the predicted cost.
+* **Year_Start:** The calendar year is above the training baseline, reflecting the general upward cost trend, contributing 17.8% to the predicted cost.
+* **Crop:** The intrinsic baseline cost of growing tomato is naturally higher than the average crop, contributing 15.7% to the predicted cost.
+
+**Low Confidence Warning:** We have a low-confidence flag for this prediction, as there is no historical data for growing tomato in Hambantota. This means the prediction may be less accurate.
+
+**Next Action:** To get a more accurate estimate, we recommend collecting data on the actual costs of growing tomato in Hambantota for future predictions.
+
+--------------------------------------------------------------------------------
+
+TEST QUERY 2:
+Query: "I'm advising a farmer in Nuwara Eliya about potato for next season. Is it a good time to plant?"
+Response Time: 64.16 seconds
+
+PARSED INPUT (JSON):
+{
+  "district": "Nuwara Eliya",
+  "crop": "Potato",
+  "season": "Yala",
+  "irrigation_type": "Unspecified",
+  "field_size_acres": null,
+  "prev_season_cost": null,
+  "season_inferred": true
+}
+
+PREDICTION METRICS:
+  - Predicted Cost : Rs 654,252.1 per acre
+  - 80% Range      : Rs 525,631.1 to Rs 814,346.4 per acre
+  - Low Confidence : False
+
+GENERATED NARRATIVE:
+Note: I've assumed Yala season based on the current date. You can specify a different season if needed.
+
+Here's the explanation for the farmer:
+
+The predicted cost per acre for potato in Nuwara Eliya for next season is Rs 654,252 LKR. We expect the cost to be between Rs 525,631 to Rs 814,346 LKR per acre with 80% confidence.
+
+The main reasons for the high predicted cost are:
+
+* The most recent cost of potato in Nuwara Eliya was above the training average, which is a high positive contribution from the "Prev_Season_Total_Cost_Incl_Imputed" feature.
+* Potatoes are naturally more expensive to cultivate than average, which is a positive contribution from the "Crop" feature.
+* The calendar year is above the training baseline, reflecting the general upward cost trend from inflation, which is a positive contribution from the "Year_Start" feature.
+
+Note that there is no low-confidence warning, so we can rely on these predictions.
+
+Based on these results, I would suggest that the farmer consider the high cost of cultivation labour and fertilizer when planning for next season.
+
+--------------------------------------------------------------------------------
+
+TEST QUERY 3:
+Query: "Predict the cost for green chilli in Anuradhapura"
+Response Time: 74.33 seconds
+
+PARSED INPUT (JSON):
+{
+  "district": "Anuradhapura",
+  "crop": "Green Chilli",
+  "season": "Yala",
+  "irrigation_type": null,
+  "field_size_acres": null,
+  "prev_season_cost": null,
+  "season_inferred": true
+}
+
+PREDICTION METRICS:
+  - Predicted Cost : Rs 391,953.5 per acre
+  - 80% Range      : Rs 314,898.4 to Rs 487,864.0 per acre
+  - Low Confidence : False
+
+GENERATED NARRATIVE:
+Note: I've assumed Yala season based on the current date. You can specify a different season if needed.
+
+Here's the explanation:
+
+**Predicted Cost per Acre:** The predicted cost for growing green chilli in Anuradhapura is Rs 391,954 per acre.
+
+**Expected Range:** We are 80% confident that the actual cost will be between Rs 314,898 and Rs 487,864 per acre.
+
+**Top Drivers:**
+
+* **Prev_Season_Total_Cost_Incl_Imputed:** The most recent cost of growing the same crop in the same district was above the training average, contributing 43.3% to the predicted cost.
+* **Year_Start:** The calendar year is above the training baseline, reflecting the general upward cost trend from inflation, contributing 19.1% to the predicted cost.
+* **Crop:** Green chilli is a naturally more expensive crop to cultivate than average, contributing 18.3% to the predicted cost.
+
+**Low Confidence Warning:** There is no low-confidence warning, indicating that the model has a standard level of confidence in the prediction.
+
+**Next Action:** Based on the high contribution of cultivation labour (57.1%) to the predicted cost, it may be worth exploring ways to optimize labour costs, such as implementing more efficient farming practices or considering mechanization.
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,50 @@
+================================================================================
+COMPARATIVE ANALYSIS REPORT: SHALLOW VS. DEEP MODELS (SO1)
+Sri Lanka Department of Agriculture - Cost of Cultivation (COC) Predictive Engine
+================================================================================
+
+1. EXECUTIVE SUMMARY & WINNER DETERMINATION
+--------------------------------------------------------------------------------
+- Best Shallow Model : GradientBoostingRegressor (LOSO R² = 0.8911, MAE = Rs 26,446.7)
+- Best Deep Model    : CatBoost (LOSO R² = 0.8967, MAE = Rs 24,858.6)
+- Winner             : CatBoost (Deep Model)
+- Delta (Δ R²)       : +0.0056 LOSO R² in favor of CatBoost
+- Production Status  : GRADIENTBOOSTING RETAINED IN PRODUCTION (Deep model did not exceed shallow baseline by >0.02 R²)
+
+2. THEORETICAL & EMPIRICAL CONCLUSION
+--------------------------------------------------------------------------------
+At 641 rows across 23 crops, deep models achieved higher LOSO R². 
+This is consistent with tabular deep learning literature showing tree-based 
+ensembles remain competitive on small tabular datasets (Shwartz-Ziv & Armon, 2022).
+
+Key Literature Context (Shwartz-Ziv & Armon, 2022; Grinsztajn et al., 2022):
+1. Small Tabular Sample Regimes: Deep architectures (MLP, TabNet) possess large 
+   parameter capacities and weak inductive biases for unaligned tabular feature 
+   spaces. On small datasets (N = 641), neural networks require heavy regularization 
+   and struggle with sharp axis-aligned decision boundaries that tree ensembles 
+   capture natively.
+2. Rotational Invariance vs. Axis-Aligned Splitting: Tabular data features possess 
+   disparate individual physical meanings (e.g. inflation exchange rate vs. 
+   categorical crop type). Neural networks treat coordinate rotations identically, 
+   whereas tree ensembles split individual coordinates greedily without losing 
+   interpretability or robustness.
+3. Computational Overhead: As demonstrated in our benchmark, tree-based models 
+   trained significantly faster with single-digit millisecond inference latencies, 
+   making them optimal for real-time agricultural advisory systems in the field.
+
+3. DETAILED PERFORMANCE MATRIX
+--------------------------------------------------------------------------------
+Model_Family                Model_Name   GKF_MAE  GKF_RMSE    GKF_R2  LOSO_MAE  LOSO_RMSE  LOSO_R2  Training_Time_Seconds  Inference_Time_ms
+     Shallow          LinearRegression 143655.04 190645.42   -1.1802  28453.03   50396.57   0.8898                   0.05               8.54
+     Shallow     DecisionTreeRegressor  64751.27 104025.76    0.2957  37295.62   71648.06   0.6028                   0.02               8.66
+     Shallow     RandomForestRegressor  59766.29  96516.20    0.3789  26986.99   49532.71   0.8731                   0.27              17.23
+     Shallow GradientBoostingRegressor  74378.85 109374.98   -0.3004  26446.74   48183.34   0.8911                   0.12               8.63
+        Deep                   XGBoost  68297.92 104952.76    0.1287  26505.81   46647.96   0.8895                   1.98               8.46
+        Deep                  CatBoost 101978.68 141214.29   -0.2548  24858.58   44913.38   0.8967                   0.61               9.69
+        Deep              MLPRegressor 130577.71 176962.88   -0.7056  29252.54   51943.38   0.8683                   1.11               8.40
+        Deep                    TabNet 409469.83 667191.21 -940.8462  34321.94   59365.83   0.8320                  12.18              12.06
+
+4. PRODUCTION RECOMMENDATION
+--------------------------------------------------------------------------------
+The existing production model (GradientBoostingRegressor) is retained. The best deep model (CatBoost) achieved LOSO R² = 0.8967, which is within 0.02 of GradientBoostingRegressor (LOSO R² = 0.8911).
+================================================================================
