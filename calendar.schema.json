@@ -1,0 +1,314 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AswennaCropCalendar",
+  "description": "Validated Crop Calendar Schema for Aswenna Decision-Support System",
+  "type": "object",
+  "required": [
+    "crop",
+    "app_crop",
+    "zones",
+    "regions",
+    "irrigation",
+    "source_file",
+    "scenarios",
+    "weather_by_month",
+    "seed_requirement",
+    "pests_diseases",
+    "risk_advice"
+  ],
+  "properties": {
+    "crop": { "type": "string" },
+    "app_crop": { "type": "string" },
+    "zones": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["dry", "intermediate", "wet"] },
+      "minItems": 1
+    },
+    "regions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "irrigation": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["irrigated", "rainfed"] },
+      "minItems": 1
+    },
+    "source_file": { "type": "string" },
+    "source_year": { "type": ["integer", "null"] },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scenario",
+          "cultivation_system",
+          "harvest_type",
+          "season_windows",
+          "varieties",
+          "operations",
+          "fertilizer_schedule"
+        ],
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "enum": ["main", "third_season", "off_season", "true_seed", "alternative"]
+          },
+          "label": { "type": "string" },
+          "cultivation_system": {
+            "type": ["string", "null"],
+            "enum": ["upland", "paddy_field", "stubble_field", null]
+          },
+          "harvest_type": {
+            "type": ["string", "null"],
+            "enum": ["green", "dry", "grain", "green_cobs", null]
+          },
+          "season_windows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["season", "plant_from", "plant_to", "confidence"],
+              "properties": {
+                "season": { "type": "string" },
+                "plant_from": {
+                  "type": "object",
+                  "required": ["month", "week"],
+                  "properties": {
+                    "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+                    "week": { "type": "integer", "minimum": 1, "maximum": 4 }
+                  }
+                },
+                "plant_to": {
+                  "type": "object",
+                  "required": ["month", "week"],
+                  "properties": {
+                    "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+                    "week": { "type": "integer", "minimum": 1, "maximum": 4 }
+                  }
+                },
+                "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+                "hint": { "type": "boolean" },
+                "verified": { "type": "boolean" }
+              }
+            }
+          },
+          "varieties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "confidence"],
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "age_group": { "type": ["string", "null"] },
+                "duration_days": { "type": ["integer", "object", "null"] },
+                "duration_days_min": { "type": ["integer", "null"] },
+                "duration_days_max": { "type": ["integer", "null"] },
+                "tolerance_days": { "type": ["integer", "null"] },
+                "yield_range_kg_ac": {
+                  "type": ["array", "null"],
+                  "items": { "type": "number" }
+                },
+                "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+                "notes": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "age_groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["age_group"],
+              "properties": {
+                "age_group": { "type": "string" },
+                "header_text": { "type": ["string", "null"] },
+                "duration_days": { "type": ["integer", "object", "null"] },
+                "duration_days_min": { "type": ["integer", "null"] },
+                "duration_days_max": { "type": ["integer", "null"] },
+                "tolerance_days": { "type": ["integer", "null"] }
+              }
+            }
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["key", "label", "confidence"],
+              "properties": {
+                "age_group": { "type": ["string", "null"] },
+                "key": { "type": "string" },
+                "label": { "type": "string" },
+                "hint": { "type": "boolean" },
+                "verified": { "type": "boolean" },
+                "start_day_offset": { "type": "integer" },
+                "end_day_offset": { "type": "integer" },
+                "original_grid_position": {
+                  "type": ["object", "null"],
+                  "properties": {
+                    "season": { "type": ["string", "null"] },
+                    "month": { "type": ["integer", "null"], "minimum": 1, "maximum": 12 },
+                    "maha_month": { "type": ["integer", "null"], "minimum": 1, "maximum": 12 },
+                    "yala_month": { "type": ["integer", "null"], "minimum": 1, "maximum": 12 },
+                    "weeks": {
+                      "type": ["array", "null"],
+                      "items": { "type": "integer", "minimum": 1, "maximum": 4 }
+                    },
+                    "yala_weeks": {
+                      "type": ["array", "null"],
+                      "items": { "type": "integer", "minimum": 1, "maximum": 4 }
+                    }
+                  }
+                },
+                "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+                "details": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "fertilizer_schedule": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["confidence"],
+              "properties": {
+                "age_group": { "type": ["string", "null"] },
+                "timing_label": { "type": ["string", "null"] },
+                "days_after_planting": { "type": ["integer", "null"] },
+                "timing_schemes": {
+                  "type": "object",
+                  "properties": {
+                    "days_after_broadcasting": { "type": ["integer", "null"] },
+                    "weeks_after_broadcasting": { "type": ["integer", "null"] },
+                    "weeks_after_planting": { "type": ["integer", "null"] }
+                  }
+                },
+                "urea_kg_ac": { "type": ["number", "null"] },
+                "tsp_kg_ac": { "type": ["number", "null"] },
+                "mop_kg_ac": { "type": ["number", "null"] },
+                "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+                "notes": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "printed_totals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["age_group", "urea_kg_ac", "tsp_kg_ac", "mop_kg_ac", "confidence"],
+              "properties": {
+                "age_group": { "type": "string" },
+                "urea_kg_ac": { "type": ["number", "null"] },
+                "tsp_kg_ac": { "type": ["number", "null"] },
+                "mop_kg_ac": { "type": ["number", "null"] },
+                "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+                "poster_discrepancy": { "type": "boolean" },
+                "printed_total": {
+                  "type": "object",
+                  "properties": {
+                    "urea": { "type": ["number", "null"] },
+                    "tsp": { "type": ["number", "null"] },
+                    "mop": { "type": ["number", "null"] }
+                  }
+                },
+                "computed_sum": {
+                  "type": "object",
+                  "properties": {
+                    "urea": { "type": ["number", "null"] },
+                    "tsp": { "type": ["number", "null"] },
+                    "mop": { "type": ["number", "null"] }
+                  }
+                },
+                "notes": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "micronutrient_notes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "derived": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "weather_by_month": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["month", "h1"],
+        "properties": {
+          "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "month_name": { "type": "string" },
+          "h1": { "type": ["string", "null"] },
+          "h2": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "weather_by_week": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["month", "week", "condition"],
+        "properties": {
+          "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "week": { "type": "integer", "minimum": 1, "maximum": 4 },
+          "condition": { "type": "string" },
+          "rainfall_trend": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "seed_requirement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": { "type": "string" },
+          "type": { "type": ["string", "null"] },
+          "kg_ac": { "type": ["number", "null"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "pests_diseases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["month", "items"],
+        "properties": {
+          "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "month_name": { "type": "string" },
+          "weeks": {
+            "type": ["array", "null"],
+            "items": { "type": "integer", "minimum": 1, "maximum": 4 }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": ["string", "object"],
+              "properties": {
+                "canonical_name": { "type": "string" },
+                "verbatim_text": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "organic_advice": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risk_advice": {
+      "type": "object",
+      "properties": {
+        "drought": { "type": "array", "items": { "type": "string" } },
+        "flood": { "type": "array", "items": { "type": "string" } },
+        "salinity": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

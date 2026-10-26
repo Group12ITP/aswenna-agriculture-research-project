@@ -1,0 +1,548 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Ground Nut",
+  "app_crop": "Groundnut",
+  "zones": [
+    "dry",
+    "intermediate"
+  ],
+  "regions": [
+    "Kurunegala DL-1",
+    "Puttalam IL-1, DL-1, DL-3",
+    "Polonnaruwa DL-1",
+    "Badulla IL-2, DL-1",
+    "Ampara DL-2a, DL-2b",
+    "Hambantota DL-1, DL-5",
+    "Trincomalee DL-1c",
+    "Matale DL",
+    "Ratnapura IL-1",
+    "Batticaloa DL-2a",
+    "Monaragala IL-1, DL-1",
+    "Vavuniya DL-1, DL-1d",
+    "Kilinochchi DL-4",
+    "Mullaitivu DL-1",
+    "Anuradhapura DL-1d",
+    "Mahaweli System 'C'"
+  ],
+  "irrigation": [
+    "rainfed",
+    "irrigated"
+  ],
+  "source_file": "data-source/rgb/Ground Nut/groundNut.png",
+  "source_year": 2013,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Main Seasons Cultivation (Maha & Yala)",
+      "cultivation_system": "upland",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 10,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 10,
+            "week": 4
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 4
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "walawa",
+          "name": "Walawa",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            700,
+            700
+          ],
+          "confidence": "high",
+          "notes": "Seed rate: With shells 100 kg/ha (40.5 kg/ac), Without shells 130 kg/ha (52.6 kg/ac). Spacing 45 x 15 cm. Yield from cost table: 700 kg/ac."
+        },
+        {
+          "id": "indi",
+          "name": "Indi",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            700,
+            700
+          ],
+          "confidence": "high",
+          "notes": "Resistant to Bud rot. Seed rate: 70 kg/ha (28.3 kg/ac), Pods 100 kg/ha (40.5 kg/ac). Spacing 45 x 15 cm. Yield from cost table: 700 kg/ac."
+        },
+        {
+          "id": "thissa",
+          "name": "Thissa",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            700,
+            700
+          ],
+          "confidence": "high",
+          "notes": "Seed rate: 70 kg/ha (28.3 kg/ac), Pods 100 kg/ha (40.5 kg/ac). Spacing 45 x 15 cm. Yield from cost table: 700 kg/ac."
+        },
+        {
+          "id": "tikiri",
+          "name": "Tikiri",
+          "age_group": null,
+          "duration_days": null,
+          "yield_range_kg_ac": [
+            700,
+            700
+          ],
+          "confidence": "high",
+          "notes": "Seed rate: 70 kg/ha (28.3 kg/ac), Pods 100 kg/ha (40.5 kg/ac). Spacing 45 x 15 cm. Yield from cost table: 700 kg/ac."
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Field preparation: Maha Oct W1-W4; Yala Apr W1-W4"
+        },
+        {
+          "key": "seeding",
+          "label": "Seeding",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Seeding: Maha Oct W1-W4; Yala Apr W1-W4"
+        },
+        {
+          "key": "basal_dressing",
+          "label": "Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Basal chemical dressing at planting: Maha Oct W1-W4; Yala Apr W1-W4"
+        },
+        {
+          "key": "weed_control",
+          "label": "Weed Control",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Weed control (1st weeding W1-W2, 2nd weeding W3-W4): Maha Nov W1-W4; Yala May W1-W4"
+        },
+        {
+          "key": "fertilizer_application",
+          "label": "Fertilizer Application (Top Dressing)",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Top dressing fertilizer application: Maha Dec W1-W2; Yala Jun W1-W2"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": 1,
+            "yala_month": 7,
+            "month": 1,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting uprooted plants: Maha Jan W3-Feb W1; Yala Jul W3-Aug W1"
+        },
+        {
+          "key": "drying_of_harvest",
+          "label": "Drying of Harvest",
+          "hint": true,
+          "verified": false,
+          "confidence": "high",
+          "details": "Drying uprooted pods/plants: Maha Feb W3-Mar W1; Yala Aug W3-Sep W1"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basic (Basal Dressing) - at planting",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": 0,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 14.2,
+          "tsp_kg_ac": 40.5,
+          "mop_kg_ac": 30.4,
+          "confidence": "high",
+          "notes": "Printed on poster as Basic: Urea 35, TSP 100, MOP 75 kg/ha. Converted to kg/ac (divided by 2.471)."
+        },
+        {
+          "timing_label": "Top Dressing - 6-8 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 6
+          },
+          "urea_kg_ac": 12.1,
+          "tsp_kg_ac": 0.0,
+          "mop_kg_ac": 0.0,
+          "confidence": "high",
+          "notes": "Printed on poster as Top: Urea 30 kg/ha. Converted to kg/ac (divided by 2.471)."
+        }
+      ],
+      "derived": {
+        "description": "Computed sums and derived specifications",
+        "total_varieties_count": 4,
+        "fertilizer_recommendation_printed_unit": "kg/ha",
+        "printed_fertilizer_values_kg_ha": {
+          "basal": {
+            "urea": 35,
+            "tsp": 100,
+            "mop": 75
+          },
+          "top": {
+            "urea": 30,
+            "tsp": 0,
+            "mop": 0
+          },
+          "total": {
+            "urea": 65,
+            "tsp": 100,
+            "mop": 75
+          }
+        },
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 26.3,
+          "tsp": 40.5,
+          "mop": 30.4
+        },
+        "seed_rates": [
+          "Walawa: With shells - 100 kg/ha, Without shells - 130 kg/ha",
+          "Other varieties: 70 kg/ha, Pods - 100 kg/ha"
+        ],
+        "spacings": [
+          "45 x 15 cm"
+        ],
+        "yield_kg_ac": 700,
+        "selling_price_rs_per_kg": 180,
+        "cost_of_cultivation_acre_rs": {
+          "seed": 10200.0,
+          "fertilizer": 2400.0,
+          "chemical": 3000.0,
+          "land_preparation": 6000.0,
+          "other": 1500.0,
+          "labour_including_family": 59800.0,
+          "labour_excluding_family": 46955.0,
+          "income": 126000.0,
+          "gross_profit_including_family_labour": 66200.0,
+          "gross_profit_excluding_family_labour": 79045.0
+        }
+      }
+    }
+  ],
+  "weather_by_month": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "thunder"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "rain",
+      "h2": "sun-rain"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "sun-cloud",
+      "h2": "sun"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun-cloud",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "rain",
+      "h2": "sun-rain"
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "walawa_with_shells",
+      "type": "shelled_pod",
+      "kg_ac": 40.5,
+      "notes": "Printed seed rate: Walawa with shells - 100 kg/ha (40.5 kg/ac)"
+    },
+    {
+      "method": "walawa_without_shells",
+      "type": "seed_kernel",
+      "kg_ac": 52.6,
+      "notes": "Printed seed rate: Walawa without shells - 130 kg/ha (52.6 kg/ac)"
+    },
+    {
+      "method": "other_varieties_kernels",
+      "type": "seed_kernel",
+      "kg_ac": 28.3,
+      "notes": "Printed seed rate: Other varieties - 70 kg/ha (28.3 kg/ac)"
+    },
+    {
+      "method": "other_varieties_pods",
+      "type": "shelled_pod",
+      "kg_ac": 40.5,
+      "notes": "Printed seed rate: Pods - 100 kg/ha (40.5 kg/ac)"
+    }
+  ],
+  "pests_diseases": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": [
+        {
+          "canonical_name": "leaf_spot",
+          "verbatim_text": "Leaf spot"
+        },
+        {
+          "canonical_name": "rust",
+          "verbatim_text": "Rust"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bacterial_wilt",
+          "verbatim_text": "Bacterial wilt"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": []
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "items": []
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": []
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": [
+        {
+          "canonical_name": "leaf_spot",
+          "verbatim_text": "Leaf spot"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bacterial_wilt",
+          "verbatim_text": "Bacterial wilt"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": [
+        {
+          "canonical_name": "bacterial_wilt",
+          "verbatim_text": "Bacterial wilt"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bud_rot",
+          "verbatim_text": "Bud rot"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": [
+        {
+          "canonical_name": "leaf_spot",
+          "verbatim_text": "Leaf spot"
+        },
+        {
+          "canonical_name": "rust",
+          "verbatim_text": "Rust"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bud_rot",
+          "verbatim_text": "Bud rot"
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": []
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": []
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": []
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bacterial_wilt",
+          "verbatim_text": "Bacterial wilt"
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": [
+        {
+          "canonical_name": "leaf_spot",
+          "verbatim_text": "Leaf spot"
+        },
+        {
+          "canonical_name": "rust",
+          "verbatim_text": "Rust"
+        },
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "bud_rot",
+          "verbatim_text": "Bud rot"
+        }
+      ]
+    }
+  ],
+  "risk_advice": {
+    "drought": [
+      "Excess irrigation",
+      "Use short duration varieties"
+    ],
+    "flood": [
+      "Improve drainage system",
+      "Water management"
+    ],
+    "salinity": []
+  },
+  "tile_sources": {
+    "header_districts": "data-source/tiles/ground_nut/01_header_districts.png",
+    "legend_operations": "data-source/tiles/ground_nut/02_legend_operations.png",
+    "timeline_grid": "data-source/tiles/ground_nut/03_timeline_grid.png",
+    "weather": "data-source/tiles/ground_nut/03_weather.png",
+    "pests_row": "data-source/tiles/ground_nut/04_pests_row.png",
+    "pest_control_measures": "data-source/tiles/ground_nut/05_pest_control_measures.png",
+    "varieties_fertilizer": "data-source/tiles/ground_nut/06_varieties_fertilizer.png",
+    "cost_production": "data-source/tiles/ground_nut/07_cost_production.png",
+    "risk_advice": "data-source/tiles/ground_nut/08_risk_advice.png",
+    "districts_detail": "data-source/tiles/ground_nut/09_districts_detail.png",
+    "credits": "data-source/tiles/ground_nut/10_credits.png"
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/ground_nut/ tiles.",
+    "Combined poster for Intermediate & Dry Zones.",
+    "Varieties: Walawa, Indi, Thissa, Tikiri.",
+    "Fertilizer application table printed in kg/ha (Basic: 35 Urea, 100 TSP, 75 MOP kg/ha; Top: 30 Urea kg/ha). Converted values stored in schedule and derived block.",
+    "Calendar timeline printed starting with October and ending with September.",
+    "Pests bounded strictly by Month column grid lines."
+  ]
+}

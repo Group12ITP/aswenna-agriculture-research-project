@@ -1,0 +1,902 @@
+{
+  "crop": "Paddy",
+  "app_crop": "Paddy",
+  "type": "supplementary_pest_phenology",
+  "source_file": "data-source/rgb/Paddy/IPMcalender.png",
+  "source_year": 2015,
+  "metadata": {
+    "title_si": "වී වගාවේ ඒකාබද්ධ පළිබෝධ පාලනය කාල සටහන",
+    "title_en": "Integrated Pest Management Calendar for Paddy Cultivation",
+    "publisher": "Department of Agriculture (DOA) Sri Lanka & Asian Food & Agriculture Cooperation Initiative (AFACI)",
+    "authors": {
+      "advisory": "Dr. Rohan Wijekoon (Director General of Agriculture)",
+      "technical_content": "M.U.P. Jayasundara (Assistant Director of Agriculture - Development, Plant Protection Service)",
+      "climate_data": "Dr. B.V. Punyawardena (Agroclimatologist, Natural Resources Management Centre - NRMC)",
+      "compilation": "Chamara Hilmy Silva (Agricultural Instructor, Information & Communication Centre)",
+      "graphic_design": "R.D.B. Helani Ranaweera (ICC)"
+    }
+  },
+  "ipm_core_principles": [
+    {
+      "step": 1,
+      "principle_si": "නිරෝගී වගාවක් පවත්වා ගැනීම",
+      "principle_en": "Maintain a healthy crop",
+      "methods": [
+        "Use certified high quality clean seed paddy",
+        "Maintain optimal plant density and synchronized planting",
+        "Balanced fertilizer application based on Leaf Color Chart (LCC)",
+        "Optimal water management"
+      ],
+      "confidence": "high"
+    },
+    {
+      "step": 2,
+      "principle_si": "හිතකර සතුන් ආරක්ෂා කර ගැනීම",
+      "principle_en": "Conserve and protect beneficial organisms (natural enemies)",
+      "methods": [
+        "Avoid indiscriminate prophylactic pesticide use",
+        "Plant flowering pulses/legumes on bunds to provide nectar and habitat for parasitic wasps",
+        "Do not burn rice stubble; leave small straw piles on bunds for spiders and predatory bugs",
+        "Apply spot treatments only when economic thresholds are breached"
+      ],
+      "confidence": "high"
+    },
+    {
+      "step": 3,
+      "principle_si": "සතිපතා වගා සුපරීක්ෂාව හා නඩත්තු පිළිබඳ තීරණ ගැනීම",
+      "principle_en": "Weekly crop surveillance and informed management decision-making",
+      "methods": [
+        "Scout fields weekly inspecting base of hills, leaves, and water surface",
+        "Count pest and predator ratios before deciding on control actions",
+        "Follow seasonal economic threshold levels (ETLs)"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "seasonal_phenology": {
+    "maha": {
+      "season": "Maha",
+      "calendar_months": ["September", "October", "November", "December", "January", "February", "March"],
+      "stages": [
+        {
+          "stage_id": "maha_land_prep",
+          "stage_label_en": "Land Preparation & Pre-Planting",
+          "month": 9,
+          "weeks": [1, 2, 3, 4],
+          "weather": "Inter-monsoonal showers transitioning to Maha rains",
+          "cultural_management": [
+            "Do not burn stubble (ඉපනැල්ල ගිනි නොතැබීම)",
+            "Maintain small straw heaps on bunds (නියරේ තැනින් තැන කුඩා පිදුරු ගොඩවල් තැබීම)",
+            "Incorporate straw into paddy soil (කුඹුරට පිදුරු යෙදීම)",
+            "Proper water control (ජල පාලනය)",
+            "Trim and clean only bund sides (නියර දෙපස පමණක් රැඳීම)",
+            "Deep land preparation and fine leveling of liyaddas (ගැඹුරට බිම් සකස් කිරීම / ලියැදි හොදින් මට්ටම් කිරීම)",
+            "Apply organic manure (කාබනික පොහොර යෙදීම)"
+          ],
+          "active_pests": [],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "maha_seedling",
+          "stage_label_en": "Seedling / Early Vegetative Stage",
+          "month": 10,
+          "weeks": [4],
+          "month_secondary": 11,
+          "weeks_secondary": [1, 2],
+          "weather": "Heavy Maha rainfall",
+          "cultural_management": [
+            "Maintain optimum plant population (නිසි පැළ ගහනයක් පවත්වා ගැනීම)",
+            "Balanced fertilizer application (සමතුලිත පොහොර)",
+            "Controlled water management (ජල පාලනය)"
+          ],
+          "active_pests": [
+            {
+              "id": "thrips",
+              "name_en": "Rice Thrips",
+              "name_si": "පැළමැක්කා",
+              "scientific_name": "Stenchaetothrips biformis"
+            },
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "maha_active_tillering",
+          "stage_label_en": "Active Tillering Stage",
+          "month": 11,
+          "weeks": [3, 4],
+          "month_secondary": 12,
+          "weeks_secondary": [1],
+          "weather": "Peak Maha monsoon rains",
+          "cultural_management": [
+            "Maintain balanced plant nutrition",
+            "Continuous field inspection for weed and pest hot-spots",
+            "Water depth regulation"
+          ],
+          "active_pests": [
+            {
+              "id": "thrips",
+              "name_en": "Rice Thrips",
+              "name_si": "පැළමැක්කා",
+              "scientific_name": "Stenchaetothrips biformis"
+            },
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            },
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "stem_borer",
+              "name_en": "Yellow Stem Borer",
+              "name_si": "පුරුක් පණුවා",
+              "scientific_name": "Scirpophaga incertulas"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "maha_panicle_initiation",
+          "stage_label_en": "Maximum Tillering to Panicle Initiation",
+          "month": 12,
+          "weeks": [2, 3, 4],
+          "weather": "Declining rainfall, high humidity",
+          "cultural_management": [
+            "Top-dress nitrogen based on Leaf Color Chart (පත්‍ර වර්ණ දර්ශකය භාවිතා කර පොහොර යෙදීම)",
+            "Strict water depth control (ජල පාලනය)",
+            "Intensive pest and natural enemy surveillance (පළිබෝධ සුපරීක්ෂාව)"
+          ],
+          "active_pests": [
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            },
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "stem_borer",
+              "name_en": "Yellow Stem Borer",
+              "name_si": "පුරුක් පණුවා",
+              "scientific_name": "Scirpophaga incertulas"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            },
+            {
+              "id": "sheath_mite_sheath_blight",
+              "name_en": "Sheath Mite & Sheath Blight Complex",
+              "name_si": "කොපු හා මයිටා හානිය",
+              "scientific_name": "Steneotarsonemus spinki & Rhizoctonia solani"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "maha_booting_heading",
+          "stage_label_en": "Booting, Heading & Flowering",
+          "month": 1,
+          "weeks": [1, 2, 3, 4],
+          "weather": "Dry, sunny days with cool nights",
+          "cultural_management": [
+            "Maintain 2-5 cm standing water until milky stage",
+            "Avoid high nitrogen fertilization",
+            "Monitor hopper populations at the base of stems"
+          ],
+          "active_pests": [
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            },
+            {
+              "id": "paddy_bug",
+              "name_en": "Paddy Bug",
+              "name_si": "ගොයම් මකුණා",
+              "scientific_name": "Leptocorisa oratorius"
+            },
+            {
+              "id": "wbph",
+              "name_en": "White-backed Planthopper",
+              "name_si": "පිටසුදු කීඩෑවා",
+              "scientific_name": "Sogatella furcifera"
+            },
+            {
+              "id": "sheath_mite_sheath_blight",
+              "name_en": "Sheath Mite & Sheath Blight Complex",
+              "name_si": "කොපු හා මයිටා හානිය",
+              "scientific_name": "Steneotarsonemus spinki & Rhizoctonia solani"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "maha_ripening",
+          "stage_label_en": "Grain Filling, Ripening & Harvest",
+          "month": 2,
+          "weeks": [1, 2, 3, 4],
+          "month_secondary": 3,
+          "weeks_secondary": [1, 2, 3, 4],
+          "weather": "Dry, warm, sunny weather",
+          "cultural_management": [
+            "Maintain field drainage 10-14 days prior to harvest",
+            "Protect developing grain heads from sucking insects during milky stage"
+          ],
+          "active_pests": [
+            {
+              "id": "paddy_bug",
+              "name_en": "Paddy Bug",
+              "name_si": "ගොයම් මකුණා",
+              "scientific_name": "Leptocorisa oratorius"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            }
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    "yala": {
+      "season": "Yala",
+      "calendar_months": ["April", "May", "June", "July", "August"],
+      "stages": [
+        {
+          "stage_id": "yala_land_prep",
+          "stage_label_en": "Land Preparation & Pre-Planting",
+          "month": 4,
+          "weeks": [1, 2, 3],
+          "weather": "First inter-monsoon showers",
+          "cultural_management": [
+            "Do not burn stubble (ඉපනැල්ල ගිනි නොතැබීම)",
+            "Small straw heaps on bunds (නියරේ තැනින් තැන කුඩා පිදුරු ගොඩවල් තැබීම)",
+            "Apply straw into soil (කුඹුරට පිදුරු යෙදීම)",
+            "Leveling and bund maintenance (නියර දෙපස පමණක් රැඳීම / ලියැදි හොදින් මට්ටම් කිරීම)"
+          ],
+          "active_pests": [],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "yala_seedling",
+          "stage_label_en": "Seedling / Early Vegetative Stage",
+          "month": 4,
+          "weeks": [4],
+          "month_secondary": 5,
+          "weeks_secondary": [1, 2],
+          "weather": "Inter-monsoonal thunderstorms transitioning to Southwest monsoon",
+          "cultural_management": [
+            "Maintain correct seedling population (නිසි පැළ ගහනයක් පවත්වා ගැනීම)",
+            "Balanced basal fertilizer (සමතුලිත පොහොර)",
+            "Water control (ජල පාලනය)"
+          ],
+          "active_pests": [
+            {
+              "id": "thrips",
+              "name_en": "Rice Thrips",
+              "name_si": "පැළමැක්කා",
+              "scientific_name": "Stenchaetothrips biformis"
+            },
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "yala_active_tillering",
+          "stage_label_en": "Active Tillering Stage",
+          "month": 5,
+          "weeks": [3, 4],
+          "month_secondary": 6,
+          "weeks_secondary": [1],
+          "weather": "Southwest monsoon rains",
+          "cultural_management": [
+            "Monitor plant canopy for leaf folder damage",
+            "Avoid excessive nitrogen"
+          ],
+          "active_pests": [
+            {
+              "id": "thrips",
+              "name_en": "Rice Thrips",
+              "name_si": "පැළමැක්කා",
+              "scientific_name": "Stenchaetothrips biformis"
+            },
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            },
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "stem_borer",
+              "name_en": "Yellow Stem Borer",
+              "name_si": "පුරුක් පණුවා",
+              "scientific_name": "Scirpophaga incertulas"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "yala_panicle_initiation",
+          "stage_label_en": "Maximum Tillering to Panicle Initiation",
+          "month": 6,
+          "weeks": [2, 3, 4],
+          "weather": "Moderate rainfall, warm temperatures",
+          "cultural_management": [
+            "Use Leaf Color Chart (LCC) for top-dressing urea (පත්‍ර වර්ණ දර්ශකය භාවිතා කර පොහොර යෙදීම)",
+            "Water management (ජල පාලනය)",
+            "Field surveillance for hoppers at stem base (පළිබෝධ සුපරීක්ෂාව)"
+          ],
+          "active_pests": [
+            {
+              "id": "gall_midge",
+              "name_en": "Rice Gall Midge",
+              "name_si": "ගොක් මැස්සා",
+              "scientific_name": "Orseolia oryzae"
+            },
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "stem_borer",
+              "name_en": "Yellow Stem Borer",
+              "name_si": "පුරුක් පණුවා",
+              "scientific_name": "Scirpophaga incertulas"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            },
+            {
+              "id": "sheath_mite_sheath_blight",
+              "name_en": "Sheath Mite & Sheath Blight Complex",
+              "name_si": "කොපු හා මයිටා හානිය",
+              "scientific_name": "Steneotarsonemus spinki & Rhizoctonia solani"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "yala_booting_heading",
+          "stage_label_en": "Booting, Heading & Flowering",
+          "month": 7,
+          "weeks": [1, 2, 3, 4],
+          "weather": "Dry, warm, sunny weather with gusty winds in Dry Zone",
+          "cultural_management": [
+            "Maintain 2-5 cm standing water until milky stage",
+            "Monitor hopper populations at the base of stems"
+          ],
+          "active_pests": [
+            {
+              "id": "leaf_folder",
+              "name_en": "Rice Leaf Folder",
+              "name_si": "කොළ හකුලන දළඹුවා",
+              "scientific_name": "Cnaphalocrocis medinalis"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            },
+            {
+              "id": "paddy_bug",
+              "name_en": "Paddy Bug",
+              "name_si": "ගොයම් මකුණා",
+              "scientific_name": "Leptocorisa oratorius"
+            },
+            {
+              "id": "wbph",
+              "name_en": "White-backed Planthopper",
+              "name_si": "පිටසුදු කීඩෑවා",
+              "scientific_name": "Sogatella furcifera"
+            },
+            {
+              "id": "sheath_mite_sheath_blight",
+              "name_en": "Sheath Mite & Sheath Blight Complex",
+              "name_si": "කොපු හා මයිටා හානිය",
+              "scientific_name": "Steneotarsonemus spinki & Rhizoctonia solani"
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "stage_id": "yala_ripening",
+          "stage_label_en": "Grain Filling, Ripening & Harvest",
+          "month": 8,
+          "weeks": [1, 2, 3, 4],
+          "weather": "Hot, dry, sunny weather",
+          "cultural_management": [
+            "Maintain field drainage before harvesting",
+            "Protect developing grain heads during milky stage"
+          ],
+          "active_pests": [
+            {
+              "id": "paddy_bug",
+              "name_en": "Paddy Bug",
+              "name_si": "ගොයම් මකුණා",
+              "scientific_name": "Leptocorisa oratorius"
+            },
+            {
+              "id": "bph",
+              "name_en": "Brown Planthopper",
+              "name_si": "දුඹුරු පැළ කීඩෑවා",
+              "scientific_name": "Nilaparvata lugens"
+            }
+          ],
+          "confidence": "high"
+        }
+      ]
+    }
+  },
+  "target_pests": [
+    {
+      "id": "bph",
+      "name_en": "Brown Planthopper",
+      "name_si": "දුඹුරු පැළ කීඩෑවා",
+      "scientific_name": "Nilaparvata lugens",
+      "damage_severity": "Severe (බරපතලම කෘමි හානිය)",
+      "diagnostic_symptoms": [
+        "Sucks plant sap from the base of tillers causing hopperburn (drying in circular patches like scorched fire)"
+      ],
+      "monitoring_thresholds": {
+        "vegetative_stage": "Drain water and dry field if > 5 hoppers per hill (වර්ධන අවධියේ පඳුරක කීඩෑවන් 5 කට වැඩි නම් මුලින් ජලය කපා හැර කුඹුර වියළීම)",
+        "reproductive_stage": "Drain water and dry field if hopper population exceeds threshold (ප්‍රජනක අවධියේ පඳුරක ඇටවට වඩා කීඩෑවන් වැඩි නම් ජලය කපාහැර කුඹුර වියළීම)"
+      },
+      "management_actions": [
+        "Synchronized planting across the entire tract/yaya (කන්නයට යාය එකට වගා කිරීම)",
+        "Maintain optimal plant spacing and avoid excessive density (ප්‍රශස්ත පැළ ගහනය පවත්වා ගැනීම)",
+        "Apply balanced fertilizer; avoid excess nitrogen (සමතුලිත පොහොර භාවිතය)",
+        "Begin intensive field monitoring from 2 weeks after planting (සති දෙකේ පමණ සිට හානි කරන බැවින් වගා සුපරීක්ෂාව)",
+        "Drain standing water to dry out the soil surface when hoppers appear",
+        "Avoid indiscriminate prophylactic insecticide sprays which destroy natural predators (mirid bugs and spiders)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "paddy_bug",
+      "name_en": "Paddy Bug",
+      "name_si": "ගොයම් මකුණා",
+      "scientific_name": "Leptocorisa oratorius",
+      "damage_severity": "High (Economic damage during milky grain stage)",
+      "diagnostic_symptoms": [
+        "Nymphs and adults suck milky sap from developing rice grains, causing empty, spotted, or chaffy grains (discolored brown-black spots)"
+      ],
+      "monitoring_thresholds": {
+        "milky_stage": "Apply recommended insecticide if > 2 bugs per square meter (වර්ග මීටරයකට මකුණන් දෙකකට වැඩි නම් නිර්දේශිත කෘමිනාශක යෙදීම)"
+      },
+      "management_actions": [
+        "Clear all flowering weeds and grasses from bunds and surroundings before flowering (නියර වල සහ වගාවේ වල් පැළෑටි වල මල් ඉවත් කිරීම)",
+        "Physical trapping: hand-net or enclose bugs among leaf sheaths during early morning (ගොයම් මකුණන් කොලපුව අතර සිර කිරීම)",
+        "Food attractant baits: hang putrid rotting fish or animal offal baits in field corners to lure and trap bugs (ඉවත දමන මාළු කුඹුරේ තැනින් තැන එල්ලීම)",
+        "Spot application of recommended contact insecticide if threshold is exceeded"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "leaf_folder",
+      "name_en": "Rice Leaf Folder",
+      "name_si": "කොළ හකුලන දළඹුවා",
+      "scientific_name": "Cnaphalocrocis medinalis",
+      "damage_severity": "Moderate to High",
+      "diagnostic_symptoms": [
+        "Larva folds leaf blade longitudinally with silk and scrapes green mesophyll from within, causing transparent white longitudinal streaks"
+      ],
+      "monitoring_thresholds": {
+        "early_stages": "Assess predator-to-pest ratio before treatment; spray only if natural enemy control fails"
+      },
+      "management_actions": [
+        "Thorough weeding at crop establishment (වගාව ආරම්භයේදී වල්පැලෑටි ඉවත් කිරීම)",
+        "Apply only recommended nitrogen quantities; do not overuse urea (නිර්දේශිත නයිට්‍රජන් පොහොර ප්‍රමාණය යෙදීම)",
+        "Mechanical control: use thorny branches or drag a rope/stick across canopy to unroll folded leaves and expose larvae to sunlight and predators (ඉපලක ආධාරයෙන් හැකිලිලා කොළ දිග හැරීම)",
+        "Clip and bury heavily infested leaf tips (හානිකළ කොටස් කපා බඩට යට කිරීම)",
+        "Caution: excessive pesticide spraying induces severe secondary Brown Planthopper outbreaks (අධික ලෙස පළිබෝධනාශක යෙදූ විට දුඹුරු පැළ කීඩෑ හානිය ඇතිවිය හැක)",
+        "Apply spot spraying only where damage is concentrated (ස්ථානීය කෘමිනාශක යෙදීම)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "gall_midge",
+      "name_en": "Rice Gall Midge",
+      "name_si": "ගොක් මැස්සා",
+      "scientific_name": "Orseolia oryzae",
+      "damage_severity": "Moderate to High (Vegetative stage)",
+      "diagnostic_symptoms": [
+        "Maggot feeds on apical growing point causing the leaf sheath to transform into an elongated hollow pale-green or silvery tube resembling an onion leaf ('silver shoot' or 'onion shoot' / ගොක් කොළ)"
+      ],
+      "monitoring_thresholds": {
+        "nursery_and_tillering": "Inspect seedlings and tillers early in wet season"
+      },
+      "management_actions": [
+        "Cultivate strictly synchronized with seasonal rains (කන්නයට අනුව වගා කිරීම)",
+        "Maintain recommended plant spacing and density (නිවැරදි පැළ ගහනය පවත්වාගැනීම)",
+        "Avoid excess urea application during vegetative phase (වැඩිපුර යූරියා භාවිතා නොකිරීම)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "thrips",
+      "name_en": "Rice Thrips",
+      "name_si": "පැළමැක්කා",
+      "scientific_name": "Stenchaetothrips biformis",
+      "damage_severity": "Moderate (Nursery & early seedling stage)",
+      "diagnostic_symptoms": [
+        "Nymphs and adults lacerate plant tissues and suck sap from tender leaves, causing leaf tips to curl inward, dry up, and develop a scorched appearance"
+      ],
+      "monitoring_thresholds": {
+        "seedling_stage": "Apply chemical insecticide only if > 50% of leaves on seedlings are rolled (පැළැටියක පත්‍ර 50% රෝල් වී ඇත්නම් පමණක් කෘමිනාශක යෙදීම)"
+      },
+      "management_actions": [
+        "Timely planting according to season (කන්නයට වගා කිරීම)",
+        "If planting is delayed, monitor closely and take rapid counter-measures (කන්නයට පමා වී නම් තීර ප්‍රතිසාර කිරීම)",
+        "Cultural water control: flood the liyaddas completely to submerge seedlings for 24-48 hours and disturb water surface to drown thrips (ලියැදි වල ජලය පුරවා සොලවා හැරීම)",
+        "Chemical spray only when the 50% leaf rolling threshold is breached"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stem_borer",
+      "name_en": "Yellow Stem Borer",
+      "name_si": "කහ පුරුක් පණුවා",
+      "scientific_name": "Scirpophaga incertulas",
+      "damage_severity": "Moderate",
+      "diagnostic_symptoms": [
+        "Caterpillar bores into stem base causing deadheart (වියළි ගොබය) during vegetative stage and whitehead (හිස් බොල් කරල්) during reproductive stage"
+      ],
+      "monitoring_thresholds": {
+        "threshold": "Inspect for egg masses covered with buff-colored hairs and deadhearts"
+      },
+      "management_actions": [
+        "Plow and bury stubble deeply under soil during land preparation (ඉපනැල්ල පසට යටවන සේ බිම් සකස් කිරීම)",
+        "Apply recommended nitrogen rates; avoid excess nitrogen (නිර්දේශිත නයිට්‍රජන් පොහොර ප්‍රමාණය යෙදීම)",
+        "Under standard balanced cultivation, it is generally kept under check by egg parasitoids and natural predators (බරපතල හානි කරන පළිබෝධකයෙකු නොවේ)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "field_rat",
+      "name_en": "Rice Field Rat",
+      "name_si": "මීයා",
+      "scientific_name": "Bandicota bengalensis / Rattus spp.",
+      "damage_severity": "High (Direct crop destruction, bund burrowing, zoonotic disease)",
+      "diagnostic_symptoms": [
+        "Cuts tillers diagonally near water level and hoards panicles inside bund burrows; burrows destabilize liyaddas causing water loss"
+      ],
+      "monitoring_thresholds": {
+        "threshold": "Continuous community monitoring"
+      },
+      "management_actions": [
+        "Major pest damaging liyaddas and crop bunds (වගාව අසල ලියැදි වලට හානිකරන ප්‍රධාන පළිබෝධකයෙකි)",
+        "Strict caution required as rats are primary vectors of leptospirosis / rat fever (මී උණ පැතිරීමට දායක වන නිසා වඩා සැලකිලිමත් විය යුතුය)",
+        "Implement a coordinated, synchronized community-wide integrated management approach across adjacent fields (වෙල් මියන් මර්ධනය සඳහා ඒකාබද්ධ ප්‍රවේශයක් අවශ්‍ය වේ)",
+        "Narrow field bunds (reduce width to < 30 cm) to eliminate burrowing sites",
+        "Clean bund vegetation and employ mechanical rat traps"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sheath_mite",
+      "name_en": "Rice Sheath Mite",
+      "name_si": "කොපු මයිටා",
+      "scientific_name": "Steneotarsonemus spinki",
+      "damage_severity": "High (Synergizes with sheath rot fungus)",
+      "diagnostic_symptoms": [
+        "Microscopic mites live inside leaf sheaths sucking sap; lesions show brown necrotic chocolate-colored spots inside sheath; panicles emerge sterile or partially filled with discolored grains"
+      ],
+      "monitoring_thresholds": {
+        "threshold": "Check inside leaf sheaths of boot-leaf stage plants"
+      },
+      "management_actions": [
+        "Damage can range from localized patches to entire fields (වගාවේ සුළු වශයෙන් හෝ සම්පූර්ණ වශයෙන් හානිය පැවතිය හැක)",
+        "Early symptoms are hidden inside leaf sheaths, making detection difficult until damage is severe (කොපු මයිටා හානිය මුලින් හඳුනාගත නොහැකි නිසා හානිය බරපතල විය හැක)",
+        "Burn infected stubble or plow deep to bury stubble completely (ආසාදිත වගාවක ඉපනැල්ල පිළිස්සීම හා පස පෙරළීම මගින් ඉපනැල්ල පසට යට කිරීම)",
+        "Practice crop rotation wherever possible (හැකි අවස්ථාවලදී බෝග මාරුව)",
+        "Seed sanitation: sun-dry seeds thoroughly in hot sunlight and store in dark cool dry conditions prior to soaking to prevent seed transmission (කොපු මයිටා හානිය බීජ මගින් පැතිරීම වැළැක්වීමට බීජ දියෙහි දැමීමට දිනකට පෙර අව්වේ ඉතා හොදින් වියළා අඳුරුව තැබීම වඩාත් සුදුසු වේ)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "leaf_mite",
+      "name_en": "Rice Leaf Mite",
+      "name_si": "පත්‍ර මයිටා",
+      "scientific_name": "Oligonychus oryzae",
+      "damage_severity": "Moderate",
+      "diagnostic_symptoms": [
+        "Mites feed on upper leaf surfaces producing white/yellow specks; foliage eventually shows pronounced chlorotic yellowing (පත්‍ර කහ වීම පත්‍ර මයිටා හානියේ මූලික ලක්ෂණය වේ)"
+      ],
+      "monitoring_thresholds": {
+        "threshold": "Inspect leaf canopy during dry spells"
+      },
+      "management_actions": [
+        "Yellowing of foliage is primary symptom",
+        "Maintain appropriate water levels; avoid moisture stress",
+        "Protect predatory phytoseiid mites by avoiding broad-spectrum chemical sprays"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "target_diseases": [
+    {
+      "id": "rice_blast",
+      "name_en": "Rice Blast",
+      "name_si": "කොළ පාළුව",
+      "scientific_name": "Magnaporthe oryzae (Pyricularia oryzae)",
+      "pathogen_type": "Fungus",
+      "diagnostic_symptoms": {
+        "leaf_blast": "Spindle-shaped or eye-shaped lesions with grey/whitish centers and reddish-brown borders (පත්‍ර මත දැකිය හැකි ලක්ෂණ)",
+        "collar_rot": "Brownish lesion at junction of leaf blade and sheath causing leaf drop (පත්‍ර සන්ධියේ දැකිය හැකි ලක්ෂණ)",
+        "node_blast": "Blackish-brown necrosis at stem nodes causing culm breakage (පර්ව සන්ධියේ දැකිය හැකි ලක්ෂණ)",
+        "neck_blast": "Dark necrotic lesion at panicle base causing whitehead or unfilled drooping panicle (කරල් බෙල්ලෙහි දැකිය හැකි ලක්ෂණ)"
+      },
+      "favorable_conditions": "Warm and humid/wet weather conditions (තෙත් උණුසුම් කාලගුණය)",
+      "management_actions": [
+        "Widely prevalent fungal disease affecting multiple plant parts (බහුලවම දැකිය හැකි දිලීර රෝගයයි)",
+        "Inspect leaves early and adopt rapid control measures upon initial symptom sighting (මූලිකව පත්‍ර වලට වැළඳෙන බැවින් පරික්ෂාකාරීව සිට රෝග ලක්ෂණ දුටු වහාම මර්දන පියවර අනුගමනය කිරීම ඉතා වැදගත්ය)",
+        "Maintain optimal plant spacing and avoid dense planting (නිවැරදි පැළ ගහනය පවත්වා ගැනීම)",
+        "Balanced fertilizer application; strictly avoid excessive nitrogen application (සමතුලිත පොහොර භාවිතය)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sheath_blight",
+      "name_en": "Sheath Blight",
+      "name_si": "කොපු අංගමාරය",
+      "scientific_name": "Rhizoctonia solani",
+      "pathogen_type": "Fungus",
+      "diagnostic_symptoms": [
+        "Greyish oval or elliptical lesions with brown irregular margins on leaf sheaths just above water line (පත්‍ර කොපු මත අළුපාට ඕවලාකාර ලප ඇති වීම විශේෂ ලක්ෂණයයි)",
+        "In severe infections, lesions coalesce up the culm giving the entire hill a scorched appearance as if burned by fire (ආසාදනය තදබල වූ විට ගින්නෙන් පිළිස්සීමක් මෙන් දැකිය හැක)"
+      ],
+      "favorable_conditions": "Appears predominantly after maximum tillering stage in dense, high-humidity, high-nitrogen canopies (උපරිම පඳුරු දැමීමේ අවස්ථාවට පසුව ඇති වේ)",
+      "management_actions": [
+        "Prevalent fungal disease in both irrigated and rainfed systems (මෙයද බහුලව දැකිය හැකි දිලීර රෝගයයි)",
+        "Maintain correct plant population and spacing to improve aeration (නිවැරදි පැළ ගහනය පවත්වා ගැනීම)",
+        "Apply balanced fertilizers and avoid split nitrogen over-application (සමතුලිත පොහොර භාවිතය)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "bacterial_leaf_blight",
+      "name_en": "Bacterial Leaf Blight (BLB)",
+      "name_si": "බැක්ටීරියා පත්‍ර අංගමාරය",
+      "scientific_name": "Xanthomonas oryzae pv. oryzae",
+      "pathogen_type": "Bacterium",
+      "diagnostic_symptoms": [
+        "Affects both young seedlings (kresek wilt phase) and mature plants (ළපටි ගොයමට මෙන්ම පරිණත ගොයමට ද සෑදේ)",
+        "Infected stem and leaf base emit a distinctive strong foul odor (ආසාදිත ශාකයක කඳ කොටසෙන් අධික දුර්ගන්ධයක් හමීම විශේෂ ලක්ෂණයයි)",
+        "Water-soaked lesions on leaf margins enlarge, turn yellow-orange, and dry to straw color (ආසාදනය උග්‍ර වූ විට පත්‍ර කහ පැහැ වී වියළී යයි)"
+      ],
+      "favorable_conditions": "Strong winds, high rainfall, standing floodwaters, and high temperatures",
+      "management_actions": [
+        "Maintain optimal plant spacing and density (නිවැරදි පැළ ගහනය පවත්වා ගැනීම)",
+        "Balanced fertilizer application; withhold additional urea when symptoms appear (සමතුලිත පොහොර භාවිතය)",
+        "Strict water regulation: drain water from infected liyaddas to prevent bacterial spread via water flow (ජල පාලනය)"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "beneficial_organisms": {
+    "predators": [
+      {
+        "id": "wolf_spider",
+        "name_en": "Wolf Spider",
+        "name_si": "වක මකුළුවා",
+        "scientific_family": "Lycosidae (Pardosa pseudoannulata / Lycosa)",
+        "ecological_niche": "Ground and basal stem predator active during morning and day",
+        "prey": "Planthoppers, leafhoppers, stem borer moths, fallen larvae",
+        "confidence": "high"
+      },
+      {
+        "id": "lynx_spider",
+        "name_en": "Lynx Spider",
+        "name_si": "තියුණු දෑස්ැති මකුළුවා",
+        "scientific_family": "Oxyopidae (Oxyopes javanus)",
+        "ecological_niche": "Active day-hunting predator across mid to upper plant canopy",
+        "prey": "Planthoppers, leaf folder moths, flies",
+        "confidence": "high"
+      },
+      {
+        "id": "rove_beetle",
+        "name_en": "Rove Beetle",
+        "name_si": "බෝතල් කුරුමිණියන්",
+        "scientific_family": "Staphylinidae (Paederus fuscipes)",
+        "ecological_niche": "Canopy and soil surface active predator",
+        "prey": "Rice leaf folder caterpillars, planthopper nymphs, small larvae",
+        "confidence": "high"
+      },
+      {
+        "id": "ladybird_beetle",
+        "name_en": "Ladybird Beetle",
+        "name_si": "ඉබිකුරුමිණියන්",
+        "scientific_family": "Coccinellidae (Micraspis discolor / Harmonia)",
+        "ecological_niche": "Larvae and adults roam upper canopy and stems",
+        "prey": "Planthopper eggs and nymphs, thrips, mites (larva is particularly voracious)",
+        "confidence": "high"
+      },
+      {
+        "id": "mirid_bug",
+        "name_en": "Mirid Bug",
+        "name_si": "සර්ටොරොයිනස් පැළ මකුණා",
+        "scientific_name": "Cyrtorhinus lividipennis",
+        "ecological_niche": "Specialized hopper predator in rice canopy",
+        "prey": "Pierces and sucks eggs and young nymphs of brown and white-backed planthoppers",
+        "confidence": "high"
+      },
+      {
+        "id": "water_strider",
+        "name_en": "Water Strider / Ripple Bug",
+        "name_si": "මයික්‍රොවිලියා දිය මකුණා",
+        "scientific_name": "Microvelia douglasi atrolineata",
+        "ecological_niche": "Aquatic water surface predator in paddy fields",
+        "prey": "Fallen planthopper nymphs, hopper adults, mosquito larvae",
+        "confidence": "high"
+      },
+      {
+        "id": "damselfly",
+        "name_en": "Damselfly",
+        "name_si": "හීන් බත්කූරා",
+        "scientific_family": "Coenagrionidae (Agriocnemis spp.)",
+        "ecological_niche": "Low-altitude flyers hunting within crop canopy",
+        "prey": "Planthoppers, leafhoppers, small moths",
+        "confidence": "high"
+      },
+      {
+        "id": "dragonfly",
+        "name_en": "Dragonfly",
+        "name_si": "මහ බත්කූරා",
+        "scientific_family": "Libellulidae (Pantala flavescens / Crocothemis servilia)",
+        "ecological_niche": "Aerial predators patrolling above crop canopy",
+        "prey": "Flying leaf folder moths, stem borer moths, adult planthoppers",
+        "confidence": "high"
+      }
+    ],
+    "parasitoids": [
+      {
+        "id": "braconid_wasp",
+        "name_en": "Braconid Wasp",
+        "name_si": "ස්ටෙනො බෲකොන් බඹරා",
+        "scientific_name": "Stenobracon sp.",
+        "target_pest_stage": "Parasitizes stem borer caterpillars inside stems",
+        "conservation_practice": "Plant flowering legumes on field bunds to provide nectar for adult wasps (නියර මත රනිල බෝග වැවීමෙන් බඹර විශේෂ වර්ධනයට උපකාරීවේ)",
+        "confidence": "high"
+      },
+      {
+        "id": "telenomus_wasp",
+        "name_en": "Scelionid Egg Parasitoid Wasp",
+        "name_si": "ටෙලිනොමස් බඹරා",
+        "scientific_name": "Telenomus sp.",
+        "target_pest_stage": "Parasitizes stem borer egg masses and bug eggs",
+        "conservation_practice": "Avoid broad-spectrum chemical sprays to protect wasp populations",
+        "confidence": "high"
+      }
+    ],
+    "entomopathogens": [
+      {
+        "id": "hirsutella",
+        "name_en": "Hirsutella Fungus",
+        "name_si": "හර්සුටෙල්ලා දිලීර රෝගය",
+        "scientific_name": "Hirsutella spp.",
+        "target_hosts": "Naturally infects and kills planthoppers and leafhoppers in humid conditions",
+        "confidence": "high"
+      },
+      {
+        "id": "npv_virus",
+        "name_en": "Nuclear Polyhedrosis Virus (NPV)",
+        "name_si": "න්‍යෂ්ටික බහුතල වෛරස් රෝගය",
+        "target_hosts": "Naturally infects and eliminates leaf folder and armyworm caterpillars",
+        "confidence": "high"
+      },
+      {
+        "id": "other_fungi",
+        "name_en": "Beauveria & Metarhizium Fungi",
+        "name_si": "බිම්වේරියා සහ මෙටාරිසියුම් දිලීර",
+        "target_hosts": "Entomopathogenic fungi controlling insect pests naturally in soil and foliage",
+        "confidence": "high"
+      }
+    ]
+  },
+  "weather_triggered_pest_risks": {
+    "dry_weather_conditions": {
+      "condition_si": "වියළි කාලගුණික තත්ත්ව යටතේ",
+      "condition_en": "Under dry weather conditions",
+      "elevated_risks": [
+        {
+          "pest_id": "bph",
+          "name_en": "Brown Planthopper",
+          "name_si": "දුඹුරු පැළ කීඩෑවා"
+        },
+        {
+          "pest_id": "wbph",
+          "name_en": "White-backed Planthopper",
+          "name_si": "පිටසුදු පැළ කීඩෑවා"
+        },
+        {
+          "pest_id": "leaf_folder",
+          "name_en": "Rice Leaf Folder",
+          "name_si": "කොළ හකුලන දළඹුවා"
+        }
+      ],
+      "advisory_en": "Under dry weather conditions, be especially vigilant for Brown Planthopper, White-backed Planthopper, and Rice Leaf Folder infestations."
+    },
+    "wet_weather_conditions": {
+      "condition_si": "තෙත් කාලගුණික තත්ත්ව යටතේ",
+      "condition_en": "Under wet / humid weather conditions",
+      "elevated_risks": [
+        {
+          "pest_id": "gall_midge",
+          "name_en": "Rice Gall Midge",
+          "name_si": "ගොක් මැස්සා"
+        },
+        {
+          "pest_id": "leaf_folder",
+          "name_en": "Rice Leaf Folder",
+          "name_si": "කොළ හකුලන දළඹුවා"
+        },
+        {
+          "pest_id": "caseworm",
+          "name_en": "Caseworm",
+          "name_si": "කොපු පණුවා"
+        },
+        {
+          "disease_id": "rice_blast",
+          "name_en": "Rice Blast",
+          "name_si": "කොළපාළුව"
+        },
+        {
+          "disease_id": "sheath_blight",
+          "name_en": "Sheath Blight",
+          "name_si": "කොපු අංගමාරය"
+        }
+      ],
+      "advisory_en": "Under wet weather conditions, be especially vigilant for Rice Gall Midge, Rice Leaf Folder, Caseworm, Rice Blast, and Sheath Blight infections."
+    }
+  },
+  "_notes": [
+    "Extracted from official DOA / AFACI 2015 Sinhala IPM Poster (IPMcalender.png).",
+    "Supplementary phenology and biological control reference only; does not replace full agronomic calendar schedules.",
+    "Economic values (costs, pesticide prices, yield value) are strictly excluded."
+  ]
+}

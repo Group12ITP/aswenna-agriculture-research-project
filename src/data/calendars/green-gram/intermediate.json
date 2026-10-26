@@ -1,0 +1,691 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Green Gram",
+  "app_crop": "Green Gram",
+  "zones": [
+    "intermediate"
+  ],
+  "regions": [
+    "Kandy IL-2, IM-1",
+    "Badulla IM-1, IM-2",
+    "Gampaha Wl-1",
+    "Matale IL-2",
+    "Ratnapura IL-1, IM-2",
+    "Kurunegala IL-1, IL-3",
+    "Monaragala IM-1, IM-2, IL-2",
+    "Matara IL-1",
+    "Hambantota IL-1",
+    "Kegalle District",
+    "Mahaweli System 'C'"
+  ],
+  "irrigation": [
+    "rainfed",
+    "irrigated"
+  ],
+  "source_file": "data-source/rgb/Green Gram/GreenGram_INTER.png",
+  "source_year": 2013,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Main Seasons Cultivation (Maha & Yala)",
+      "cultivation_system": "upland",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 11,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 11,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 2
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "mi_5",
+          "name": "MI -5",
+          "age_group": null,
+          "duration_days": {
+            "min": 60,
+            "max": 65
+          },
+          "duration_days_min": 60,
+          "duration_days_max": 65,
+          "yield_range_kg_ac": [
+            607,
+            607
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-65 days. Printed yield 1500 kg/ha (~607 kg/ac)."
+        },
+        {
+          "id": "ari",
+          "name": "Ari",
+          "age_group": null,
+          "duration_days": {
+            "min": 60,
+            "max": 65
+          },
+          "duration_days_min": 60,
+          "duration_days_max": 65,
+          "yield_range_kg_ac": [
+            648,
+            648
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-65 days. Printed yield 1600 kg/ha (~648 kg/ac)."
+        },
+        {
+          "id": "harsha",
+          "name": "Harsha",
+          "age_group": null,
+          "duration_days": {
+            "min": 55,
+            "max": 60
+          },
+          "duration_days_min": 55,
+          "duration_days_max": 60,
+          "yield_range_kg_ac": [
+            486,
+            486
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55-60 days. Printed yield 1200 kg/ha (~486 kg/ac)."
+        },
+        {
+          "id": "mi_6",
+          "name": "MI-6",
+          "age_group": null,
+          "duration_days": {
+            "min": 55,
+            "max": 58
+          },
+          "duration_days_min": 55,
+          "duration_days_max": 58,
+          "yield_range_kg_ac": [
+            728,
+            728
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55-58 days. Printed yield 1800 kg/ha (~728 kg/ac). Note: Suitable for mid-season cultivation."
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Land preparation with tractor: Maha Oct W3-W4; Yala Mar W4-Apr W1"
+        },
+        {
+          "key": "seeding_and_basal",
+          "label": "Seeding & Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Direct seeding and basal chemical dressing: Maha Nov W1-W2; Yala Apr W2-W3"
+        },
+        {
+          "key": "weed_control_and_top_dressing",
+          "label": "Weed Control & Top Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Weed control with hoe and urea top dressing: Maha Dec W1-W2; Yala May W1-W2"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": null,
+            "maha_month": 1,
+            "yala_month": 6,
+            "month": 1,
+            "weeks": null,
+            "yala_weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting mature green gram pods: Maha Jan W3-Feb W1; Yala Jun W4-Jul W1"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing - at planting",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": 0,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 12.1,
+          "tsp_kg_ac": 40.5,
+          "mop_kg_ac": 30.4,
+          "confidence": "high",
+          "notes": "Printed requirement 30 Urea, 100 TSP, 75 MOP kg/ha (converted to kg/ac by dividing by 2.471)"
+        },
+        {
+          "timing_label": "Top Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 3
+          },
+          "urea_kg_ac": 14.2,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "Printed requirement 35 Urea kg/ha applied with weed control (converted to kg/ac by dividing by 2.471)"
+        }
+      ],
+      "derived": {
+        "description": "Computed sums and derived specifications",
+        "total_varieties_count": 4,
+        "computed_fertilizer_sums_kg_ac": {
+          "urea": 26.3,
+          "tsp": 40.5,
+          "mop": 30.4
+        },
+        "seed_rate": "30 kg/ha (approx 12 kg/ac)",
+        "spacings": [
+          "30 x 10 cm",
+          "60 x 10 cm"
+        ],
+        "yield_kg_ac": 400,
+        "selling_price_rs_per_kg": 170
+      }
+    },
+    {
+      "scenario": "third_season",
+      "label": "Third Season / Mid-Season Cultivation",
+      "cultivation_system": "paddy_field",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Mid_Season",
+          "plant_from": {
+            "month": 3,
+            "week": 4
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 2
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "mi_6",
+          "name": "MI-6",
+          "age_group": null,
+          "duration_days": {
+            "min": 55,
+            "max": 58
+          },
+          "duration_days_min": 55,
+          "duration_days_max": 58,
+          "yield_range_kg_ac": [
+            728,
+            728
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55-58 days. Printed yield 1800 kg/ha (~728 kg/ac). Note: Suitable for mid-season cultivation."
+        },
+        {
+          "id": "harsha",
+          "name": "Harsha",
+          "age_group": null,
+          "duration_days": {
+            "min": 55,
+            "max": 60
+          },
+          "duration_days_min": 55,
+          "duration_days_max": 60,
+          "yield_range_kg_ac": [
+            486,
+            486
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 55-60 days. Printed yield 1200 kg/ha (~486 kg/ac)."
+        },
+        {
+          "id": "mi_5",
+          "name": "MI -5",
+          "age_group": null,
+          "duration_days": {
+            "min": 60,
+            "max": 65
+          },
+          "duration_days_min": 60,
+          "duration_days_max": 65,
+          "yield_range_kg_ac": [
+            607,
+            607
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-65 days. Printed yield 1500 kg/ha (~607 kg/ac)."
+        },
+        {
+          "id": "ari",
+          "name": "Ari",
+          "age_group": null,
+          "duration_days": {
+            "min": 60,
+            "max": 65
+          },
+          "duration_days_min": 60,
+          "duration_days_max": 65,
+          "yield_range_kg_ac": [
+            648,
+            648
+          ],
+          "confidence": "high",
+          "notes": "Printed duration 60-65 days. Printed yield 1600 kg/ha (~648 kg/ac)."
+        }
+      ],
+      "operations": [
+        {
+          "key": "land_preparation",
+          "label": "Land Preparation / Field Clearing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Land preparation for mid season in rice fallows"
+        },
+        {
+          "key": "seeding_and_basal",
+          "label": "Seeding & Basal Dressing",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Seeding with residual moisture or light irrigation"
+        },
+        {
+          "key": "harvesting",
+          "label": "Harvesting",
+          "hint": true,
+          "verified": false,
+          "original_grid_position": {
+            "season": "Mid_Season",
+            "month": 6,
+            "weeks": null
+          },
+          "confidence": "high",
+          "details": "Harvesting mid-season green gram"
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "timing_label": "Basal Dressing - at planting",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": 0,
+            "weeks_after_planting": 0
+          },
+          "urea_kg_ac": 12.1,
+          "tsp_kg_ac": 40.5,
+          "mop_kg_ac": 30.4,
+          "confidence": "high",
+          "notes": "Basal dressing 30 Urea, 100 TSP, 75 MOP kg/ha"
+        },
+        {
+          "timing_label": "Top Dressing",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": 3
+          },
+          "urea_kg_ac": 14.2,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": "Top dressing 35 Urea kg/ha"
+        }
+      ],
+      "derived": {
+        "description": "Third season cultivation details",
+        "total_varieties_count": 4,
+        "seed_rate": "30 kg/ha",
+        "spacings": [
+          "30 x 10 cm",
+          "60 x 10 cm"
+        ]
+      }
+    }
+  ],
+  "weather_by_month": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "rain",
+      "h2": "sun"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "thunder"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "thunder",
+      "h2": "rain"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "rain",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "sun-cloud",
+      "h2": "sun-cloud"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun-cloud",
+      "h2": "sun"
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun-cloud",
+      "h2": "rain"
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "rain",
+      "h2": "rain"
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "direct_seeding",
+      "type": null,
+      "kg_ac": 12,
+      "notes": "Printed seed rate 30 kg/ha (~12 kg/ac; cost table lists Seed 12 kg x Rs.265/= for 1 acre)"
+    }
+  ],
+  "pests_diseases": [
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": [
+        {
+          "canonical_name": "cercospora_brown_spot",
+          "verbatim_text": "Cercospora brown spot"
+        },
+        {
+          "canonical_name": "anthracnose_brown_spot",
+          "verbatim_text": "Anthracnose brown spot"
+        },
+        {
+          "canonical_name": "powdery_mildew",
+          "verbatim_text": "Powdery mildew"
+        },
+        {
+          "canonical_name": "pod_sucking_bug",
+          "verbatim_text": "Pod sucking bug"
+        },
+        {
+          "canonical_name": "whitefly",
+          "verbatim_text": "White fly"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": [
+        {
+          "canonical_name": "aphids",
+          "verbatim_text": "Aphids"
+        },
+        {
+          "canonical_name": "whitefly",
+          "verbatim_text": "White fly"
+        },
+        {
+          "canonical_name": "mites",
+          "verbatim_text": "Mites"
+        },
+        {
+          "canonical_name": "leafhopper",
+          "verbatim_text": "Leaf hopper"
+        },
+        {
+          "canonical_name": "planthopper",
+          "verbatim_text": "Plant hopper"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "items": []
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "mung_bean_mosaic_virus",
+          "verbatim_text": "Mung bean mosaic virus"
+        },
+        {
+          "canonical_name": "bean_fly",
+          "verbatim_text": "Bean fly"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": [
+        {
+          "canonical_name": "collar_rot",
+          "verbatim_text": "Collar rot"
+        },
+        {
+          "canonical_name": "mung_bean_mosaic_virus",
+          "verbatim_text": "Mung bean mosaic virus"
+        },
+        {
+          "canonical_name": "bean_fly",
+          "verbatim_text": "Bean fly"
+        },
+        {
+          "canonical_name": "pod_sucking_bug",
+          "verbatim_text": "Pod sucking bug"
+        },
+        {
+          "canonical_name": "blister_beetle",
+          "verbatim_text": "Blister beetle"
+        },
+        {
+          "canonical_name": "pod_borer",
+          "verbatim_text": "Pod borer"
+        },
+        {
+          "canonical_name": "leafhopper",
+          "verbatim_text": "Leaf hopper"
+        },
+        {
+          "canonical_name": "aphids",
+          "verbatim_text": "Aphids"
+        },
+        {
+          "canonical_name": "mites",
+          "verbatim_text": "Mites"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": [
+        {
+          "canonical_name": "bruchid",
+          "verbatim_text": "Bruchid"
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": []
+    },
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": []
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": []
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": [
+        {
+          "canonical_name": "cercospora_brown_spot",
+          "verbatim_text": "Cercospora brown spot"
+        },
+        {
+          "canonical_name": "anthracnose_brown_spot",
+          "verbatim_text": "Anthracnose brown spot"
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": [
+        {
+          "canonical_name": "cercospora_brown_spot",
+          "verbatim_text": "Cercospora brown spot"
+        },
+        {
+          "canonical_name": "anthracnose_brown_spot",
+          "verbatim_text": "Anthracnose brown spot"
+        },
+        {
+          "canonical_name": "powdery_mildew",
+          "verbatim_text": "Powdery mildew"
+        },
+        {
+          "canonical_name": "pod_sucking_bug",
+          "verbatim_text": "Pod sucking bug"
+        }
+      ]
+    }
+  ],
+  "risk_advice": {
+    "drought": [
+      "Mulching",
+      "Use drought resistant varieties",
+      "Plant on pots (Plants established in small pots such as coconut shells) in isolated places"
+    ],
+    "flood": [
+      "Improve drainage system",
+      "Application of additional fertilizer in accordance with the growth stage"
+    ],
+    "salinity": []
+  },
+  "tile_sources": {
+    "header_districts": "data-source/tiles/green_gram_inter/01_header_districts.png",
+    "legend_operations": "data-source/tiles/green_gram_inter/02_legend_operations.png",
+    "timeline_grid": "data-source/tiles/green_gram_inter/03_timeline_grid.png",
+    "weather": "data-source/tiles/green_gram_inter/03_weather.png",
+    "pests_row": "data-source/tiles/green_gram_inter/04_pests_row.png",
+    "pest_control_measures": "data-source/tiles/green_gram_inter/05_pest_control_measures.png",
+    "varieties_fertilizer": "data-source/tiles/green_gram_inter/06_varieties_fertilizer.png",
+    "cost_production": "data-source/tiles/green_gram_inter/07_cost_production.png",
+    "risk_advice": "data-source/tiles/green_gram_inter/08_risk_advice.png",
+    "districts_detail": "data-source/tiles/green_gram_inter/09_districts_detail.png",
+    "credits": "data-source/tiles/green_gram_inter/10_credits.png"
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/green_gram_inter/ tiles.",
+    "Varieties: MI -5, Ari, Harsha, MI-6.",
+    "Fertilizer application table printed in kg/ha (Basal: 30 Urea, 100 TSP, 75 MOP kg/ha; Top: 35 Urea kg/ha). Converted values in kg/ac stored in schedule and derived block.",
+    "Cost of production table lists labour days as 11 lab days (8800.00) under 'Including Family Labour' and 30 lab days (24000.00) under 'Excluding Family Labour'. The printed numbers are preserved verbatim.",
+    "Calendar timeline printed starting with September and ending with August.",
+    "Pests bounded strictly by Month column grid lines."
+  ]
+}

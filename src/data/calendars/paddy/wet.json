@@ -1,0 +1,2426 @@
+{
+  "$schema": "../../../calendar.schema.json",
+  "crop": "Paddy",
+  "app_crop": "Paddy",
+  "zones": [
+    "wet"
+  ],
+  "regions": [
+    "Low country wet zone",
+    "Mid country wet zone"
+  ],
+  "irrigation": [
+    "irrigated",
+    "rainfed"
+  ],
+  "source_file": "data-source/rgb/Paddy/paddy-WET_English_New-scaled.png",
+  "source_year": 2015,
+  "scenarios": [
+    {
+      "scenario": "main",
+      "label": "Wet Zone Irrigated Cultivation",
+      "cultivation_system": "paddy_field",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 10,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 10,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "bg250",
+          "name": "Bg 250",
+          "age_group": "2 1/2 Month",
+          "duration_days": 80,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for late planting",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg251_gsr",
+          "name": "Bg 251 GSR",
+          "age_group": "2 1/2 Month",
+          "duration_days": 80,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for late planting",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg300",
+          "name": "Bg 300",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw272_6b",
+          "name": "Bw 272-6b",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for marsh lands",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg310",
+          "name": "Bg 310",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": "Resistant to salinity",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg359",
+          "name": "Bg 359",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw361",
+          "name": "Bw 361",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "at362",
+          "name": "At 362",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1600,
+            1800
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "ld365",
+          "name": "Ld 365",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw367",
+          "name": "Bw 367",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw372",
+          "name": "Bw 372",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg379_2",
+          "name": "Bg 379-2",
+          "age_group": "4- 4 1/2 Month",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "yield_range_kg_ac": [
+            1600,
+            1800
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg455",
+          "name": "Bg 455",
+          "age_group": "4- 4 1/2 Month",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": "Resistant to flooding",
+          "tolerance_days": 5
+        }
+      ],
+      "operations": [
+        {
+          "age_group": "2 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "levelling_and_basal_sowing",
+          "label": "Levelling, Appling basal fertilizer & Seed broadcasting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              3
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              3
+            ]
+          },
+          "confidence": "high",
+          "details": "Levelling, basal fertilizer application and seed broadcasting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "3 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Leveling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              3
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              3
+            ]
+          },
+          "confidence": "high",
+          "details": "Crop establishment read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "3 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Levelling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              2
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              2
+            ]
+          },
+          "confidence": "high",
+          "details": "Planting / transplanting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Levelling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 10,
+            "weeks": [
+              4
+            ],
+            "yala_month": 4,
+            "yala_weeks": [
+              4
+            ]
+          },
+          "confidence": "high",
+          "details": "Planting / transplanting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "Broadcasting time (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "10 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 10,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "25 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 25,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 22,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "35 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 35,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 18,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "40 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 40,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "2 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 2,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "4 weeks after broadcasting/3 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 4,
+            "weeks_after_planting": 3
+          },
+          "urea_kg_ac": 22,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "6 weeks after broadcasting/5 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 6,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 18,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "7 weeks after broadcasting/6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 7,
+            "weeks_after_planting": 6
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "3 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 3,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "5 weeks after broadcasting/4 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 5,
+            "weeks_after_planting": 4
+          },
+          "urea_kg_ac": 22,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "7 weeks after broadcasting/6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 7,
+            "weeks_after_planting": 6
+          },
+          "urea_kg_ac": 18,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "8 weeks after broadcasting/7 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 8,
+            "weeks_after_planting": 7
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "3 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 3,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "6 weeks after broadcasting/5 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 6,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 22,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "8 weeks after broadcasting/7 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 8,
+            "weeks_after_planting": 7
+          },
+          "urea_kg_ac": 18,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 10,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "9 weeks after broadcasting/8 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 9,
+            "weeks_after_planting": 8
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        }
+      ],
+      "printed_totals": [
+        {
+          "age_group": "2 1/2 Month",
+          "urea_kg_ac": 56,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "urea_kg_ac": 56,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "urea_kg_ac": 56,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "urea_kg_ac": 56,
+          "tsp_kg_ac": 14,
+          "mop_kg_ac": 20,
+          "confidence": "high",
+          "notes": null
+        }
+      ],
+      "micronutrient_notes": [
+        "Every maha season apply Zinc sulphate 2 kg per acre"
+      ],
+      "derived": {
+        "description": "Computed helper lookups derived strictly from printed schedule",
+        "total_varieties_count": 13,
+        "total_age_groups_count": 4
+      },
+      "age_groups": [
+        {
+          "age_group": "2 1/2 Month",
+          "header_text": "2 1/2 Month (days 80 ± 5) variety",
+          "duration_days": 80,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "3 Month",
+          "header_text": "3 Month (days 90 ± 5) variety",
+          "duration_days": 90,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "header_text": "3 1/2 Month (days 105 ± 5) variety",
+          "duration_days": 105,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "4 - 4 1/2 Month",
+          "header_text": "4- 4 1/2 Month (days 120 -135 ± 5) variety",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "tolerance_days": 5
+        }
+      ]
+    },
+    {
+      "scenario": "alternative",
+      "label": "Wet Zone Rainfed Cultivation",
+      "cultivation_system": "paddy_field",
+      "harvest_type": "grain",
+      "season_windows": [
+        {
+          "season": "Maha",
+          "plant_from": {
+            "month": 10,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 10,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "season": "Yala",
+          "plant_from": {
+            "month": 4,
+            "week": 1
+          },
+          "plant_to": {
+            "month": 4,
+            "week": 3
+          },
+          "confidence": "high",
+          "hint": true,
+          "verified": false
+        }
+      ],
+      "varieties": [
+        {
+          "id": "bg250",
+          "name": "Bg 250",
+          "age_group": "2 1/2 Month",
+          "duration_days": 80,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for late planting",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg251_gsr",
+          "name": "Bg 251 GSR",
+          "age_group": "2 1/2 Month",
+          "duration_days": 80,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for late planting",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg300",
+          "name": "Bg 300",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw272_6b",
+          "name": "Bw 272-6b",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1000,
+            1200
+          ],
+          "confidence": "high",
+          "notes": "Suitable for marsh lands",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg310",
+          "name": "Bg 310",
+          "age_group": "3 Month",
+          "duration_days": 90,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": "Resistant to salinity",
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg359",
+          "name": "Bg 359",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw361",
+          "name": "Bw 361",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "at362",
+          "name": "At 362",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1600,
+            1800
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "ld365",
+          "name": "Ld 365",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1200,
+            1400
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw367",
+          "name": "Bw 367",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bw372",
+          "name": "Bw 372",
+          "age_group": "3 1/2 Month",
+          "duration_days": 105,
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg379_2",
+          "name": "Bg 379-2",
+          "age_group": "4- 4 1/2 Month",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "yield_range_kg_ac": [
+            1600,
+            1800
+          ],
+          "confidence": "high",
+          "notes": null,
+          "tolerance_days": 5
+        },
+        {
+          "id": "bg455",
+          "name": "Bg 455",
+          "age_group": "4- 4 1/2 Month",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "yield_range_kg_ac": [
+            1400,
+            1600
+          ],
+          "confidence": "high",
+          "notes": "Resistant to flooding",
+          "tolerance_days": 5
+        }
+      ],
+      "operations": [
+        {
+          "age_group": "2 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "levelling_and_basal_sowing",
+          "label": "Levelling, Appling basal fertilizer & Seed broadcasting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              3
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              3
+            ]
+          },
+          "confidence": "high",
+          "details": "Levelling, basal fertilizer application and seed broadcasting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "3 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Leveling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              3
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              3
+            ]
+          },
+          "confidence": "high",
+          "details": "Crop establishment read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "3 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "3 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Levelling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 11,
+            "weeks": [
+              2
+            ],
+            "yala_month": 5,
+            "yala_weeks": [
+              2
+            ]
+          },
+          "confidence": "high",
+          "details": "Planting / transplanting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "appling_straw",
+          "label": "Appling straw",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Spreading straw in field read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "primary_land_preparation",
+          "label": "Primary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "First plowing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "appling_leaf_manure",
+          "label": "Appling leaf manure cow dung & paddy husk",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Organic fertilizer application read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "secondary_land_preparation",
+          "label": "Secondary land preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Second plowing and rotovation read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "nursery_preparation",
+          "label": "Nursery preparation",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Nursery bed seedling raising read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "levelling_and_basal_fertilizer",
+          "label": "Levelling & Appling basal fertilizer",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Levelling and basal fertilizer read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "planting_transplanting",
+          "label": "Planting / Transplanting",
+          "original_grid_position": {
+            "season": "Maha",
+            "month": 10,
+            "weeks": [
+              4
+            ],
+            "yala_month": 4,
+            "yala_weeks": [
+              4
+            ]
+          },
+          "confidence": "high",
+          "details": "Planting / transplanting read from tile",
+          "hint": true,
+          "verified": false
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "weed_control_and_first_td",
+          "label": "Weed control & Fertilizer application (1st Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Early weeding and top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "second_top_dressing",
+          "label": "Fertilizer application (2nd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Mid vegetative top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "third_top_dressing",
+          "label": "Fertilizer application (3rd Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Panicle initiation top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "fourth_top_dressing",
+          "label": "Fertilizer application (4th Top Dressing)",
+          "original_grid_position": null,
+          "confidence": "high",
+          "details": "Heading top dressing read from tile"
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "key": "harvesting",
+          "label": "Harvesting",
+          "original_grid_position": {
+            "maha_month": 2,
+            "yala_month": 8
+          },
+          "confidence": "high",
+          "details": "Harvest icon month only read from tile (Maha Feb, Yala Aug)",
+          "hint": false,
+          "verified": true
+        }
+      ],
+      "fertilizer_schedule": [
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "Broadcasting time (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "10 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 10,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 14,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "25 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 25,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 12,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 18,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "35 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 35,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 12,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "2 1/2 Month",
+          "timing_label": "40 Days after broadcasting",
+          "timing_schemes": {
+            "days_after_broadcasting": 40,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "2 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 2,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 14,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "4 weeks after broadcasting/3 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 4,
+            "weeks_after_planting": 3
+          },
+          "urea_kg_ac": 12,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 18,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "6 weeks after broadcasting/5 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 6,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 12,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "timing_label": "7 weeks after broadcasting/6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 7,
+            "weeks_after_planting": 6
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "3 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 3,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 14,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "5 weeks after broadcasting/4 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 5,
+            "weeks_after_planting": 4
+          },
+          "urea_kg_ac": 12,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 18,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "7 weeks after broadcasting/6 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 7,
+            "weeks_after_planting": 6
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 12,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "timing_label": "8 weeks after broadcasting/7 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 8,
+            "weeks_after_planting": 7
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "Broadcasting/planting (basal fertilizer)",
+          "timing_schemes": {
+            "days_after_broadcasting": 0,
+            "weeks_after_broadcasting": null,
+            "weeks_after_planting": null
+          },
+          "urea_kg_ac": null,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "3 weeks after broadcasting/2 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 3,
+            "weeks_after_planting": 2
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 14,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "6 weeks after broadcasting/5 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 6,
+            "weeks_after_planting": 5
+          },
+          "urea_kg_ac": 12,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 18,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "8 weeks after broadcasting/7 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 8,
+            "weeks_after_planting": 7
+          },
+          "urea_kg_ac": 10,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": 12,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "timing_label": "9 weeks after broadcasting/8 weeks after planting",
+          "timing_schemes": {
+            "days_after_broadcasting": null,
+            "weeks_after_broadcasting": 9,
+            "weeks_after_planting": 8
+          },
+          "urea_kg_ac": 8,
+          "tsp_kg_ac": null,
+          "mop_kg_ac": null,
+          "confidence": "high",
+          "notes": null
+        }
+      ],
+      "printed_totals": [
+        {
+          "age_group": "2 1/2 Month",
+          "urea_kg_ac": 40,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": 44,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 Month",
+          "urea_kg_ac": 40,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": 44,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "urea_kg_ac": 40,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": 44,
+          "confidence": "high",
+          "notes": null
+        },
+        {
+          "age_group": "4- 4 1/2 Month",
+          "urea_kg_ac": 40,
+          "tsp_kg_ac": 22,
+          "mop_kg_ac": 44,
+          "confidence": "high",
+          "notes": null
+        }
+      ],
+      "micronutrient_notes": [
+        "Every maha season apply Zinc sulphate 2 kg per acre"
+      ],
+      "derived": {
+        "description": "Computed helper lookups derived strictly from printed schedule",
+        "total_varieties_count": 13,
+        "total_age_groups_count": 4
+      },
+      "age_groups": [
+        {
+          "age_group": "2 1/2 Month",
+          "header_text": "2 1/2 Month (days 80 ± 5) variety",
+          "duration_days": 80,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "3 Month",
+          "header_text": "3 Month (days 90 ± 5) variety",
+          "duration_days": 90,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "3 1/2 Month",
+          "header_text": "3 1/2 Month (days 105 ± 5) variety",
+          "duration_days": 105,
+          "tolerance_days": 5
+        },
+        {
+          "age_group": "4 - 4 1/2 Month",
+          "header_text": "4- 4 1/2 Month (days 120 -135 ± 5) variety",
+          "duration_days": {
+            "min": 120,
+            "max": 135
+          },
+          "tolerance_days": 5
+        }
+      ]
+    }
+  ],
+  "seed_requirement": [
+    {
+      "method": "Broadcasting",
+      "type": "Medium elongate & elongate (Nadu)",
+      "kg_ac": 40,
+      "notes": null
+    },
+    {
+      "method": "Broadcasting",
+      "type": "Round short shape (Samba)",
+      "kg_ac": 30,
+      "notes": null
+    },
+    {
+      "method": "Planting",
+      "type": "Medium elongate & elongate (Nadu)",
+      "kg_ac": 20,
+      "notes": null
+    },
+    {
+      "method": "Planting",
+      "type": "Round short shape (Samba)",
+      "kg_ac": 15,
+      "notes": null
+    },
+    {
+      "method": "Seeding broadcasting (parachute)",
+      "type": null,
+      "kg_ac": 12,
+      "notes": null
+    }
+  ],
+  "organic_advice": [
+    "Use the disease free paddy straw from the previous season",
+    "Use 1000kg/ac of leaf manure after the primary land preparation",
+    "Use decay compost/cowdung after the secondary land preparation",
+    "If apply poultry manure apply 1000 kg/ac",
+    "After 2nd land preparation apply half burn paddy husk 250 kg/ac",
+    "After appling organic fertilizers keep the paddy land in wet condition"
+  ],
+  "iron_toxic_management": [
+    "Dig deep drain around the paddy field",
+    "Control the water flow in to the paddy field by small drain around paddy field",
+    "After second land preparation fill the paddy field & drain the water",
+    "Use additional Muriate of potash",
+    "Apply dolamite",
+    "Keep in soil dry condition",
+    "Use resistance paddy varieties (Bw 267-3, Bw 361, Bw 363, Bw 364, Bw 367, Bw 372)"
+  ],
+  "salinity_management": [
+    "Bunds to prevent sea water mixing",
+    "Land preparation with rain",
+    "Improve drainage system",
+    "Use organic fertilizer/half burn paddy husk",
+    "Well land levelling",
+    "Use seeding planting method",
+    "Always flood the paddy field",
+    "Use Resistence paddy varieties - (Bg 310, Bg 369, At 354)"
+  ],
+  "pests_diseases": [
+    {
+      "month": 9,
+      "month_name": "September",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thrips"
+        }
+      ]
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thrips"
+        },
+        {
+          "canonical_name": "gall_midge",
+          "verbatim_text": "Gall midge"
+        }
+      ]
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thrips"
+        },
+        {
+          "canonical_name": "gall_midge",
+          "verbatim_text": "Gall midge"
+        },
+        {
+          "canonical_name": "leaf_rolling_caterpillar",
+          "verbatim_text": "Leaf rolling caterpiller"
+        },
+        {
+          "canonical_name": "stem_borer",
+          "verbatim_text": "Stem borer"
+        },
+        {
+          "canonical_name": "white_backed_planthopper",
+          "verbatim_text": "White back hopper"
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "items": [
+        {
+          "canonical_name": "leaf_rolling_caterpillar",
+          "verbatim_text": "Leaf rolling caterpiller"
+        },
+        {
+          "canonical_name": "stem_borer",
+          "verbatim_text": "Stem borer"
+        },
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "white_backed_planthopper",
+          "verbatim_text": "White back hopper"
+        },
+        {
+          "canonical_name": "sheath_and_leaf_mites",
+          "verbatim_text": "Sheath & leaf mites"
+        },
+        {
+          "canonical_name": "rice_blast",
+          "verbatim_text": "Blast"
+        },
+        {
+          "canonical_name": "bacterial_sheath_blight",
+          "verbatim_text": "Bacterial sheath blight"
+        }
+      ]
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "items": [
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "paddy_bug",
+          "verbatim_text": "Paddy bug"
+        },
+        {
+          "canonical_name": "sheath_and_leaf_mites",
+          "verbatim_text": "Sheath & leaf mites"
+        },
+        {
+          "canonical_name": "brown_spot",
+          "verbatim_text": "Brown spot"
+        },
+        {
+          "canonical_name": "bacterial sheath blights",
+          "verbatim_text": "Bacterial sheath blights"
+        },
+        {
+          "canonical_name": "rice_blast",
+          "verbatim_text": "Blast"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "items": [
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "paddy_bug",
+          "verbatim_text": "Paddy bug"
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thrips"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thips"
+        },
+        {
+          "canonical_name": "gall_midge",
+          "verbatim_text": "Gall midge"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "items": [
+        {
+          "canonical_name": "thrips",
+          "verbatim_text": "Thrips"
+        },
+        {
+          "canonical_name": "gall_midge",
+          "verbatim_text": "Gall midge"
+        },
+        {
+          "canonical_name": "leaf_rolling_caterpillar",
+          "verbatim_text": "Leaf rolling caterpiller"
+        },
+        {
+          "canonical_name": "stem_borer",
+          "verbatim_text": "Stem borer"
+        },
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "sheath_and_leaf_mites",
+          "verbatim_text": "Sheath & leaf mites"
+        },
+        {
+          "canonical_name": "white_backed_planthopper",
+          "verbatim_text": "White back hopper"
+        },
+        {
+          "canonical_name": "bacterial_sheath_blight",
+          "verbatim_text": "Bacterial sheath blight"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "items": [
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "gall_midge",
+          "verbatim_text": "Gall midge"
+        },
+        {
+          "canonical_name": "sheath_and_leaf_mites",
+          "verbatim_text": "Sheath & leaf mites"
+        },
+        {
+          "canonical_name": "brown_spot",
+          "verbatim_text": "Brown spot"
+        },
+        {
+          "canonical_name": "bacterial_sheath_blight",
+          "verbatim_text": "Bacterial sheath blight"
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "items": [
+        {
+          "canonical_name": "brown_planthopper",
+          "verbatim_text": "Brown plant hopper"
+        },
+        {
+          "canonical_name": "paddy_bug",
+          "verbatim_text": "Paddy bug"
+        },
+        {
+          "canonical_name": "bacterial_sheath_blight",
+          "verbatim_text": "Bacterial sheath blight"
+        }
+      ]
+    }
+  ],
+  "risk_advice": {
+    "drought": [],
+    "flood": [
+      "Use resistant varieties for flood",
+      "Improve the drainage",
+      "Split fertilizer Application"
+    ]
+  },
+  "derived": {
+    "description": "Computed helper lookups derived strictly from printed schedule",
+    "total_varieties_count": 13,
+    "total_age_groups_count": 4
+  },
+  "_notes": [
+    "Transcribed verbatim from data-source/tiles/paddy_wet/ tiles.",
+    "Contains 2 scenarios: main (Irrigated: 56 Urea / 14 TSP / 20 MOP) and alternative (Rainfed: 40 Urea / 22 TSP / 44 MOP).",
+    "Exactly 13 varieties across 4 age groups.",
+    "All application sums match printed totals perfectly."
+  ],
+  "tile_sources": {
+    "season_grid": "data-source/tiles/paddy_wet/01_season_grid.png",
+    "weather": "data-source/tiles/paddy_wet/01_weather.png",
+    "varieties": "data-source/tiles/paddy_wet/02_varieties.png",
+    "fertilizer": "data-source/tiles/paddy_wet/03_fertilizer.png",
+    "seed": "data-source/tiles/paddy_wet/04_seed.png",
+    "organic_irontoxic_salinity": "data-source/tiles/paddy_wet/05_organic_irontoxic_salinity.png",
+    "risk_advice": "data-source/tiles/paddy_wet/06_risk_advice.png",
+    "pests_diseases": "data-source/tiles/paddy_wet/07_pests_diseases.png"
+  },
+  "weather_by_month": [
+    {
+      "month": 9,
+      "month_name": "September",
+      "h1": "sun-cloud",
+      "h2": null
+    },
+    {
+      "month": 10,
+      "month_name": "October",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 11,
+      "month_name": "November",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 12,
+      "month_name": "December",
+      "h1": "moderate-rain",
+      "h2": "moderate-rain"
+    },
+    {
+      "month": 1,
+      "month_name": "January",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 2,
+      "month_name": "February",
+      "h1": "sun",
+      "h2": "sun"
+    },
+    {
+      "month": 3,
+      "month_name": "March",
+      "h1": "sun",
+      "h2": "moderate-rain"
+    },
+    {
+      "month": 4,
+      "month_name": "April",
+      "h1": "thunder",
+      "h2": "thunder"
+    },
+    {
+      "month": 5,
+      "month_name": "May",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 6,
+      "month_name": "June",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 7,
+      "month_name": "July",
+      "h1": "rain",
+      "h2": "rain"
+    },
+    {
+      "month": 8,
+      "month_name": "August",
+      "h1": "sun-cloud",
+      "h2": "sun"
+    }
+  ]
+}

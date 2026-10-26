@@ -1,0 +1,11 @@
+{
+  "name": "aswenna-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "audit:calendars": "npm --prefix profit_engine/frontend run audit:calendars",
+    "test": "npm --prefix profit_engine/frontend run test",
+    "validate:calendars": "node scripts/validate_calendars.js"
+  }
+}
