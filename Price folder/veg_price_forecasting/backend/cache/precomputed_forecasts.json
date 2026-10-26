@@ -1,0 +1,1666 @@
+[
+  {
+    "vegetable": "Gotukola",
+    "horizon": 1,
+    "data": {
+      "selected": 60.25,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 60.0,
+      "seasonal_mean_4yr": 60.3,
+      "last_observed_price": 60.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kankun",
+    "horizon": 1,
+    "data": {
+      "selected": 74.9,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 72.78,
+      "seasonal_mean_4yr": 71.75,
+      "last_observed_price": 72.78,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kathurumurunga",
+    "horizon": 1,
+    "data": {
+      "selected": 95.66,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 92.63,
+      "seasonal_mean_4yr": 80.11,
+      "last_observed_price": 92.63,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kohila Leaves",
+    "horizon": 1,
+    "data": {
+      "selected": 99.81,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 96.0,
+      "seasonal_mean_4yr": 84.53,
+      "last_observed_price": 96.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Mukunuwenna",
+    "horizon": 1,
+    "data": {
+      "selected": 76.7,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 74.21,
+      "seasonal_mean_4yr": 71.65,
+      "last_observed_price": 74.21,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Nivithi",
+    "horizon": 1,
+    "data": {
+      "selected": 139.1,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 137.5,
+      "seasonal_mean_4yr": 128.49,
+      "last_observed_price": 137.5,
+      "category": "leafy vegetables",
+      "unit": "500g"
+    }
+  },
+  {
+    "vegetable": "Sarana",
+    "horizon": 1,
+    "data": {
+      "selected": 108.48,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 106.67,
+      "seasonal_mean_4yr": 93.06,
+      "last_observed_price": 106.67,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Thampala",
+    "horizon": 1,
+    "data": {
+      "selected": 102.55,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 101.11,
+      "seasonal_mean_4yr": 102.78,
+      "last_observed_price": 101.11,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Ash Plantain",
+    "horizon": 1,
+    "data": {
+      "selected": 288.83,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 289.66,
+      "seasonal_mean_4yr": 276.38,
+      "last_observed_price": 289.66,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Ash Pumpkin",
+    "horizon": 1,
+    "data": {
+      "selected": 346.69,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 350.59,
+      "seasonal_mean_4yr": 242.85,
+      "last_observed_price": 350.59,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bandakka",
+    "horizon": 1,
+    "data": {
+      "selected": 341.53,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 342.67,
+      "seasonal_mean_4yr": 270.5,
+      "last_observed_price": 342.67,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bitter Gourd",
+    "horizon": 1,
+    "data": {
+      "selected": 551.75,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 562.14,
+      "seasonal_mean_4yr": 433.73,
+      "last_observed_price": 562.14,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Brinjal",
+    "horizon": 1,
+    "data": {
+      "selected": 438.34,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 440.0,
+      "seasonal_mean_4yr": 426.18,
+      "last_observed_price": 440.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cap Chillies",
+    "horizon": 1,
+    "data": {
+      "selected": 584.26,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 589.33,
+      "seasonal_mean_4yr": 612.28,
+      "last_observed_price": 589.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cucumber",
+    "horizon": 1,
+    "data": {
+      "selected": 227.15,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 224.0,
+      "seasonal_mean_4yr": 196.19,
+      "last_observed_price": 224.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Drumstick",
+    "horizon": 1,
+    "data": {
+      "selected": 454.2,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 447.33,
+      "seasonal_mean_4yr": 461.69,
+      "last_observed_price": 447.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Green Chillies",
+    "horizon": 1,
+    "data": {
+      "selected": 980.2,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 1030.0,
+      "seasonal_mean_4yr": 563.74,
+      "last_observed_price": 1030.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Kohila Yams",
+    "horizon": 1,
+    "data": {
+      "selected": 343.21,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 346.09,
+      "seasonal_mean_4yr": 268.07,
+      "last_observed_price": 346.09,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Limes",
+    "horizon": 1,
+    "data": {
+      "selected": 702.43,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 712.07,
+      "seasonal_mean_4yr": 810.74,
+      "last_observed_price": 712.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Long Beans",
+    "horizon": 1,
+    "data": {
+      "selected": 428.89,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 434.07,
+      "seasonal_mean_4yr": 352.12,
+      "last_observed_price": 434.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Red Pumpkin",
+    "horizon": 1,
+    "data": {
+      "selected": 274.94,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 281.33,
+      "seasonal_mean_4yr": 207.19,
+      "last_observed_price": 281.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Snake Gourd",
+    "horizon": 1,
+    "data": {
+      "selected": 433.46,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 437.04,
+      "seasonal_mean_4yr": 361.34,
+      "last_observed_price": 437.04,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Vetakolu",
+    "horizon": 1,
+    "data": {
+      "selected": 426.47,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 431.11,
+      "seasonal_mean_4yr": 336.78,
+      "last_observed_price": 431.11,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Butter",
+    "horizon": 1,
+    "data": {
+      "selected": 724.36,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 730.0,
+      "seasonal_mean_4yr": 623.9,
+      "last_observed_price": 730.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Green",
+    "horizon": 1,
+    "data": {
+      "selected": 594.56,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 590.67,
+      "seasonal_mean_4yr": 469.61,
+      "last_observed_price": 590.67,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beet Root",
+    "horizon": 1,
+    "data": {
+      "selected": 426.05,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 435.86,
+      "seasonal_mean_4yr": 275.73,
+      "last_observed_price": 435.86,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cabbage Seed",
+    "horizon": 1,
+    "data": {
+      "selected": 360.14,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 360.0,
+      "seasonal_mean_4yr": 370.92,
+      "last_observed_price": 360.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Carrot",
+    "horizon": 1,
+    "data": {
+      "selected": 425.99,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 428.0,
+      "seasonal_mean_4yr": 406.36,
+      "last_observed_price": 428.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "KnolKhol",
+    "horizon": 1,
+    "data": {
+      "selected": 354.23,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 355.38,
+      "seasonal_mean_4yr": 304.48,
+      "last_observed_price": 355.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Leeks",
+    "horizon": 1,
+    "data": {
+      "selected": 406.64,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 413.33,
+      "seasonal_mean_4yr": 315.36,
+      "last_observed_price": 413.33,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Raddish",
+    "horizon": 1,
+    "data": {
+      "selected": 331.02,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 335.38,
+      "seasonal_mean_4yr": 238.93,
+      "last_observed_price": 335.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Tomato No1.",
+    "horizon": 1,
+    "data": {
+      "selected": 449.54,
+      "selected_model_name": "Lasso (Selected)",
+      "naive": 460.0,
+      "seasonal_mean_4yr": 275.88,
+      "last_observed_price": 460.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Gotukola",
+    "horizon": 4,
+    "data": {
+      "selected": 60.45,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 60.0,
+      "seasonal_mean_4yr": 59.68,
+      "last_observed_price": 60.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kankun",
+    "horizon": 4,
+    "data": {
+      "selected": 73.01,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 72.78,
+      "seasonal_mean_4yr": 71.17,
+      "last_observed_price": 72.78,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kathurumurunga",
+    "horizon": 4,
+    "data": {
+      "selected": 92.83,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 92.63,
+      "seasonal_mean_4yr": 78.2,
+      "last_observed_price": 92.63,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kohila Leaves",
+    "horizon": 4,
+    "data": {
+      "selected": 94.88,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 96.0,
+      "seasonal_mean_4yr": 83.55,
+      "last_observed_price": 96.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Mukunuwenna",
+    "horizon": 4,
+    "data": {
+      "selected": 74.32,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 74.21,
+      "seasonal_mean_4yr": 70.93,
+      "last_observed_price": 74.21,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Nivithi",
+    "horizon": 4,
+    "data": {
+      "selected": 137.16,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 137.5,
+      "seasonal_mean_4yr": 129.16,
+      "last_observed_price": 137.5,
+      "category": "leafy vegetables",
+      "unit": "500g"
+    }
+  },
+  {
+    "vegetable": "Sarana",
+    "horizon": 4,
+    "data": {
+      "selected": 106.84,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 106.67,
+      "seasonal_mean_4yr": 92.58,
+      "last_observed_price": 106.67,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Thampala",
+    "horizon": 4,
+    "data": {
+      "selected": 102.92,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 101.11,
+      "seasonal_mean_4yr": 102.37,
+      "last_observed_price": 101.11,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Ash Plantain",
+    "horizon": 4,
+    "data": {
+      "selected": 289.33,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 289.66,
+      "seasonal_mean_4yr": 284.32,
+      "last_observed_price": 289.66,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Ash Pumpkin",
+    "horizon": 4,
+    "data": {
+      "selected": 344.91,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 350.59,
+      "seasonal_mean_4yr": 245.59,
+      "last_observed_price": 350.59,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bandakka",
+    "horizon": 4,
+    "data": {
+      "selected": 339.49,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 342.67,
+      "seasonal_mean_4yr": 288.45,
+      "last_observed_price": 342.67,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bitter Gourd",
+    "horizon": 4,
+    "data": {
+      "selected": 521.73,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 562.14,
+      "seasonal_mean_4yr": 489.19,
+      "last_observed_price": 562.14,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Brinjal",
+    "horizon": 4,
+    "data": {
+      "selected": 446.3,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 440.0,
+      "seasonal_mean_4yr": 441.87,
+      "last_observed_price": 440.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cap Chillies",
+    "horizon": 4,
+    "data": {
+      "selected": 586.59,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 589.33,
+      "seasonal_mean_4yr": 643.38,
+      "last_observed_price": 589.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cucumber",
+    "horizon": 4,
+    "data": {
+      "selected": 224.39,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 224.0,
+      "seasonal_mean_4yr": 213.37,
+      "last_observed_price": 224.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Drumstick",
+    "horizon": 4,
+    "data": {
+      "selected": 442.24,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 447.33,
+      "seasonal_mean_4yr": 536.9,
+      "last_observed_price": 447.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Green Chillies",
+    "horizon": 4,
+    "data": {
+      "selected": 945.87,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 1030.0,
+      "seasonal_mean_4yr": 566.45,
+      "last_observed_price": 1030.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Kohila Yams",
+    "horizon": 4,
+    "data": {
+      "selected": 346.75,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 346.09,
+      "seasonal_mean_4yr": 278.35,
+      "last_observed_price": 346.09,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Limes",
+    "horizon": 4,
+    "data": {
+      "selected": 725.14,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 712.07,
+      "seasonal_mean_4yr": 1232.12,
+      "last_observed_price": 712.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Long Beans",
+    "horizon": 4,
+    "data": {
+      "selected": 432.35,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 434.07,
+      "seasonal_mean_4yr": 352.61,
+      "last_observed_price": 434.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Red Pumpkin",
+    "horizon": 4,
+    "data": {
+      "selected": 280.32,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 281.33,
+      "seasonal_mean_4yr": 197.01,
+      "last_observed_price": 281.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Snake Gourd",
+    "horizon": 4,
+    "data": {
+      "selected": 435.41,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 437.04,
+      "seasonal_mean_4yr": 380.55,
+      "last_observed_price": 437.04,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Vetakolu",
+    "horizon": 4,
+    "data": {
+      "selected": 431.15,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 431.11,
+      "seasonal_mean_4yr": 363.0,
+      "last_observed_price": 431.11,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Butter",
+    "horizon": 4,
+    "data": {
+      "selected": 728.91,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 730.0,
+      "seasonal_mean_4yr": 583.43,
+      "last_observed_price": 730.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Green",
+    "horizon": 4,
+    "data": {
+      "selected": 594.13,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 590.67,
+      "seasonal_mean_4yr": 458.72,
+      "last_observed_price": 590.67,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beet Root",
+    "horizon": 4,
+    "data": {
+      "selected": 393.19,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 435.86,
+      "seasonal_mean_4yr": 295.0,
+      "last_observed_price": 435.86,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cabbage Seed",
+    "horizon": 4,
+    "data": {
+      "selected": 363.08,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 360.0,
+      "seasonal_mean_4yr": 372.71,
+      "last_observed_price": 360.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Carrot",
+    "horizon": 4,
+    "data": {
+      "selected": 423.73,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 428.0,
+      "seasonal_mean_4yr": 350.43,
+      "last_observed_price": 428.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "KnolKhol",
+    "horizon": 4,
+    "data": {
+      "selected": 354.58,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 355.38,
+      "seasonal_mean_4yr": 323.45,
+      "last_observed_price": 355.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Leeks",
+    "horizon": 4,
+    "data": {
+      "selected": 406.3,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 413.33,
+      "seasonal_mean_4yr": 313.6,
+      "last_observed_price": 413.33,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Raddish",
+    "horizon": 4,
+    "data": {
+      "selected": 333.09,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 335.38,
+      "seasonal_mean_4yr": 248.22,
+      "last_observed_price": 335.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Tomato No1.",
+    "horizon": 4,
+    "data": {
+      "selected": 448.45,
+      "selected_model_name": "AutoARIMA (Selected)",
+      "naive": 460.0,
+      "seasonal_mean_4yr": 279.78,
+      "last_observed_price": 460.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Gotukola",
+    "horizon": 8,
+    "data": {
+      "selected": 59.58,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 60.0,
+      "seasonal_mean_4yr": 59.5,
+      "last_observed_price": 60.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kankun",
+    "horizon": 8,
+    "data": {
+      "selected": 75.45,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 72.78,
+      "seasonal_mean_4yr": 71.07,
+      "last_observed_price": 72.78,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kathurumurunga",
+    "horizon": 8,
+    "data": {
+      "selected": 87.85,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 92.63,
+      "seasonal_mean_4yr": 80.96,
+      "last_observed_price": 92.63,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kohila Leaves",
+    "horizon": 8,
+    "data": {
+      "selected": 90.06,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 96.0,
+      "seasonal_mean_4yr": 85.66,
+      "last_observed_price": 96.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Mukunuwenna",
+    "horizon": 8,
+    "data": {
+      "selected": 79.67,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 74.21,
+      "seasonal_mean_4yr": 70.83,
+      "last_observed_price": 74.21,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Nivithi",
+    "horizon": 8,
+    "data": {
+      "selected": 151.89,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 137.5,
+      "seasonal_mean_4yr": 133.95,
+      "last_observed_price": 137.5,
+      "category": "leafy vegetables",
+      "unit": "500g"
+    }
+  },
+  {
+    "vegetable": "Sarana",
+    "horizon": 8,
+    "data": {
+      "selected": 94.9,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 106.67,
+      "seasonal_mean_4yr": 92.09,
+      "last_observed_price": 106.67,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Thampala",
+    "horizon": 8,
+    "data": {
+      "selected": 94.58,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 101.11,
+      "seasonal_mean_4yr": 101.73,
+      "last_observed_price": 101.11,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Ash Plantain",
+    "horizon": 8,
+    "data": {
+      "selected": 284.57,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 289.66,
+      "seasonal_mean_4yr": 286.19,
+      "last_observed_price": 289.66,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Ash Pumpkin",
+    "horizon": 8,
+    "data": {
+      "selected": 336.16,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 350.59,
+      "seasonal_mean_4yr": 251.57,
+      "last_observed_price": 350.59,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bandakka",
+    "horizon": 8,
+    "data": {
+      "selected": 368.75,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 342.67,
+      "seasonal_mean_4yr": 310.96,
+      "last_observed_price": 342.67,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bitter Gourd",
+    "horizon": 8,
+    "data": {
+      "selected": 867.49,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 562.14,
+      "seasonal_mean_4yr": 530.44,
+      "last_observed_price": 562.14,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Brinjal",
+    "horizon": 8,
+    "data": {
+      "selected": 494.77,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 440.0,
+      "seasonal_mean_4yr": 411.82,
+      "last_observed_price": 440.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cap Chillies",
+    "horizon": 8,
+    "data": {
+      "selected": 866.58,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 589.33,
+      "seasonal_mean_4yr": 726.79,
+      "last_observed_price": 589.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cucumber",
+    "horizon": 8,
+    "data": {
+      "selected": 254.77,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 224.0,
+      "seasonal_mean_4yr": 194.93,
+      "last_observed_price": 224.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Drumstick",
+    "horizon": 8,
+    "data": {
+      "selected": 507.85,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 447.33,
+      "seasonal_mean_4yr": 445.59,
+      "last_observed_price": 447.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Green Chillies",
+    "horizon": 8,
+    "data": {
+      "selected": 740.47,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 1030.0,
+      "seasonal_mean_4yr": 561.64,
+      "last_observed_price": 1030.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Kohila Yams",
+    "horizon": 8,
+    "data": {
+      "selected": 389.3,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 346.09,
+      "seasonal_mean_4yr": 274.25,
+      "last_observed_price": 346.09,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Limes",
+    "horizon": 8,
+    "data": {
+      "selected": 1108.18,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 712.07,
+      "seasonal_mean_4yr": 1598.18,
+      "last_observed_price": 712.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Long Beans",
+    "horizon": 8,
+    "data": {
+      "selected": 460.38,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 434.07,
+      "seasonal_mean_4yr": 372.36,
+      "last_observed_price": 434.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Red Pumpkin",
+    "horizon": 8,
+    "data": {
+      "selected": 263.23,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 281.33,
+      "seasonal_mean_4yr": 216.9,
+      "last_observed_price": 281.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Snake Gourd",
+    "horizon": 8,
+    "data": {
+      "selected": 495.95,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 437.04,
+      "seasonal_mean_4yr": 423.53,
+      "last_observed_price": 437.04,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Vetakolu",
+    "horizon": 8,
+    "data": {
+      "selected": 477.57,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 431.11,
+      "seasonal_mean_4yr": 356.07,
+      "last_observed_price": 431.11,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Butter",
+    "horizon": 8,
+    "data": {
+      "selected": 790.63,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 730.0,
+      "seasonal_mean_4yr": 594.62,
+      "last_observed_price": 730.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Green",
+    "horizon": 8,
+    "data": {
+      "selected": 697.84,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 590.67,
+      "seasonal_mean_4yr": 535.75,
+      "last_observed_price": 590.67,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beet Root",
+    "horizon": 8,
+    "data": {
+      "selected": 398.35,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 435.86,
+      "seasonal_mean_4yr": 294.15,
+      "last_observed_price": 435.86,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cabbage Seed",
+    "horizon": 8,
+    "data": {
+      "selected": 328.03,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 360.0,
+      "seasonal_mean_4yr": 318.53,
+      "last_observed_price": 360.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Carrot",
+    "horizon": 8,
+    "data": {
+      "selected": 392.51,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 428.0,
+      "seasonal_mean_4yr": 322.0,
+      "last_observed_price": 428.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "KnolKhol",
+    "horizon": 8,
+    "data": {
+      "selected": 335.43,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 355.38,
+      "seasonal_mean_4yr": 325.62,
+      "last_observed_price": 355.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Leeks",
+    "horizon": 8,
+    "data": {
+      "selected": 339.71,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 413.33,
+      "seasonal_mean_4yr": 300.64,
+      "last_observed_price": 413.33,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Raddish",
+    "horizon": 8,
+    "data": {
+      "selected": 347.12,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 335.38,
+      "seasonal_mean_4yr": 249.53,
+      "last_observed_price": 335.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Tomato No1.",
+    "horizon": 8,
+    "data": {
+      "selected": 485.37,
+      "selected_model_name": "CatBoost (Selected)",
+      "naive": 460.0,
+      "seasonal_mean_4yr": 332.52,
+      "last_observed_price": 460.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Gotukola",
+    "horizon": 12,
+    "data": {
+      "selected": 59.38,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 60.0,
+      "seasonal_mean_4yr": 58.69,
+      "last_observed_price": 60.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kankun",
+    "horizon": 12,
+    "data": {
+      "selected": 71.98,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 72.78,
+      "seasonal_mean_4yr": 72.47,
+      "last_observed_price": 72.78,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kathurumurunga",
+    "horizon": 12,
+    "data": {
+      "selected": 88.75,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 92.63,
+      "seasonal_mean_4yr": 79.88,
+      "last_observed_price": 92.63,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Kohila Leaves",
+    "horizon": 12,
+    "data": {
+      "selected": 90.11,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 96.0,
+      "seasonal_mean_4yr": 85.73,
+      "last_observed_price": 96.0,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Mukunuwenna",
+    "horizon": 12,
+    "data": {
+      "selected": 76.51,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 74.21,
+      "seasonal_mean_4yr": 72.6,
+      "last_observed_price": 74.21,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Nivithi",
+    "horizon": 12,
+    "data": {
+      "selected": 142.55,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 137.5,
+      "seasonal_mean_4yr": 148.34,
+      "last_observed_price": 137.5,
+      "category": "leafy vegetables",
+      "unit": "500g"
+    }
+  },
+  {
+    "vegetable": "Sarana",
+    "horizon": 12,
+    "data": {
+      "selected": 103.7,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 106.67,
+      "seasonal_mean_4yr": 97.66,
+      "last_observed_price": 106.67,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Thampala",
+    "horizon": 12,
+    "data": {
+      "selected": 103.36,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 101.11,
+      "seasonal_mean_4yr": 106.78,
+      "last_observed_price": 101.11,
+      "category": "leafy vegetables",
+      "unit": "Bunch"
+    }
+  },
+  {
+    "vegetable": "Ash Plantain",
+    "horizon": 12,
+    "data": {
+      "selected": 283.4,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 289.66,
+      "seasonal_mean_4yr": 303.7,
+      "last_observed_price": 289.66,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Ash Pumpkin",
+    "horizon": 12,
+    "data": {
+      "selected": 328.34,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 350.59,
+      "seasonal_mean_4yr": 243.05,
+      "last_observed_price": 350.59,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bandakka",
+    "horizon": 12,
+    "data": {
+      "selected": 314.34,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 342.67,
+      "seasonal_mean_4yr": 327.56,
+      "last_observed_price": 342.67,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Bitter Gourd",
+    "horizon": 12,
+    "data": {
+      "selected": 589.13,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 562.14,
+      "seasonal_mean_4yr": 701.63,
+      "last_observed_price": 562.14,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Brinjal",
+    "horizon": 12,
+    "data": {
+      "selected": 382.79,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 440.0,
+      "seasonal_mean_4yr": 454.8,
+      "last_observed_price": 440.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cap Chillies",
+    "horizon": 12,
+    "data": {
+      "selected": 565.52,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 589.33,
+      "seasonal_mean_4yr": 919.77,
+      "last_observed_price": 589.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cucumber",
+    "horizon": 12,
+    "data": {
+      "selected": 249.84,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 224.0,
+      "seasonal_mean_4yr": 236.63,
+      "last_observed_price": 224.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Drumstick",
+    "horizon": 12,
+    "data": {
+      "selected": 712.87,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 447.33,
+      "seasonal_mean_4yr": 834.0,
+      "last_observed_price": 447.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Green Chillies",
+    "horizon": 12,
+    "data": {
+      "selected": 726.42,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 1030.0,
+      "seasonal_mean_4yr": 687.23,
+      "last_observed_price": 1030.0,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Kohila Yams",
+    "horizon": 12,
+    "data": {
+      "selected": 340.96,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 346.09,
+      "seasonal_mean_4yr": 291.18,
+      "last_observed_price": 346.09,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Limes",
+    "horizon": 12,
+    "data": {
+      "selected": 1859.66,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 712.07,
+      "seasonal_mean_4yr": 1287.76,
+      "last_observed_price": 712.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Long Beans",
+    "horizon": 12,
+    "data": {
+      "selected": 404.54,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 434.07,
+      "seasonal_mean_4yr": 454.39,
+      "last_observed_price": 434.07,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Red Pumpkin",
+    "horizon": 12,
+    "data": {
+      "selected": 277.97,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 281.33,
+      "seasonal_mean_4yr": 218.62,
+      "last_observed_price": 281.33,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Snake Gourd",
+    "horizon": 12,
+    "data": {
+      "selected": 419.78,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 437.04,
+      "seasonal_mean_4yr": 469.81,
+      "last_observed_price": 437.04,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Vetakolu",
+    "horizon": 12,
+    "data": {
+      "selected": 401.62,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 431.11,
+      "seasonal_mean_4yr": 487.66,
+      "last_observed_price": 431.11,
+      "category": "lowland vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Butter",
+    "horizon": 12,
+    "data": {
+      "selected": 627.12,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 730.0,
+      "seasonal_mean_4yr": 706.01,
+      "last_observed_price": 730.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beans Green",
+    "horizon": 12,
+    "data": {
+      "selected": 487.18,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 590.67,
+      "seasonal_mean_4yr": 617.65,
+      "last_observed_price": 590.67,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Beet Root",
+    "horizon": 12,
+    "data": {
+      "selected": 405.57,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 435.86,
+      "seasonal_mean_4yr": 411.06,
+      "last_observed_price": 435.86,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Cabbage Seed",
+    "horizon": 12,
+    "data": {
+      "selected": 343.82,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 360.0,
+      "seasonal_mean_4yr": 372.25,
+      "last_observed_price": 360.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Carrot",
+    "horizon": 12,
+    "data": {
+      "selected": 382.1,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 428.0,
+      "seasonal_mean_4yr": 398.1,
+      "last_observed_price": 428.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "KnolKhol",
+    "horizon": 12,
+    "data": {
+      "selected": 334.51,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 355.38,
+      "seasonal_mean_4yr": 431.89,
+      "last_observed_price": 355.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Leeks",
+    "horizon": 12,
+    "data": {
+      "selected": 364.6,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 413.33,
+      "seasonal_mean_4yr": 377.11,
+      "last_observed_price": 413.33,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Raddish",
+    "horizon": 12,
+    "data": {
+      "selected": 340.51,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 335.38,
+      "seasonal_mean_4yr": 307.16,
+      "last_observed_price": 335.38,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  },
+  {
+    "vegetable": "Tomato No1.",
+    "horizon": 12,
+    "data": {
+      "selected": 400.34,
+      "selected_model_name": "Transformer (Selected)",
+      "naive": 460.0,
+      "seasonal_mean_4yr": 401.56,
+      "last_observed_price": 460.0,
+      "category": "upcountry vegetables",
+      "unit": "1kg"
+    }
+  }
+]

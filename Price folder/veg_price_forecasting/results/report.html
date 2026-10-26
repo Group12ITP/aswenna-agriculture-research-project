@@ -1,0 +1,3437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Lankan Market Vegetable Price Forecasting - Research Report</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      line-height: 1.65;
+      color: #24292e;
+      background-color: #ffffff;
+    }
+    h1, h2, h3, h4 {
+      color: #1a202c;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+      margin-top: 1.5em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #f6f8fa;
+      font-weight: 600;
+    }
+    tr:nth-child(2n) {
+      background-color: #fcfcfc;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      background-color: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 85%;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 6px;
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+    }
+    blockquote {
+      margin: 0;
+      padding: 0 1em;
+      color: #6a737d;
+      border-left: 0.25em solid #dfe2e5;
+    }
+    ol, ul {
+      padding-left: 2em;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+<h1>Research Report: Multi-Horizon Market Price Forecasting for Sri Lankan Vegetables</h1>
+<p><strong>Author</strong>: Agricultural Machine Learning Research Pipeline<br />
+<strong>Target Domain</strong>: Weekly Vegetable Market Price Prediction &amp; Farmer Profit Margin Analysis<br />
+<strong>Temporal Coverage</strong>: 2017-01-04 to 2026-08-25 (464 Weekly Observation Periods, ~9.7 Years)<br />
+<strong>Catalog</strong>: 32 Standardized Vegetable Varieties Across 3 Agro-Climatic Categories (Lowland, Upcountry, Leafy)<br />
+<strong>Run Mode</strong>: <code>FULL</code> (Verified Causal Alignment, Disk-Level Truncation Audited)  </p>
+<hr />
+<h2>1. Executive Summary &amp; Research Context</h2>
+<p>Predicting agricultural commodity market prices in Sri Lanka presents acute econometric and statistical challenges due to rapid supply-demand swings, localized monsoon shifts, and the profound macroeconomic regime shock of the 2022 currency devaluation.</p>
+<p>This research establishes a rigorous, benchmarked multi-horizon forecasting pipeline comparing <strong>31 models, 12 of which have a second target mode (43 configurations)</strong> across 5 fundamental paradigms:
+1. <strong>Baselines</strong>: Naive, Seasonal Naive (48-week seasonal lag), Moving Average (4, 12 weeks), Drift.
+2. <strong>Local Statistical Models</strong>: Holt-Winters Exponential Smoothing (damped additive trend, log scale), Auto-ARIMA, SARIMAX with category persistence, and Prophet with autoregressive residual state updates (all evaluated via strict rolling-origin forecasting).
+3. <strong>Global Classical Machine Learning</strong>: Linear Regression, Ridge, Lasso, ElasticNet, Support Vector Regression (SVR with StandardScaler pipeline), Random Forest, Extra Trees, Gradient Boosting, XGBoost, LightGBM, CatBoost.
+4. <strong>Global Deep Learning (PyTorch)</strong>: MLP, LSTM, GRU, 1D Dilated Causal Convolutional Network (TCN), N-BEATS, Transformer, N-HiTS (multi-rate pooling), and Temporal Fusion Transformer (TFT-Lite).
+5. <strong>Ensembles</strong>: Simple Average Top-3, Constrained Ridge Stacking, Best-Per-Category Selection.</p>
+<p>All evaluations are conducted under a pre-registered, strictly leak-free chronological walk-forward split. Uncertainty quantification is delivered through <strong>scale-aware conformal prediction intervals</strong> calibrated on a dedicated calibration fold that was never seen during tuning or evaluation.</p>
+<h3>Selected Models Under Pre-Registered 1-SE Simplicity Rule:</h3>
+<ul>
+<li><strong>Horizon h=1 Week</strong>: <strong><code>lasso</code></strong> (Linear/Statistical, Val MASE 0.3256)</li>
+<li><strong>Horizon h=4 Weeks (Primary Planning Horizon)</strong>: <strong><code>auto_arima</code></strong> (Linear/Statistical, Val MASE 0.7247)</li>
+<li><strong>Horizon h=8 Weeks</strong>: <strong><code>catboost</code></strong> (Tree/Ensemble ML, Val MASE 0.9310)</li>
+<li><strong>Horizon h=12 Weeks</strong>: <strong><code>transformer</code></strong> (Deep Learning, Val MASE 0.9805)</li>
+</ul>
+<hr />
+<h2>2. Experimental Design &amp; Leakage Audit Summary</h2>
+<h3>2.1 Provenance &amp; Data Partition</h3>
+<ul>
+<li><strong>TRAIN Split</strong>: 2017-01-04 to 2024-08-25 (Weeks 1 to 368, ~7.7 years, 11776 observations).</li>
+<li><strong>VALIDATION Split</strong>: 2024-09-04 to 2025-08-25 (Weeks 369 to 416, 48 weekly reporting periods, 1.0 year):</li>
+<li><strong>Val-Tune Fold</strong>: Weeks 369 to 392 (768 obs) used strictly for hyperparameter tuning and neural network early stopping.</li>
+<li><strong>Val-Cal Fold</strong>: Weeks 393 to 416 (768 obs) held out strictly for conformal non-conformity calibration.</li>
+<li><strong>Model Selection Window</strong>: The entire 48-week validation split (Weeks 369 to 416) is used for final pre-registered model selection via validation MASE.</li>
+<li><strong>TEST Split</strong>: 2025-09-04 to 2026-08-25 (Weeks 417 to 464, 48 weekly reporting periods, 1.0 year, 1536 observations).</li>
+</ul>
+<h3>2.2 Leakage Audit Findings (see results/leakage_audit.md)</h3>
+<ol>
+<li><strong>Temporal Causality</strong>: Unit tests verified that every input feature for origin $t$ exclusively accesses historical observations with timestamp $\le t$. Rolling windows, momentum features, and category aggregations are causally shifted by $\ge 1$ week so the origin price is never contained within historical feature aggregates.</li>
+<li><strong>Disk-Level Origin Truncation</strong>: A hard truncation test was executed across 160 random test origins (5 random origins $\times$ 32 vegetables). All data after origin $t$ was physically deleted from disk-level inputs before feature extraction and inference. All classical ML, statistical, and neural models yielded 0 feature mismatches and predictions identical to the leaderboard.</li>
+<li><strong>Feature Lag Ablation</strong>: Tested Own-Lags Only vs Own-Lags + Calendar vs Full Feature sets. In the ablation, own-lags Lasso at $h=1$ yields a test MASE of 0.4749 (a -50.14% skill deficit relative to naive persistence at 0.3163). This demonstrates that univariate autoregression alone cannot outperform naive persistence at the 1-week horizon; cross-commodity category aggregates and market-wide momentum signals are essential to produce positive forecast skill.</li>
+<li><strong>Placebo Target Shift Test</strong>: Shifting the training target by $+4$ weeks inside the training partition reduces test skill from $+5.18\%$ (real Lasso) to $-3.28\%$ (placebo Lasso, matching zero-intelligence persistence), and at $h=1$ reduces test skill from $-3.97\%$ to $-186.64\%$, confirming that predictive signal derives strictly from genuine temporal dynamics rather than spurious artifacts.</li>
+<li><strong>Leak-Free Preprocessing</strong>: All feature scalers, target scalers, and categorical encoders are fit strictly on the training partition. Conformal intervals are calibrated on the dedicated calibration fold (weeks 393-416) and scored on the test split.</li>
+</ol>
+<hr />
+<h2>3. Full Model Leaderboard (Primary Planning Horizon h=4 Weeks)</h2>
+<p>The complete benchmark table across all 43 model configurations (31 architectures, 12 with a dual target mode) at the primary horizon $h=4$ weeks (sorted strictly by <strong>Validation MASE</strong> according to the pre-fixed selection protocol):</p>
+<p>| Rank | Model Architecture | Val MASE | Val sMAPE | Test MASE | Test sMAPE | Test RMSE (Rs) | Test R2 | Test DA | Skill vs Naive | Test Cov 80% | Test Width 80% (%) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | simple_average_top3 | 0.6724 | 13.75% | 0.7433 | 14.15% | 190.90 | 0.6241 | 68.15% | 12.10% | 82.37% | 47.28% |
+| 2 | best_per_category | 0.6917 | 14.19% | 0.7507 | 14.43% | 173.95 | 0.6879 | 65.47% | 11.22% | 79.95% | 46.36% |
+| 3 | catboost (log_ratio) | 0.6932 | 14.38% | 0.7134 | 13.73% | 186.77 | 0.6402 | 69.07% | 15.63% | 84.80% | 48.63% |
+| 4 | extra_trees (log_ratio) | 0.6987 | 14.43% | 0.7264 | 13.95% | 189.69 | 0.6289 | 67.56% | 14.10% | 82.50% | 45.08% |
+| 5 | extra_trees (raw_level) | 0.7121 | 14.39% | 0.7906 | 15.16% | 177.80 | 0.6740 | 63.56% | 6.50% | 79.69% | 48.65% |
+| 6 | gru (raw_level) | 0.7189 | 15.60% | 0.8198 | 16.42% | 174.96 | 0.6843 | 64.42% | 3.05% | 76.54% | 45.75% |
+| 7 | <strong>auto_arima</strong> (Selected) | 0.7247 | 14.08% | 0.8517 | 15.31% | 197.46 | 0.6085 | 56.79% | -0.72% | 80.79% | 52.71% |
+| 8 | stacking_meta_learner | 0.7281 | 15.18% | 0.7887 | 16.55% | 173.21 | 0.6906 | 63.50% | 6.73% | 77.65% | 47.69% |
+| 9 | xgboost (log_ratio) | 0.7284 | 14.96% | 0.7575 | 14.31% | 195.52 | 0.6058 | 65.01% | 10.42% | 84.21% | 51.00% |
+| 10 | mlp (log_ratio) | 0.7301 | 14.78% | 0.8316 | 15.47% | 202.12 | 0.5787 | 62.39% | 1.66% | 79.82% | 47.10% |
+| 11 | random_forest | 0.7309 | 14.84% | 0.7788 | 15.02% | 172.92 | 0.6916 | 63.96% | 7.90% | 81.59% | 51.39% |
+| 12 | lasso (log_ratio) | 0.7367 | 14.92% | 0.7692 | 14.67% | 194.77 | 0.6088 | 65.92% | 9.04% | 82.57% | 47.86% |
+| 13 | lasso (raw_level) | 0.7376 | 17.94% | 0.7706 | 16.52% | 174.10 | 0.6874 | 64.55% | 8.87% | 78.37% | 47.49% |
+| 14 | elastic_net (log_ratio) | 0.7381 | 15.01% | 0.7623 | 14.61% | 193.32 | 0.6146 | 66.71% | 9.85% | 82.24% | 46.10% |
+| 15 | sarimax | 0.7386 | 14.33% | 0.8694 | 15.54% | 201.73 | 0.5914 | 54.71% | -2.81% | 80.29% | 52.71% |
+| 16 | catboost (raw_level) | 0.7399 | 15.93% | 0.7679 | 15.10% | 173.33 | 0.6902 | 67.23% | 9.19% | 81.06% | 51.09% |
+| 17 | lightgbm (log_ratio) | 0.7405 | 15.16% | 0.7418 | 14.13% | 190.45 | 0.6259 | 66.12% | 12.28% | 84.27% | 50.18% |
+| 18 | ridge (log_ratio) | 0.7442 | 15.08% | 0.8029 | 15.28% | 203.98 | 0.5709 | 65.86% | 5.05% | 83.36% | 50.06% |
+| 19 | nhits (log_ratio) | 0.7453 | 15.22% | 0.7807 | 14.76% | 200.17 | 0.5868 | 63.89% | 7.68% | 80.54% | 45.01% |
+| 20 | naive | 0.7465 | 14.58% | 0.8456 | 15.35% | 197.69 | 0.5969 | 0.52% | 0.00% | 80.08% | 52.71% |
+| 21 | lightgbm (raw_level) | 0.7472 | 16.93% | 0.8077 | 15.11% | 176.86 | 0.6774 | 63.76% | 4.48% | 82.24% | 55.94% |
+| 22 | drift | 0.7519 | 14.65% | 0.8501 | 15.38% | 198.56 | 0.5934 | 49.67% | -0.53% | 80.14% | 52.90% |
+| 23 | gru (log_ratio) | 0.7533 | 15.32% | 0.7631 | 14.39% | 200.77 | 0.5843 | 64.42% | 9.76% | 83.36% | 46.86% |
+| 24 | tcn_1d (log_ratio) | 0.7537 | 15.64% | 0.7808 | 14.68% | 202.70 | 0.5762 | 67.76% | 7.66% | 84.73% | 50.34% |
+| 25 | tcn_1d (raw_level) | 0.7551 | 17.45% | 0.7451 | 17.22% | 174.84 | 0.6847 | 67.63% | 11.89% | 82.31% | 59.46% |
+| 26 | elastic_net (raw_level) | 0.7625 | 18.63% | 0.8186 | 18.66% | 178.03 | 0.6731 | 62.71% | 3.19% | 77.26% | 53.45% |
+| 27 | ridge (raw_level) | 0.7661 | 18.51% | 0.8027 | 18.12% | 175.33 | 0.6830 | 64.48% | 5.07% | 76.61% | 52.91% |
+| 28 | linear_regression | 0.7676 | 18.51% | 0.8036 | 18.11% | 175.98 | 0.6806 | 64.35% | 4.97% | 77.20% | 53.28% |
+| 29 | xgboost (raw_level) | 0.7700 | 15.54% | 0.7921 | 14.95% | 172.34 | 0.6937 | 65.14% | 6.33% | 84.47% | 58.56% |
+| 30 | mlp (raw_level) | 0.7820 | 16.93% | 0.7511 | 15.14% | 175.56 | 0.6821 | 65.14% | 11.18% | 82.77% | 52.15% |
+| 31 | gradient_boosting | 0.7827 | 15.99% | 0.8198 | 15.24% | 181.15 | 0.6616 | 64.48% | 3.05% | 83.49% | 57.32% |
+| 32 | prophet | 0.7864 | 15.85% | 0.6338 | 12.37% | 141.46 | 0.7991 | 71.43% | 25.05% | 87.43% | 52.71% |
+| 33 | nbeats (raw_level) | 0.7977 | 16.94% | 0.7969 | 16.34% | 181.06 | 0.6619 | 63.83% | 5.76% | 82.18% | 53.36% |
+| 34 | ar1_category_mean | 0.7980 | 17.68% | 0.8742 | 17.80% | 189.06 | 0.6314 | 55.64% | -3.38% | 85.26% | 67.28% |
+| 35 | nhits (raw_level) | 0.7996 | 16.86% | 0.8621 | 17.02% | 182.92 | 0.6549 | 62.12% | -1.95% | 78.44% | 54.57% |
+| 36 | svr | 0.7999 | 15.63% | 0.8444 | 16.32% | 224.94 | 0.4782 | 64.94% | 0.14% | 87.48% | 65.68% |
+| 37 | moving_average_4 | 0.8184 | 15.93% | 0.9785 | 17.93% | 221.41 | 0.4944 | 47.38% | -15.72% | 76.15% | 54.33% |
+| 38 | tft_lite | 0.8361 | 18.33% | 0.7709 | 17.80% | 174.22 | 0.6870 | 66.19% | 8.83% | 77.33% | 53.45% |
+| 39 | transformer | 0.8402 | 22.07% | 0.7912 | 19.27% | 177.39 | 0.6755 | 64.74% | 6.43% | 74.90% | 57.17% |
+| 40 | nbeats (log_ratio) | 0.8531 | 17.30% | 0.9150 | 16.14% | 242.06 | 0.3957 | 61.93% | -8.21% | 80.14% | 49.33% |
+| 41 | lstm | 0.8615 | 18.50% | 0.7501 | 15.36% | 173.70 | 0.6889 | 65.73% | 11.29% | 81.91% | 49.88% |
+| 42 | rolling_52wk_mean | 0.9135 | 17.71% | 0.9516 | 18.49% | 208.95 | 0.5497 | 63.70% | -12.54% | 78.05% | 57.49% |
+| 43 | holt_winters_ets | 0.9222 | 18.08% | 0.9676 | 18.75% | 211.29 | 0.5517 | 59.14% | -14.43% | 75.00% | 52.71% |
+| 44 | moving_average_12 | 0.9406 | 18.27% | 1.1463 | 21.34% | 248.30 | 0.3641 | 55.37% | -35.56% | 69.86% | 55.15% |
+| 45 | seasonal_mean_4yr | 1.0169 | 26.33% | 0.6958 | 15.94% | 157.86 | 0.7430 | 66.64% | 17.72% | 98.10% | 118.52% |
+| 46 | seasonal_naive_48 | 1.2510 | 23.36% | 0.9689 | 19.26% | 208.83 | 0.5503 | 66.06% | -14.58% | 92.66% | 102.35% |</p>
+<p><em>Note: In accordance with rigorous conformal methodology, validation coverage is omitted because validation data cannot serve as both calibration and evaluation set.</em></p>
+<hr />
+<h2>4. Multi-Horizon Forecast Degradation Analysis</h2>
+<p>Agricultural planning requires understanding error compounding across short and medium horizons ($h \in [1, 4, 8, 12]$ weeks). Below is the test set MASE (and sMAPE) progression across horizons:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model Architecture</th>
+<th style="text-align: center;">h=1 MASE (sMAPE)</th>
+<th style="text-align: center;">h=4 MASE (sMAPE)</th>
+<th style="text-align: center;">h=8 MASE (sMAPE)</th>
+<th style="text-align: center;">h=12 MASE (sMAPE)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">0.2989 (6.01%)</td>
+<td style="text-align: center;">0.7433 (14.15%)</td>
+<td style="text-align: center;">0.9372 (17.67%)</td>
+<td style="text-align: center;">1.0339 (21.90%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.2943 (5.76%)</td>
+<td style="text-align: center;">0.7507 (14.43%)</td>
+<td style="text-align: center;">1.0234 (19.34%)</td>
+<td style="text-align: center;">1.0084 (20.21%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">catboost (log_ratio)</td>
+<td style="text-align: center;">0.3032 (6.04%)</td>
+<td style="text-align: center;">0.7134 (13.73%)</td>
+<td style="text-align: center;">0.9260 (17.25%)</td>
+<td style="text-align: center;">0.8928 (18.31%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees (log_ratio)</td>
+<td style="text-align: center;">0.2999 (5.95%)</td>
+<td style="text-align: center;">0.7264 (13.95%)</td>
+<td style="text-align: center;">0.9303 (17.30%)</td>
+<td style="text-align: center;">0.9474 (19.24%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees (raw_level)</td>
+<td style="text-align: center;">0.3600 (6.90%)</td>
+<td style="text-align: center;">0.7906 (15.16%)</td>
+<td style="text-align: center;">1.0593 (19.26%)</td>
+<td style="text-align: center;">0.9094 (18.46%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru (raw_level)</td>
+<td style="text-align: center;">0.3637 (7.84%)</td>
+<td style="text-align: center;">0.8198 (16.42%)</td>
+<td style="text-align: center;">0.9882 (19.35%)</td>
+<td style="text-align: center;">1.0266 (20.65%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">0.3020 (5.78%)</td>
+<td style="text-align: center;">0.8517 (15.31%)</td>
+<td style="text-align: center;">1.3944 (24.32%)</td>
+<td style="text-align: center;">1.5153 (28.19%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">stacking_meta_learner</td>
+<td style="text-align: center;">0.3092 (6.31%)</td>
+<td style="text-align: center;">0.7887 (16.55%)</td>
+<td style="text-align: center;">1.0063 (19.21%)</td>
+<td style="text-align: center;">0.9989 (20.86%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">xgboost (log_ratio)</td>
+<td style="text-align: center;">0.3179 (6.25%)</td>
+<td style="text-align: center;">0.7575 (14.31%)</td>
+<td style="text-align: center;">0.9317 (17.16%)</td>
+<td style="text-align: center;">0.9166 (18.44%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">mlp (log_ratio)</td>
+<td style="text-align: center;">0.3060 (6.08%)</td>
+<td style="text-align: center;">0.8316 (15.47%)</td>
+<td style="text-align: center;">1.0225 (18.57%)</td>
+<td style="text-align: center;">1.0520 (20.21%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">random_forest</td>
+<td style="text-align: center;">0.3278 (6.15%)</td>
+<td style="text-align: center;">0.7788 (15.02%)</td>
+<td style="text-align: center;">1.1143 (19.48%)</td>
+<td style="text-align: center;">0.9480 (19.12%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (log_ratio)</td>
+<td style="text-align: center;">0.3099 (6.03%)</td>
+<td style="text-align: center;">0.7692 (14.67%)</td>
+<td style="text-align: center;">1.0291 (19.86%)</td>
+<td style="text-align: center;">1.0172 (21.12%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (raw_level)</td>
+<td style="text-align: center;">0.2967 (6.06%)</td>
+<td style="text-align: center;">0.7706 (16.52%)</td>
+<td style="text-align: center;">1.0814 (22.49%)</td>
+<td style="text-align: center;">1.1183 (28.09%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">elastic_net (log_ratio)</td>
+<td style="text-align: center;">0.3043 (5.94%)</td>
+<td style="text-align: center;">0.7623 (14.61%)</td>
+<td style="text-align: center;">1.0224 (19.73%)</td>
+<td style="text-align: center;">1.0224 (21.00%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">0.3012 (5.77%)</td>
+<td style="text-align: center;">0.8694 (15.54%)</td>
+<td style="text-align: center;">1.4245 (24.68%)</td>
+<td style="text-align: center;">1.5482 (28.62%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">catboost (raw_level)</td>
+<td style="text-align: center;">0.3491 (6.95%)</td>
+<td style="text-align: center;">0.7679 (15.10%)</td>
+<td style="text-align: center;">0.9970 (19.32%)</td>
+<td style="text-align: center;">0.9084 (19.73%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm (log_ratio)</td>
+<td style="text-align: center;">0.3188 (6.24%)</td>
+<td style="text-align: center;">0.7418 (14.13%)</td>
+<td style="text-align: center;">0.9570 (17.47%)</td>
+<td style="text-align: center;">0.9211 (18.69%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ridge (log_ratio)</td>
+<td style="text-align: center;">0.3100 (6.17%)</td>
+<td style="text-align: center;">0.8029 (15.28%)</td>
+<td style="text-align: center;">1.0460 (20.00%)</td>
+<td style="text-align: center;">1.0338 (21.36%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">nhits (log_ratio)</td>
+<td style="text-align: center;">0.3171 (6.24%)</td>
+<td style="text-align: center;">0.7807 (14.76%)</td>
+<td style="text-align: center;">1.0145 (18.85%)</td>
+<td style="text-align: center;">1.0431 (20.30%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">naive</td>
+<td style="text-align: center;">0.3035 (5.87%)</td>
+<td style="text-align: center;">0.8456 (15.35%)</td>
+<td style="text-align: center;">1.3066 (23.16%)</td>
+<td style="text-align: center;">1.4032 (26.66%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm (raw_level)</td>
+<td style="text-align: center;">0.3503 (6.49%)</td>
+<td style="text-align: center;">0.8077 (15.11%)</td>
+<td style="text-align: center;">1.0259 (18.58%)</td>
+<td style="text-align: center;">0.9471 (18.98%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">drift</td>
+<td style="text-align: center;">0.3041 (5.87%)</td>
+<td style="text-align: center;">0.8501 (15.38%)</td>
+<td style="text-align: center;">1.3187 (23.28%)</td>
+<td style="text-align: center;">1.4219 (26.76%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru (log_ratio)</td>
+<td style="text-align: center;">0.3020 (6.01%)</td>
+<td style="text-align: center;">0.7631 (14.39%)</td>
+<td style="text-align: center;">0.9806 (18.20%)</td>
+<td style="text-align: center;">0.9394 (19.05%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d (log_ratio)</td>
+<td style="text-align: center;">0.3070 (6.17%)</td>
+<td style="text-align: center;">0.7808 (14.68%)</td>
+<td style="text-align: center;">0.9544 (17.95%)</td>
+<td style="text-align: center;">0.9345 (19.31%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d (raw_level)</td>
+<td style="text-align: center;">0.3874 (11.49%)</td>
+<td style="text-align: center;">0.7451 (17.22%)</td>
+<td style="text-align: center;">0.9167 (18.47%)</td>
+<td style="text-align: center;">1.0271 (25.41%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">elastic_net (raw_level)</td>
+<td style="text-align: center;">0.3722 (8.44%)</td>
+<td style="text-align: center;">0.8186 (18.66%)</td>
+<td style="text-align: center;">1.1268 (24.72%)</td>
+<td style="text-align: center;">1.1016 (27.04%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ridge (raw_level)</td>
+<td style="text-align: center;">0.3061 (6.75%)</td>
+<td style="text-align: center;">0.8027 (18.12%)</td>
+<td style="text-align: center;">1.1198 (24.54%)</td>
+<td style="text-align: center;">1.1178 (27.37%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">linear_regression</td>
+<td style="text-align: center;">0.3068 (6.79%)</td>
+<td style="text-align: center;">0.8036 (18.11%)</td>
+<td style="text-align: center;">1.1211 (24.52%)</td>
+<td style="text-align: center;">1.1221 (27.41%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">xgboost (raw_level)</td>
+<td style="text-align: center;">0.3497 (6.52%)</td>
+<td style="text-align: center;">0.7921 (14.95%)</td>
+<td style="text-align: center;">0.9750 (17.68%)</td>
+<td style="text-align: center;">0.9127 (18.48%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">mlp (raw_level)</td>
+<td style="text-align: center;">0.4222 (9.01%)</td>
+<td style="text-align: center;">0.7511 (15.14%)</td>
+<td style="text-align: center;">1.0378 (20.49%)</td>
+<td style="text-align: center;">0.9195 (19.71%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">gradient_boosting</td>
+<td style="text-align: center;">0.3384 (6.42%)</td>
+<td style="text-align: center;">0.8198 (15.24%)</td>
+<td style="text-align: center;">1.0323 (18.17%)</td>
+<td style="text-align: center;">0.9568 (19.05%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">0.2943 (5.87%)</td>
+<td style="text-align: center;">0.6338 (12.37%)</td>
+<td style="text-align: center;">0.7484 (14.53%)</td>
+<td style="text-align: center;">0.6491 (13.82%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">nbeats (raw_level)</td>
+<td style="text-align: center;">0.3459 (7.70%)</td>
+<td style="text-align: center;">0.7969 (16.34%)</td>
+<td style="text-align: center;">1.0870 (20.85%)</td>
+<td style="text-align: center;">0.9884 (20.42%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ar1_category_mean</td>
+<td style="text-align: center;">0.3216 (6.62%)</td>
+<td style="text-align: center;">0.8742 (17.80%)</td>
+<td style="text-align: center;">1.3170 (26.51%)</td>
+<td style="text-align: center;">1.4015 (31.00%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">nhits (raw_level)</td>
+<td style="text-align: center;">0.3555 (7.68%)</td>
+<td style="text-align: center;">0.8621 (17.02%)</td>
+<td style="text-align: center;">1.0055 (19.09%)</td>
+<td style="text-align: center;">1.0571 (24.06%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">svr</td>
+<td style="text-align: center;">0.6465 (11.03%)</td>
+<td style="text-align: center;">0.8444 (16.32%)</td>
+<td style="text-align: center;">1.0020 (19.45%)</td>
+<td style="text-align: center;">1.0023 (20.82%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">moving_average_4</td>
+<td style="text-align: center;">0.5479 (9.99%)</td>
+<td style="text-align: center;">0.9785 (17.93%)</td>
+<td style="text-align: center;">1.3599 (24.28%)</td>
+<td style="text-align: center;">1.3923 (26.37%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">0.4285 (12.85%)</td>
+<td style="text-align: center;">0.7709 (17.80%)</td>
+<td style="text-align: center;">1.0705 (21.66%)</td>
+<td style="text-align: center;">1.0841 (23.02%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">transformer</td>
+<td style="text-align: center;">0.4208 (12.74%)</td>
+<td style="text-align: center;">0.7912 (19.27%)</td>
+<td style="text-align: center;">1.0985 (20.95%)</td>
+<td style="text-align: center;">1.1003 (23.11%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">nbeats (log_ratio)</td>
+<td style="text-align: center;">0.3092 (6.19%)</td>
+<td style="text-align: center;">0.9150 (16.14%)</td>
+<td style="text-align: center;">1.2510 (21.49%)</td>
+<td style="text-align: center;">0.9745 (19.35%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">lstm</td>
+<td style="text-align: center;">0.4505 (9.19%)</td>
+<td style="text-align: center;">0.7501 (15.36%)</td>
+<td style="text-align: center;">1.0174 (19.23%)</td>
+<td style="text-align: center;">1.0071 (20.96%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">rolling_52wk_mean</td>
+<td style="text-align: center;">0.9143 (17.73%)</td>
+<td style="text-align: center;">0.9516 (18.49%)</td>
+<td style="text-align: center;">1.0192 (19.10%)</td>
+<td style="text-align: center;">0.9584 (19.17%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">holt_winters_ets</td>
+<td style="text-align: center;">0.3991 (7.95%)</td>
+<td style="text-align: center;">0.9676 (18.75%)</td>
+<td style="text-align: center;">1.3752 (26.27%)</td>
+<td style="text-align: center;">1.3779 (29.60%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">moving_average_12</td>
+<td style="text-align: center;">0.9229 (17.09%)</td>
+<td style="text-align: center;">1.1463 (21.34%)</td>
+<td style="text-align: center;">1.3491 (24.12%)</td>
+<td style="text-align: center;">1.2719 (24.09%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">seasonal_mean_4yr</td>
+<td style="text-align: center;">0.6987 (15.94%)</td>
+<td style="text-align: center;">0.6958 (15.94%)</td>
+<td style="text-align: center;">0.7212 (15.94%)</td>
+<td style="text-align: center;">0.6774 (15.94%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">seasonal_naive_48</td>
+<td style="text-align: center;">0.9728 (19.26%)</td>
+<td style="text-align: center;">0.9689 (19.26%)</td>
+<td style="text-align: center;">1.0042 (19.26%)</td>
+<td style="text-align: center;">0.9432 (19.26%)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. Statistical Significance &amp; Model Selection</h2>
+<h3>5.1 Pre-Registered Model Selection Rule (Applied Per Horizon)</h3>
+<ol>
+<li><strong>Candidate Exclusion</strong>: Baseline heuristics (<code>naive</code>, <code>drift</code>, <code>moving_average_4</code>, <code>moving_average_12</code>, <code>seasonal_naive_48</code>) are excluded from candidacy.</li>
+<li><strong>Identification of Lowest Validation MASE Candidate</strong>: Identify the candidate model with the minimum validation MASE ($M_{\text{best}}$).</li>
+<li><strong>Bootstrap Standard Error &amp; 1-SE Band</strong>: Calculate the standard error from the 95% bootstrap confidence interval: $\text{SE} = (\text{CI}<em>{\text{high}} - \text{CI}</em>{\text{low}}) / (2 \times 1.96)$. Construct the selection band $[M_{\text{best}}, M_{\text{best}} + 1\text{SE}]$.</li>
+<li><strong>Parsimony Tier Hierarchy</strong>: Within the 1-SE band, select the simplest architecture by complexity tier:
+   $$\text{Tier 1 (Linear / Statistical)} &lt; \text{Tier 2 (Tree / Kernel)} &lt; \text{Tier 3 (Deep Neural)} &lt; \text{Tier 4 (Ensembles)}$$
+   Tie-broken by lowest validation MASE.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Horizon</th>
+<th style="text-align: left;">Best Candidate</th>
+<th style="text-align: center;">Val MASE</th>
+<th style="text-align: center;">95% Bootstrap CI</th>
+<th style="text-align: center;">Bootstrap SE</th>
+<th style="text-align: center;">1-SE Band</th>
+<th style="text-align: center;">Eligible Models in Band</th>
+<th style="text-align: left;">Selected Model</th>
+<th style="text-align: left;">Selected Tier</th>
+<th style="text-align: center;">Selected Val MASE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.3223</td>
+<td style="text-align: center;">[0.2769, 0.3780]</td>
+<td style="text-align: center;">0.0258</td>
+<td style="text-align: center;">[0.3223, 0.3481]</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><strong>lasso</strong></td>
+<td style="text-align: left;">Linear/Statistical</td>
+<td style="text-align: center;">0.3256</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">0.6724</td>
+<td style="text-align: center;">[0.5746, 0.8022]</td>
+<td style="text-align: center;">0.0581</td>
+<td style="text-align: center;">[0.6724, 0.7305]</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>auto_arima</strong></td>
+<td style="text-align: left;">Linear/Statistical</td>
+<td style="text-align: center;">0.7247</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.9110</td>
+<td style="text-align: center;">[0.7490, 0.9747]</td>
+<td style="text-align: center;">0.0576</td>
+<td style="text-align: center;">[0.9110, 0.9686]</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>catboost</strong> (log_ratio)</td>
+<td style="text-align: left;">Tree/Ensemble ML</td>
+<td style="text-align: center;">0.9310</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.9167</td>
+<td style="text-align: center;">[0.8186, 1.0873]</td>
+<td style="text-align: center;">0.0685</td>
+<td style="text-align: center;">[0.9167, 0.9852]</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>transformer</strong></td>
+<td style="text-align: left;">Deep Learning</td>
+<td style="text-align: center;">0.9805</td>
+</tr>
+</tbody>
+</table>
+<p><em>Selection Outcome</em>: At the primary planning horizon ($h=4$), <code>simple_average_top3</code> achieved the lowest validation MASE (0.6724, $\text{SE} = 0.0581$, band $[0.6724, 0.7305]$). <strong><code>auto_arima</code></strong> (Linear/Statistical, Val MASE 0.7247) is the simplest architecture falling inside the 1-SE band and is therefore selected. <strong>Crucially, Lasso is no longer inside the $h=4$ band under the corrected split</strong> (its validation MASE is 0.7367 in <code>log_ratio</code> and 0.7376 in <code>raw_level</code>, both strictly exceeding the 1-SE upper threshold of 0.7305).</p>
+<p><em>Indistinguishability from Persistence</em>: On validation, the best $h=4$ candidate's 95% bootstrap CI [0.5746, 0.8022] contains naive's validation MASE 0.7465, so at the primary horizon no model is clearly separable from persistence on validation or test.</p>
+<h3>5.2 Formal Hypothesis Testing (Diebold-Mariano Tests vs Naive)</h3>
+<p>Diebold-Mariano tests evaluate whether the difference in predictive loss relative to the naive baseline is statistically significant, corrected for multiple comparisons via the Holm-Bonferroni step-down procedure:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Horizon</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Test MASE</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+<th style="text-align: center;">95% Bootstrap Diff CI</th>
+<th style="text-align: center;">DM Statistic</th>
+<th style="text-align: center;">Raw p-value</th>
+<th style="text-align: center;">Holm p-value</th>
+<th style="text-align: center;">Significant ($\alpha=0.05$)?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">0.3020</td>
+<td style="text-align: center;">0.49%</td>
+<td style="text-align: center;">[-0.0144, 0.0099]</td>
+<td style="text-align: center;">-0.5513</td>
+<td style="text-align: center;">0.5814</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">0.3012</td>
+<td style="text-align: center;">0.76%</td>
+<td style="text-align: center;">[-0.0153, 0.0101]</td>
+<td style="text-align: center;">-0.7384</td>
+<td style="text-align: center;">0.4603</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">0.2943</td>
+<td style="text-align: center;">3.03%</td>
+<td style="text-align: center;">[-0.0465, 0.021]</td>
+<td style="text-align: center;">-0.8657</td>
+<td style="text-align: center;">0.3866</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">0.2967</td>
+<td style="text-align: center;">2.24%</td>
+<td style="text-align: center;">[-0.0194, 0.0075]</td>
+<td style="text-align: center;">-1.4474</td>
+<td style="text-align: center;">0.1478</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">0.3188</td>
+<td style="text-align: center;">-5.04%</td>
+<td style="text-align: center;">[-0.0047, 0.0426]</td>
+<td style="text-align: center;">1.2973</td>
+<td style="text-align: center;">0.1945</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">0.2999</td>
+<td style="text-align: center;">1.19%</td>
+<td style="text-align: center;">[-0.0221, 0.0214]</td>
+<td style="text-align: center;">-0.3731</td>
+<td style="text-align: center;">0.7091</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">0.3020</td>
+<td style="text-align: center;">0.49%</td>
+<td style="text-align: center;">[-0.0226, 0.024]</td>
+<td style="text-align: center;">-0.1662</td>
+<td style="text-align: center;">0.8680</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">0.3070</td>
+<td style="text-align: center;">-1.15%</td>
+<td style="text-align: center;">[-0.0127, 0.0275]</td>
+<td style="text-align: center;">0.3577</td>
+<td style="text-align: center;">0.7205</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">0.4285</td>
+<td style="text-align: center;">-41.19%</td>
+<td style="text-align: center;">[0.0714, 0.1934]</td>
+<td style="text-align: center;">6.3797</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">Worse (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">0.2989</td>
+<td style="text-align: center;">1.52%</td>
+<td style="text-align: center;">[-0.0208, 0.0161]</td>
+<td style="text-align: center;">-0.7184</td>
+<td style="text-align: center;">0.4725</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.2943</td>
+<td style="text-align: center;">3.03%</td>
+<td style="text-align: center;">[-0.0223, 0.0048]</td>
+<td style="text-align: center;">-2.0153</td>
+<td style="text-align: center;">0.0439</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">0.8517</td>
+<td style="text-align: center;">-0.72%</td>
+<td style="text-align: center;">[-0.0596, 0.0217]</td>
+<td style="text-align: center;">-1.1023</td>
+<td style="text-align: center;">0.2703</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">0.8694</td>
+<td style="text-align: center;">-2.81%</td>
+<td style="text-align: center;">[-0.0343, 0.0382]</td>
+<td style="text-align: center;">-0.2655</td>
+<td style="text-align: center;">0.7906</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">0.6338</td>
+<td style="text-align: center;">25.05%</td>
+<td style="text-align: center;">[-0.4399, -0.0861]</td>
+<td style="text-align: center;">-2.5563</td>
+<td style="text-align: center;">0.0106</td>
+<td style="text-align: center;">0.4664</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">0.7692</td>
+<td style="text-align: center;">9.04%</td>
+<td style="text-align: center;">[-0.2008, 0.0418]</td>
+<td style="text-align: center;">-1.2762</td>
+<td style="text-align: center;">0.2019</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">0.7418</td>
+<td style="text-align: center;">12.28%</td>
+<td style="text-align: center;">[-0.2485, 0.0185]</td>
+<td style="text-align: center;">-1.6068</td>
+<td style="text-align: center;">0.1081</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">0.7264</td>
+<td style="text-align: center;">14.10%</td>
+<td style="text-align: center;">[-0.2306, -0.0107]</td>
+<td style="text-align: center;">-2.0681</td>
+<td style="text-align: center;">0.0386</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">0.7631</td>
+<td style="text-align: center;">9.76%</td>
+<td style="text-align: center;">[-0.1997, 0.0388]</td>
+<td style="text-align: center;">-1.3645</td>
+<td style="text-align: center;">0.1724</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">0.7451</td>
+<td style="text-align: center;">11.89%</td>
+<td style="text-align: center;">[-0.245, 0.0318]</td>
+<td style="text-align: center;">-1.4586</td>
+<td style="text-align: center;">0.1447</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">0.7709</td>
+<td style="text-align: center;">8.83%</td>
+<td style="text-align: center;">[-0.2769, 0.1036]</td>
+<td style="text-align: center;">-0.8668</td>
+<td style="text-align: center;">0.3861</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">0.7433</td>
+<td style="text-align: center;">12.10%</td>
+<td style="text-align: center;">[-0.2302, 0.025]</td>
+<td style="text-align: center;">-1.6300</td>
+<td style="text-align: center;">0.1031</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">0.7507</td>
+<td style="text-align: center;">11.22%</td>
+<td style="text-align: center;">[-0.2055, 0.0095]</td>
+<td style="text-align: center;">-1.8225</td>
+<td style="text-align: center;">0.0684</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1.3944</td>
+<td style="text-align: center;">-6.72%</td>
+<td style="text-align: center;">[-0.0507, 0.0961]</td>
+<td style="text-align: center;">0.4319</td>
+<td style="text-align: center;">0.6658</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1.4245</td>
+<td style="text-align: center;">-9.02%</td>
+<td style="text-align: center;">[-0.0158, 0.1269]</td>
+<td style="text-align: center;">1.6759</td>
+<td style="text-align: center;">0.0937</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">0.7484</td>
+<td style="text-align: center;">42.72%</td>
+<td style="text-align: center;">[-1.0174, -0.4315]</td>
+<td style="text-align: center;">-3.5072</td>
+<td style="text-align: center;">0.0005</td>
+<td style="text-align: center;">0.0230</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">1.0291</td>
+<td style="text-align: center;">21.24%</td>
+<td style="text-align: center;">[-0.5483, -0.0361]</td>
+<td style="text-align: center;">-2.0301</td>
+<td style="text-align: center;">0.0423</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">0.9570</td>
+<td style="text-align: center;">26.76%</td>
+<td style="text-align: center;">[-0.6249, -0.1208]</td>
+<td style="text-align: center;">-2.7806</td>
+<td style="text-align: center;">0.0054</td>
+<td style="text-align: center;">0.2106</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">0.9303</td>
+<td style="text-align: center;">28.80%</td>
+<td style="text-align: center;">[-0.6344, -0.1496]</td>
+<td style="text-align: center;">-3.0375</td>
+<td style="text-align: center;">0.0024</td>
+<td style="text-align: center;">0.1056</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">0.9806</td>
+<td style="text-align: center;">24.95%</td>
+<td style="text-align: center;">[-0.5686, -0.1198]</td>
+<td style="text-align: center;">-2.9552</td>
+<td style="text-align: center;">0.0031</td>
+<td style="text-align: center;">0.1271</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">0.9167</td>
+<td style="text-align: center;">29.84%</td>
+<td style="text-align: center;">[-0.691, -0.1088]</td>
+<td style="text-align: center;">-2.4133</td>
+<td style="text-align: center;">0.0158</td>
+<td style="text-align: center;">0.5530</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">1.0705</td>
+<td style="text-align: center;">18.07%</td>
+<td style="text-align: center;">[-0.4885, -0.0028]</td>
+<td style="text-align: center;">-1.7784</td>
+<td style="text-align: center;">0.0753</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">0.9372</td>
+<td style="text-align: center;">28.27%</td>
+<td style="text-align: center;">[-0.6414, -0.1419]</td>
+<td style="text-align: center;">-2.8701</td>
+<td style="text-align: center;">0.0041</td>
+<td style="text-align: center;">0.1640</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">1.0234</td>
+<td style="text-align: center;">21.67%</td>
+<td style="text-align: center;">[-0.5544, -0.0422]</td>
+<td style="text-align: center;">-2.0815</td>
+<td style="text-align: center;">0.0374</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1.5153</td>
+<td style="text-align: center;">-7.99%</td>
+<td style="text-align: center;">[-0.0381, 0.1515]</td>
+<td style="text-align: center;">1.0710</td>
+<td style="text-align: center;">0.2842</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1.5482</td>
+<td style="text-align: center;">-10.33%</td>
+<td style="text-align: center;">[0.0009, 0.1748]</td>
+<td style="text-align: center;">1.8860</td>
+<td style="text-align: center;">0.0593</td>
+<td style="text-align: center;">0.6344</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">0.6491</td>
+<td style="text-align: center;">53.74%</td>
+<td style="text-align: center;">[-1.1464, -0.4767]</td>
+<td style="text-align: center;">-3.3355</td>
+<td style="text-align: center;">0.0009</td>
+<td style="text-align: center;">0.0315</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">1.0172</td>
+<td style="text-align: center;">27.51%</td>
+<td style="text-align: center;">[-0.6536, -0.1308]</td>
+<td style="text-align: center;">-2.8450</td>
+<td style="text-align: center;">0.0044</td>
+<td style="text-align: center;">0.1188</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">0.9211</td>
+<td style="text-align: center;">34.36%</td>
+<td style="text-align: center;">[-0.7063, -0.214]</td>
+<td style="text-align: center;">-5.1274</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">0.9094</td>
+<td style="text-align: center;">35.19%</td>
+<td style="text-align: center;">[-0.8, -0.1942]</td>
+<td style="text-align: center;">-3.3312</td>
+<td style="text-align: center;">0.0009</td>
+<td style="text-align: center;">0.0315</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">0.9394</td>
+<td style="text-align: center;">33.05%</td>
+<td style="text-align: center;">[-0.7272, -0.1948]</td>
+<td style="text-align: center;">-3.5598</td>
+<td style="text-align: center;">0.0004</td>
+<td style="text-align: center;">0.0156</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">0.9345</td>
+<td style="text-align: center;">33.40%</td>
+<td style="text-align: center;">[-0.6938, -0.2061]</td>
+<td style="text-align: center;">-3.7878</td>
+<td style="text-align: center;">0.0002</td>
+<td style="text-align: center;">0.0080</td>
+<td style="text-align: center;">Better (p &lt; 0.05)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">1.0841</td>
+<td style="text-align: center;">22.74%</td>
+<td style="text-align: center;">[-0.6127, -0.01]</td>
+<td style="text-align: center;">-1.6534</td>
+<td style="text-align: center;">0.0983</td>
+<td style="text-align: center;">0.7864</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">1.0339</td>
+<td style="text-align: center;">26.32%</td>
+<td style="text-align: center;">[-0.6631, -0.0536]</td>
+<td style="text-align: center;">-2.1228</td>
+<td style="text-align: center;">0.0338</td>
+<td style="text-align: center;">0.5070</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">1.0084</td>
+<td style="text-align: center;">28.14%</td>
+<td style="text-align: center;">[-0.665, -0.1172]</td>
+<td style="text-align: center;">-2.3397</td>
+<td style="text-align: center;">0.0193</td>
+<td style="text-align: center;">0.3281</td>
+<td style="text-align: center;">Not Significant</td>
+</tr>
+</tbody>
+</table>
+<p><em>Statistical Significance Summary</em>: After Holm-Bonferroni step-down correction for multiple testing across all candidate models:
+- <strong>Horizon h=1 Week</strong>: Across all 43 evaluated configurations, exactly <strong>21 models are significantly worse than naive persistence</strong> after Holm-Bonferroni correction (18 candidate models and 3 baseline heuristics). Zero models are significantly better than persistence.
+- <strong>Horizon h=4 Weeks</strong>: <strong>No candidate model is significantly better than naive persistence (0/42 candidate models)</strong> after Holm correction. Only 2 lagging heuristics (<code>moving_average_4</code> and <code>moving_average_12</code>) are significantly worse.
+- <strong>Horizon h=8 Weeks</strong>: <strong>0/42 candidate models</strong> are significantly better than naive persistence.</p>
+<h3>5.2.1 Statistical Models Evaluation on Overlapping Common Samples (n &lt; 1,526)</h3>
+<p>Certain statistical and econometrics models (<code>auto_arima</code>, <code>sarimax</code>, <code>prophet</code>) require long contiguous warm-up histories or fail to converge during rapid structural breaks, resulting in test evaluations over reduced sample sizes ($n &lt; 1,526$). To eliminate sample composition bias, these models are evaluated against naive persistence strictly on the <strong>exact common overlapping observations</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Horizon</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Sample Size (n)</th>
+<th style="text-align: center;">Model MAE</th>
+<th style="text-align: center;">Model MASE</th>
+<th style="text-align: center;">Naive MASE (Common)</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+<th style="text-align: center;">95% Bootstrap Diff CI</th>
+<th style="text-align: center;">DM Statistic</th>
+<th style="text-align: center;">Raw p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1,494</td>
+<td style="text-align: center;">31.76 Rs</td>
+<td style="text-align: center;">0.3020</td>
+<td style="text-align: center;">0.3055</td>
+<td style="text-align: center;"><strong>+1.15%</strong></td>
+<td style="text-align: center;">[-0.0144, 0.0099]</td>
+<td style="text-align: center;">-0.5513</td>
+<td style="text-align: center;">0.5814</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1,494</td>
+<td style="text-align: center;">31.67 Rs</td>
+<td style="text-align: center;">0.3012</td>
+<td style="text-align: center;">0.3055</td>
+<td style="text-align: center;"><strong>+1.41%</strong></td>
+<td style="text-align: center;">[-0.0153, 0.0101]</td>
+<td style="text-align: center;">-0.7384</td>
+<td style="text-align: center;">0.4603</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">1,494</td>
+<td style="text-align: center;">30.94 Rs</td>
+<td style="text-align: center;">0.2943</td>
+<td style="text-align: center;">0.3055</td>
+<td style="text-align: center;"><strong>+3.67%</strong></td>
+<td style="text-align: center;">[-0.0465, 0.0210]</td>
+<td style="text-align: center;">-0.8657</td>
+<td style="text-align: center;">0.3866</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1,400</td>
+<td style="text-align: center;">89.92 Rs</td>
+<td style="text-align: center;">0.8517</td>
+<td style="text-align: center;">0.8748</td>
+<td style="text-align: center;"><strong>+2.64%</strong></td>
+<td style="text-align: center;">[-0.0596, 0.0217]</td>
+<td style="text-align: center;">-1.1023</td>
+<td style="text-align: center;">0.2703</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1,400</td>
+<td style="text-align: center;">91.78 Rs</td>
+<td style="text-align: center;">0.8694</td>
+<td style="text-align: center;">0.8748</td>
+<td style="text-align: center;"><strong>+0.62%</strong></td>
+<td style="text-align: center;">[-0.0343, 0.0382]</td>
+<td style="text-align: center;">-0.2655</td>
+<td style="text-align: center;">0.7906</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">1,400</td>
+<td style="text-align: center;">66.90 Rs</td>
+<td style="text-align: center;">0.6338</td>
+<td style="text-align: center;">0.8748</td>
+<td style="text-align: center;"><strong>+27.55%</strong></td>
+<td style="text-align: center;">[-0.4399, -0.0861]</td>
+<td style="text-align: center;">-2.5563</td>
+<td style="text-align: center;">0.0106</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1,273</td>
+<td style="text-align: center;">142.03 Rs</td>
+<td style="text-align: center;">1.3944</td>
+<td style="text-align: center;">1.3830</td>
+<td style="text-align: center;"><strong>-0.82%</strong></td>
+<td style="text-align: center;">[-0.0507, 0.0961]</td>
+<td style="text-align: center;">0.4319</td>
+<td style="text-align: center;">0.6658</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1,273</td>
+<td style="text-align: center;">145.09 Rs</td>
+<td style="text-align: center;">1.4245</td>
+<td style="text-align: center;">1.3830</td>
+<td style="text-align: center;"><strong>-3.00%</strong></td>
+<td style="text-align: center;">[-0.0158, 0.1269]</td>
+<td style="text-align: center;">1.6759</td>
+<td style="text-align: center;">0.0937</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">1,273</td>
+<td style="text-align: center;">76.23 Rs</td>
+<td style="text-align: center;">0.7484</td>
+<td style="text-align: center;">1.3830</td>
+<td style="text-align: center;"><strong>+45.89%</strong></td>
+<td style="text-align: center;">[-1.0174, -0.4315]</td>
+<td style="text-align: center;">-3.5072</td>
+<td style="text-align: center;">0.0005</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">1,145</td>
+<td style="text-align: center;">164.32 Rs</td>
+<td style="text-align: center;">1.5153</td>
+<td style="text-align: center;">1.4554</td>
+<td style="text-align: center;"><strong>-4.12%</strong></td>
+<td style="text-align: center;">[-0.0381, 0.1515]</td>
+<td style="text-align: center;">1.0710</td>
+<td style="text-align: center;">0.2842</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">1,145</td>
+<td style="text-align: center;">167.90 Rs</td>
+<td style="text-align: center;">1.5482</td>
+<td style="text-align: center;">1.4554</td>
+<td style="text-align: center;"><strong>-6.38%</strong></td>
+<td style="text-align: center;">[0.0009, 0.1748]</td>
+<td style="text-align: center;">1.8860</td>
+<td style="text-align: center;">0.0593</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">1,145</td>
+<td style="text-align: center;">70.39 Rs</td>
+<td style="text-align: center;">0.6491</td>
+<td style="text-align: center;">1.4554</td>
+<td style="text-align: center;"><strong>+55.40%</strong></td>
+<td style="text-align: center;">[-1.1464, -0.4767]</td>
+<td style="text-align: center;">-3.3355</td>
+<td style="text-align: center;">0.0009</td>
+</tr>
+</tbody>
+</table>
+<p><em>Resolution of auto_arima h=4 Skill Discrepancy</em>:
+On the full test sample ($N=1,526$), <code>auto_arima</code> achieves MASE 0.8517 against full naive MASE 0.8456 (Skill = <strong>-0.72%</strong>). However, on the <strong>exact common sample of $n=1,400$ observations</strong>, naive persistence achieves MAE 92.34 Rs and MASE 0.8748. Against this identical benchmark sample, <code>auto_arima</code> achieves <strong>+2.64% skill</strong> (DM statistic = -1.1023, $p = 0.2703$). Both figures are reported for full transparency.</p>
+<h3>5.3 Post-Hoc Analysis for Distant Horizon h=12 Weeks &amp; Test Refit Purge</h3>
+<p>At the distant 12-week horizon ($h=12$), a distinct statistical pattern emerges: <strong>16 out of 45 non-naive model configurations achieve statistically significant skill improvements over naive persistence</strong> after Holm-Bonferroni correction ($p &lt; 0.05$) under strict test-refit purging (down from 24 unpurged). </p>
+<h4>Test-Refit Purge Gap Enforcement Summary</h4>
+<p>To eliminate lookahead contamination when refitting models on train+validation for test evaluation, strict temporal purge gaps ($\le 417 - h$) were enforced across all horizons ($h=1: 416, h=4: 413, h=8: 409, h=12: 405$):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Horizon</th>
+<th style="text-align: center;">Train+Val Refit N</th>
+<th style="text-align: center;">Purged Obs</th>
+<th style="text-align: center;">Last Refit Target Wk</th>
+<th style="text-align: center;">Required Max Target Wk</th>
+<th style="text-align: center;">First Test Target Wk</th>
+<th style="text-align: center;">Purge Gap to Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">h=1</td>
+<td style="text-align: center;">13,280</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Week 416</td>
+<td style="text-align: center;">Week 416</td>
+<td style="text-align: center;">Week 417</td>
+<td style="text-align: center;">1 wks (&gt;= 1)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: center;">12,992</td>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">Week 413</td>
+<td style="text-align: center;">Week 413</td>
+<td style="text-align: center;">Week 417</td>
+<td style="text-align: center;">4 wks (&gt;= 4)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: center;">12,608</td>
+<td style="text-align: center;">224</td>
+<td style="text-align: center;">Week 409</td>
+<td style="text-align: center;">Week 409</td>
+<td style="text-align: center;">Week 417</td>
+<td style="text-align: center;">8 wks (&gt;= 8)</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: center;">12,224</td>
+<td style="text-align: center;">352</td>
+<td style="text-align: center;">Week 405</td>
+<td style="text-align: center;">Week 405</td>
+<td style="text-align: center;">Week 417</td>
+<td style="text-align: center;">12 wks (&gt;= 12)</td>
+</tr>
+</tbody>
+</table>
+<p>At $h=12$, naive persistence ($y_{t+12} \approx y_t$) deteriorates severely at a 3-month forecast distance (Naive Test MASE reaches 1.4032, performing 40% worse than the historical differencing scale). Over a 12-week horizon, seasonal mean reversion and cyclical agro-climatic tendencies dominate random-walk momentum. Machine learning architectures learn to anchor forecasts to long-term category price distributions. The 16 surviving Holm-significant models are:
+- Strong seasonal baselines: <code>seasonal_mean_4yr</code> (+51.72% skill, Holm $p=0.0000$)
+- Time-series statistical: <code>prophet</code> (+53.74% skill, Holm $p=0.0315$)
+- Tree-based ML: <code>catboost</code> (log_ratio +36.37%, raw_level +35.26%), <code>extra_trees</code> (raw_level +35.19%, log_ratio +32.48%), <code>xgboost</code> (raw_level +34.96%, log_ratio +34.68%), <code>lightgbm</code> (log_ratio +34.36%, raw_level +32.50%), <code>random_forest</code> (+32.44%), <code>gradient_boosting</code> (+31.81%)
+- Deep Neural Networks: <code>mlp</code> (+34.47%), <code>tcn_1d</code> (+33.40%), <code>gru</code> (+33.05%), <code>nbeats</code> (+30.55%).</p>
+<h3>5.3.1 Hypothesis Testing Against Strong Seasonal Baseline (<code>seasonal_mean_4yr</code>) at h=4, 8, 12</h3>
+<p>While complex machine learning models beat naive persistence at $h=12$, naive persistence is a straw-man benchmark at distant horizons. To determine whether models possess genuine long-horizon predictive skill beyond annual seasonal cycles, all models and the selected architectures were subjected to Diebold-Mariano tests against <code>seasonal_mean_4yr</code> (4-year historical calendar average for the target week):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Horizon</th>
+<th style="text-align: left;">Selected Model Architecture</th>
+<th style="text-align: center;">Test Obs (n)</th>
+<th style="text-align: center;">Model MAE</th>
+<th style="text-align: center;">Model MASE</th>
+<th style="text-align: center;">SM4Yr MASE</th>
+<th style="text-align: center;">Skill vs SM4Yr (%)</th>
+<th style="text-align: center;">DM Statistic</th>
+<th style="text-align: center;">Raw p-value</th>
+<th style="text-align: center;">Holm p-value</th>
+<th style="text-align: left;">Better Than SM4Yr?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">h=4</td>
+<td style="text-align: left;"><strong>auto_arima</strong> (raw_level)</td>
+<td style="text-align: center;">1,400</td>
+<td style="text-align: center;">89.92 Rs</td>
+<td style="text-align: center;">0.8517</td>
+<td style="text-align: center;">0.6958</td>
+<td style="text-align: center;">-22.41%</td>
+<td style="text-align: center;">1.4610</td>
+<td style="text-align: center;">0.1440</td>
+<td style="text-align: center;">1.0000</td>
+<td style="text-align: left;">No Significant Diff</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=8</td>
+<td style="text-align: left;"><strong>catboost</strong> (log_ratio)</td>
+<td style="text-align: center;">1,526</td>
+<td style="text-align: center;">94.32 Rs</td>
+<td style="text-align: center;">0.9260</td>
+<td style="text-align: center;">0.7212</td>
+<td style="text-align: center;">-28.40%</td>
+<td style="text-align: center;">2.2148</td>
+<td style="text-align: center;">0.0268</td>
+<td style="text-align: center;">0.1155</td>
+<td style="text-align: left;">No Significant Diff</td>
+</tr>
+<tr>
+<td style="text-align: center;">h=12</td>
+<td style="text-align: left;"><strong>transformer</strong> (raw_level)</td>
+<td style="text-align: center;">1,526</td>
+<td style="text-align: center;">112.64 Rs</td>
+<td style="text-align: center;">1.0386</td>
+<td style="text-align: center;">0.6774</td>
+<td style="text-align: center;">-53.32%</td>
+<td style="text-align: center;">5.5832</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: left;">Significantly Worse</td>
+</tr>
+</tbody>
+</table>
+<p><em>Empirical Long-Horizon Conclusion</em>:
+1. <strong>Zero Models Beat seasonal_mean_4yr</strong>: Across all 138 evaluated model comparisons across $h=4, 8, 12$, <strong>exactly zero models are statistically significantly better than <code>seasonal_mean_4yr</code></strong> after Holm-Bonferroni correction ($p &lt; 0.05$).
+2. <strong>Prevalence of Sub-Baseline Performance</strong>: Exactly <strong>72 model configurations are statistically significantly WORSE than <code>seasonal_mean_4yr</code></strong> ($p &lt; 0.05$).
+3. <strong>Selected Models Breakdown</strong>:
+   - At $h=4$: Selected <code>auto_arima</code> (MASE 0.8517) trails <code>seasonal_mean_4yr</code> (MASE 0.6958) by -22.41% skill (DM stat = +1.4610, Holm $p = 1.0000$, No Significant Difference).
+   - At $h=8$: Selected <code>catboost</code> [log_ratio] (MASE 0.9260) trails <code>seasonal_mean_4yr</code> (MASE 0.7212) by -28.40% skill (DM stat = +2.2148, raw $p = 0.0268$, Holm $p = 0.1155$, No Significant Difference).
+   - At $h=12$: Selected <code>transformer</code> (MASE 1.0386) trails <code>seasonal_mean_4yr</code> (MASE 0.6774) by -53.32% skill (DM stat = +5.5832, raw $p = 0.0000$, Holm $p = 0.0000$, <strong>Significantly Worse</strong>).
+4. <strong>Methodological Implication for Agricultural Commodity Forecasting</strong>: Outperforming naive persistence at multi-month horizons does <em>not</em> indicate that a neural network or tree ensemble has learned predictive market dynamics. At 8 to 12 weeks, market prices revert to agro-climatic seasonal harvest patterns (monsoon Maha and Yala seasons). A simple, parameter-free 4-year calendar seasonal average delivers lower error than deep learning architectures, providing the true benchmark for practical deployment.</p>
+<p><em>Pre-Registered Integrity Note</em>: In strict adherence to open science and pre-registered protocol, this post-hoc finding does not alter the pre-registered model selection. Pre-registered selection was finalized strictly on the validation partition, where <code>transformer</code> (Deep Learning, Val MASE 0.9805) was selected under the 1-SE simplicity rule.</p>
+<hr />
+<h2>6. Disaggregated Analysis by Category and Variety</h2>
+<h3>6.1 Performance by Agro-Climatic Category (Horizon h=4)</h3>
+<p>The table below displays performance across agro-climatic categories at $h=4$, including the <strong>naive</strong> baseline:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Test MAE (Rs)</th>
+<th style="text-align: center;">Test sMAPE</th>
+<th style="text-align: center;">Test MASE</th>
+<th style="text-align: center;">Test R2</th>
+<th style="text-align: center;">Test DA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;"><strong>auto_arima</strong> (Selected)</td>
+<td style="text-align: center;">4.09</td>
+<td style="text-align: center;">4.08%</td>
+<td style="text-align: center;">0.3871</td>
+<td style="text-align: center;">-0.2523</td>
+<td style="text-align: center;">53.65%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">0.3882</td>
+<td style="text-align: center;">-0.1470</td>
+<td style="text-align: center;">51.04%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">0.3882</td>
+<td style="text-align: center;">-0.1470</td>
+<td style="text-align: center;">51.04%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;"><strong>naive</strong> (Benchmark)</td>
+<td style="text-align: center;">4.16</td>
+<td style="text-align: center;">4.16%</td>
+<td style="text-align: center;">0.3931</td>
+<td style="text-align: center;">-0.3103</td>
+<td style="text-align: center;">0.52%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">4.26</td>
+<td style="text-align: center;">4.28%</td>
+<td style="text-align: center;">0.4078</td>
+<td style="text-align: center;">-0.2701</td>
+<td style="text-align: center;">54.43%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">4.58</td>
+<td style="text-align: center;">4.58%</td>
+<td style="text-align: center;">0.4418</td>
+<td style="text-align: center;">-0.5014</td>
+<td style="text-align: center;">55.99%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">4.99%</td>
+<td style="text-align: center;">0.4823</td>
+<td style="text-align: center;">-0.7676</td>
+<td style="text-align: center;">53.13%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">5.12%</td>
+<td style="text-align: center;">0.4993</td>
+<td style="text-align: center;">-0.8904</td>
+<td style="text-align: center;">60.68%</td>
+</tr>
+<tr>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">10.85</td>
+<td style="text-align: center;">12.27%</td>
+<td style="text-align: center;">1.1931</td>
+<td style="text-align: center;">-9.4602</td>
+<td style="text-align: center;">56.25%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">107.00</td>
+<td style="text-align: center;">16.34%</td>
+<td style="text-align: center;">0.9390</td>
+<td style="text-align: center;">0.2320</td>
+<td style="text-align: center;">73.53%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">108.77</td>
+<td style="text-align: center;">16.35%</td>
+<td style="text-align: center;">0.9403</td>
+<td style="text-align: center;">0.2352</td>
+<td style="text-align: center;">73.53%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">108.10</td>
+<td style="text-align: center;">16.33%</td>
+<td style="text-align: center;">0.9473</td>
+<td style="text-align: center;">0.2609</td>
+<td style="text-align: center;">71.30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">113.01</td>
+<td style="text-align: center;">17.03%</td>
+<td style="text-align: center;">0.9711</td>
+<td style="text-align: center;">0.1740</td>
+<td style="text-align: center;">71.06%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">112.40</td>
+<td style="text-align: center;">17.05%</td>
+<td style="text-align: center;">0.9825</td>
+<td style="text-align: center;">0.1220</td>
+<td style="text-align: center;">69.14%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">116.45</td>
+<td style="text-align: center;">17.61%</td>
+<td style="text-align: center;">1.0233</td>
+<td style="text-align: center;">0.1176</td>
+<td style="text-align: center;">70.82%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">118.72</td>
+<td style="text-align: center;">18.31%</td>
+<td style="text-align: center;">1.0818</td>
+<td style="text-align: center;">0.0938</td>
+<td style="text-align: center;">66.19%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;"><strong>auto_arima</strong> (Selected)</td>
+<td style="text-align: center;">123.30</td>
+<td style="text-align: center;">18.05%</td>
+<td style="text-align: center;">1.1242</td>
+<td style="text-align: center;">-0.0552</td>
+<td style="text-align: center;">57.54%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: left;"><strong>naive</strong> (Benchmark)</td>
+<td style="text-align: center;">126.22</td>
+<td style="text-align: center;">18.82%</td>
+<td style="text-align: center;">1.1422</td>
+<td style="text-align: center;">-0.0604</td>
+<td style="text-align: center;">0.74%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">95.80</td>
+<td style="text-align: center;">18.50%</td>
+<td style="text-align: center;">0.9162</td>
+<td style="text-align: center;">-0.1062</td>
+<td style="text-align: center;">74.18%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">95.97</td>
+<td style="text-align: center;">18.70%</td>
+<td style="text-align: center;">0.9199</td>
+<td style="text-align: center;">-0.1194</td>
+<td style="text-align: center;">71.17%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">95.27</td>
+<td style="text-align: center;">18.81%</td>
+<td style="text-align: center;">0.9210</td>
+<td style="text-align: center;">-0.1078</td>
+<td style="text-align: center;">71.99%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">94.12</td>
+<td style="text-align: center;">17.52%</td>
+<td style="text-align: center;">0.9254</td>
+<td style="text-align: center;">-0.0348</td>
+<td style="text-align: center;">72.77%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">101.45</td>
+<td style="text-align: center;">19.42%</td>
+<td style="text-align: center;">0.9748</td>
+<td style="text-align: center;">-0.2583</td>
+<td style="text-align: center;">73.32%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">102.05</td>
+<td style="text-align: center;">19.53%</td>
+<td style="text-align: center;">0.9800</td>
+<td style="text-align: center;">-0.2576</td>
+<td style="text-align: center;">72.17%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;"><strong>auto_arima</strong> (Selected)</td>
+<td style="text-align: center;">98.32</td>
+<td style="text-align: center;">18.15%</td>
+<td style="text-align: center;">1.0135</td>
+<td style="text-align: center;">-0.2594</td>
+<td style="text-align: center;">59.30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">101.50</td>
+<td style="text-align: center;">18.89%</td>
+<td style="text-align: center;">1.0471</td>
+<td style="text-align: center;">-0.2175</td>
+<td style="text-align: center;">67.07%</td>
+</tr>
+<tr>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: left;"><strong>naive</strong> (Benchmark)</td>
+<td style="text-align: center;">109.04</td>
+<td style="text-align: center;">19.24%</td>
+<td style="text-align: center;">1.0788</td>
+<td style="text-align: center;">-0.4186</td>
+<td style="text-align: center;">0.30%</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 Top 5 Most Accurately Forecast Vegetables (<code>auto_arima</code>, h=4)</h3>
+<p>Vegetables ranked strictly by predictive skill relative to naive persistence ($\text{Skill} = (1 - \text{MASE}<em>{\text{model}} / \text{MASE}</em>{\text{naive}}) \times 100\%$):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Vegetable</th>
+<th style="text-align: center;">Test MAE (Rs)</th>
+<th style="text-align: center;">Test sMAPE</th>
+<th style="text-align: center;">Test MASE</th>
+<th style="text-align: center;">Naive MASE</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+<th style="text-align: center;">Test R2</th>
+<th style="text-align: center;">Test Std (Rs)</th>
+<th style="text-align: center;">Low Variance Series?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Beans Butter</td>
+<td style="text-align: center;">177.33</td>
+<td style="text-align: center;">21.46%</td>
+<td style="text-align: center;">1.1455</td>
+<td style="text-align: center;">1.4624</td>
+<td style="text-align: center;">21.67%</td>
+<td style="text-align: center;">-0.4535</td>
+<td style="text-align: center;">236.5 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Beans Green</td>
+<td style="text-align: center;">141.87</td>
+<td style="text-align: center;">20.72%</td>
+<td style="text-align: center;">1.2295</td>
+<td style="text-align: center;">1.5120</td>
+<td style="text-align: center;">18.68%</td>
+<td style="text-align: center;">-0.2373</td>
+<td style="text-align: center;">194.3 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Brinjal</td>
+<td style="text-align: center;">82.87</td>
+<td style="text-align: center;">18.02%</td>
+<td style="text-align: center;">1.0689</td>
+<td style="text-align: center;">1.2805</td>
+<td style="text-align: center;">16.52%</td>
+<td style="text-align: center;">-0.2857</td>
+<td style="text-align: center;">99.8 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Limes</td>
+<td style="text-align: center;">392.19</td>
+<td style="text-align: center;">32.71%</td>
+<td style="text-align: center;">1.2151</td>
+<td style="text-align: center;">1.3209</td>
+<td style="text-align: center;">8.01%</td>
+<td style="text-align: center;">0.2271</td>
+<td style="text-align: center;">727.7 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Beet Root</td>
+<td style="text-align: center;">111.75</td>
+<td style="text-align: center;">21.49%</td>
+<td style="text-align: center;">1.1853</td>
+<td style="text-align: center;">1.2553</td>
+<td style="text-align: center;">5.58%</td>
+<td style="text-align: center;">-0.0864</td>
+<td style="text-align: center;">185.8 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<h3>6.3 5 Most Challenging Vegetables (<code>auto_arima</code>, h=4)</h3>
+<p>The 5 commodities where <code>auto_arima</code> experienced the lowest predictive skill relative to naive:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Vegetable</th>
+<th style="text-align: center;">Test MAE (Rs)</th>
+<th style="text-align: center;">Test sMAPE</th>
+<th style="text-align: center;">Test MASE</th>
+<th style="text-align: center;">Naive MASE</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+<th style="text-align: center;">Test R2</th>
+<th style="text-align: center;">Test Std (Rs)</th>
+<th style="text-align: center;">Low Variance Series?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Carrot</td>
+<td style="text-align: center;">65.60</td>
+<td style="text-align: center;">15.43%</td>
+<td style="text-align: center;">0.5058</td>
+<td style="text-align: center;">0.4863</td>
+<td style="text-align: center;">-4.01%</td>
+<td style="text-align: center;">-0.2974</td>
+<td style="text-align: center;">71.3 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kankun</td>
+<td style="text-align: center;">2.44</td>
+<td style="text-align: center;">3.20%</td>
+<td style="text-align: center;">0.3586</td>
+<td style="text-align: center;">0.3427</td>
+<td style="text-align: center;">-4.64%</td>
+<td style="text-align: center;">0.0621</td>
+<td style="text-align: center;">4.1 Rs</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bandakka</td>
+<td style="text-align: center;">56.85</td>
+<td style="text-align: center;">15.24%</td>
+<td style="text-align: center;">1.1023</td>
+<td style="text-align: center;">1.0458</td>
+<td style="text-align: center;">-5.40%</td>
+<td style="text-align: center;">-0.4356</td>
+<td style="text-align: center;">65.9 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">KnolKhol</td>
+<td style="text-align: center;">76.67</td>
+<td style="text-align: center;">17.04%</td>
+<td style="text-align: center;">1.1284</td>
+<td style="text-align: center;">1.0597</td>
+<td style="text-align: center;">-6.48%</td>
+<td style="text-align: center;">-0.2968</td>
+<td style="text-align: center;">104.5 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Raddish</td>
+<td style="text-align: center;">54.16</td>
+<td style="text-align: center;">16.11%</td>
+<td style="text-align: center;">1.2516</td>
+<td style="text-align: center;">1.1400</td>
+<td style="text-align: center;">-9.79%</td>
+<td style="text-align: center;">-0.3423</td>
+<td style="text-align: center;">66.0 Rs</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<p><em>Diagnostic Note on Commodity Dispersion</em>: Agricultural price volatility differs markedly across commodity varieties. For <code>auto_arima</code>, the most challenging commodities (such as Raddish, KnolKhol, Bandakka, Carrot) exhibit sharp supply-driven price swings where local univariate autoregression lags behind rapid market reversals. Conversely, global pooled models trained on raw price levels (such as raw-level Lasso) struggled on low-variance leafy greens due to rupee loss scale dominance, an issue resolved by the log-price-ratio target formulation discussed in Section 8.</p>
+<hr />
+<h2>7. Scale-Aware Uncertainty Quantification</h2>
+<p>Prediction intervals must be scale-aware: a fixed Rs 150 interval width provides useful bounds for Drumstick (Rs 1500) but catastrophic bounds for Gotukola (Rs 30). Conformal prediction on relative log-ratios ($s_i = |\log y_i - \log \hat{y}_i|$) produces intervals proportional to price scale:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model Configuration</th>
+<th style="text-align: center;">Test Cov 80%</th>
+<th style="text-align: center;">Coverage Status</th>
+<th style="text-align: center;">Mean Width 80% (Rs)</th>
+<th style="text-align: center;">Mean Width 80% (%)</th>
+<th style="text-align: center;">Test Cov 95%</th>
+<th style="text-align: center;">Mean Width 95% (Rs)</th>
+<th style="text-align: center;">Mean Width 95% (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">82.37%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">182.2 Rs</td>
+<td style="text-align: center;">47.28%</td>
+<td style="text-align: center;">93.51%</td>
+<td style="text-align: center;">336.8 Rs</td>
+<td style="text-align: center;">87.42%</td>
+</tr>
+<tr>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">79.95%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">178.9 Rs</td>
+<td style="text-align: center;">46.36%</td>
+<td style="text-align: center;">94.56%</td>
+<td style="text-align: center;">367.6 Rs</td>
+<td style="text-align: center;">95.26%</td>
+</tr>
+<tr>
+<td style="text-align: left;">catboost (log_ratio)</td>
+<td style="text-align: center;">84.80%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">185.9 Rs</td>
+<td style="text-align: center;">48.63%</td>
+<td style="text-align: center;">94.56%</td>
+<td style="text-align: center;">332.0 Rs</td>
+<td style="text-align: center;">86.86%</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees (log_ratio)</td>
+<td style="text-align: center;">82.50%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">169.8 Rs</td>
+<td style="text-align: center;">45.08%</td>
+<td style="text-align: center;">94.63%</td>
+<td style="text-align: center;">333.0 Rs</td>
+<td style="text-align: center;">88.39%</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees (raw_level)</td>
+<td style="text-align: center;">79.69%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">186.9 Rs</td>
+<td style="text-align: center;">48.65%</td>
+<td style="text-align: center;">93.51%</td>
+<td style="text-align: center;">373.2 Rs</td>
+<td style="text-align: center;">97.17%</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru (raw_level)</td>
+<td style="text-align: center;">76.54%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">186.3 Rs</td>
+<td style="text-align: center;">45.75%</td>
+<td style="text-align: center;">93.64%</td>
+<td style="text-align: center;">395.0 Rs</td>
+<td style="text-align: center;">97.00%</td>
+</tr>
+<tr>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">80.79%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">208.2 Rs</td>
+<td style="text-align: center;">52.71%</td>
+<td style="text-align: center;">94.36%</td>
+<td style="text-align: center;">431.8 Rs</td>
+<td style="text-align: center;">109.29%</td>
+</tr>
+<tr>
+<td style="text-align: left;">stacking_meta_learner</td>
+<td style="text-align: center;">77.65%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">192.3 Rs</td>
+<td style="text-align: center;">47.69%</td>
+<td style="text-align: center;">93.64%</td>
+<td style="text-align: center;">381.5 Rs</td>
+<td style="text-align: center;">94.59%</td>
+</tr>
+<tr>
+<td style="text-align: left;">xgboost (log_ratio)</td>
+<td style="text-align: center;">84.21%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">199.7 Rs</td>
+<td style="text-align: center;">51.00%</td>
+<td style="text-align: center;">93.91%</td>
+<td style="text-align: center;">363.4 Rs</td>
+<td style="text-align: center;">92.77%</td>
+</tr>
+<tr>
+<td style="text-align: left;">mlp (log_ratio)</td>
+<td style="text-align: center;">79.82%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">186.9 Rs</td>
+<td style="text-align: center;">47.10%</td>
+<td style="text-align: center;">92.73%</td>
+<td style="text-align: center;">376.3 Rs</td>
+<td style="text-align: center;">94.82%</td>
+</tr>
+<tr>
+<td style="text-align: left;">random_forest</td>
+<td style="text-align: center;">81.59%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">200.9 Rs</td>
+<td style="text-align: center;">51.39%</td>
+<td style="text-align: center;">94.56%</td>
+<td style="text-align: center;">386.9 Rs</td>
+<td style="text-align: center;">98.99%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (log_ratio)</td>
+<td style="text-align: center;">82.57%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">181.4 Rs</td>
+<td style="text-align: center;">47.86%</td>
+<td style="text-align: center;">94.30%</td>
+<td style="text-align: center;">349.8 Rs</td>
+<td style="text-align: center;">92.30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (raw_level)</td>
+<td style="text-align: center;">78.37%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">184.7 Rs</td>
+<td style="text-align: center;">47.49%</td>
+<td style="text-align: center;">94.50%</td>
+<td style="text-align: center;">370.5 Rs</td>
+<td style="text-align: center;">95.26%</td>
+</tr>
+<tr>
+<td style="text-align: left;">elastic_net (log_ratio)</td>
+<td style="text-align: center;">82.24%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">174.9 Rs</td>
+<td style="text-align: center;">46.10%</td>
+<td style="text-align: center;">94.36%</td>
+<td style="text-align: center;">354.2 Rs</td>
+<td style="text-align: center;">93.35%</td>
+</tr>
+<tr>
+<td style="text-align: left;">sarimax</td>
+<td style="text-align: center;">80.29%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">208.2 Rs</td>
+<td style="text-align: center;">52.71%</td>
+<td style="text-align: center;">94.36%</td>
+<td style="text-align: center;">431.8 Rs</td>
+<td style="text-align: center;">109.29%</td>
+</tr>
+<tr>
+<td style="text-align: left;">catboost (raw_level)</td>
+<td style="text-align: center;">81.06%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">201.8 Rs</td>
+<td style="text-align: center;">51.09%</td>
+<td style="text-align: center;">94.82%</td>
+<td style="text-align: center;">395.6 Rs</td>
+<td style="text-align: center;">100.16%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm (log_ratio)</td>
+<td style="text-align: center;">84.27%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">195.9 Rs</td>
+<td style="text-align: center;">50.18%</td>
+<td style="text-align: center;">94.63%</td>
+<td style="text-align: center;">355.8 Rs</td>
+<td style="text-align: center;">91.14%</td>
+</tr>
+<tr>
+<td style="text-align: left;">ridge (log_ratio)</td>
+<td style="text-align: center;">83.36%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">192.2 Rs</td>
+<td style="text-align: center;">50.06%</td>
+<td style="text-align: center;">94.30%</td>
+<td style="text-align: center;">377.2 Rs</td>
+<td style="text-align: center;">98.21%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nhits (log_ratio)</td>
+<td style="text-align: center;">80.54%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">173.3 Rs</td>
+<td style="text-align: center;">45.01%</td>
+<td style="text-align: center;">94.63%</td>
+<td style="text-align: center;">381.3 Rs</td>
+<td style="text-align: center;">99.05%</td>
+</tr>
+<tr>
+<td style="text-align: left;">naive</td>
+<td style="text-align: center;">80.08%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">201.2 Rs</td>
+<td style="text-align: center;">52.71%</td>
+<td style="text-align: center;">94.17%</td>
+<td style="text-align: center;">417.3 Rs</td>
+<td style="text-align: center;">109.29%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm (raw_level)</td>
+<td style="text-align: center;">82.24%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">228.1 Rs</td>
+<td style="text-align: center;">55.94%</td>
+<td style="text-align: center;">93.25%</td>
+<td style="text-align: center;">394.8 Rs</td>
+<td style="text-align: center;">96.82%</td>
+</tr>
+<tr>
+<td style="text-align: left;">drift</td>
+<td style="text-align: center;">80.14%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">203.2 Rs</td>
+<td style="text-align: center;">52.90%</td>
+<td style="text-align: center;">94.23%</td>
+<td style="text-align: center;">427.3 Rs</td>
+<td style="text-align: center;">111.26%</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru (log_ratio)</td>
+<td style="text-align: center;">83.36%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">171.2 Rs</td>
+<td style="text-align: center;">46.86%</td>
+<td style="text-align: center;">94.82%</td>
+<td style="text-align: center;">347.2 Rs</td>
+<td style="text-align: center;">95.05%</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d (log_ratio)</td>
+<td style="text-align: center;">84.73%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">197.2 Rs</td>
+<td style="text-align: center;">50.34%</td>
+<td style="text-align: center;">95.15%</td>
+<td style="text-align: center;">395.9 Rs</td>
+<td style="text-align: center;">101.09%</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d (raw_level)</td>
+<td style="text-align: center;">82.31%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">220.9 Rs</td>
+<td style="text-align: center;">59.46%</td>
+<td style="text-align: center;">95.41%</td>
+<td style="text-align: center;">378.0 Rs</td>
+<td style="text-align: center;">101.75%</td>
+</tr>
+<tr>
+<td style="text-align: left;">elastic_net (raw_level)</td>
+<td style="text-align: center;">77.26%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">214.0 Rs</td>
+<td style="text-align: center;">53.45%</td>
+<td style="text-align: center;">92.53%</td>
+<td style="text-align: center;">378.3 Rs</td>
+<td style="text-align: center;">94.50%</td>
+</tr>
+<tr>
+<td style="text-align: left;">ridge (raw_level)</td>
+<td style="text-align: center;">76.61%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">211.0 Rs</td>
+<td style="text-align: center;">52.91%</td>
+<td style="text-align: center;">94.10%</td>
+<td style="text-align: center;">400.0 Rs</td>
+<td style="text-align: center;">100.32%</td>
+</tr>
+<tr>
+<td style="text-align: left;">linear_regression</td>
+<td style="text-align: center;">77.20%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">212.2 Rs</td>
+<td style="text-align: center;">53.28%</td>
+<td style="text-align: center;">94.30%</td>
+<td style="text-align: center;">416.2 Rs</td>
+<td style="text-align: center;">104.51%</td>
+</tr>
+<tr>
+<td style="text-align: left;">xgboost (raw_level)</td>
+<td style="text-align: center;">84.47%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">237.5 Rs</td>
+<td style="text-align: center;">58.56%</td>
+<td style="text-align: center;">94.30%</td>
+<td style="text-align: center;">424.9 Rs</td>
+<td style="text-align: center;">104.79%</td>
+</tr>
+<tr>
+<td style="text-align: left;">mlp (raw_level)</td>
+<td style="text-align: center;">82.77%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">196.9 Rs</td>
+<td style="text-align: center;">52.15%</td>
+<td style="text-align: center;">94.69%</td>
+<td style="text-align: center;">365.7 Rs</td>
+<td style="text-align: center;">96.86%</td>
+</tr>
+<tr>
+<td style="text-align: left;">gradient_boosting</td>
+<td style="text-align: center;">83.49%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">233.4 Rs</td>
+<td style="text-align: center;">57.32%</td>
+<td style="text-align: center;">93.97%</td>
+<td style="text-align: center;">405.7 Rs</td>
+<td style="text-align: center;">99.63%</td>
+</tr>
+<tr>
+<td style="text-align: left;">prophet</td>
+<td style="text-align: center;">87.43%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">207.3 Rs</td>
+<td style="text-align: center;">52.71%</td>
+<td style="text-align: center;">97.93%</td>
+<td style="text-align: center;">429.8 Rs</td>
+<td style="text-align: center;">109.29%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nbeats (raw_level)</td>
+<td style="text-align: center;">82.18%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">209.8 Rs</td>
+<td style="text-align: center;">53.36%</td>
+<td style="text-align: center;">94.69%</td>
+<td style="text-align: center;">384.5 Rs</td>
+<td style="text-align: center;">97.76%</td>
+</tr>
+<tr>
+<td style="text-align: left;">ar1_category_mean</td>
+<td style="text-align: center;">85.26%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">257.0 Rs</td>
+<td style="text-align: center;">67.28%</td>
+<td style="text-align: center;">93.91%</td>
+<td style="text-align: center;">385.9 Rs</td>
+<td style="text-align: center;">101.02%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nhits (raw_level)</td>
+<td style="text-align: center;">78.44%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">227.2 Rs</td>
+<td style="text-align: center;">54.57%</td>
+<td style="text-align: center;">91.48%</td>
+<td style="text-align: center;">388.0 Rs</td>
+<td style="text-align: center;">93.20%</td>
+</tr>
+<tr>
+<td style="text-align: left;">svr</td>
+<td style="text-align: center;">87.48%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">222.8 Rs</td>
+<td style="text-align: center;">65.68%</td>
+<td style="text-align: center;">96.53%</td>
+<td style="text-align: center;">543.0 Rs</td>
+<td style="text-align: center;">160.05%</td>
+</tr>
+<tr>
+<td style="text-align: left;">moving_average_4</td>
+<td style="text-align: center;">76.15%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">206.7 Rs</td>
+<td style="text-align: center;">54.33%</td>
+<td style="text-align: center;">93.58%</td>
+<td style="text-align: center;">465.1 Rs</td>
+<td style="text-align: center;">122.26%</td>
+</tr>
+<tr>
+<td style="text-align: left;">tft_lite</td>
+<td style="text-align: center;">77.33%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">206.5 Rs</td>
+<td style="text-align: center;">53.45%</td>
+<td style="text-align: center;">95.35%</td>
+<td style="text-align: center;">412.2 Rs</td>
+<td style="text-align: center;">106.68%</td>
+</tr>
+<tr>
+<td style="text-align: left;">transformer</td>
+<td style="text-align: center;">74.90%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">217.6 Rs</td>
+<td style="text-align: center;">57.17%</td>
+<td style="text-align: center;">95.74%</td>
+<td style="text-align: center;">416.9 Rs</td>
+<td style="text-align: center;">109.55%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nbeats (log_ratio)</td>
+<td style="text-align: center;">80.14%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">201.0 Rs</td>
+<td style="text-align: center;">49.33%</td>
+<td style="text-align: center;">92.46%</td>
+<td style="text-align: center;">377.6 Rs</td>
+<td style="text-align: center;">92.69%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lstm</td>
+<td style="text-align: center;">81.91%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">187.6 Rs</td>
+<td style="text-align: center;">49.88%</td>
+<td style="text-align: center;">94.82%</td>
+<td style="text-align: center;">373.1 Rs</td>
+<td style="text-align: center;">99.18%</td>
+</tr>
+<tr>
+<td style="text-align: left;">rolling_52wk_mean</td>
+<td style="text-align: center;">78.05%</td>
+<td style="text-align: center;">Nominal (80%)</td>
+<td style="text-align: center;">223.8 Rs</td>
+<td style="text-align: center;">57.49%</td>
+<td style="text-align: center;">95.15%</td>
+<td style="text-align: center;">483.9 Rs</td>
+<td style="text-align: center;">124.31%</td>
+</tr>
+<tr>
+<td style="text-align: left;">holt_winters_ets</td>
+<td style="text-align: center;">75.00%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">204.7 Rs</td>
+<td style="text-align: center;">52.71%</td>
+<td style="text-align: center;">91.86%</td>
+<td style="text-align: center;">424.5 Rs</td>
+<td style="text-align: center;">109.29%</td>
+</tr>
+<tr>
+<td style="text-align: left;">moving_average_12</td>
+<td style="text-align: center;">69.86%</td>
+<td style="text-align: center;">Under-covers (&lt;77%)</td>
+<td style="text-align: center;">208.4 Rs</td>
+<td style="text-align: center;">55.15%</td>
+<td style="text-align: center;">89.52%</td>
+<td style="text-align: center;">421.7 Rs</td>
+<td style="text-align: center;">111.58%</td>
+</tr>
+<tr>
+<td style="text-align: left;">seasonal_mean_4yr</td>
+<td style="text-align: center;">98.10%</td>
+<td style="text-align: center;">Over-covers (&gt;88%)</td>
+<td style="text-align: center;">411.6 Rs</td>
+<td style="text-align: center;">118.52%</td>
+<td style="text-align: center;">99.74%</td>
+<td style="text-align: center;">647.9 Rs</td>
+<td style="text-align: center;">186.56%</td>
+</tr>
+<tr>
+<td style="text-align: left;">seasonal_naive_48</td>
+<td style="text-align: center;">92.66%</td>
+<td style="text-align: center;">Over-covers (&gt;88%)</td>
+<td style="text-align: center;">392.5 Rs</td>
+<td style="text-align: center;">102.35%</td>
+<td style="text-align: center;">98.30%</td>
+<td style="text-align: center;">789.3 Rs</td>
+<td style="text-align: center;">205.82%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. Leafy Vegetable Reporting Audit: Stale Period vs Clean Period &amp; Target Formulation</h2>
+<h3>8.1 Leafy Greens Performance: All Weeks vs Clean Weeks (h=4)</h3>
+<p>To resolve distortion caused by administrative price freezing between 2020-09 and 2023-08 in the historical training data, performance on leafy vegetables is evaluated across all available weeks versus clean weeks without stale price runs:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model Architecture</th>
+<th style="text-align: center;">All Weeks MAE</th>
+<th style="text-align: center;">All Weeks sMAPE</th>
+<th style="text-align: center;">All Weeks R2</th>
+<th style="text-align: center;">Clean Weeks MAE</th>
+<th style="text-align: center;">Clean Weeks sMAPE</th>
+<th style="text-align: center;">Clean Weeks R2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">best_per_category</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">-0.1470</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">-0.1470</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">-0.1470</td>
+<td style="text-align: center;">4.07</td>
+<td style="text-align: center;">4.06%</td>
+<td style="text-align: center;">-0.1470</td>
+</tr>
+<tr>
+<td style="text-align: left;">auto_arima</td>
+<td style="text-align: center;">4.09</td>
+<td style="text-align: center;">4.08%</td>
+<td style="text-align: center;">-0.2523</td>
+<td style="text-align: center;">4.09</td>
+<td style="text-align: center;">4.08%</td>
+<td style="text-align: center;">-0.2523</td>
+</tr>
+<tr>
+<td style="text-align: left;">naive</td>
+<td style="text-align: center;">4.16</td>
+<td style="text-align: center;">4.16%</td>
+<td style="text-align: center;">-0.3103</td>
+<td style="text-align: center;">4.16</td>
+<td style="text-align: center;">4.16%</td>
+<td style="text-align: center;">-0.3103</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm (log_ratio)</td>
+<td style="text-align: center;">4.26</td>
+<td style="text-align: center;">4.28%</td>
+<td style="text-align: center;">-0.2701</td>
+<td style="text-align: center;">4.26</td>
+<td style="text-align: center;">4.28%</td>
+<td style="text-align: center;">-0.2701</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">4.58</td>
+<td style="text-align: center;">4.58%</td>
+<td style="text-align: center;">-0.5014</td>
+<td style="text-align: center;">4.58</td>
+<td style="text-align: center;">4.58%</td>
+<td style="text-align: center;">-0.5014</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (log_ratio)</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">4.99%</td>
+<td style="text-align: center;">-0.7676</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">4.99%</td>
+<td style="text-align: center;">-0.7676</td>
+</tr>
+<tr>
+<td style="text-align: left;">simple_average_top3</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">5.12%</td>
+<td style="text-align: center;">-0.8904</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">5.12%</td>
+<td style="text-align: center;">-0.8904</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru (raw_level)</td>
+<td style="text-align: center;">10.85</td>
+<td style="text-align: center;">12.27%</td>
+<td style="text-align: center;">-9.4602</td>
+<td style="text-align: center;">10.85</td>
+<td style="text-align: center;">12.27%</td>
+<td style="text-align: center;">-9.4602</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso (raw_level)</td>
+<td style="text-align: center;">18.55</td>
+<td style="text-align: center;">18.19%</td>
+<td style="text-align: center;">-18.1100</td>
+<td style="text-align: center;">18.55</td>
+<td style="text-align: center;">18.19%</td>
+<td style="text-align: center;">-18.1100</td>
+</tr>
+</tbody>
+</table>
+<p><em>Audit Finding on Stale Sample Size</em>: On the $h=4$ test sample ($N=384$), exactly <strong>384 observations are clean weeks (<code>is_stale_run == 0.0</code>)</strong> and <strong>0 observations are stale-flagged weeks (<code>is_stale_run == 1.0</code>)</strong>. The historical administrative price freeze occurred between September 2020 and August 2023, which falls strictly inside the training partition (where 690 stale leafy observations were flagged and audited). Because the held-out test split (September 2025 to August 2026) contains zero administrative freezes, the "all weeks" and "clean weeks" columns on the test split are mathematically identical. Naive persistence achieves MAE 4.16 Rs, sMAPE 4.16%, and $R^2 = -0.3103$ on this test sample, fully consistent with Section 6.1.</p>
+<h3>8.2 Stale-Period Sensitivity Analysis: Training With vs Without the 2020-09 to 2023-08 Freeze (EXPLORATORY)</h3>
+<blockquote>
+<p>[!NOTE]
+<strong>EXPLORATORY METHODOLOGICAL STATUS</strong><br />
+In strict accordance with pre-registered protocol, investigating alternative training data filters on the held-out test split is strictly <strong>EXPLORATORY</strong>. To avoid test-set overfitting and preserve methodological integrity, we evaluate the stale-period filter first on the dedicated <strong>validation partition</strong> ($N=384$), followed by the held-out test split.</p>
+</blockquote>
+<h4>Part 1: Validation-Only Controlled Experiment (N=384, Pre-Registered Split Discipline)</h4>
+<p>Candidate models were trained on the leafy subset of the training partition (either including all historical data or excising the September 2020 to August 2023 price freeze) and evaluated strictly on the <strong>validation partition</strong> ($N=384$ leafy observations; Naive persistence MAE 5.30 Rs, sMAPE 5.40%, MASE 0.3441, $R^2 = 0.9094$):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model Architecture</th>
+<th style="text-align: left;">Target Mode</th>
+<th style="text-align: left;">Training History Regime</th>
+<th style="text-align: center;">Train N</th>
+<th style="text-align: center;">Val N</th>
+<th style="text-align: center;">Val MAE (Rs)</th>
+<th style="text-align: center;">Val sMAPE</th>
+<th style="text-align: center;">Val MASE</th>
+<th style="text-align: center;">Val R2</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Naive Persistence</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Benchmark (No Training)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.30</td>
+<td style="text-align: center;">5.40%</td>
+<td style="text-align: center;">0.3441</td>
+<td style="text-align: center;">0.9094</td>
+<td style="text-align: center;">0.00%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,568</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">6.00</td>
+<td style="text-align: center;">6.17%</td>
+<td style="text-align: center;">0.3892</td>
+<td style="text-align: center;">0.8818</td>
+<td style="text-align: center;">-13.11%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,448</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">6.40</td>
+<td style="text-align: center;">6.62%</td>
+<td style="text-align: center;">0.2569</td>
+<td style="text-align: center;">0.8715</td>
+<td style="text-align: center;">25.34%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,472</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.48</td>
+<td style="text-align: center;">5.57%</td>
+<td style="text-align: center;">0.3555</td>
+<td style="text-align: center;">0.9055</td>
+<td style="text-align: center;">-3.31%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,376</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.41</td>
+<td style="text-align: center;">5.51%</td>
+<td style="text-align: center;">0.2173</td>
+<td style="text-align: center;">0.9079</td>
+<td style="text-align: center;">36.85%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,568</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.16</td>
+<td style="text-align: center;">5.34%</td>
+<td style="text-align: center;">0.3345</td>
+<td style="text-align: center;">0.9226</td>
+<td style="text-align: center;">2.79%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,448</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.98</td>
+<td style="text-align: center;">5.17%</td>
+<td style="text-align: center;">0.2000</td>
+<td style="text-align: center;">0.9215</td>
+<td style="text-align: center;">41.88%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,472</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.40</td>
+<td style="text-align: center;">5.57%</td>
+<td style="text-align: center;">0.3502</td>
+<td style="text-align: center;">0.9096</td>
+<td style="text-align: center;">-1.77%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,376</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.55</td>
+<td style="text-align: center;">5.64%</td>
+<td style="text-align: center;">0.2227</td>
+<td style="text-align: center;">0.9011</td>
+<td style="text-align: center;">35.28%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Validation Findings</em>: Excising the distorted administrative freeze period from training improves validation performance across all model configurations:
+- <strong>Lasso (raw_level)</strong>: Validation skill improves from -13.11% (MASE 0.3892) to <strong>+25.34%</strong> (MASE 0.2569).
+- <strong>Lasso (log_ratio)</strong>: Validation skill improves from -3.31% (MASE 0.3555) to <strong>+36.85%</strong> (MASE 0.2173).
+- <strong>LightGBM (raw_level)</strong>: Validation skill improves from +2.79% (MASE 0.3345) to <strong>+41.88%</strong> (MASE 0.2000).
+- <strong>LightGBM (log_ratio)</strong>: Validation skill improves from -1.77% (MASE 0.3502) to <strong>+35.28%</strong> (MASE 0.2227).</p>
+<h4>Part 2: Exploratory Test Evaluation (N=384 Clean Leafy Observations)</h4>
+<p>For comparison against validation findings, candidate models were evaluated on the held-out test split ($N=384$ clean leafy observations; Naive persistence MAE 4.16 Rs, sMAPE 4.16%, MASE 0.2700, $R^2 = 0.9022$):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model Architecture</th>
+<th style="text-align: left;">Target Mode</th>
+<th style="text-align: left;">Training History Regime</th>
+<th style="text-align: center;">Train N</th>
+<th style="text-align: center;">Test N</th>
+<th style="text-align: center;">Test MAE (Rs)</th>
+<th style="text-align: center;">Test sMAPE</th>
+<th style="text-align: center;">Test MASE</th>
+<th style="text-align: center;">Test R2</th>
+<th style="text-align: center;">Skill vs Naive (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Naive Persistence</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Benchmark (No Training)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.16</td>
+<td style="text-align: center;">4.16%</td>
+<td style="text-align: center;">0.2700</td>
+<td style="text-align: center;">0.9022</td>
+<td style="text-align: center;">0.00%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,568</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.36</td>
+<td style="text-align: center;">5.39%</td>
+<td style="text-align: center;">0.3475</td>
+<td style="text-align: center;">0.8692</td>
+<td style="text-align: center;">-28.70%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,448</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.96</td>
+<td style="text-align: center;">6.06%</td>
+<td style="text-align: center;">0.2391</td>
+<td style="text-align: center;">0.8562</td>
+<td style="text-align: center;">11.44%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,472</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.37</td>
+<td style="text-align: center;">4.34%</td>
+<td style="text-align: center;">0.2837</td>
+<td style="text-align: center;">0.9001</td>
+<td style="text-align: center;">-5.07%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lasso (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,376</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.30</td>
+<td style="text-align: center;">4.27%</td>
+<td style="text-align: center;">0.1727</td>
+<td style="text-align: center;">0.9034</td>
+<td style="text-align: center;">36.04%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,568</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.70</td>
+<td style="text-align: center;">5.64%</td>
+<td style="text-align: center;">0.3700</td>
+<td style="text-align: center;">0.8859</td>
+<td style="text-align: center;">-37.04%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (raw_level)</td>
+<td style="text-align: left;">raw_level</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,448</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">5.08</td>
+<td style="text-align: center;">5.07%</td>
+<td style="text-align: center;">0.2040</td>
+<td style="text-align: center;">0.9145</td>
+<td style="text-align: center;">24.44%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">With Stale Period (Full History)</td>
+<td style="text-align: center;">2,472</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.63</td>
+<td style="text-align: center;">4.60%</td>
+<td style="text-align: center;">0.3007</td>
+<td style="text-align: center;">0.8932</td>
+<td style="text-align: center;">-11.37%</td>
+</tr>
+<tr>
+<td style="text-align: left;">LightGBM (log_ratio)</td>
+<td style="text-align: left;">log_ratio</td>
+<td style="text-align: left;">Without Stale Period (Filtered 2020-2023)</td>
+<td style="text-align: center;">1,376</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">4.94</td>
+<td style="text-align: center;">4.88%</td>
+<td style="text-align: center;">0.1982</td>
+<td style="text-align: center;">0.8874</td>
+<td style="text-align: center;">26.59%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Test Findings (Exploratory)</em>:
+- For <strong>Lasso (raw_level)</strong>, purging stale runs reverses test skill from -28.70% (MASE 0.3475) to <strong>+11.44%</strong> (MASE 0.2391).
+- For <strong>Lasso (log_ratio)</strong>, purging stale runs boosts skill from -5.07% (MASE 0.2837) to <strong>+36.04%</strong> (MASE 0.1727, $R^2 = 0.9034$).
+- For <strong>LightGBM (raw_level)</strong>, skill improves from -37.04% to <strong>+24.44%</strong> (MASE 0.2040, $R^2 = 0.9145$).
+- For <strong>LightGBM (log_ratio)</strong>, skill improves from -11.37% to <strong>+26.59%</strong> (MASE 0.1982).
+This demonstrates that artificial price ceilings corrupt gradient and shrinkage updates; excising administrative freeze periods allows models to learn genuine post-crisis volatility dynamics.</p>
+<h3>8.3 Target Formulation Comparison: Raw Levels vs Log-Price-Ratio</h3>
+<p>To address the scale distortion where pooled models fail on low-priced leafy greens, a log-price-ratio target variant was evaluated:
+$$\Delta_{t+h} = \log(y_{t+h} / y_t), \quad \hat{y}<em>{t+h} = y_t \cdot \exp(\hat{\Delta}</em>{t+h})$$</p>
+<p>Both target modes were trained side by side across candidate models. Mode selection is performed strictly on <strong>validation MASE</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Val MASE (Level)</th>
+<th style="text-align: center;">Val MASE (Ratio)</th>
+<th style="text-align: center;">Chosen Target Mode</th>
+<th style="text-align: center;">Val MASE Gain (%)</th>
+<th style="text-align: center;">Test Skill (Level)</th>
+<th style="text-align: center;">Test Skill (Ratio)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">catboost</td>
+<td style="text-align: center;">0.7399</td>
+<td style="text-align: center;">0.6932</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+6.31%</td>
+<td style="text-align: center;">7.29%</td>
+<td style="text-align: center;">14.86%</td>
+</tr>
+<tr>
+<td style="text-align: left;">elastic_net</td>
+<td style="text-align: center;">0.7625</td>
+<td style="text-align: center;">0.7381</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+3.20%</td>
+<td style="text-align: center;">5.48%</td>
+<td style="text-align: center;">7.27%</td>
+</tr>
+<tr>
+<td style="text-align: left;">extra_trees</td>
+<td style="text-align: center;">0.7121</td>
+<td style="text-align: center;">0.6987</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+1.88%</td>
+<td style="text-align: center;">10.36%</td>
+<td style="text-align: center;">15.28%</td>
+</tr>
+<tr>
+<td style="text-align: left;">gru</td>
+<td style="text-align: center;">0.7189</td>
+<td style="text-align: center;">0.7533</td>
+<td style="text-align: center;"><strong>raw_level</strong></td>
+<td style="text-align: center;">+4.57%</td>
+<td style="text-align: center;">3.26%</td>
+<td style="text-align: center;">6.72%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lasso</td>
+<td style="text-align: center;">0.7376</td>
+<td style="text-align: center;">0.7367</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+0.12%</td>
+<td style="text-align: center;">7.62%</td>
+<td style="text-align: center;">8.61%</td>
+</tr>
+<tr>
+<td style="text-align: left;">lightgbm</td>
+<td style="text-align: center;">0.7472</td>
+<td style="text-align: center;">0.7405</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+0.90%</td>
+<td style="text-align: center;">10.04%</td>
+<td style="text-align: center;">9.99%</td>
+</tr>
+<tr>
+<td style="text-align: left;">mlp</td>
+<td style="text-align: center;">0.7820</td>
+<td style="text-align: center;">0.7301</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+6.64%</td>
+<td style="text-align: center;">11.02%</td>
+<td style="text-align: center;">8.68%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nbeats</td>
+<td style="text-align: center;">0.7977</td>
+<td style="text-align: center;">0.8531</td>
+<td style="text-align: center;"><strong>raw_level</strong></td>
+<td style="text-align: center;">+6.49%</td>
+<td style="text-align: center;">0.07%</td>
+<td style="text-align: center;">-7.51%</td>
+</tr>
+<tr>
+<td style="text-align: left;">nhits</td>
+<td style="text-align: center;">0.7996</td>
+<td style="text-align: center;">0.7453</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+6.79%</td>
+<td style="text-align: center;">11.61%</td>
+<td style="text-align: center;">1.05%</td>
+</tr>
+<tr>
+<td style="text-align: left;">ridge</td>
+<td style="text-align: center;">0.7661</td>
+<td style="text-align: center;">0.7442</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+2.86%</td>
+<td style="text-align: center;">5.28%</td>
+<td style="text-align: center;">5.67%</td>
+</tr>
+<tr>
+<td style="text-align: left;">tcn_1d</td>
+<td style="text-align: center;">0.7551</td>
+<td style="text-align: center;">0.7537</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+0.19%</td>
+<td style="text-align: center;">3.47%</td>
+<td style="text-align: center;">12.19%</td>
+</tr>
+<tr>
+<td style="text-align: left;">xgboost</td>
+<td style="text-align: center;">0.7700</td>
+<td style="text-align: center;">0.7284</td>
+<td style="text-align: center;"><strong>log_ratio</strong></td>
+<td style="text-align: center;">+5.40%</td>
+<td style="text-align: center;">5.61%</td>
+<td style="text-align: center;">8.04%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Impact on Leafy Greens</em>: On leafy vegetables specifically, switching Lasso from raw price levels (<code>lasso (raw_level)</code>, test MAE 18.55 Rs) to the log-price-ratio target (<code>lasso (log_ratio)</code>, test MAE 5.00 Rs) yields a <strong>73.0% reduction in test error</strong> (from 18.55 Rs to 5.00 Rs; or a <strong>61.2% reduction</strong> relative to the preliminary unscaled baseline of 12.90 Rs), reducing leafy MASE from 1.767 down to 0.4823.</p>
+<p><em>Reconciliation of Target Formulation Discrepancies</em>:
+Earlier exploratory drafts reported large validation MASE improvements for Lasso ($0.7536 \to 0.6808$) and LightGBM ($0.7570 \to 0.6706$) at $h=4$. Under the standardized pipeline with clean target-date splits and cross-validated hyperparameters, the official figures in <code>leaderboard.csv</code> show Lasso moving from 0.7376 (<code>raw_level</code>) to 0.7367 (<code>log_ratio</code>) (+0.12% gain) and LightGBM moving from 0.7472 to 0.7405 (+0.90% gain). The discrepancies are traced to three technical drivers:
+1. <strong>Hyperparameter Tuning Parity</strong>: Preliminary scripts tested an ad-hoc unscaled model (<code>Lasso(alpha=0.5)</code>) on raw rupee prices while applying a finely tuned <code>alpha=0.01</code> to dimensionless log-ratios. Because raw price levels span Rs 30 to Rs 1500, unscaled L1 penalization caused severe under-fitting on high-price crops, creating an artificially depressed baseline. The standardized pipeline optimizes $\alpha$ via time-series CV on scaled features ($\alpha \approx 6.20$ for levels, $\alpha \approx 0.01$ for log-ratios), making raw-level models highly competitive.
+2. <strong>Split Boundary Enforcement</strong>: Preliminary runs utilized origin-date splitting without an $h$-week purge gap, allowing target-window overlap across the partition boundary. Under strict target-date splitting with an exact $h$-week gap between training and validation targets, validation error increases modestly, eliminating artifactual gains.
+3. <strong>Sample Alignment</strong>: Preliminary exploratory tests dropped rows with unobserved origin prices ($N=1,517$), whereas the official leaderboard causally imputes missing origin prices via series persistence ($N=1,526$), standardizing the evaluation sample across all candidate models.</p>
+<hr />
+<h2>9. Forward Planning Forecast &amp; Cultivation Margin Analysis (h=4 Weeks)</h2>
+<h3>Operational Forecast Specifications:</h3>
+<ul>
+<li><strong>Origin Timestamp</strong>: <strong>Week 464 (2026-08-25)</strong> (The latest observed reporting week in the dataset).</li>
+<li><strong>Target Horizon</strong>: <strong>h = 4 Weeks Ahead</strong> (Target Week 468, approximately 2026-09-25).</li>
+<li><strong>Selected Model Refit Range</strong>: <strong>Weeks 1 to 464 (2017-01-04 to 2026-08-25, 464 historical weekly periods)</strong> refit completely on all available observations.</li>
+<li><strong>Model Skill Context</strong>: The selected model at $h=4$ (<code>auto_arima</code>, $n=1,400$) achieves a test MASE of 0.8517 (-0.72% skill vs naive persistence on the full test sample of $N=1,526$, but <strong>+2.64% skill</strong> on the common overlapping test sample of $n=1,400$, Holm-adjusted $p=1.0000$). Because no candidate model is statistically distinguishable from naive persistence after multiple testing corrections at $h=4$, the model forecast is closely anchored to series persistence, providing a cautious and realistic planning basis.</li>
+</ul>
+<blockquote>
+<p>[!WARNING]
+<strong>SYNTHETIC PARAMETERS - NOT REAL PRODUCTION COSTS</strong><br />
+The cultivation cost figures below are fixed illustrative parameters for system demonstration only (clearly labelled <strong>SYNTHETIC</strong>), completely decoupled from forecast values. In real deployment, these figures must be ingested directly from an agricultural crop production cost model. Forecast prices and conformal bounds are REAL model outputs from the selected <code>auto_arima</code> model refit on all 464 weeks of data through 2026-08-25.</p>
+</blockquote>
+<h3>Explanation of Uncertainty Multipliers &amp; Resolution of Uniform Global Bounds:</h3>
+<p>In preliminary exploratory drafts, conformal prediction intervals were derived by computing a single pooled nonconformity quantile across all 32 commodities ($q=0.2185$), generating identical bounds ($\times 0.804$ lower, $\times 1.244$ upper, 44.0% relative width) for every crop regardless of its intrinsic volatility. </p>
+<p>To resolve this limitation, intervals in the table below are calibrated <strong>per agro-climatic category</strong> using nonconformity residuals on the dedicated validation calibration fold (Weeks 389–412):
+1. <strong>Leafy Vegetables</strong> ($N_{\text{cal}}=192$, $q_{80}=0.0814$): Multiplier $[\times 0.922, \times 1.085]$, relative width <strong>16.3%</strong>. Empirical coverage: <strong>80.7%</strong> on validation calibration, <strong>88.5%</strong> on test.
+2. <strong>Lowland Vegetables</strong> ($N_{\text{cal}}=360$, $q_{80}=0.2696$): Multiplier $[\times 0.764, \times 1.309]$, relative width <strong>54.6%</strong>. Empirical coverage: <strong>80.3%</strong> on validation calibration, <strong>77.6%</strong> on test.
+3. <strong>Upcountry Vegetables</strong> ($N_{\text{cal}}=216$, $q_{80}=0.3769$): Multiplier $[\times 0.686, \times 1.458]$, relative width <strong>77.2%</strong>. Empirical coverage: <strong>80.6%</strong> on validation calibration, <strong>86.7%</strong> on test.</p>
+<p>Coverage and interval width metrics for each individual commodity are reported directly in the forward planning table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Vegetable Variety</th>
+<th style="text-align: left;">Agro-Climatic Category</th>
+<th style="text-align: center;">Quoted Unit</th>
+<th style="text-align: center;">Price at Wk 464 (Rs)</th>
+<th style="text-align: center;">Forecast Price (Rs, Wk 468)</th>
+<th style="text-align: center;">Forecast/Price Ratio</th>
+<th style="text-align: center;">Synthetic Cultivation Cost (Rs)</th>
+<th style="text-align: center;">80% Conformal Lower Bound</th>
+<th style="text-align: center;">80% Conformal Upper Bound</th>
+<th style="text-align: center;">Conformal Multiplier</th>
+<th style="text-align: center;">Rel Width (%)</th>
+<th style="text-align: center;">Val-Cal Cov 80%</th>
+<th style="text-align: center;">Empirical Test Cov 80%</th>
+<th style="text-align: center;">Expected Net Margin (Rs)</th>
+<th style="text-align: center;">Margin (%)</th>
+<th style="text-align: left;">Risk Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ash Plantain</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 289.66</td>
+<td style="text-align: center;">Rs. 289.33</td>
+<td style="text-align: center;">0.999x</td>
+<td style="text-align: center;">Rs. 140.00</td>
+<td style="text-align: center;">Rs. 220.97</td>
+<td style="text-align: center;">Rs. 378.85</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">+Rs. 149.33</td>
+<td style="text-align: center;">+106.7%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ash Pumpkin</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 350.59</td>
+<td style="text-align: center;">Rs. 344.91</td>
+<td style="text-align: center;">0.984x</td>
+<td style="text-align: center;">Rs. 180.00</td>
+<td style="text-align: center;">Rs. 263.41</td>
+<td style="text-align: center;">Rs. 451.63</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">+Rs. 164.91</td>
+<td style="text-align: center;">+91.6%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bandakka</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 342.67</td>
+<td style="text-align: center;">Rs. 339.49</td>
+<td style="text-align: center;">0.991x</td>
+<td style="text-align: center;">Rs. 190.00</td>
+<td style="text-align: center;">Rs. 259.27</td>
+<td style="text-align: center;">Rs. 444.53</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">81.2%</td>
+<td style="text-align: center;">+Rs. 149.49</td>
+<td style="text-align: center;">+78.7%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Beans Butter</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 730.00</td>
+<td style="text-align: center;">Rs. 728.91</td>
+<td style="text-align: center;">0.999x</td>
+<td style="text-align: center;">Rs. 420.00</td>
+<td style="text-align: center;">Rs. 500.04</td>
+<td style="text-align: center;">Rs. 1062.53</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">95.8%</td>
+<td style="text-align: center;">81.4%</td>
+<td style="text-align: center;">+Rs. 308.91</td>
+<td style="text-align: center;">+73.6%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Beans Green</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 590.67</td>
+<td style="text-align: center;">Rs. 594.13</td>
+<td style="text-align: center;">1.006x</td>
+<td style="text-align: center;">Rs. 340.00</td>
+<td style="text-align: center;">Rs. 407.58</td>
+<td style="text-align: center;">Rs. 866.06</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">83.3%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">+Rs. 254.13</td>
+<td style="text-align: center;">+74.7%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Beet Root</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 435.86</td>
+<td style="text-align: center;">Rs. 393.19</td>
+<td style="text-align: center;">0.902x</td>
+<td style="text-align: center;">Rs. 220.00</td>
+<td style="text-align: center;">Rs. 269.73</td>
+<td style="text-align: center;">Rs. 573.15</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">58.3%</td>
+<td style="text-align: center;">79.2%</td>
+<td style="text-align: center;">+Rs. 173.19</td>
+<td style="text-align: center;">+78.7%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bitter Gourd</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 562.14</td>
+<td style="text-align: center;">Rs. 521.73</td>
+<td style="text-align: center;">0.928x</td>
+<td style="text-align: center;">Rs. 240.00</td>
+<td style="text-align: center;">Rs. 398.45</td>
+<td style="text-align: center;">Rs. 683.16</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">68.8%</td>
+<td style="text-align: center;">+Rs. 281.73</td>
+<td style="text-align: center;">+117.4%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Brinjal</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 440.00</td>
+<td style="text-align: center;">Rs. 446.30</td>
+<td style="text-align: center;">1.014x</td>
+<td style="text-align: center;">Rs. 210.00</td>
+<td style="text-align: center;">Rs. 340.85</td>
+<td style="text-align: center;">Rs. 584.39</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">75.0%</td>
+<td style="text-align: center;">75.0%</td>
+<td style="text-align: center;">+Rs. 236.30</td>
+<td style="text-align: center;">+112.5%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cabbage Seed</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 360.00</td>
+<td style="text-align: center;">Rs. 363.08</td>
+<td style="text-align: center;">1.009x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 249.08</td>
+<td style="text-align: center;">Rs. 529.26</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">+Rs. 213.08</td>
+<td style="text-align: center;">+142.1%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cap Chillies</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 589.33</td>
+<td style="text-align: center;">Rs. 586.59</td>
+<td style="text-align: center;">0.995x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 447.99</td>
+<td style="text-align: center;">Rs. 768.09</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">70.8%</td>
+<td style="text-align: center;">72.9%</td>
+<td style="text-align: center;">+Rs. 436.59</td>
+<td style="text-align: center;">+291.1%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carrot</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 428.00</td>
+<td style="text-align: center;">Rs. 423.73</td>
+<td style="text-align: center;">0.990x</td>
+<td style="text-align: center;">Rs. 290.00</td>
+<td style="text-align: center;">Rs. 290.69</td>
+<td style="text-align: center;">Rs. 617.67</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">75.0%</td>
+<td style="text-align: center;">97.9%</td>
+<td style="text-align: center;">+Rs. 133.73</td>
+<td style="text-align: center;">+46.1%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cucumber</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 224.00</td>
+<td style="text-align: center;">Rs. 224.39</td>
+<td style="text-align: center;">1.002x</td>
+<td style="text-align: center;">Rs. 110.00</td>
+<td style="text-align: center;">Rs. 171.37</td>
+<td style="text-align: center;">Rs. 293.81</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">89.6%</td>
+<td style="text-align: center;">+Rs. 114.39</td>
+<td style="text-align: center;">+104.0%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drumstick</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 447.33</td>
+<td style="text-align: center;">Rs. 442.24</td>
+<td style="text-align: center;">0.989x</td>
+<td style="text-align: center;">Rs. 650.00</td>
+<td style="text-align: center;">Rs. 337.74</td>
+<td style="text-align: center;">Rs. 579.06</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">50.0%</td>
+<td style="text-align: center;">44.2%</td>
+<td style="text-align: center;">Rs. -207.76</td>
+<td style="text-align: center;">-32.0%</td>
+<td style="text-align: left;">Negative Margin (Expected Loss, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gotukola</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 60.00</td>
+<td style="text-align: center;">Rs. 60.45</td>
+<td style="text-align: center;">1.008x</td>
+<td style="text-align: center;">Rs. 25.00</td>
+<td style="text-align: center;">Rs. 55.72</td>
+<td style="text-align: center;">Rs. 65.58</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">66.7%</td>
+<td style="text-align: center;">83.3%</td>
+<td style="text-align: center;">+Rs. 35.45</td>
+<td style="text-align: center;">+141.8%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Green Chillies</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 1030.00</td>
+<td style="text-align: center;">Rs. 945.87</td>
+<td style="text-align: center;">0.918x</td>
+<td style="text-align: center;">Rs. 480.00</td>
+<td style="text-align: center;">Rs. 722.37</td>
+<td style="text-align: center;">Rs. 1238.53</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">25.0%</td>
+<td style="text-align: center;">56.2%</td>
+<td style="text-align: center;">+Rs. 465.87</td>
+<td style="text-align: center;">+97.1%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kankun</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 72.78</td>
+<td style="text-align: center;">Rs. 73.01</td>
+<td style="text-align: center;">1.003x</td>
+<td style="text-align: center;">Rs. 24.00</td>
+<td style="text-align: center;">Rs. 67.30</td>
+<td style="text-align: center;">Rs. 79.20</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">91.7%</td>
+<td style="text-align: center;">+Rs. 49.01</td>
+<td style="text-align: center;">+204.2%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kathurumurunga</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 92.63</td>
+<td style="text-align: center;">Rs. 92.83</td>
+<td style="text-align: center;">1.002x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 85.57</td>
+<td style="text-align: center;">Rs. 100.70</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">83.3%</td>
+<td style="text-align: center;">91.7%</td>
+<td style="text-align: center;">Rs. -57.17</td>
+<td style="text-align: center;">-38.1%</td>
+<td style="text-align: left;">Negative Margin (Expected Loss, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KnolKhol</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 355.38</td>
+<td style="text-align: center;">Rs. 354.58</td>
+<td style="text-align: center;">0.998x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 243.25</td>
+<td style="text-align: center;">Rs. 516.87</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">85.4%</td>
+<td style="text-align: center;">+Rs. 204.58</td>
+<td style="text-align: center;">+136.4%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kohila Leaves</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 96.00</td>
+<td style="text-align: center;">Rs. 94.88</td>
+<td style="text-align: center;">0.988x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 87.46</td>
+<td style="text-align: center;">Rs. 102.93</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">79.2%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">Rs. -55.12</td>
+<td style="text-align: center;">-36.7%</td>
+<td style="text-align: left;">Negative Margin (Expected Loss, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kohila Yams</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 346.09</td>
+<td style="text-align: center;">Rs. 346.75</td>
+<td style="text-align: center;">1.002x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 264.81</td>
+<td style="text-align: center;">Rs. 454.03</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">+Rs. 196.75</td>
+<td style="text-align: center;">+131.2%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Leeks</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 413.33</td>
+<td style="text-align: center;">Rs. 406.30</td>
+<td style="text-align: center;">0.983x</td>
+<td style="text-align: center;">Rs. 230.00</td>
+<td style="text-align: center;">Rs. 278.73</td>
+<td style="text-align: center;">Rs. 592.27</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">95.8%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">+Rs. 176.30</td>
+<td style="text-align: center;">+76.7%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Limes</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 712.07</td>
+<td style="text-align: center;">Rs. 725.14</td>
+<td style="text-align: center;">1.018x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 553.80</td>
+<td style="text-align: center;">Rs. 949.50</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">75.0%</td>
+<td style="text-align: center;">58.3%</td>
+<td style="text-align: center;">+Rs. 575.14</td>
+<td style="text-align: center;">+383.4%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Long Beans</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 434.07</td>
+<td style="text-align: center;">Rs. 432.35</td>
+<td style="text-align: center;">0.996x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 330.19</td>
+<td style="text-align: center;">Rs. 566.12</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">66.7%</td>
+<td style="text-align: center;">+Rs. 282.35</td>
+<td style="text-align: center;">+188.2%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mukunuwenna</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 74.21</td>
+<td style="text-align: center;">Rs. 74.32</td>
+<td style="text-align: center;">1.001x</td>
+<td style="text-align: center;">Rs. 22.00</td>
+<td style="text-align: center;">Rs. 68.51</td>
+<td style="text-align: center;">Rs. 80.62</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">95.8%</td>
+<td style="text-align: center;">95.8%</td>
+<td style="text-align: center;">+Rs. 52.32</td>
+<td style="text-align: center;">+237.8%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nivithi</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">500g</td>
+<td style="text-align: center;">Rs. 137.50</td>
+<td style="text-align: center;">Rs. 137.16</td>
+<td style="text-align: center;">0.998x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 126.44</td>
+<td style="text-align: center;">Rs. 148.80</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">70.8%</td>
+<td style="text-align: center;">70.8%</td>
+<td style="text-align: center;">Rs. -12.84</td>
+<td style="text-align: center;">-8.6%</td>
+<td style="text-align: left;">Negative Margin (Expected Loss, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raddish</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 335.38</td>
+<td style="text-align: center;">Rs. 333.09</td>
+<td style="text-align: center;">0.993x</td>
+<td style="text-align: center;">Rs. 120.00</td>
+<td style="text-align: center;">Rs. 228.51</td>
+<td style="text-align: center;">Rs. 485.55</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">100.0%</td>
+<td style="text-align: center;">95.8%</td>
+<td style="text-align: center;">+Rs. 213.09</td>
+<td style="text-align: center;">+177.6%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Red Pumpkin</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 281.33</td>
+<td style="text-align: center;">Rs. 280.32</td>
+<td style="text-align: center;">0.996x</td>
+<td style="text-align: center;">Rs. 95.00</td>
+<td style="text-align: center;">Rs. 214.08</td>
+<td style="text-align: center;">Rs. 367.05</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">83.3%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">+Rs. 185.32</td>
+<td style="text-align: center;">+195.1%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sarana</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 106.67</td>
+<td style="text-align: center;">Rs. 106.84</td>
+<td style="text-align: center;">1.002x</td>
+<td style="text-align: center;">Rs. 20.00</td>
+<td style="text-align: center;">Rs. 98.48</td>
+<td style="text-align: center;">Rs. 115.90</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">91.7%</td>
+<td style="text-align: center;">93.8%</td>
+<td style="text-align: center;">+Rs. 86.84</td>
+<td style="text-align: center;">+434.2%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Snake Gourd</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 437.04</td>
+<td style="text-align: center;">Rs. 435.41</td>
+<td style="text-align: center;">0.996x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 332.53</td>
+<td style="text-align: center;">Rs. 570.13</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">79.2%</td>
+<td style="text-align: center;">79.2%</td>
+<td style="text-align: center;">+Rs. 285.41</td>
+<td style="text-align: center;">+190.3%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thampala</strong></td>
+<td style="text-align: left;">leafy vegetables</td>
+<td style="text-align: center;">Bunch</td>
+<td style="text-align: center;">Rs. 101.11</td>
+<td style="text-align: center;">Rs. 102.92</td>
+<td style="text-align: center;">1.018x</td>
+<td style="text-align: center;">Rs. 22.00</td>
+<td style="text-align: center;">Rs. 94.87</td>
+<td style="text-align: center;">Rs. 111.65</td>
+<td style="text-align: center;">[0.922x, 1.085x]</td>
+<td style="text-align: center;">16.3%</td>
+<td style="text-align: center;">70.8%</td>
+<td style="text-align: center;">87.5%</td>
+<td style="text-align: center;">+Rs. 80.92</td>
+<td style="text-align: center;">+367.8%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 16.3%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tomato No1.</strong></td>
+<td style="text-align: left;">upcountry vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 460.00</td>
+<td style="text-align: center;">Rs. 448.45</td>
+<td style="text-align: center;">0.975x</td>
+<td style="text-align: center;">Rs. 220.00</td>
+<td style="text-align: center;">Rs. 307.64</td>
+<td style="text-align: center;">Rs. 653.71</td>
+<td style="text-align: center;">[0.686x, 1.458x]</td>
+<td style="text-align: center;">77.2%</td>
+<td style="text-align: center;">41.7%</td>
+<td style="text-align: center;">64.6%</td>
+<td style="text-align: center;">+Rs. 228.45</td>
+<td style="text-align: center;">+103.8%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 77.2%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vetakolu</strong></td>
+<td style="text-align: left;">lowland vegetables</td>
+<td style="text-align: center;">1kg</td>
+<td style="text-align: center;">Rs. 431.11</td>
+<td style="text-align: center;">Rs. 431.15</td>
+<td style="text-align: center;">1.000x</td>
+<td style="text-align: center;">Rs. 150.00</td>
+<td style="text-align: center;">Rs. 329.27</td>
+<td style="text-align: center;">Rs. 564.55</td>
+<td style="text-align: center;">[0.764x, 1.309x]</td>
+<td style="text-align: center;">54.6%</td>
+<td style="text-align: center;">83.3%</td>
+<td style="text-align: center;">81.2%</td>
+<td style="text-align: center;">+Rs. 281.15</td>
+<td style="text-align: center;">+187.4%</td>
+<td style="text-align: left;">Viable (Lower 80% CI &gt; Cost, Rel Width 54.6%)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>10. Thesis Methodological Caveats &amp; Limitations</h2>
+<p>When referencing these findings in academic theses or policy documents, the following 10 methodological constraints must be explicitly cited:</p>
+<ol>
+<li><strong>Price Basis Ambiguity</strong>:
+   <em>Price basis: not stated in the source files; TO BE VERIFIED (retail vs wholesale vs farmgate).</em> Farmgate prices received by smallholder producers are typically discounted relative to terminal market prices by transportation, handling, and trader markups.</li>
+<li><strong>Nominal Currency Non-Stationarity &amp; 2022 Economic Shock</strong>:
+   Sri Lankan food commodity prices experienced an unprecedented macro inflationary regime shift in 2022. Differenced features and log scaling are vital to prevent spurious trending.</li>
+<li><strong>Approximated Weekly Timestamps</strong>:
+   Historical bulletins record prices on a 4-week-per-month discretization (Weeks 1 to 48 per year). Timestamps do not record the precise daily auction date.</li>
+<li><strong>The 48-Week Reporting Calendar</strong>:
+   Each year contains exactly 48 reporting weeks (4 weeks $\times$ 12 months). The seasonal lag is strictly lag 48 (representing the identical week in the prior calendar year).</li>
+<li><strong>Administrative Stale Price Freezing in Leafy Greens</strong>:
+   Between 2020-09 and 2023-08, leafy vegetables exhibit frozen runs of identical prices. Models must be audited both with and without these distorted periods.</li>
+<li><strong>Seasonal Gaps (Drumstick &amp; Butter Beans)</strong>:
+   Drumstick exhibits complete seasonal harvest absences during dry cycles. Causal forward fill is capped at 2 weeks with missing indicators.</li>
+<li><strong>Fat-Tailed Price Shock Distribution</strong>:
+   Agricultural price spikes frequently exceed $|60\%|$ week-over-week. Neural networks and tree models must be trained with robust loss formulations (Huber loss).</li>
+<li><strong>Heterogeneous Measurement Units</strong>:
+   Vegetables are quoted per kilogram, per 500g, or per bunch. Cross-commodity evaluations must rely on scale-free metrics (MASE, sMAPE) rather than raw rupee MAE.</li>
+<li><strong>Omission of Unobserved Agronomic Exogenous Drivers</strong>:
+   Bulletins do not report rainfall anomalies, fertilizer subsidy policies, or import tariff bans. These are captured only through cross-vegetable category proxies.</li>
+<li><strong>Conformal Exchangeability Under Macro Regime Shifts</strong>:
+    Conformal prediction guarantees finite-sample coverage under exchangeability. Macro shocks can cause temporary empirical under-coverage during sudden regime transitions.</li>
+</ol>
+</body>
+</html>

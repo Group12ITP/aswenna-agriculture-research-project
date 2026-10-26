@@ -1,0 +1,123 @@
+project:
+  name: "sri_lanka_vegetable_price_forecasting"
+  title: "Research-Grade Multi-Horizon Vegetable Market Price Forecasting in Sri Lanka"
+  version: "1.0.0"
+  random_seed: 42
+
+paths:
+  root: "."
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  models: "models"
+  experiments: "experiments"
+  runs: "experiments/runs"
+  results: "results"
+  figures: "results/figures"
+  tables: "results/tables"
+  inference: "inference"
+
+task:
+  target_column: "price_lkr"
+  primary_horizon: 4
+  horizons: [1, 4, 8, 12]
+  frequency: "weekly"
+  weeks_per_year: 48
+
+splits:
+  # The dataset has 48 reporting weeks per year (4 weeks per month * 12 months)
+  # Total weeks: 464 (2017-01-04 to 2026-08-25)
+  train_end_date: "2024-08-25"      # week_index <= 368 (~7.7 years, 368 weeks)
+  val_start_date: "2024-09-04"      # week_index 369 to 416 (1 full year, 48 weeks)
+  val_end_date: "2025-08-25"
+  test_start_date: "2025-09-04"     # week_index 417 to 464 (1 full year, 48 weeks)
+  test_end_date: "2026-08-25"
+
+cv:
+  method: "expanding_window"
+  n_splits: 4
+  initial_train_weeks: 192          # 4 full reporting years
+  step_weeks: 44
+  min_gap_weeks: 12                 # ensures gap >= max(h) to prevent lookahead leakage
+
+features:
+  lags: [1, 2, 3, 4, 8, 12, 26, 48]
+  rolling_windows: [4, 8, 12, 26]
+  rolling_stats: ["mean", "std", "min", "max"]
+  include_momentum: true
+  include_seasonal_lag: true        # lag 48 (same week last year)
+  include_ratio_to_annual_mean: true
+  include_cyclical_calendar: true   # sin/cos month and week
+  include_stale_flag: true
+  stale_run_threshold_weeks: 4      # flag leafy runs with identical values >= 4 weeks
+  causal_imputation_max_ffill: 2    # strictly causal forward-fill max 2 weeks
+  include_cross_vegetable: true     # category-level mean and market-wide median change
+  ablation_cross_vegetable: true    # run ablation study with and without cross-veg features
+
+spelling_fixes:
+  "Bitter Guard": "Bitter Gourd"
+  "Cabbagge Seed": "Cabbage Seed"
+  "Tomatoe No1.": "Tomato No1."
+
+models:
+  baselines:
+    - "naive"
+    - "seasonal_naive_48"
+    - "moving_average_4"
+    - "moving_average_12"
+    - "drift"
+  statistical:
+    - "holt_winters_ets"
+    - "auto_arima"
+    - "sarimax"
+    - "prophet"
+  classical_ml:
+    - "linear_regression"
+    - "ridge"
+    - "lasso"
+    - "elastic_net"
+    - "random_forest"
+    - "extra_trees"
+    - "gradient_boosting"
+    - "xgboost"
+    - "lightgbm"
+    - "catboost"
+    - "svr"
+  deep_learning:
+    - "mlp"
+    - "lstm"
+    - "gru"
+    - "tcn_1d"
+    - "nbeats"
+    - "transformer"
+    - "nhits"
+    - "tft_lite"
+  ensembles:
+    - "simple_average_top3"
+    - "stacking_meta_learner"
+    - "best_per_category"
+
+uncertainty:
+  alpha_levels: [0.20, 0.05]        # 80% and 95% prediction intervals
+  methods:
+    - "quantile_regression"         # LightGBM/GBM pinball loss
+    - "conformal_prediction"        # Residual split-conformal calibration
+
+selection_rule:
+  primary_metric: "MASE"
+  aggregate: "median"
+  split: "validation"
+  horizon: 4
+  tie_breakers: ["sMAPE", "coverage_80"]
+  description: "Select model with lowest median MASE across all 32 vegetables on VALIDATION at horizon h=4; ties broken by sMAPE then empirical 80% interval coverage."
+
+optimization:
+  ml_trials: 25
+  dl_trials: 10
+  timeout_seconds: 3600
+  smoke_trials: 2
+  smoke_epochs: 3
+
+smoke_test:
+  vegetables: ["Carrot", "Green Chillies", "Drumstick"]
+  horizons: [1, 4]
+  dl_epochs: 3

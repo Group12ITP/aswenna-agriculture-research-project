@@ -1,0 +1,5 @@
+{
+  "model": "seasonal_naive_48",
+  "horizon": 1,
+  "is_smoke": true
+}

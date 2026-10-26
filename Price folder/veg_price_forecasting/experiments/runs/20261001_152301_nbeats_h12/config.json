@@ -1,0 +1,5 @@
+{
+  "model": "nbeats",
+  "horizon": 12,
+  "is_smoke": false
+}

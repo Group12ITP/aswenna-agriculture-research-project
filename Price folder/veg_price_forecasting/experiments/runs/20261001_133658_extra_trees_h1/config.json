@@ -1,0 +1,5 @@
+{
+  "model": "extra_trees",
+  "horizon": 1,
+  "is_smoke": false
+}

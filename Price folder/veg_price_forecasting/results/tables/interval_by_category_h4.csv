@@ -1,0 +1,13 @@
+model,horizon,category,coverage_80,width_80_pct,calibration_flag
+sarimax,4,lowland vegetables,66.87,44.36,Under-covered
+sarimax,4,upcountry vegetables,65.9,44.51,Under-covered
+sarimax,4,leafy vegetables,98.58,43.35,Over-wide
+lightgbm,4,lowland vegetables,74.5,61.27,Under-covered
+lightgbm,4,upcountry vegetables,74.55,62.16,Under-covered
+lightgbm,4,leafy vegetables,99.72,55.86,Over-wide
+prophet,4,lowland vegetables,87.63,57.59,Well-Calibrated
+prophet,4,upcountry vegetables,83.21,60.82,Well-Calibrated
+prophet,4,leafy vegetables,100.0,56.65,Over-wide
+naive,4,lowland vegetables,65.65,45.62,Under-covered
+naive,4,upcountry vegetables,67.18,45.64,Under-covered
+naive,4,leafy vegetables,98.58,44.63,Over-wide

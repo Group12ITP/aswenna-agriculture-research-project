@@ -1,0 +1,5 @@
+{
+  "model": "elastic_net",
+  "horizon": 1,
+  "is_smoke": true
+}

@@ -1,0 +1,5 @@
+{
+  "model": "lasso",
+  "horizon": 12,
+  "is_smoke": false
+}

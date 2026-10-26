@@ -1,0 +1,12 @@
+{
+  "friedman_chi2": 225.7149,
+  "friedman_p_value": 0.0,
+  "nemenyi_critical_difference_05": 6.8,
+  "top_5_average_ranks": {
+    "prophet": 6.12,
+    "extra_trees": 9.31,
+    "tcn_1d": 9.34,
+    "simple_average_top3": 9.41,
+    "best_per_category": 10.22
+  }
+}

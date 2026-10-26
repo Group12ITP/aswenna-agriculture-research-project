@@ -1,0 +1,5 @@
+{
+  "model": "lightgbm",
+  "horizon": 1,
+  "is_smoke": false
+}

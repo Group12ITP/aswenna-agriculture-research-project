@@ -1,0 +1,139 @@
+horizon,model,target_mode,n_obs,MAE,sMAPE,MASE,SM4Yr_MASE,Skill_vs_SM4Yr_pct,DM_stat_vs_SM4Yr,DM_pval_vs_SM4Yr,is_selected,DM_pval_Holm_vs_SM4Yr,Better_Than_SM4Yr
+4,naive,raw_level,1526,89.26,15.35,0.8456,0.6958,-21.53,1.5347,0.1249,False,1.0,No Significant Diff
+4,seasonal_naive_48,raw_level,1526,102.29,19.26,0.9689,0.6958,-39.25,4.1968,0.0,False,0.0,Significantly Worse
+4,moving_average_4,raw_level,1526,103.29,17.93,0.9785,0.6958,-40.63,2.4434,0.0145,False,0.58,No Significant Diff
+4,moving_average_12,raw_level,1526,121.01,21.34,1.1463,0.6958,-64.75,4.3465,0.0,False,0.0,Significantly Worse
+4,drift,raw_level,1526,89.75,15.38,0.8501,0.6958,-22.18,1.5703,0.1163,False,1.0,No Significant Diff
+4,rolling_52wk_mean,raw_level,1526,100.46,18.49,0.9516,0.6958,-36.76,3.5953,0.0003,False,0.0129,Significantly Worse
+4,seasonal_mean_4yr,raw_level,1526,73.46,15.94,0.6958,0.6958,0.0,0.0,1.0,False,,Benchmark
+4,ar1_category_mean,raw_level,1526,92.28,17.8,0.8742,0.6958,-25.64,2.13,0.0332,False,1.0,No Significant Diff
+4,holt_winters_ets,raw_level,1400,102.15,18.75,0.9676,0.6958,-39.06,2.4552,0.0141,False,0.5781,No Significant Diff
+4,auto_arima,raw_level,1400,89.92,15.31,0.8517,0.6958,-22.41,1.461,0.144,True,1.0,No Significant Diff
+4,sarimax,raw_level,1400,91.78,15.54,0.8694,0.6958,-24.95,1.5643,0.1177,False,1.0,No Significant Diff
+4,prophet,raw_level,1400,66.9,12.37,0.6338,0.6958,8.91,-1.6358,0.1019,False,1.0,No Significant Diff
+4,linear_regression,raw_level,1526,84.83,18.11,0.8036,0.6958,-15.49,1.5583,0.1192,False,1.0,No Significant Diff
+4,ridge,raw_level,1526,84.74,18.12,0.8027,0.6958,-15.36,1.533,0.1253,False,1.0,No Significant Diff
+4,ridge,log_ratio,1526,84.76,15.28,0.8029,0.6958,-15.39,1.5292,0.1262,False,1.0,No Significant Diff
+4,lasso,raw_level,1526,81.35,16.52,0.7706,0.6958,-10.75,1.1522,0.2492,False,1.0,No Significant Diff
+4,lasso,log_ratio,1526,81.2,14.67,0.7692,0.6958,-10.55,1.1451,0.2522,False,1.0,No Significant Diff
+4,elastic_net,raw_level,1526,86.42,18.66,0.8186,0.6958,-17.65,1.6986,0.0894,False,1.0,No Significant Diff
+4,elastic_net,log_ratio,1526,80.47,14.61,0.7623,0.6958,-9.56,1.0516,0.293,False,1.0,No Significant Diff
+4,random_forest,raw_level,1526,82.22,15.02,0.7788,0.6958,-11.93,1.2205,0.2223,False,1.0,No Significant Diff
+4,extra_trees,raw_level,1526,83.46,15.16,0.7906,0.6958,-13.62,1.2702,0.204,False,1.0,No Significant Diff
+4,extra_trees,log_ratio,1526,76.68,13.95,0.7264,0.6958,-4.4,0.4987,0.618,False,1.0,No Significant Diff
+4,gradient_boosting,raw_level,1526,86.54,15.24,0.8198,0.6958,-17.82,1.5772,0.1147,False,1.0,No Significant Diff
+4,xgboost,raw_level,1526,83.62,14.95,0.7921,0.6958,-13.84,1.2464,0.2126,False,1.0,No Significant Diff
+4,xgboost,log_ratio,1526,79.96,14.31,0.7575,0.6958,-8.87,0.8714,0.3836,False,1.0,No Significant Diff
+4,lightgbm,raw_level,1526,85.27,15.11,0.8077,0.6958,-16.08,1.3003,0.1935,False,1.0,No Significant Diff
+4,lightgbm,log_ratio,1526,78.31,14.13,0.7418,0.6958,-6.61,0.6644,0.5064,False,1.0,No Significant Diff
+4,catboost,raw_level,1526,81.06,15.1,0.7679,0.6958,-10.36,1.1043,0.2695,False,1.0,No Significant Diff
+4,catboost,log_ratio,1526,75.31,13.73,0.7134,0.6958,-2.53,0.3187,0.75,False,1.0,No Significant Diff
+4,svr,raw_level,1526,89.14,16.32,0.8444,0.6958,-21.36,2.5622,0.0104,False,0.4368,No Significant Diff
+4,mlp,raw_level,1526,84.76,17.15,0.8029,0.6958,-15.39,1.4326,0.152,False,1.0,No Significant Diff
+4,mlp,log_ratio,1526,82.41,14.41,0.7807,0.6958,-12.2,1.1235,0.2612,False,1.0,No Significant Diff
+4,lstm,raw_level,1526,83.05,16.56,0.7867,0.6958,-13.06,1.3054,0.1918,False,1.0,No Significant Diff
+4,gru,raw_level,1526,74.77,15.2,0.7083,0.6958,-1.8,0.282,0.778,False,1.0,No Significant Diff
+4,gru,log_ratio,1526,80.79,14.46,0.7653,0.6958,-9.99,1.2025,0.2292,False,1.0,No Significant Diff
+4,tcn_1d,raw_level,1526,82.27,16.98,0.7793,0.6958,-12.0,1.4915,0.1358,False,1.0,No Significant Diff
+4,tcn_1d,log_ratio,1526,75.94,13.9,0.7193,0.6958,-3.38,0.4391,0.6606,False,1.0,No Significant Diff
+4,nbeats,raw_level,1526,93.94,16.84,0.8898,0.6958,-27.88,2.329,0.0199,False,0.7761,No Significant Diff
+4,nbeats,log_ratio,1526,94.71,16.04,0.8972,0.6958,-28.95,2.3069,0.0211,False,0.8018,No Significant Diff
+4,transformer,raw_level,1526,77.85,17.55,0.7374,0.6958,-5.98,0.687,0.4921,False,1.0,No Significant Diff
+4,nhits,raw_level,1526,76.9,15.22,0.7284,0.6958,-4.69,0.6977,0.4854,False,1.0,No Significant Diff
+4,nhits,log_ratio,1526,80.22,14.35,0.7599,0.6958,-9.21,1.174,0.2404,False,1.0,No Significant Diff
+4,tft_lite,raw_level,1526,79.76,16.99,0.7556,0.6958,-8.59,0.9512,0.3415,False,1.0,No Significant Diff
+4,simple_average_top3,raw_level,1526,76.37,14.17,0.7235,0.6958,-3.98,0.4656,0.6415,False,1.0,No Significant Diff
+4,stacking_meta_learner,raw_level,1526,80.82,15.42,0.7656,0.6958,-10.03,0.9444,0.345,False,1.0,No Significant Diff
+4,best_per_category,raw_level,1526,79.0,14.22,0.7483,0.6958,-7.55,0.8239,0.41,False,1.0,No Significant Diff
+8,naive,raw_level,1526,133.08,23.16,1.3066,0.7212,-81.17,3.5071,0.0005,False,0.0175,Significantly Worse
+8,seasonal_naive_48,raw_level,1526,102.29,19.26,1.0042,0.7212,-39.24,3.2168,0.0013,False,0.0299,Significantly Worse
+8,moving_average_4,raw_level,1526,138.52,24.28,1.3599,0.7212,-88.56,4.1569,0.0,False,0.0,Significantly Worse
+8,moving_average_12,raw_level,1526,137.42,24.12,1.3491,0.7212,-87.06,5.2588,0.0,False,0.0,Significantly Worse
+8,drift,raw_level,1526,134.32,23.28,1.3187,0.7212,-82.85,3.5435,0.0004,False,0.0148,Significantly Worse
+8,rolling_52wk_mean,raw_level,1526,103.81,19.1,1.0192,0.7212,-41.32,3.119,0.0018,False,0.0378,Significantly Worse
+8,seasonal_mean_4yr,raw_level,1526,73.46,15.94,0.7212,0.7212,0.0,0.0,1.0,False,,Benchmark
+8,ar1_category_mean,raw_level,1526,134.15,26.51,1.317,0.7212,-82.61,4.2577,0.0,False,0.0,Significantly Worse
+8,holt_winters_ets,raw_level,1273,140.07,26.27,1.3752,0.7212,-90.68,3.5097,0.0004,False,0.0148,Significantly Worse
+8,auto_arima,raw_level,1273,142.03,24.32,1.3944,0.7212,-93.34,3.4226,0.0006,False,0.0192,Significantly Worse
+8,sarimax,raw_level,1273,145.09,24.68,1.4245,0.7212,-97.52,3.452,0.0006,False,0.0192,Significantly Worse
+8,prophet,raw_level,1273,76.23,14.53,0.7484,0.7212,-3.77,0.2516,0.8013,False,0.8013,No Significant Diff
+8,linear_regression,raw_level,1526,114.19,24.52,1.1211,0.7212,-55.45,3.4816,0.0005,False,0.0175,Significantly Worse
+8,ridge,raw_level,1526,114.06,24.54,1.1198,0.7212,-55.27,3.3641,0.0008,False,0.024,Significantly Worse
+8,ridge,log_ratio,1526,106.55,20.0,1.046,0.7212,-45.04,3.4719,0.0005,False,0.0175,Significantly Worse
+8,lasso,raw_level,1526,110.15,22.49,1.0814,0.7212,-49.94,2.9412,0.0033,False,0.0561,No Significant Diff
+8,lasso,log_ratio,1526,104.82,19.86,1.0291,0.7212,-42.69,3.2991,0.001,False,0.028,Significantly Worse
+8,elastic_net,raw_level,1526,114.78,24.72,1.1268,0.7212,-56.24,3.0532,0.0023,False,0.046,Significantly Worse
+8,elastic_net,log_ratio,1526,104.14,19.73,1.0224,0.7212,-41.76,3.1453,0.0017,False,0.0374,Significantly Worse
+8,random_forest,raw_level,1526,113.5,19.48,1.1143,0.7212,-54.51,3.6823,0.0002,False,0.008,Significantly Worse
+8,extra_trees,raw_level,1526,107.89,19.26,1.0593,0.7212,-46.88,3.0299,0.0024,False,0.046,Significantly Worse
+8,extra_trees,log_ratio,1526,94.76,17.3,0.9303,0.7212,-28.99,2.236,0.0254,False,0.1155,No Significant Diff
+8,gradient_boosting,raw_level,1526,105.14,18.17,1.0323,0.7212,-43.14,2.7937,0.0052,False,0.0832,No Significant Diff
+8,xgboost,raw_level,1526,99.31,17.68,0.975,0.7212,-35.19,2.4833,0.013,False,0.1134,No Significant Diff
+8,xgboost,log_ratio,1526,94.9,17.16,0.9317,0.7212,-29.19,2.2719,0.0231,False,0.1155,No Significant Diff
+8,lightgbm,raw_level,1526,104.5,18.58,1.0259,0.7212,-42.25,2.7236,0.0065,False,0.093,No Significant Diff
+8,lightgbm,log_ratio,1526,97.48,17.47,0.957,0.7212,-32.7,2.544,0.011,False,0.1133,No Significant Diff
+8,catboost,raw_level,1526,101.56,19.32,0.997,0.7212,-38.24,2.4844,0.013,False,0.1134,No Significant Diff
+8,catboost,log_ratio,1526,94.32,17.25,0.926,0.7212,-28.4,2.2148,0.0268,True,0.1155,No Significant Diff
+8,svr,raw_level,1526,102.06,19.45,1.002,0.7212,-38.94,3.2704,0.0011,False,0.028,Significantly Worse
+8,mlp,raw_level,1526,96.84,20.06,0.9507,0.7212,-31.82,2.688,0.0072,False,0.0936,No Significant Diff
+8,mlp,log_ratio,1526,106.97,19.07,1.0502,0.7212,-45.62,3.2817,0.001,False,0.028,Significantly Worse
+8,lstm,raw_level,1526,97.3,18.45,0.9552,0.7212,-32.45,2.7378,0.0062,False,0.093,No Significant Diff
+8,gru,raw_level,1526,93.87,17.68,0.9216,0.7212,-27.79,2.368,0.0179,False,0.1134,No Significant Diff
+8,gru,log_ratio,1526,100.28,17.86,0.9846,0.7212,-36.52,2.6133,0.009,False,0.108,No Significant Diff
+8,tcn_1d,raw_level,1526,104.15,25.0,1.0225,0.7212,-41.78,3.3473,0.0008,False,0.024,Significantly Worse
+8,tcn_1d,log_ratio,1526,98.12,19.05,0.9633,0.7212,-33.57,2.5661,0.0103,False,0.1133,No Significant Diff
+8,nbeats,raw_level,1526,119.37,22.25,1.1719,0.7212,-62.49,6.1397,0.0,False,0.0,Significantly Worse
+8,nbeats,log_ratio,1526,129.8,22.01,1.2743,0.7212,-76.69,4.2615,0.0,False,0.0,Significantly Worse
+8,transformer,raw_level,1526,110.85,23.52,1.0883,0.7212,-50.9,3.779,0.0002,False,0.008,Significantly Worse
+8,nhits,raw_level,1526,113.62,21.1,1.1154,0.7212,-54.66,3.3034,0.001,False,0.028,Significantly Worse
+8,nhits,log_ratio,1526,123.33,20.47,1.2108,0.7212,-67.89,3.622,0.0003,False,0.0114,Significantly Worse
+8,tft_lite,raw_level,1526,105.38,20.26,1.0346,0.7212,-43.46,2.9727,0.003,False,0.054,No Significant Diff
+8,simple_average_top3,raw_level,1526,98.87,18.17,0.9707,0.7212,-34.6,2.4938,0.0126,False,0.1134,No Significant Diff
+8,stacking_meta_learner,raw_level,1526,100.36,18.61,0.9853,0.7212,-36.62,2.2716,0.0231,False,0.1155,No Significant Diff
+8,best_per_category,raw_level,1526,104.24,19.34,1.0234,0.7212,-41.9,3.2667,0.0011,False,0.028,Significantly Worse
+12,naive,raw_level,1526,152.18,26.66,1.4032,0.6774,-107.14,5.3559,0.0,False,0.0,Significantly Worse
+12,seasonal_naive_48,raw_level,1526,102.29,19.26,0.9432,0.6774,-39.24,2.9164,0.0035,False,0.032,Significantly Worse
+12,moving_average_4,raw_level,1526,150.99,26.37,1.3923,0.6774,-105.54,6.0399,0.0,False,0.0,Significantly Worse
+12,moving_average_12,raw_level,1526,137.93,24.09,1.2719,0.6774,-87.76,4.3516,0.0,False,0.0,Significantly Worse
+12,drift,raw_level,1526,154.2,26.76,1.4219,0.6774,-109.91,5.3396,0.0,False,0.0,Significantly Worse
+12,rolling_52wk_mean,raw_level,1526,103.93,19.17,0.9584,0.6774,-41.48,2.7688,0.0056,False,0.0392,Significantly Worse
+12,seasonal_mean_4yr,raw_level,1526,73.46,15.94,0.6774,0.6774,0.0,0.0,1.0,False,,Benchmark
+12,ar1_category_mean,raw_level,1526,151.99,31.0,1.4015,0.6774,-106.89,6.4237,0.0,False,0.0,Significantly Worse
+12,holt_winters_ets,raw_level,1145,149.43,29.6,1.3779,0.6774,-103.41,3.5356,0.0004,False,0.0096,Significantly Worse
+12,auto_arima,raw_level,1145,164.32,28.19,1.5153,0.6774,-123.69,3.5426,0.0004,False,0.0096,Significantly Worse
+12,sarimax,raw_level,1145,167.9,28.62,1.5482,0.6774,-128.55,3.6697,0.0002,False,0.006,Significantly Worse
+12,prophet,raw_level,1145,70.39,13.82,0.6491,0.6774,4.18,-0.7706,0.4409,False,0.4409,No Significant Diff
+12,linear_regression,raw_level,1526,121.69,27.41,1.1221,0.6774,-65.65,3.6239,0.0003,False,0.0075,Significantly Worse
+12,ridge,raw_level,1526,121.22,27.37,1.1178,0.6774,-65.01,3.4858,0.0005,False,0.011,Significantly Worse
+12,ridge,log_ratio,1526,112.12,21.36,1.0338,0.6774,-52.61,4.5777,0.0,False,0.0,Significantly Worse
+12,lasso,raw_level,1526,121.28,28.09,1.1183,0.6774,-65.09,3.1765,0.0015,False,0.021,Significantly Worse
+12,lasso,log_ratio,1526,110.31,21.12,1.0172,0.6774,-50.16,3.1382,0.0017,False,0.021,Significantly Worse
+12,elastic_net,raw_level,1526,119.46,27.04,1.1016,0.6774,-62.62,2.8875,0.0039,False,0.032,Significantly Worse
+12,elastic_net,log_ratio,1526,110.87,21.0,1.0224,0.6774,-50.93,3.1517,0.0016,False,0.021,Significantly Worse
+12,random_forest,raw_level,1526,102.81,19.12,0.948,0.6774,-39.95,2.6749,0.0075,False,0.0392,Significantly Worse
+12,extra_trees,raw_level,1526,98.62,18.46,0.9094,0.6774,-34.25,1.9894,0.0467,False,0.1401,No Significant Diff
+12,extra_trees,log_ratio,1526,102.74,19.24,0.9474,0.6774,-39.86,3.4955,0.0005,False,0.011,Significantly Worse
+12,gradient_boosting,raw_level,1526,103.76,19.05,0.9568,0.6774,-41.25,4.7578,0.0,False,0.0,Significantly Worse
+12,xgboost,raw_level,1526,98.98,18.48,0.9127,0.6774,-34.74,2.761,0.0058,False,0.0392,Significantly Worse
+12,xgboost,log_ratio,1526,99.4,18.44,0.9166,0.6774,-35.31,3.1914,0.0014,False,0.021,Significantly Worse
+12,lightgbm,raw_level,1526,102.71,18.98,0.9471,0.6774,-39.81,3.7652,0.0002,False,0.006,Significantly Worse
+12,lightgbm,log_ratio,1526,99.89,18.69,0.9211,0.6774,-35.98,3.2574,0.0011,False,0.0187,Significantly Worse
+12,catboost,raw_level,1526,98.52,19.73,0.9084,0.6774,-34.1,1.9115,0.0559,False,0.1401,No Significant Diff
+12,catboost,log_ratio,1526,96.82,18.31,0.8928,0.6774,-31.8,2.5169,0.0118,False,0.0472,Significantly Worse
+12,svr,raw_level,1526,108.7,20.82,1.0023,0.6774,-47.96,3.8215,0.0001,False,0.0032,Significantly Worse
+12,mlp,raw_level,1526,104.81,20.11,0.9665,0.6774,-42.68,3.2595,0.0011,False,0.0187,Significantly Worse
+12,mlp,log_ratio,1526,107.23,19.91,0.9888,0.6774,-45.97,5.0842,0.0,False,0.0,Significantly Worse
+12,lstm,raw_level,1526,97.27,18.54,0.897,0.6774,-32.42,2.9466,0.0032,False,0.032,Significantly Worse
+12,gru,raw_level,1526,103.76,20.28,0.9568,0.6774,-41.25,3.7852,0.0002,False,0.006,Significantly Worse
+12,gru,log_ratio,1526,123.69,21.67,1.1405,0.6774,-68.36,4.2989,0.0,False,0.0,Significantly Worse
+12,tcn_1d,raw_level,1526,98.08,20.58,0.9044,0.6774,-33.51,3.0382,0.0024,False,0.0264,Significantly Worse
+12,tcn_1d,log_ratio,1526,101.46,19.49,0.9356,0.6774,-38.12,4.2722,0.0,False,0.0,Significantly Worse
+12,nbeats,raw_level,1526,115.15,21.34,1.0619,0.6774,-56.76,3.507,0.0005,False,0.011,Significantly Worse
+12,nbeats,log_ratio,1526,129.68,21.98,1.1958,0.6774,-76.53,3.3692,0.0008,False,0.0144,Significantly Worse
+12,transformer,raw_level,1526,112.64,21.85,1.0386,0.6774,-53.32,5.5832,0.0,True,0.0,Significantly Worse
+12,nhits,raw_level,1526,121.68,23.34,1.122,0.6774,-65.63,3.8818,0.0001,False,0.0032,Significantly Worse
+12,nhits,log_ratio,1526,119.92,21.33,1.1058,0.6774,-63.24,3.4068,0.0007,False,0.0133,Significantly Worse
+12,tft_lite,raw_level,1526,105.78,20.92,0.9754,0.6774,-43.99,4.5459,0.0,False,0.0,Significantly Worse
+12,simple_average_top3,raw_level,1526,105.5,19.91,0.9728,0.6774,-43.61,4.9485,0.0,False,0.0,Significantly Worse
+12,stacking_meta_learner,raw_level,1526,105.51,19.76,0.9729,0.6774,-43.62,3.7371,0.0002,False,0.006,Significantly Worse
+12,best_per_category,raw_level,1526,101.35,18.92,0.9345,0.6774,-37.95,3.731,0.0002,False,0.006,Significantly Worse

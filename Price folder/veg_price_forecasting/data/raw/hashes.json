@@ -1,0 +1,18 @@
+{
+  "vegetables_wide.csv": {
+    "sha256": "f4900290019a52856f556e1f222129abdcf90eb68fb74d69393d5218562da061",
+    "size_bytes": 106113
+  },
+  "vegetables_long.csv": {
+    "sha256": "0b536fbd640eaf789b5daae885edf58c6554b03491681afd686794450ce4202b",
+    "size_bytes": 1891046
+  },
+  "product_name_map.csv": {
+    "sha256": "613e7416f16982394105bf8ee858258e8d929aafda1b95edb36d2af957f43bae",
+    "size_bytes": 15989
+  },
+  "master_prices_long.csv": {
+    "sha256": "dacb99e30017185e709ae924dab255a0681c17f0443ec24809d8f5d7eb3dfe4d",
+    "size_bytes": 7052565
+  }
+}

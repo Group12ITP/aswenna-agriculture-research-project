@@ -1,0 +1,15 @@
+horizon,feature_configuration,features,evaluation_sample,naive_mae,naive_mase,lasso_mae,lasso_mase,lasso_skill_vs_naive,lightgbm_mae,lightgbm_mase,lightgbm_skill_vs_naive,lasso_alpha
+1,1. Own-Lags (raw_level),8,Validation (N=1528),34.34,0.3293,50.08,0.4802,-45.82,57.97,0.5559,-68.81,1.0
+1,1. Own-Lags (log_ratio),8,Validation (N=1528),34.34,0.3293,37.92,0.3636,-10.42,39.16,0.3755,-14.03,0.01
+1,2. Own-Lags + Cyclical Calendar (raw_level) [Clean],14,Validation (N=1528),34.34,0.3293,50.11,0.4805,-45.92,58.99,0.5657,-71.79,1.0
+1,2. Own-Lags + Calendar with week_index (raw_level) [Flawed Trend],15,Validation (N=1528),34.34,0.3293,56.64,0.5431,-64.93,61.47,0.5894,-78.99,0.1
+1,2. Own-Lags + Cyclical Calendar (log_ratio) [Clean],14,Validation (N=1528),34.34,0.3293,37.92,0.3636,-10.42,39.08,0.3747,-13.79,0.01
+1,3. Full Features (raw_level) [Leaderboard],58,Validation (N=1528),34.34,0.3293,35.52,0.3406,-3.43,39.28,0.3767,-14.4,6.2
+1,3. Full Features (log_ratio) [Leaderboard],58,Validation (N=1528),34.34,0.3293,37.55,0.3601,-9.35,39.17,0.3756,-14.06,0.01
+4,1. Own-Lags (raw_level),8,Validation (N=1528),77.42,0.7465,81.96,0.7903,-5.87,86.83,0.8372,-12.15,1.0
+4,1. Own-Lags (log_ratio),8,Validation (N=1528),77.42,0.7465,74.14,0.7149,4.23,74.15,0.715,4.22,0.01
+4,2. Own-Lags + Cyclical Calendar (raw_level) [Clean],14,Validation (N=1528),77.42,0.7465,82.99,0.8002,-7.19,90.49,0.8725,-16.88,1.0
+4,2. Own-Lags + Calendar with week_index (raw_level) [Flawed Trend],15,Validation (N=1528),77.42,0.7465,100.24,0.9665,-29.47,108.06,1.0419,-39.57,0.1
+4,2. Own-Lags + Cyclical Calendar (log_ratio) [Clean],14,Validation (N=1528),77.42,0.7465,74.37,0.7171,3.94,74.1,0.7145,4.29,0.01
+4,3. Full Features (raw_level) [Leaderboard],58,Validation (N=1528),77.42,0.7465,76.49,0.7376,1.19,80.56,0.7767,-4.05,6.2
+4,3. Full Features (log_ratio) [Leaderboard],58,Validation (N=1528),77.42,0.7465,76.41,0.7367,1.31,75.92,0.732,1.94,0.01

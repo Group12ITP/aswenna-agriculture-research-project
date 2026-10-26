@@ -1,0 +1,5 @@
+{
+  "model": "sarimax",
+  "horizon": 1,
+  "is_smoke": true
+}

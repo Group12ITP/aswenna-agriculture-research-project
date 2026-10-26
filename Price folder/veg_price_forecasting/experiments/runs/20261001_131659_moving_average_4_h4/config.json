@@ -1,0 +1,5 @@
+{
+  "model": "moving_average_4",
+  "horizon": 4,
+  "is_smoke": true
+}

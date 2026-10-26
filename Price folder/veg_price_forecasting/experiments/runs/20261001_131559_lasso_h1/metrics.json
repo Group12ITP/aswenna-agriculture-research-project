@@ -1,0 +1,24 @@
+{
+  "val": {
+    "MAE": 112.44,
+    "RMSE": 193.62,
+    "MAPE": 13.8,
+    "sMAPE": 13.4,
+    "MASE": 0.5911,
+    "R2": 0.8427,
+    "Bias": -17.37,
+    "Directional_Accuracy": NaN,
+    "n_obs": 141
+  },
+  "test": {
+    "MAE": 80.08,
+    "RMSE": 133.43,
+    "MAPE": 10.33,
+    "sMAPE": 10.2,
+    "MASE": 0.3652,
+    "R2": 0.8771,
+    "Bias": 1.11,
+    "Directional_Accuracy": NaN,
+    "n_obs": 136
+  }
+}

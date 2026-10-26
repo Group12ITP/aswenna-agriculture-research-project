@@ -1,0 +1,5 @@
+{
+  "model": "auto_arima",
+  "horizon": 12,
+  "is_smoke": false
+}
