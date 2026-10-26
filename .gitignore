@@ -179,3 +179,21 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# Web & Node dependencies
+**/node_modules/
+node_modules/
+dist/
+dist-ssr/
+.vite/
+
+# Archives & temporary
+*.zip
+*.tar.gz
+*.bak
+*.tmp
+catboost_info/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
